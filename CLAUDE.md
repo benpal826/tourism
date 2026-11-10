@@ -18,3 +18,7 @@
 - "토요일 신사 저녁 코스 짜줘" → `src.course 신사 저녁` 실행 후 결과를 요약해 제안(저장한 곳만 사용, 도보 동선).
 - "○○ 갔다왔는데 4점, ~했어" → `src.record` 로 기록.
 - 후기 집계는 체험단·협찬·원고료·제공받아 문구 글 제외(config.yaml trend.exclude_phrases).
+
+## 스와이프
+- `docs/index.html`(GitHub Pages) → Apps Script(`apps_script/Code.gs`) → 시트 `swipes`. 주소는 `docs/config.js`(공개), 동기화 주소는 환경변수 `SWIPE_SYNC_URL`.
+- run_weekly.sh 실행 시 시트의 스와이프가 data/places.csv 로 들어가고 본 곳은 cards.json 에서 제외됨.

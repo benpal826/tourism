@@ -17,6 +17,11 @@ def main():
         print(f"요약: 스와이프 {n}건을 data/places.csv 에 반영했습니다.")
         return
 
+    url = env("SWIPE_SYNC_URL")  # Apps Script 웹앱 /exec 주소 (환경변수)
+    if url and not args.sample:
+        n = sync_swipes(url)
+        print(f"시트에서 스와이프 {n}건 반영")
+
     cand_path, men_path, pl_path = DATA / "candidates.csv", DATA / "mentions.csv", DATA / "places.csv"
     n_c = append_rows(cand_path, collect.run(cfg, keys, sample))
     cands = latest_cands(cand_path)
@@ -55,9 +60,17 @@ def card_md(c):
     return f"- {'🔥' if c.get('surge') else ''}**{c['name']}** [{c['category']}]{dist}{period}{rev}{menu}{vibe}{thumb}\n  - [네이버 지도]({c['map_url']})"
 
 
+def sync_swipes(url):
+    import io, urllib.request
+    with urllib.request.urlopen(url, timeout=30) as r:
+        text = r.read().decode("utf-8")
+    return import_swipes(io.StringIO(text))
+
+
 def import_swipes(path):
     rows = []
-    with open(path, newline="", encoding="utf-8") as f:
+    f = open(path, newline="", encoding="utf-8") if isinstance(path, str) else path
+    if True:
         for r in csv.DictReader(f):
             act = {"right": "save", "left": "pass"}.get(r.get("action"), r.get("action"))
             if act in ("save", "pass"):

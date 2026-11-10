@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>데이트 스와이프</title>
+<style>
+body{margin:0;font-family:system-ui,sans-serif;background:#f2f2f5;overflow:hidden;touch-action:none}
+#top{padding:12px;text-align:center;font-size:14px;color:#555}
+#stack{position:relative;height:calc(100vh - 150px);margin:0 16px}
+.card{position:absolute;inset:0;background:#fff;border-radius:18px;box-shadow:0 4px 18px #0002;overflow:hidden;display:flex;flex-direction:column;user-select:none}
+.img{height:42%;background:#ddd center/cover}
+.body{padding:14px;overflow:auto;font-size:14px;line-height:1.5}
+h2{margin:0 0 4px;font-size:20px}.tag{color:#e0245e;font-weight:700}.mut{color:#777}
+.stamp{position:absolute;top:20px;font-size:28px;font-weight:800;padding:2px 10px;border:4px solid;border-radius:8px;opacity:0}
+.s-save{left:20px;color:#1a9a4a}.s-pass{right:20px;color:#d33}
+#btns{display:flex;justify-content:center;gap:40px;margin-top:12px}
+button{width:64px;height:64px;border-radius:50%;border:0;font-size:28px;box-shadow:0 2px 8px #0003;background:#fff}
+a{color:#0a58ca}
+</style></head><body>
+<div id="top"></div><div id="stack"></div>
+<div id="btns"><button id="no">✕</button><button id="yes">♥</button></div>
+<script src="config.js"></script>
+<script>
+const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
+const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+let seen=new Set(LS("seen")||[]), queue=LS("queue")||[], cards=[];
+const stack=document.getElementById("stack"), top=document.getElementById("top");
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function html(c){
+  const per=(c.period_start||c.period_end)?`<div>📅 ${esc(c.period_start||"?")} ~ ${esc(c.period_end||"?")}</div>`:"";
+  const dist=c.distance_m?`${esc(c.station)}역 ${c.distance_m}m`:`${esc(c.station)}역 인근`;
+  const rev=c.reviews_total?`<div>후기 ${c.reviews_total}건 · 30일 ${c.reviews_30d||"-"}건${c.weekly_growth?` · 주간 +${c.weekly_growth}`:""}</div>`:"";
+  const menu=c.menu?`<div>🍽 ${esc(c.menu)} ${esc(c.price||"")} <span class=mut>(후기 ${esc(c.menu_date||"")})</span></div>`:"";
+  return `<div class=img style="background-image:url('${esc(c.thumb||"")}')"></div><div class=body>
+  <h2>${c.surge?"🔥 ":""}${esc(c.name)}</h2><div><span class=tag>${esc(c.category)}</span> · ${dist}</div>
+  ${per}${rev}${menu}${c.vibe?`<div>✨ ${esc(c.vibe)}</div>`:""}
+  <div><a href="${esc(c.map_url)}" target=_blank rel=noopener>네이버 지도</a></div></div>
+  <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;
+}
+function render(){
+  stack.innerHTML="";
+  const rest=cards.filter(c=>!seen.has(c.place_id));
+  top.textContent=rest.length?`남은 후보 ${rest.length}곳 · → 저장 / ← 패스`:"다 봤어요! 다음 주 갱신을 기다려주세요.";
+  rest.slice(0,2).reverse().forEach((c,i,a)=>{
+    const el=document.createElement("div");el.className="card";el.innerHTML=html(c);stack.appendChild(el);
+    if(i===a.length-1)drag(el,c);
+  });
+}
+function drag(el,c){
+  let x0=null,dx=0;
+  el.onpointerdown=e=>{x0=e.clientX;el.setPointerCapture(e.pointerId)};
+  el.onpointermove=e=>{if(x0===null)return;dx=e.clientX-x0;
+    el.style.transform=`translateX(${dx}px) rotate(${dx/20}deg)`;
+    el.querySelector(".s-save").style.opacity=Math.max(0,dx/100);
+    el.querySelector(".s-pass").style.opacity=Math.max(0,-dx/100)};
+  el.onpointerup=()=>{if(x0===null)return;x0=null;
+    if(Math.abs(dx)>90)decide(c,dx>0?"save":"pass");
+    else{el.style.transform="";el.querySelectorAll(".stamp").forEach(s=>s.style.opacity=0)}dx=0};
+}
+function decide(c,action){
+  seen.add(c.place_id);SV("seen",[...seen]);
+  queue.push({place_id:c.place_id,action,ts:new Date().toISOString()});SV("queue",queue);
+  flush();render();
+}
+async function flush(){
+  if(!window.SWIPE_ENDPOINT||!queue.length)return;
+  const batch=queue.slice();
+  try{
+    await fetch(window.SWIPE_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(batch)});
+    queue=queue.slice(batch.length);SV("queue",queue);
+  }catch(e){}
+}
+const top1=()=>cards.find(c=>!seen.has(c.place_id));
+document.getElementById("yes").onclick=()=>top1()&&decide(top1(),"save");
+document.getElementById("no").onclick=()=>top1()&&decide(top1(),"pass");
+fetch("cards.json").then(r=>r.json()).then(j=>{cards=j;render();flush()});
+</script></body></html>
