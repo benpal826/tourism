@@ -34,6 +34,8 @@ def main():
     out = ROOT / "docs"
     out.mkdir(exist_ok=True)
     (out / "cards.json").write_text(json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "stations.json").write_text(json.dumps({st["name"]: st for st in cfg["nearby"]["stations"]},
+                                                  ensure_ascii=False), encoding="utf-8")
     (out / "history.json").write_text(json.dumps(build_history(cands, read_rows(men_path), read_rows(pl_path)),
                                                  ensure_ascii=False, indent=1), encoding="utf-8")
     surge = [c for c in cards if c["surge"]]

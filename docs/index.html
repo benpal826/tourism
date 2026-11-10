@@ -2,6 +2,7 @@
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#14141a">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <title>데이트 스와이프</title>
 <style>
 :root{--bg:#14141a;--card:#1e1e27;--fg:#f4f4f6;--mut:#9a9aa8;--pink:#ff4d79;--green:#2ecc71;--line:#2c2c38}
@@ -13,6 +14,10 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .seg{display:flex;margin:4px 14px 0;background:#23232d;border-radius:12px;padding:3px}
 .seg button{flex:1;border:0;background:none;color:var(--mut);padding:8px 0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
 .seg button.on{background:var(--pink);color:#fff}
+#map{flex:0 0 150px;margin:0 14px 4px;border-radius:16px;overflow:hidden;background:#23232d;touch-action:auto}
+#map .leaflet-control-attribution{font-size:9px;background:#0008;color:#aaa}#map .leaflet-control-attribution a{color:#ccc}
+.pin{background:var(--pink);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #000a}
+.stn{background:#fee500;border:2px solid #111;border-radius:6px;width:auto!important;height:auto!important;padding:2px 6px;font-size:11px;font-weight:700;color:#111;white-space:nowrap}
 #list{flex:1;overflow:auto;margin:8px 14px 14px;display:none}
 .item{display:flex;gap:12px;background:var(--card);border-radius:16px;padding:10px;margin-bottom:10px}
 .item .th{flex:0 0 84px;height:84px;border-radius:12px;background:#2c2c3a;display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;position:relative}
@@ -57,7 +62,9 @@ nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box
 <div class="seg"><button data-v="deck" class="on">스와이프</button><button data-v="save">♥ 저장 <span id="ns"></span></button><button data-v="pass">✕ 패스 <span id="np"></span></button></div>
 <div id="list"></div>
 <div id="stack"></div>
+<div id="map"></div>
 <nav><button id="no" aria-label="패스">✕</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes" aria-label="저장">♥</button></nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="config.js"></script>
 <script>
 const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
@@ -66,6 +73,7 @@ if(location.search.includes("reset")){try{localStorage.clear()}catch(e){}}
 let seen=LS("seen")||[],queue=LS("queue")||[],dec=LS("dec")||{},snap=LS("snap")||{},cards=[],hist=[],sending=false,view="deck";
 const stack=document.getElementById("stack"),cnt=document.getElementById("count");
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let STATIONS={};
 const EMOJI={"식당":"🍽","카페":"☕","술집":"🍷","팝업스토어":"🛍","전시·축제·기타":"🎨"};
 const fmt=d=>d?d.slice(2).replace(/-/g,"."):"?";
 
@@ -181,10 +189,26 @@ function showList(kind){
 function setView(v){
   view=v;document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
   const deck=v==="deck";document.getElementById("stack").style.display=deck?"":"none";
-  document.querySelector("nav").style.display=deck?"":"none";document.getElementById("list").style.display=deck?"none":"block";
+  document.querySelector("nav").style.display=deck?"":"none";document.getElementById("map").style.display=deck?"":"none";document.getElementById("list").style.display=deck?"none":"block";
   if(deck)render();else showList(v);
 }
 document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
-const _render=render;render=function(){_render();counts()};
-Promise.all([fetch("cards.json").then(r=>r.json()),fetch("history.json").then(r=>r.ok?r.json():[]).catch(()=>[])]).then(([j,h])=>{cards=j;hist=h;setView("deck");flush()});
+let map=null,layer=null;
+function showMap(c){
+  const box=document.getElementById("map");
+  if(!window.L||!c||!c.lat){box.style.display="none";return}
+  box.style.display="";
+  if(!map){map=L.map("map",{zoomControl:false,attributionControl:true}).setView([c.lat,c.lng],16);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:19,attribution:"© OSM © CARTO"}).addTo(map);
+    layer=L.layerGroup().addTo(map)}
+  map.invalidateSize();layer.clearLayers();
+  const p=[+c.lat,+c.lng];
+  L.marker(p,{icon:L.divIcon({className:"pin",iconSize:[18,18]})}).addTo(layer);
+  const st=STATIONS[c.station];let pts=[p];
+  if(st){L.marker([st.lat,st.lng],{icon:L.divIcon({className:"stn",html:"🚇 "+esc(c.station)+"역",iconSize:null})}).addTo(layer);pts.push([st.lat,st.lng])}
+  map.fitBounds(pts.length>1?pts:[p,p],{padding:[28,28],maxZoom:17});
+}
+const _render=render;render=function(){_render();counts();showMap(deckCards()[0])};
+const jf=(u,d)=>fetch(u).then(r=>r.ok?r.json():d).catch(()=>d);
+Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");flush()});
 </script></body></html>

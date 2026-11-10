@@ -72,6 +72,7 @@ def build_cards(cfg, cands, mentions, places):
     taste = build_taste(cands, places)
     seen = seen_ids(places)
     today = date.today().isoformat()
+    stations = {st["name"]: st for st in cfg["nearby"]["stations"]}
     cards = []
     for pid, a in cands.items():
         if pid in seen:
@@ -80,6 +81,9 @@ def build_cards(cfg, cands, mentions, places):
         if end and end < today:
             continue
         c = {"place_id": pid, **a, **m_latest.get(pid, {})}
+        if not c.get("lat") and c.get("station") in stations:  # 좌표 없는 팝업은 역 위치로 대략 표시
+            st = stations[c["station"]]
+            c["lat"], c["lng"], c["approx"] = st["lat"], st["lng"], True
         c["weekly_growth"] = growth.get(pid)
         c["surge"] = pid in surge
         c["rank_score"] = score(c, growth.get(pid), surge, taste)
