@@ -10,6 +10,19 @@ html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--fg);font-family:-apple-system,"Pretendard","Noto Sans KR",system-ui,sans-serif;overflow:hidden;touch-action:pan-y;display:flex;flex-direction:column}
 header{display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top)) 18px 6px}
 header b{font-size:18px}header span{color:var(--mut);font-size:13px}
+.seg{display:flex;margin:4px 14px 0;background:#23232d;border-radius:12px;padding:3px}
+.seg button{flex:1;border:0;background:none;color:var(--mut);padding:8px 0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
+.seg button.on{background:var(--pink);color:#fff}
+#list{flex:1;overflow:auto;margin:8px 14px 14px;display:none}
+.item{display:flex;gap:12px;background:var(--card);border-radius:16px;padding:10px;margin-bottom:10px}
+.item .th{flex:0 0 84px;height:84px;border-radius:12px;background:#2c2c3a;display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;position:relative}
+.item .th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.item .tx{flex:1;min-width:0;font-size:13px;line-height:1.5}
+.item .tx b{font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .tx small{color:var(--mut)}
+.item .bt{display:flex;gap:6px;margin-top:6px}
+.item .bt a,.item .bt button{border:0;border-radius:9px;padding:6px 10px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer}
+.item .bt a{background:#fee500;color:#111}.item .bt button{background:#2c2c3a;color:#ddd}
 #stack{position:relative;flex:1;margin:6px 14px;min-height:0}
 .card{position:absolute;inset:0;background:var(--card);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px #0008;will-change:transform;touch-action:none}
 .card.back{transform:scale(.95) translateY(12px);opacity:.7}
@@ -41,6 +54,8 @@ nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box
 .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);line-height:1.7;padding:30px}
 </style></head><body>
 <header><b>💘 데이트 스와이프</b><span id="count"></span></header>
+<div class="seg"><button data-v="deck" class="on">스와이프</button><button data-v="save">♥ 저장 <span id="ns"></span></button><button data-v="pass">✕ 패스 <span id="np"></span></button></div>
+<div id="list"></div>
 <div id="stack"></div>
 <nav><button id="no" aria-label="패스">✕</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes" aria-label="저장">♥</button></nav>
 <script src="config.js"></script>
@@ -48,7 +63,7 @@ nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box
 const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
 const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 if(location.search.includes("reset")){try{localStorage.clear()}catch(e){}}
-let seen=LS("seen")||[],queue=LS("queue")||[],cards=[],sending=false;
+let seen=LS("seen")||[],queue=LS("queue")||[],dec=LS("dec")||{},snap=LS("snap")||{},cards=[],hist=[],sending=false,view="deck";
 const stack=document.getElementById("stack"),cnt=document.getElementById("count");
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const EMOJI={"식당":"🍽","카페":"☕","술집":"🍷","팝업스토어":"🛍","전시·축제·기타":"🎨"};
@@ -96,7 +111,7 @@ function bind(el){
 }
 function render(){
   stack.innerHTML="";
-  const rest=cards.filter(c=>!seen.includes(c.place_id));
+  const rest=deckCards();
   cnt.textContent=rest.length?`남은 ${rest.length}곳`:"";
   if(!rest.length){stack.innerHTML='<div class=empty>다 봤어요 🎉<br>다음 주 갱신을 기다려주세요.</div>';return}
   if(rest[1]){const b=document.createElement("div");b.className="card back";b.innerHTML=body(rest[1]);stack.appendChild(b);fixImgs(b,rest[1])}
@@ -121,6 +136,8 @@ function fly(el,c,action){
 }
 function decide(c,action){
   seen.push(c.place_id);SV("seen",seen);
+  dec[c.place_id]={action,ts:new Date().toISOString()};SV("dec",dec);
+  const {_ph,...plain}=c;snap[c.place_id]=plain;SV("snap",snap);
   queue.push({place_id:c.place_id,action,ts:new Date().toISOString()});SV("queue",queue);
   flush();render();
 }
@@ -131,13 +148,43 @@ async function flush(){
     queue=queue.slice(batch.length);SV("queue",queue)}catch(e){}
   sending=false;if(queue.length)flush();
 }
-const cur=()=>cards.find(c=>!seen.includes(c.place_id));
+const cur=()=>deckCards()[0];
 const act=a=>{const c=cur(),el=stack.querySelector(".card:not(.back)");if(c&&el)fly(el,c,a)};
 document.getElementById("yes").onclick=()=>act("save");
 document.getElementById("no").onclick=()=>act("pass");
 document.getElementById("undo").onclick=()=>{ // 마지막 선택 되돌리기(아직 전송 전이면 대기열에서도 제거, 이미 전송됐으면 화면에서만 복구)
-  if(!seen.length)return;const id=seen.pop();SV("seen",seen);
+  if(!seen.length)return;const id=seen.pop();SV("seen",seen);delete dec[id];SV("dec",dec);
   const i=queue.map(q=>q.place_id).lastIndexOf(id);if(i>=0){queue.splice(i,1);SV("queue",queue)}render()};
 addEventListener("keydown",e=>{if(e.key==="ArrowRight")act("save");if(e.key==="ArrowLeft")act("pass")});
-fetch("cards.json").then(r=>r.json()).then(j=>{cards=j;render();flush()});
+const histIds=()=>new Set(hist.map(h=>h.place_id));
+function deckCards(){const hs=histIds();return cards.filter(c=>!seen.includes(c.place_id)&&!hs.has(c.place_id))}
+function records(){ // 기록 합치기: 서버 history + 이 폰의 최신 결정(우선)
+  const m={};
+  hist.forEach(h=>m[h.place_id]={...h,action:h.action});
+  Object.entries(dec).forEach(([id,d])=>{const base=m[id]||snap[id]||cards.find(c=>c.place_id===id);if(base)m[id]={...base,action:d.action}});
+  return Object.values(m);
+}
+function counts(){const r=records();document.getElementById("ns").textContent=r.filter(x=>x.action==="save").length||"";document.getElementById("np").textContent=r.filter(x=>x.action==="pass").length||""}
+function showList(kind){
+  const L=document.getElementById("list"),r=records().filter(x=>x.action===kind);
+  L.innerHTML=r.length?r.map(c=>{const p=(c.photo_food||c.photo_outside||c.photo_mood||c.thumb||c.thumb_lo||"").split("|")[0];
+    const sub=[c.category,c.distance_m?`${c.station}역 ${c.distance_m}m`:`${c.station}역 인근`].filter(Boolean).map(esc).join(" · ");
+    const extra=[c.reviews_total?`후기 ${Number(c.reviews_total).toLocaleString()}`:"",c.menu?`${c.menu} ${c.price||""}`:"",c.vibe||"",(c.period_end?`~${fmt(c.period_end)}`:"")].filter(Boolean).map(esc).join(" · ");
+    const rv=c.score?`<div>⭐ ${esc(c.score)} ${esc(c.review||"")}</div>`:"";
+    return `<div class=item><div class=th>${EMOJI[c.category]||"📍"}${p?`<img src="${esc(p.replace(/^http:/,"https:"))}" referrerpolicy="no-referrer" onerror="this.remove()" alt="">`:""}</div>
+    <div class=tx><b>${esc(c.name)}</b><small>${sub}</small><div>${extra}</div>${rv}
+    <div class=bt><a href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵</a><button data-id="${esc(c.place_id)}" data-to="${kind==="save"?"pass":"save"}">${kind==="save"?"✕ 패스로 이동":"♥ 저장으로 이동"}</button></div></div></div>`}).join(""):'<div class=empty style="position:static;padding:60px 0">아직 없어요</div>';
+  L.querySelectorAll("button[data-id]").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.id,to=b.dataset.to;dec[id]={action:to,ts:new Date().toISOString()};SV("dec",dec);
+    queue.push({place_id:id,action:to,ts:dec[id].ts});SV("queue",queue);flush();counts();showList(kind)});
+}
+function setView(v){
+  view=v;document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
+  const deck=v==="deck";document.getElementById("stack").style.display=deck?"":"none";
+  document.querySelector("nav").style.display=deck?"":"none";document.getElementById("list").style.display=deck?"none":"block";
+  if(deck)render();else showList(v);
+}
+document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
+const _render=render;render=function(){_render();counts()};
+Promise.all([fetch("cards.json").then(r=>r.json()),fetch("history.json").then(r=>r.ok?r.json():[]).catch(()=>[])]).then(([j,h])=>{cards=j;hist=h;setView("deck");flush()});
 </script></body></html>

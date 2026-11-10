@@ -22,3 +22,4 @@
 ## 스와이프
 - `docs/index.html`(GitHub Pages) → Apps Script(`apps_script/Code.gs`) → 시트 `swipes`. 주소는 `docs/config.js`(공개), 동기화 주소는 환경변수 `SWIPE_SYNC_URL`.
 - run_weekly.sh 실행 시 시트의 스와이프가 data/places.csv 로 들어가고 본 곳은 cards.json 에서 제외됨.
+- 앱의 '저장/패스' 메뉴는 docs/history.json(run 이 생성) + 폰 로컬 기록을 합쳐 보여줌. 저장↔패스 이동은 새 스와이프로 시트에 추가됨(가져올 때 같은 날 번복은 마지막 값을 보장하지 않음).

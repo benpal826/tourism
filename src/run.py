@@ -34,6 +34,8 @@ def main():
     out = ROOT / "docs"
     out.mkdir(exist_ok=True)
     (out / "cards.json").write_text(json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "history.json").write_text(json.dumps(build_history(cands, read_rows(men_path), read_rows(pl_path)),
+                                                 ensure_ascii=False, indent=1), encoding="utf-8")
     surge = [c for c in cards if c["surge"]]
     top = cards[:10]
     lines = [f"**요약: 후보 {len(cards)}곳(미확인), 급상승 {len(surge)}곳 — {'샘플' if sample else '실데이터'} 모드, 신규 행 {n_c + n_m + n_d}건.**\n",
@@ -47,6 +49,19 @@ def main():
 def latest_cands(path):
     d = latest(read_rows(path))
     return {pid: {"place_id": pid, **a} for pid, a in d.items() if "name" in a}
+
+
+def build_history(cands, mentions, places):
+    """저장/패스한 곳(+방문 점수·한줄평)을 카드 정보와 함께. 스와이프 앱의 기록 메뉴용."""
+    m = latest(mentions)
+    last = {}
+    for r in sorted(places, key=lambda r: r["date"]):
+        if r["field"] == "swipe":
+            last[r["place_id"]] = {"action": r["value"], "swiped": r["date"]}
+        elif r["field"] in ("score", "review"):
+            last.setdefault(r["place_id"], {})[r["field"]] = r["value"]
+    return [{"place_id": pid, **cands[pid], **m.get(pid, {}), **v}
+            for pid, v in last.items() if pid in cands and "action" in v]
 
 
 def card_md(c):
