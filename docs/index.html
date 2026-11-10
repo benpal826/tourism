@@ -1,82 +1,143 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#14141a">
 <title>데이트 스와이프</title>
 <style>
-body{margin:0;font-family:system-ui,sans-serif;background:#f2f2f5;overflow:hidden;touch-action:none}
-#top{padding:12px;text-align:center;font-size:14px;color:#555}
-#stack{position:relative;height:calc(100vh - 150px);margin:0 16px}
-.card{position:absolute;inset:0;background:#fff;border-radius:18px;box-shadow:0 4px 18px #0002;overflow:hidden;display:flex;flex-direction:column;user-select:none}
-.img{height:42%;background:#ddd center/cover}
-.body{padding:14px;overflow:auto;font-size:14px;line-height:1.5}
-h2{margin:0 0 4px;font-size:20px}.tag{color:#e0245e;font-weight:700}.mut{color:#777}
-.stamp{position:absolute;top:20px;font-size:28px;font-weight:800;padding:2px 10px;border:4px solid;border-radius:8px;opacity:0}
-.s-save{left:20px;color:#1a9a4a}.s-pass{right:20px;color:#d33}
-#btns{display:flex;justify-content:center;gap:40px;margin-top:12px}
-button{width:64px;height:64px;border-radius:50%;border:0;font-size:28px;box-shadow:0 2px 8px #0003;background:#fff}
-a{color:#0a58ca}
+:root{--bg:#14141a;--card:#1e1e27;--fg:#f4f4f6;--mut:#9a9aa8;--pink:#ff4d79;--green:#2ecc71;--line:#2c2c38}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,"Pretendard","Noto Sans KR",system-ui,sans-serif;overflow:hidden;touch-action:pan-y;display:flex;flex-direction:column}
+header{display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top)) 18px 6px}
+header b{font-size:18px}header span{color:var(--mut);font-size:13px}
+#stack{position:relative;flex:1;margin:6px 14px;min-height:0}
+.card{position:absolute;inset:0;background:var(--card);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px #0008;will-change:transform;touch-action:none}
+.card.back{transform:scale(.95) translateY(12px);opacity:.7}
+.photo{position:relative;flex:0 0 52%;background:linear-gradient(135deg,#3a2f4f,#2b3a55);display:flex;align-items:center;justify-content:center;font-size:64px;overflow:hidden}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.photo::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,var(--card))}
+.tabs{position:absolute;left:10px;right:10px;bottom:30px;z-index:2;display:flex;gap:6px;justify-content:center}
+.tabs button{border:0;border-radius:99px;padding:6px 11px;font-size:12.5px;background:#000a;color:#ddd;cursor:pointer}
+.tabs button.on{background:var(--pink);color:#fff;font-weight:700}
+.badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--pink);color:#fff;font-weight:700;font-size:12px;padding:5px 10px;border-radius:99px}
+.info{flex:1;padding:0 18px 16px;margin-top:-34px;position:relative;z-index:1;overflow:auto}
+h2{margin:0 0 8px;font-size:24px;line-height:1.25}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chip{background:#2c2c3a;border-radius:99px;padding:4px 10px;font-size:12.5px;color:#dcdce6}
+.chip.cat{background:#ff4d7933;color:#ff8aa6}
+.row{display:flex;gap:10px;margin:8px 0;font-size:14px;line-height:1.45}
+.row i{font-style:normal;flex:0 0 22px}
+.row small{color:var(--mut)}
+.stats{display:flex;gap:8px;margin:6px 0 10px}
+.stat{flex:1;background:#262633;border-radius:12px;padding:8px 10px}
+.stat b{display:block;font-size:18px}.stat span{font-size:11.5px;color:var(--mut)}
+.map{display:inline-block;margin-top:8px;padding:9px 14px;border-radius:12px;background:#fee500;color:#111;font-weight:700;font-size:14px;text-decoration:none}
+.stamp{position:absolute;top:26px;z-index:3;font-size:30px;font-weight:900;padding:2px 12px;border:4px solid;border-radius:10px;opacity:0;letter-spacing:2px}
+.s-save{left:20px;color:var(--green);transform:rotate(-12deg)}.s-pass{right:20px;color:var(--pink);transform:rotate(12deg)}
+nav{display:flex;justify-content:center;align-items:center;gap:26px;padding:10px 0 calc(16px + env(safe-area-inset-bottom))}
+nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box-shadow:0 4px 14px #0008;font-size:26px;cursor:pointer}
+#no,#yes{width:68px;height:68px}#no{color:var(--pink)}#yes{color:var(--green)}
+#undo{width:46px;height:46px;font-size:18px}
+.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);line-height:1.7;padding:30px}
 </style></head><body>
-<div id="top"></div><div id="stack"></div>
-<div id="btns"><button id="no">✕</button><button id="yes">♥</button></div>
+<header><b>💘 데이트 스와이프</b><span id="count"></span></header>
+<div id="stack"></div>
+<nav><button id="no" aria-label="패스">✕</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes" aria-label="저장">♥</button></nav>
 <script src="config.js"></script>
 <script>
 const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
 const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 if(location.search.includes("reset")){try{localStorage.clear()}catch(e){}}
-let seen=new Set(LS("seen")||[]), queue=LS("queue")||[], cards=[];
-const stack=document.getElementById("stack"), topEl=document.getElementById("top");
-const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let seen=LS("seen")||[],queue=LS("queue")||[],cards=[],sending=false;
+const stack=document.getElementById("stack"),cnt=document.getElementById("count");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const EMOJI={"식당":"🍽","카페":"☕","술집":"🍷","팝업스토어":"🛍","전시·축제·기타":"🎨"};
+const fmt=d=>d?d.slice(2).replace(/-/g,"."):"?";
 
-function html(c){
-  const per=(c.period_start||c.period_end)?`<div>📅 ${esc(c.period_start||"?")} ~ ${esc(c.period_end||"?")}</div>`:"";
+function body(c){
   const dist=c.distance_m?`${esc(c.station)}역 ${c.distance_m}m`:`${esc(c.station)}역 인근`;
-  const rev=c.reviews_total?`<div>후기 ${c.reviews_total}건 · 30일 ${c.reviews_30d||"-"}건${c.weekly_growth?` · 주간 +${c.weekly_growth}`:""}</div>`:"";
-  const menu=c.menu?`<div>🍽 ${esc(c.menu)} ${esc(c.price||"")} <span class=mut>(후기 ${esc(c.menu_date||"")})</span></div>`:"";
-  return `<div class=img style="background-image:url('${esc(c.thumb||"")}')"></div><div class=body>
-  <h2>${c.surge?"🔥 ":""}${esc(c.name)}</h2><div><span class=tag>${esc(c.category)}</span> · ${dist}</div>
-  ${per}${rev}${menu}${c.vibe?`<div>✨ ${esc(c.vibe)}</div>`:""}
-  <div><a href="${esc(c.map_url)}" target=_blank rel=noopener>네이버 지도</a></div></div>
+  const per=(c.period_start||c.period_end)?`<div class=row><i>📅</i><div>${fmt(c.period_start)} ~ ${fmt(c.period_end)}</div></div>`:"";
+  const stats=c.reviews_total?`<div class=stats>
+    <div class=stat><b>${Number(c.reviews_total).toLocaleString()}</b><span>후기</span></div>
+    <div class=stat><b>${c.reviews_30d||0}</b><span>최근 30일</span></div>
+    <div class=stat><b>${c.weekly_growth?"+"+c.weekly_growth:"-"}</b><span>주간 증가</span></div></div>`:"";
+  const menu=c.menu?`<div class=row><i>🍴</i><div>${esc(c.menu)} ${esc(c.price||"")} <small>(후기 ${esc(c.menu_date||"")})</small></div></div>`:"";
+  const vibe=c.vibe?`<div class=row><i>✨</i><div>${esc(c.vibe)}</div></div>`:"";
+  const ph=photoList(c);
+  const first=ph[0];
+  const tabs=ph.length>1?`<div class=tabs>${ph.map((p,i)=>`<button data-i="${i}" class="${i?"":"on"}">${p.label}</button>`).join("")}</div>`:"";
+  return `<div class=photo>${EMOJI[c.category]||"📍"}${first?imgTag(first):""}${tabs}${c.surge?'<span class=badge>🔥 급상승</span>':""}</div>
+  <div class=info><h2>${esc(c.name)}</h2>
+  <div class=chips><span class="chip cat">${esc(c.category)}</span><span class=chip>📍 ${dist}</span></div>
+  ${stats}${per}${menu}${vibe}
+  <a class=map href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵에서 보기</a></div>
   <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;
+}
+const LABEL={menu:"메뉴판",food:"음식",mood:"분위기",outside:"외관"};
+function photoList(c){
+  const l=[];
+  for(const k of ["food","mood","outside","menu"]){const v=c["photo_"+k];if(v){const[hi,lo]=v.split("|");l.push({label:LABEL[k],hi,lo})}}
+  if(!l.length&&(c.thumb||c.thumb_lo))l.push({label:"사진",hi:c.thumb,lo:c.thumb_lo});
+  c._ph=l;return l;
+}
+const imgTag=p=>`<img src="${esc((p.hi||p.lo).replace(/^http:/,"https:"))}" data-lo="${esc((p.lo||"").replace(/^http:/,"https:"))}" referrerpolicy="no-referrer" alt="">`;
+function fixImgs(el,c){
+  el.querySelectorAll(".tabs button").forEach(b=>{
+    b.onpointerdown=e=>e.stopPropagation();
+    b.onclick=e=>{e.stopPropagation();const p=c._ph[b.dataset.i],ph=el.querySelector(".photo");
+      el.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
+      ph.querySelector("img")?.remove();ph.insertAdjacentHTML("afterbegin",imgTag(p));bind(el)}});
+  bind(el);
+}
+function bind(el){
+  const im=el.querySelector("img");if(!im)return;
+  im.onerror=()=>{const lo=im.dataset.lo;if(lo&&im.src!==lo){im.src=lo}else im.remove()};
+  im.onload=()=>{if(im.naturalWidth<40)im.onerror()};
 }
 function render(){
   stack.innerHTML="";
-  const rest=cards.filter(c=>!seen.has(c.place_id));
-  topEl.textContent=rest.length?`남은 후보 ${rest.length}곳 · → 저장 / ← 패스`:"다 봤어요! 다음 주 갱신을 기다려주세요.";
-  rest.slice(0,2).reverse().forEach((c,i,a)=>{
-    const el=document.createElement("div");el.className="card";el.innerHTML=html(c);stack.appendChild(el);
-    if(i===a.length-1)drag(el,c);
-  });
+  const rest=cards.filter(c=>!seen.includes(c.place_id));
+  cnt.textContent=rest.length?`남은 ${rest.length}곳`:"";
+  if(!rest.length){stack.innerHTML='<div class=empty>다 봤어요 🎉<br>다음 주 갱신을 기다려주세요.</div>';return}
+  if(rest[1]){const b=document.createElement("div");b.className="card back";b.innerHTML=body(rest[1]);stack.appendChild(b);fixImgs(b,rest[1])}
+  const el=document.createElement("div");el.className="card";el.innerHTML=body(rest[0]);stack.appendChild(el);fixImgs(el,rest[0]);
+  drag(el,rest[0]);
 }
 function drag(el,c){
-  let x0=null,dx=0;
-  el.onpointerdown=e=>{x0=e.clientX;el.setPointerCapture(e.pointerId)};
-  el.onpointermove=e=>{if(x0===null)return;dx=e.clientX-x0;
-    el.style.transform=`translateX(${dx}px) rotate(${dx/20}deg)`;
-    el.querySelector(".s-save").style.opacity=Math.max(0,dx/100);
-    el.querySelector(".s-pass").style.opacity=Math.max(0,-dx/100)};
-  el.onpointerup=()=>{if(x0===null)return;x0=null;
-    if(Math.abs(dx)>90)decide(c,dx>0?"save":"pass");
+  let x0=null,y0=null,dx=0,moved=false;
+  el.onpointerdown=e=>{if(e.target.closest("a,button"))return;x0=e.clientX;y0=e.clientY;moved=false;el.setPointerCapture(e.pointerId);el.style.transition="none"};
+  el.onpointermove=e=>{if(x0===null)return;dx=e.clientX-x0;if(Math.abs(dx)>6)moved=true;
+    el.style.transform=`translateX(${dx}px) rotate(${dx/18}deg)`;
+    el.querySelector(".s-save").style.opacity=Math.min(1,Math.max(0,dx/90));
+    el.querySelector(".s-pass").style.opacity=Math.min(1,Math.max(0,-dx/90))};
+  el.onpointerup=()=>{if(x0===null)return;x0=null;el.style.transition="transform .25s";
+    if(Math.abs(dx)>90)fly(el,c,dx>0?"save":"pass");
     else{el.style.transform="";el.querySelectorAll(".stamp").forEach(s=>s.style.opacity=0)}dx=0};
 }
+function fly(el,c,action){
+  el.style.transition="transform .28s,opacity .28s";
+  el.style.transform=`translateX(${action==="save"?600:-600}px) rotate(${action==="save"?25:-25}deg)`;el.style.opacity=0;
+  setTimeout(()=>decide(c,action),220);
+}
 function decide(c,action){
-  seen.add(c.place_id);SV("seen",[...seen]);
+  seen.push(c.place_id);SV("seen",seen);
   queue.push({place_id:c.place_id,action,ts:new Date().toISOString()});SV("queue",queue);
   flush();render();
 }
-let sending=false;
 async function flush(){
   if(sending||!window.SWIPE_ENDPOINT||!queue.length)return;
-  sending=true;
-  const batch=queue.slice();
-  try{
-    await fetch(window.SWIPE_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(batch)});
-    queue=queue.slice(batch.length);SV("queue",queue);
-  }catch(e){}
-  sending=false;
-  if(queue.length)flush();
+  sending=true;const batch=queue.slice();
+  try{await fetch(window.SWIPE_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(batch)});
+    queue=queue.slice(batch.length);SV("queue",queue)}catch(e){}
+  sending=false;if(queue.length)flush();
 }
-const top1=()=>cards.find(c=>!seen.has(c.place_id));
-document.getElementById("yes").onclick=()=>top1()&&decide(top1(),"save");
-document.getElementById("no").onclick=()=>top1()&&decide(top1(),"pass");
+const cur=()=>cards.find(c=>!seen.includes(c.place_id));
+const act=a=>{const c=cur(),el=stack.querySelector(".card:not(.back)");if(c&&el)fly(el,c,a)};
+document.getElementById("yes").onclick=()=>act("save");
+document.getElementById("no").onclick=()=>act("pass");
+document.getElementById("undo").onclick=()=>{ // 마지막 선택 되돌리기(아직 전송 전이면 대기열에서도 제거, 이미 전송됐으면 화면에서만 복구)
+  if(!seen.length)return;const id=seen.pop();SV("seen",seen);
+  const i=queue.map(q=>q.place_id).lastIndexOf(id);if(i>=0){queue.splice(i,1);SV("queue",queue)}render()};
+addEventListener("keydown",e=>{if(e.key==="ArrowRight")act("save");if(e.key==="ArrowLeft")act("pass")});
 fetch("cards.json").then(r=>r.json()).then(j=>{cards=j;render();flush()});
 </script></body></html>

@@ -3,7 +3,7 @@ date,place_id,field,value,source
 2026-11-10,k1612349591,reviews_30d,13,kakao-blog
 2026-11-10,k1963572119,reviews_total,72,kakao-blog
 2026-11-10,k1963572119,reviews_30d,1,kakao-blog
-2026-11-10,k7904069,reviews_total,4780,kakao-blog
+2026-11-10,k7904069,reviews_total,4781,kakao-blog
 2026-11-10,k7904069,reviews_30d,57,kakao-blog
 2026-11-10,k2037859287,reviews_total,0,kakao-blog
 2026-11-10,k2037859287,reviews_30d,0,kakao-blog
@@ -59,7 +59,7 @@ date,place_id,field,value,source
 2026-11-10,k1624256715,reviews_30d,13,kakao-blog
 2026-11-10,k1920025267,reviews_total,114,kakao-blog
 2026-11-10,k1920025267,reviews_30d,4,kakao-blog
-2026-11-10,k302504172,reviews_total,1839,kakao-blog
+2026-11-10,k302504172,reviews_total,1840,kakao-blog
 2026-11-10,k302504172,reviews_30d,8,kakao-blog
 2026-11-10,k9887723,reviews_total,16,kakao-blog
 2026-11-10,k9887723,reviews_30d,1,kakao-blog
@@ -109,7 +109,7 @@ date,place_id,field,value,source
 2026-11-10,k1029907935,reviews_30d,2,kakao-blog
 2026-11-10,k1214127533,reviews_total,1253,kakao-blog
 2026-11-10,k1214127533,reviews_30d,19,kakao-blog
-2026-11-10,k13071346,reviews_total,4059,kakao-blog
+2026-11-10,k13071346,reviews_total,4060,kakao-blog
 2026-11-10,k13071346,reviews_30d,11,kakao-blog
 2026-11-10,k1719987589,reviews_total,214,kakao-blog
 2026-11-10,k1719987589,reviews_30d,0,kakao-blog
@@ -133,9 +133,9 @@ date,place_id,field,value,source
 2026-11-10,k100026790,reviews_30d,2,kakao-blog
 2026-11-10,k2071612713,reviews_total,302,kakao-blog
 2026-11-10,k2071612713,reviews_30d,2,kakao-blog
-2026-11-10,k1539001784,reviews_total,643,kakao-blog
+2026-11-10,k1539001784,reviews_total,617,kakao-blog
 2026-11-10,k1539001784,reviews_30d,5,kakao-blog
-2026-11-10,k838638157,reviews_total,46112,kakao-blog
+2026-11-10,k838638157,reviews_total,46116,kakao-blog
 2026-11-10,k838638157,reviews_30d,186,kakao-blog
 2026-11-10,k1904517202,reviews_total,288,kakao-blog
 2026-11-10,k1904517202,reviews_30d,6,kakao-blog
@@ -255,7 +255,7 @@ date,place_id,field,value,source
 2026-11-10,k342423225,reviews_30d,3,kakao-blog
 2026-11-10,k16474216,reviews_total,58,kakao-blog
 2026-11-10,k16474216,reviews_30d,4,kakao-blog
-2026-11-10,k692530578,reviews_total,18445,kakao-blog
+2026-11-10,k692530578,reviews_total,18446,kakao-blog
 2026-11-10,k692530578,reviews_30d,157,kakao-blog
 2026-11-10,k364941407,reviews_total,0,kakao-blog
 2026-11-10,k364941407,reviews_30d,0,kakao-blog
@@ -329,7 +329,7 @@ date,place_id,field,value,source
 2026-11-10,k1627094944,reviews_30d,0,kakao-blog
 2026-11-10,k1921237370,reviews_total,26,kakao-blog
 2026-11-10,k1921237370,reviews_30d,1,kakao-blog
-2026-11-10,k18629885,reviews_total,16535,kakao-blog
+2026-11-10,k18629885,reviews_total,16538,kakao-blog
 2026-11-10,k18629885,reviews_30d,169,kakao-blog
 2026-11-10,k16326700,reviews_total,641,kakao-blog
 2026-11-10,k16326700,reviews_30d,8,kakao-blog

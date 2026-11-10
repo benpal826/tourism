@@ -57,7 +57,7 @@ def card_md(c):
     menu = f"\n  - 대표: {c['menu']} {c.get('price', '')} (후기 {c.get('menu_date', '')})" if c.get("menu") else ""
     vibe = f"\n  - 분위기: {c['vibe']}" if c.get("vibe") else ""
     thumb = f"\n  - 사진: {c['thumb']}" if c.get("thumb") else ""
-    return f"- {'🔥' if c.get('surge') else ''}**{c['name']}** [{c['category']}]{dist}{period}{rev}{menu}{vibe}{thumb}\n  - [네이버 지도]({c['map_url']})"
+    return f"- {'🔥' if c.get('surge') else ''}**{c['name']}** [{c['category']}]{dist}{period}{rev}{menu}{vibe}{thumb}\n  - [카카오맵]({c['map_url']})"
 
 
 def sync_swipes(url):

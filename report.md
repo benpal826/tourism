@@ -1,60 +1,60 @@
-**요약: 후보 236곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 3045건.**
+**요약: 후보 236곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 3914건.**
 
 # 이번 주 추천 (2026-11-10)
 
 - **언덕** [카페] · 신사역 114m
-  - 후기 46112건 (30일 186건, 주간 -)
+  - 후기 46116건 (30일 186건, 주간 -)
   - 대표: 버스투어 49,000원 (후기 2026-11-06)
   - 분위기: 분위기 있는, 뷰가 좋은 곳
-  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/6MS3eEW5NHW
-  - [네이버 지도](https://map.naver.com/p/search/%EC%96%B8%EB%8D%95%20%EC%8B%A0%EC%82%AC)
+  - 사진: http://cfile294.uf.daum.net/image/236B6534530FDDD2129B4F
+  - [카카오맵](https://place.map.kakao.com/838638157)
 - **담은** [술집] · 고속터미널역 180m
-  - 후기 16535건 (30일 169건, 주간 -)
+  - 후기 16538건 (30일 169건, 주간 -)
   - 대표: 수강료 200,000원 (후기 2026-11-06)
   - 분위기: 분위기 있는, 감성적인 곳
-  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/EtlegTj3tTY
-  - [네이버 지도](https://map.naver.com/p/search/%EB%8B%B4%EC%9D%80%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
+  - 사진: https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250809_290%2F1754744340703PcB5C_JPEG%2F5.jpg
+  - [카카오맵](https://place.map.kakao.com/18629885)
 - **대왕** [술집] · 신사역 336m
-  - 후기 18445건 (30일 157건, 주간 -)
+  - 후기 18446건 (30일 157건, 주간 -)
   - 대표: 균일가 19,900원 (후기 2026-11-10)
   - 분위기: 분위기 있는, 뷰가 좋은 곳
-  - 사진: https://search2.kakaocdn.net/argon/130x130_85_c/IifDTNYi644
-  - [네이버 지도](https://map.naver.com/p/search/%EB%8C%80%EC%99%95%20%EC%8B%A0%EC%82%AC)
+  - 사진: http://scrap.kakaocdn.net/dn/D6CEH/bl4NiMx5fGn/5whvG4kLiLZSjI9SarkPn1/kakaolink40_original.jpg?width=508&height=302
+  - [카카오맵](https://place.map.kakao.com/692530578)
 - **베이징덕** [식당] · 압구정역 61m
-  - 후기 4780건 (30일 57건, 주간 -)
+  - 후기 4781건 (30일 57건, 주간 -)
   - 분위기: 데이트하기 좋은, 분위기 있는 곳
-  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/Kia9TIPAsRk
-  - [네이버 지도](https://map.naver.com/p/search/%EB%B2%A0%EC%9D%B4%EC%A7%95%EB%8D%95%20%EC%95%95%EA%B5%AC%EC%A0%95)
+  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20230427_194%252F1682579409998dsHGQ_JPEG%252FDSC_4795.jpg%22&type=ff500_300
+  - [카카오맵](https://place.map.kakao.com/7904069)
 - **친화력** [술집] · 교대역 148m
   - 후기 1282건 (30일 27건, 주간 -)
   - 분위기: 분위기 있는, 아늑한 곳
-  - 사진: https://search3.kakaocdn.net/argon/130x130_85_c/LxqVzJO7VeK
-  - [네이버 지도](https://map.naver.com/p/search/%EC%B9%9C%ED%99%94%EB%A0%A5%20%EA%B5%90%EB%8C%80)
+  - 사진: https://postfiles.pstatic.net/MjAyNDEwMDZfNjIg/MDAxNzI4MjIzNzE0NDc4.VYzYUGjUjfgS86RneLq_AHdhp5r8Aljz8Aq40SHv3BUg.51LMky6cZAVvT4-sxGP38cK2qnifmi7Mi_S7n51rLwIg.JPEG/20240810%EF%BC%BF173021.jpg?type=w773
+  - [카카오맵](https://place.map.kakao.com/468611449)
 - **도톤보리 서울** [술집] · 신사역 100m
   - 후기 1482건 (30일 25건, 주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://search3.kakaocdn.net/argon/130x130_85_c/8VlHUgI8PyT
-  - [네이버 지도](https://map.naver.com/p/search/%EB%8F%84%ED%86%A4%EB%B3%B4%EB%A6%AC%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EC%82%AC)
+  - 사진: https://postfiles.pstatic.net/MjAyNDAzMTJfMjA3/MDAxNzEwMjQxNTQ4MjY3.tPv6nsdQSXRmfRX6lYdYS54iAVOuBoJkbMdv2CcshUQg.dD7z9OdgtqV42mcTvM8Tedbq71RsotrslRI0-x4TjUMg.JPEG/IMG_1749.JPG?type=w966
+  - [카카오맵](https://place.map.kakao.com/875073447)
 - **요고** [카페] · 신사역 162m
   - 후기 4798건 (30일 26건, 주간 -)
   - 대표: 크림브륄레브리오슈 6,500원 (후기 2026-11-04)
   - 분위기: 감성적인, 분위기 있는 곳
-  - 사진: https://search1.kakaocdn.net/argon/130x130_85_c/ImNCuA798Zq
-  - [네이버 지도](https://map.naver.com/p/search/%EC%9A%94%EA%B3%A0%20%EC%8B%A0%EC%82%AC)
+  - 사진: https://postfiles.pstatic.net/MjAyNDA3MDdfMjky/MDAxNzIwMzQxMDUwNTk2.HP1kr7kyGaTj34Xps_Azcf03Y3I7CMLN4J2z_NnyA4Qg.IyK1nrzZmZfHQe-2ts7i4PxKH3nlFdGPcPvbwqiMBRgg.JPEG/j__(41)%ED%95%B4%EC%82%B0%EB%AC%BC.jpg?type=w773
+  - [카카오맵](https://place.map.kakao.com/2004029956)
 - **향방** [식당] · 신사역 69m
   - 후기 1253건 (30일 19건, 주간 -)
   - 대표: 차돌짬뽕 12,000원 (후기 2026-09-24)
   - 분위기: 뷰가 좋은, 데이트하기 좋은 곳
-  - 사진: https://search1.kakaocdn.net/argon/130x130_85_c/6iGIVKpBGRw
-  - [네이버 지도](https://map.naver.com/p/search/%ED%96%A5%EB%B0%A9%20%EC%8B%A0%EC%82%AC)
+  - 사진: https://postfiles.pstatic.net/MjAxODAxMTdfMTMy/MDAxNTE2MTcwMjAzMzIx.mdatUqjmuYHx4H6h0F-0ZZQIwe1cmHnyzzGqf7H0v1Ug.86bceQfC6uC9YY29heGy1ctKj655bkhhind23r6YkB0g.JPEG.yj6487/IMG_0524.jpg?type=w966
+  - [카카오맵](https://place.map.kakao.com/1214127533)
 - **호시** [식당] · 신사역 53m
   - 후기 2432건 (30일 16건, 주간 -)
   - 분위기: 뷰가 좋은, 와인 한잔하기 좋은 곳
-  - 사진: https://search2.kakaocdn.net/argon/130x130_85_c/8tPpadKkz87
-  - [네이버 지도](https://map.naver.com/p/search/%ED%98%B8%EC%8B%9C%20%EC%8B%A0%EC%82%AC)
+  - 사진: https://postfiles.pstatic.net/MjAyMTA0MTJfMTkx/MDAxNjE4MjM4OTU2OTAx.iurA09GFmtFslZ8moaoFNI0_WZMs5pwzKAIU3_MTsQYg.yzzdpbBC5u7eU4DOkoEV1ZBhFuuk9kFL3shN0DWK3yUg.JPEG.mansion9official/%EC%9D%B8%EC%8A%A4%ED%83%80%EC%9A%A9,%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg?type=w966
+  - [카카오맵](https://place.map.kakao.com/911470323)
 - **탄주 고속터미널점** [술집] · 고속터미널역 257m
   - 후기 197건 (30일 18건, 주간 -)
   - 대표: 김치우동 11,000원 (후기 2026-11-07)
   - 분위기: 웨이팅 있는 인기, 분위기 있는 곳
-  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/DnwnDgWFopF
-  - [네이버 지도](https://map.naver.com/p/search/%ED%83%84%EC%A3%BC%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
+  - 사진: https://blog.kakaocdn.net/dn/cByIQO/dJMcab6M2zw/KQVIURUWf2Ri0Dkd13xdiK/img.jpg
+  - [카카오맵](https://place.map.kakao.com/942652842)

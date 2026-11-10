@@ -68,8 +68,37 @@ def analyze(cfg, total, posts, name=""):
 
 
 def thumb(name, station):
-    j = kakao_search("image", f"{name} {station}", size=1)
-    return (j.get("documents") or [{}])[0].get("thumbnail_url", "")
+    """(고화질 원본, 저화질 썸네일). 후기(블로그·카페) 사진 중 폭 400px 이상을 우선."""
+    j = kakao_search("image", f"{name} {station}", size=8)
+    docs = j.get("documents") or []
+    wide = [d for d in docs if d.get("width", 0) >= 400]
+    mine = [d for d in wide if d.get("collection") in ("blog", "cafe")]  # 뉴스·기타 엉뚱한 사진보다 후기 사진 우선
+    best = (mine or wide or docs or [{}])[0]
+    return best.get("image_url", ""), best.get("thumbnail_url", "")
+
+
+PHOTO_KINDS = [("menu", "메뉴판"), ("food", "음식"), ("mood", "내부 분위기"), ("outside", "외관")]
+
+
+def pick(docs, used):
+    wide = [d for d in docs if d.get("width", 0) >= 400 and d.get("image_url") not in used]
+    mine = [d for d in wide if d.get("collection") in ("blog", "cafe")]
+    return (mine or wide or [None])[0]
+
+
+def photos(name, station):
+    """카테고리별(메뉴판/음식/분위기/외관) 사진. 카카오 이미지 검색 기반이라 카카오맵 사진탭과는 다름."""
+    out, used = {}, set()
+    for key, q in PHOTO_KINDS:
+        try:
+            docs = kakao_search("image", f"{name} {station} {q}", size=10).get("documents", [])
+        except Exception:
+            continue
+        d = pick(docs, used)
+        if d:
+            used.add(d["image_url"])
+            out["photo_" + key] = d["image_url"] + "|" + d.get("thumbnail_url", "")
+    return out
 
 
 def one(cfg, pid, a, use_sample, samp):
@@ -81,7 +110,7 @@ def one(cfg, pid, a, use_sample, samp):
             if not s:
                 return [], []
             res = {k: s[k] for k in s if k != "thumb"}
-            th = s.get("thumb", "")
+            th = (s.get("thumb", ""), "")
         else:
             total, posts = fetch_posts(cfg, a["name"], a["station"])
             res = analyze(cfg, total, posts, a["name"])
@@ -89,9 +118,11 @@ def one(cfg, pid, a, use_sample, samp):
         for f in ("reviews_total", "reviews_30d"):
             if f in res:
                 mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": "kakao-blog"})
-        detail_rows += attrs(pid, "kakao-blog", thumb=th, **res)
+        ph = {} if use_sample else photos(a["name"], a["station"])
+        detail_rows += attrs(pid, "kakao-blog", thumb=th[0], thumb_lo=th[1], **res, **ph)
     elif not a.get("thumb") and not use_sample:
-        detail_rows += attrs(pid, "kakao-image", thumb=thumb(a["name"], a.get("station", "")))
+        th = thumb(a["name"], a.get("station", ""))
+        detail_rows += attrs(pid, "kakao-image", thumb=th[0], thumb_lo=th[1])
     return mention_rows, detail_rows
 
 

@@ -1,4 +1,4 @@
-"""후보 수집: 카카오(먹거리) / 네이버(팝업) / 서울 열린데이터(전시·축제). 키 없으면 sample/ 사용."""
+"""후보 수집: 카카오(먹거리) / 카카오 검색(팝업) / 서울 열린데이터(전시·축제). 키 없으면 sample/ 사용."""
 import hashlib, html, json, re
 from datetime import timedelta
 from .common import *
@@ -6,7 +6,8 @@ from .common import *
 TAG = re.compile(r"<[^>]+>")
 clean = lambda s: html.unescape(TAG.sub("", s or "")).strip()
 hid = lambda p, s: p + hashlib.md5(s.encode()).hexdigest()[:10]
-map_url = lambda name, area="": "https://map.naver.com/p/search/" + urllib.parse.quote(f"{name} {area}".strip())
+map_url = lambda name, area="": "https://map.kakao.com/link/search/" + urllib.parse.quote(f"{name} {area}".strip())
+place_url = lambda kid: f"https://place.map.kakao.com/{kid}"
 
 
 def attrs(pid, src, **kw):
@@ -49,7 +50,7 @@ def collect_food(cfg, use_sample):
         pid = "k" + str(d["id"])
         rows += attrs(pid, "kakao", name=d["place_name"], category=d["_cat"], lat=lat, lng=lng,
                       address=d.get("road_address_name") or d.get("address_name"), station=stn,
-                      distance_m=dist, map_url=map_url(d["place_name"], stn), tier=1)
+                      distance_m=dist, map_url=place_url(d["id"]), tier=1)
     return rows
 
 
