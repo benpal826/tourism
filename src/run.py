@@ -1,0 +1,70 @@
+"""주간 갱신 단일 진입점: python -m src.run [--sample] [--import-swipes FILE]"""
+import argparse, csv, json
+from . import collect, trend, rank
+from .common import *
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--sample", action="store_true", help="키 없이 샘플 데이터로 실행")
+    ap.add_argument("--import-swipes", metavar="CSV", help="스와이프 결과 CSV(place_id,action,ts)를 places.csv에 반영")
+    args = ap.parse_args()
+    cfg, keys = load_config(), have_keys()
+    sample = args.sample or not any(keys.values())
+
+    if args.import_swipes:
+        n = import_swipes(args.import_swipes)
+        print(f"요약: 스와이프 {n}건을 data/places.csv 에 반영했습니다.")
+        return
+
+    cand_path, men_path, pl_path = DATA / "candidates.csv", DATA / "mentions.csv", DATA / "places.csv"
+    n_c = append_rows(cand_path, collect.run(cfg, keys, sample))
+    cands = latest_cands(cand_path)
+    m_rows, d_rows = trend.run(cfg, cands, keys, sample)
+    n_m = append_rows(men_path, m_rows)
+    n_d = append_rows(cand_path, d_rows)
+    cands = latest_cands(cand_path)
+    cards = rank.build_cards(cfg, cands, read_rows(men_path), read_rows(pl_path))
+
+    out = ROOT / "docs"
+    out.mkdir(exist_ok=True)
+    (out / "cards.json").write_text(json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8")
+    surge = [c for c in cards if c["surge"]]
+    top = cards[:10]
+    lines = [f"**요약: 후보 {len(cards)}곳(미확인), 급상승 {len(surge)}곳 — {'샘플' if sample else '실데이터'} 모드, 신규 행 {n_c + n_m + n_d}건.**\n",
+             f"# 이번 주 추천 ({date.today().isoformat()})\n"]
+    for c in top:
+        lines.append(card_md(c))
+    (ROOT / "report.md").write_text("\n".join(lines), encoding="utf-8")
+    print("\n".join(lines))
+
+
+def latest_cands(path):
+    d = latest(read_rows(path))
+    return {pid: {"place_id": pid, **a} for pid, a in d.items() if "name" in a}
+
+
+def card_md(c):
+    period = f" · 기간 {c.get('period_start', '?')}~{c.get('period_end', '?')}" if c.get("period_end") or c.get("period_start") else ""
+    dist = f" · {c['station']}역 {c['distance_m']}m" if c.get("distance_m") else f" · {c.get('station', '')}역 인근"
+    g = c.get("weekly_growth")
+    rev = f"\n  - 후기 {c['reviews_total']}건 (30일 {c.get('reviews_30d', '-')}건, 주간 {'+' + str(g) if g else '-'})" if c.get("reviews_total") else ""
+    menu = f"\n  - 대표: {c['menu']} {c.get('price', '')} (후기 {c.get('menu_date', '')})" if c.get("menu") else ""
+    vibe = f"\n  - 분위기: {c['vibe']}" if c.get("vibe") else ""
+    thumb = f"\n  - 사진: {c['thumb']}" if c.get("thumb") else ""
+    return f"- {'🔥' if c.get('surge') else ''}**{c['name']}** [{c['category']}]{dist}{period}{rev}{menu}{vibe}{thumb}\n  - [네이버 지도]({c['map_url']})"
+
+
+def import_swipes(path):
+    rows = []
+    with open(path, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            act = {"right": "save", "left": "pass"}.get(r.get("action"), r.get("action"))
+            if act in ("save", "pass"):
+                rows.append({"date": (r.get("ts") or "")[:10], "place_id": r.get("place_id"),
+                             "field": "swipe", "value": act, "source": "swipe"})
+    return append_rows(DATA / "places.csv", rows)
+
+
+if __name__ == "__main__":
+    main()

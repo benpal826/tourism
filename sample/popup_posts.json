@@ -1,0 +1,14 @@
+[
+ {
+  "title": "<b>신사</b> 가로수길 OO 팝업스토어 11.20~12.15 오픈",
+  "description": "신사역 인근 팝업스토어 오픈, 11월 20일~12월 15일",
+  "link": "https://example.com/p1",
+  "_station": "신사"
+ },
+ {
+  "title": "압구정 로데오 AA 팝업 12.01~12.20",
+  "description": "압구정에서 열리는 팝업",
+  "link": "https://example.com/p2",
+  "_station": "압구정"
+ }
+]

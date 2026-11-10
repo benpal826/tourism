@@ -1,0 +1,32 @@
+# 지역 변경은 이 파일만 고치면 됩니다.
+mode: nearby            # nearby | theme (theme 는 구조만 열어둠, 아직 미구현)
+
+nearby:
+  radius_m: 700
+  culture_radius_m: 1500   # 3순위(전시·축제)는 인근만 조금 넓게
+  stations:             # 3호선 잠원역 ±2정거장
+    - {name: 압구정, lat: 37.5270, lng: 127.0285}
+    - {name: 신사,   lat: 37.5163, lng: 127.0203}
+    - {name: 잠원,   lat: 37.5113, lng: 127.0113}
+    - {name: 고속터미널, lat: 37.5049, lng: 127.0049}
+    - {name: 교대,   lat: 37.4934, lng: 127.0146}
+
+theme:                  # 추후 구현: 예) 서울 핫팝업
+  name: 서울 핫팝업
+  keywords: ["서울 팝업스토어"]
+
+categories:             # 우선순위 순
+  - {key: restaurant, label: 식당, priority: 1, kakao_code: FD6}
+  - {key: cafe,       label: 카페, priority: 1, kakao_code: CE7}
+  - {key: bar,        label: 술집, priority: 1, kakao_query: 술집}
+  - {key: popup,      label: 팝업스토어, priority: 2}
+  - {key: culture,    label: 전시·축제·기타, priority: 3}
+
+trend:
+  recent_days: 30
+  exclude_phrases: [체험단, 협찬, 원고료, 제공받아, 제공 받아, 소정의]
+  max_posts_per_place: 100   # 네이버 검색 start 상한(1000) 내에서 가져올 글 수
+  surge_top_n: 10
+
+limits:
+  places_per_station_per_category: 15

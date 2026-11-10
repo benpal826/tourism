@@ -1,0 +1,13 @@
+date,place_id,field,value,source
+2026-11-10,k1001,reviews_total,200,naver-blog
+2026-11-10,k1001,reviews_30d,20,naver-blog
+2026-11-10,k1002,reviews_total,250,naver-blog
+2026-11-10,k1002,reviews_30d,25,naver-blog
+2026-11-10,k1003,reviews_total,300,naver-blog
+2026-11-10,k1003,reviews_30d,30,naver-blog
+2026-11-10,k1004,reviews_total,350,naver-blog
+2026-11-10,k1004,reviews_30d,35,naver-blog
+2026-11-10,k1005,reviews_total,400,naver-blog
+2026-11-10,k1005,reviews_30d,40,naver-blog
+2026-11-10,k1006,reviews_total,450,naver-blog
+2026-11-10,k1006,reviews_30d,45,naver-blog

@@ -1,0 +1,56 @@
+{
+ "스시신사": {
+  "reviews_total": 200,
+  "reviews_30d": 20,
+  "menu": "대표메뉴",
+  "price": "12,000원",
+  "menu_date": "2026-11-01",
+  "vibe": "데이트하기 좋은, 감성적인 곳",
+  "thumb": ""
+ },
+ "잠원 한식당": {
+  "reviews_total": 250,
+  "reviews_30d": 25,
+  "menu": "대표메뉴",
+  "price": "13,000원",
+  "menu_date": "2026-11-01",
+  "vibe": "데이트하기 좋은, 감성적인 곳",
+  "thumb": ""
+ },
+ "압구정 로스터리": {
+  "reviews_total": 300,
+  "reviews_30d": 30,
+  "menu": "대표메뉴",
+  "price": "14,000원",
+  "menu_date": "2026-11-01",
+  "vibe": "데이트하기 좋은, 감성적인 곳",
+  "thumb": ""
+ },
+ "신사 브런치": {
+  "reviews_total": 350,
+  "reviews_30d": 35,
+  "menu": "대표메뉴",
+  "price": "15,000원",
+  "menu_date": "2026-11-01",
+  "vibe": "데이트하기 좋은, 감성적인 곳",
+  "thumb": ""
+ },
+ "교대 와인바": {
+  "reviews_total": 400,
+  "reviews_30d": 40,
+  "menu": "대표메뉴",
+  "price": "16,000원",
+  "menu_date": "2026-11-01",
+  "vibe": "데이트하기 좋은, 감성적인 곳",
+  "thumb": ""
+ },
+ "고터 포차": {
+  "reviews_total": 450,
+  "reviews_30d": 45,
+  "menu": "대표메뉴",
+  "price": "17,000원",
+  "menu_date": "2026-11-01",
+  "vibe": "데이트하기 좋은, 감성적인 곳",
+  "thumb": ""
+ }
+}
