@@ -63,13 +63,17 @@ function decide(c,action){
   queue.push({place_id:c.place_id,action,ts:new Date().toISOString()});SV("queue",queue);
   flush();render();
 }
+let sending=false;
 async function flush(){
-  if(!window.SWIPE_ENDPOINT||!queue.length)return;
+  if(sending||!window.SWIPE_ENDPOINT||!queue.length)return;
+  sending=true;
   const batch=queue.slice();
   try{
     await fetch(window.SWIPE_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(batch)});
     queue=queue.slice(batch.length);SV("queue",queue);
   }catch(e){}
+  sending=false;
+  if(queue.length)flush();
 }
 const top1=()=>cards.find(c=>!seen.has(c.place_id));
 document.getElementById("yes").onclick=()=>top1()&&decide(top1(),"save");
