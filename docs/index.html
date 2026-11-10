@@ -23,7 +23,7 @@ a{color:#0a58ca}
 const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
 const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 let seen=new Set(LS("seen")||[]), queue=LS("queue")||[], cards=[];
-const stack=document.getElementById("stack"), top=document.getElementById("top");
+const stack=document.getElementById("stack"), topEl=document.getElementById("top");
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function html(c){
@@ -40,7 +40,7 @@ function html(c){
 function render(){
   stack.innerHTML="";
   const rest=cards.filter(c=>!seen.has(c.place_id));
-  top.textContent=rest.length?`남은 후보 ${rest.length}곳 · → 저장 / ← 패스`:"다 봤어요! 다음 주 갱신을 기다려주세요.";
+  topEl.textContent=rest.length?`남은 후보 ${rest.length}곳 · → 저장 / ← 패스`:"다 봤어요! 다음 주 갱신을 기다려주세요.";
   rest.slice(0,2).reverse().forEach((c,i,a)=>{
     const el=document.createElement("div");el.className="card";el.innerHTML=html(c);stack.appendChild(el);
     if(i===a.length-1)drag(el,c);
