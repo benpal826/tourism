@@ -70,8 +70,8 @@ def card_md(c):
     period = f" · 기간 {c.get('period_start', '?')}~{c.get('period_end', '?')}" if c.get("period_end") or c.get("period_start") else ""
     dist = f" · {c['station']}역 {c['distance_m']}m" if c.get("distance_m") else f" · {c.get('station', '')}역 인근"
     g = c.get("weekly_growth")
-    rev = f"\n  - 후기 {c['reviews_total']}건 (30일 {c.get('reviews_30d', '-')}건, 주간 {'+' + str(g) if g else '-'})" if c.get("reviews_total") else ""
-    menu = f"\n  - 대표: {c['menu']} {c.get('price', '')} (후기 {c.get('menu_date', '')})" if c.get("menu") else ""
+    rev = f"\n  - 후기 {c['reviews_total']}건 (주간 {'+' + str(g) if g else '-'})" if c.get("reviews_total") else ""
+    menu = f"\n  - 대표: {c['menu']} {c.get('price', '')} · 가격대 {c.get('price_band', '-')} (후기 언급 기준)" if c.get("menu") else ""
     vibe = f"\n  - 분위기: {c['vibe']}" if c.get("vibe") else ""
     thumb = f"\n  - 사진: {c['thumb']}" if c.get("thumb") else ""
     return f"- {'🔥' if c.get('surge') else ''}**{c['name']}** [{c['category']}]{dist}{period}{rev}{menu}{vibe}{thumb}\n  - [카카오맵]({c['map_url']})"

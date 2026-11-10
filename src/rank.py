@@ -81,6 +81,8 @@ def build_cards(cfg, cands, mentions, places):
         if end and end < today:
             continue
         c = {"place_id": pid, **a, **m_latest.get(pid, {})}
+        if c.get("tier") == "1" and float(c.get("reviews_total", 0)) < cfg["trend"]["min_reviews"]:
+            continue  # 후기 수가 너무 적은 곳 제외 (카카오맵 평점은 공식 API에 없어 후기 수로 대체)
         if not c.get("lat") and c.get("station") in stations:  # 좌표 없는 팝업은 역 위치로 대략 표시
             st = stations[c["station"]]
             c["lat"], c["lng"], c["approx"] = st["lat"], st["lng"], True

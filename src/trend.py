@@ -5,7 +5,7 @@ from .collect import attrs, clean, sample
 from .common import *
 
 PRICE_RE = re.compile(r"([가-힣A-Za-z]{2,10})\s*[:\-]?\s*(\d{1,3},\d{3})\s*원")
-BAD_MENU = ("가격", "비용", "요금", "금액", "티켓", "주차", "발레", "입장", "합계", "총", "메뉴", "이용", "할인", "포인트", "적립", "서비스", "예약", "발렛", "영화", "각각", "최대", "인당", "기본", "추가", "최소", "평균", "대략", "약", "총액")
+BAD_MENU = ("가격", "비용", "요금", "금액", "티켓", "주차", "발레", "입장", "합계", "총", "메뉴", "이용", "할인", "포인트", "적립", "서비스", "예약", "수강", "학원", "회비", "보증금", "임대", "발렛", "영화", "각각", "최대", "인당", "기본", "추가", "최소", "평균", "대략", "약", "총액")
 VIBE = {"데이트": "데이트하기 좋은", "조용": "조용한", "감성": "감성적인", "분위기": "분위기 있는", "웨이팅": "웨이팅 있는 인기",
         "뷰": "뷰가 좋은", "루프탑": "루프탑", "아늑": "아늑한", "힙": "힙한", "혼술": "혼술하기 좋은", "와인": "와인 한잔하기 좋은"}
 
@@ -52,15 +52,20 @@ def analyze(cfg, total, posts, name=""):
             mn, pr = m.group(1), int(m.group(2).replace(",", ""))
             if any(b in mn for b in BAD_MENU) or not 3000 <= pr <= 200000:
                 continue
-            menus.setdefault((mn, str(pr)), pd)
+            menus.setdefault(mn, []).append((pr, pd))
         for k, v in VIBE.items():
             if k in text:
                 vibes[v] = vibes.get(v, 0) + 1
     out = {"reviews_total": max(total - ads, 0), "reviews_30d": recent}
     if menus:
-        (mn, price), pd = max(menus.items(), key=lambda kv: kv[1])
-        out["menu"], out["price"] = mn, f"{int(price):,}원"
-        out["menu_date"] = f"{pd[:4]}-{pd[4:6]}-{pd[6:]}" if len(pd) == 8 else ""
+        # 대표메뉴 = 후기에서 가장 자주 가격과 함께 언급된 메뉴(동률이면 최근), 가격 = 그 메뉴 언급 가격의 중앙값
+        mn, rows = max(menus.items(), key=lambda kv: (len(kv[1]), max(d for _, d in kv[1])))
+        prices = sorted(p for p, _ in rows)
+        allp = sorted(p for r in menus.values() for p, _ in r)
+        mid, med = prices[len(prices) // 2], allp[len(allp) // 2]
+        out["menu"], out["price"] = mn, f"{mid:,}원"
+        out["price_band"] = f"{med // 1000}천원대" if med < 10000 else f"{med // 10000}만원대"
+        out["menu_mentions"] = len(rows)
     if vibes:
         top = sorted(vibes, key=vibes.get, reverse=True)[:2]
         out["vibe"] = ", ".join(top) + " 곳"
@@ -77,27 +82,25 @@ def thumb(name, station):
     return best.get("image_url", ""), best.get("thumbnail_url", "")
 
 
-PHOTO_KINDS = [("menu", "메뉴판"), ("food", "음식"), ("mood", "내부 분위기"), ("outside", "외관")]
-
-
-def pick(docs, used):
-    wide = [d for d in docs if d.get("width", 0) >= 400 and d.get("image_url") not in used]
-    mine = [d for d in wide if d.get("collection") in ("blog", "cafe")]
-    return (mine or wide or [None])[0]
+PHOTO_KINDS = [("food", "음식"), ("mood", "내부 분위기"), ("outside", "외관")]
+PHOTOS_PER_KIND = 3
 
 
 def photos(name, station):
-    """카테고리별(메뉴판/음식/분위기/외관) 사진. 카카오 이미지 검색 기반이라 카카오맵 사진탭과는 다름."""
+    """카테고리별 사진 3장(음식/분위기/외관). 카카오 이미지 검색 기반이라 카카오맵 사진탭과는 다름."""
     out, used = {}, set()
     for key, q in PHOTO_KINDS:
         try:
-            docs = kakao_search("image", f"{name} {station} {q}", size=10).get("documents", [])
+            docs = kakao_search("image", f"{name} {station} {q}", size=20).get("documents", [])
         except Exception:
             continue
-        d = pick(docs, used)
-        if d:
+        wide = [d for d in docs if d.get("width", 0) >= 400 and d["image_url"] not in used]
+        mine = [d for d in wide if d.get("collection") in ("blog", "cafe")]
+        picks = ((mine + [d for d in wide if d not in mine])[:PHOTOS_PER_KIND])
+        for d in picks:
             used.add(d["image_url"])
-            out["photo_" + key] = d["image_url"] + "|" + d.get("thumbnail_url", "")
+        if picks:
+            out["photo_" + key] = "§".join(d["image_url"] + "|" + d.get("thumbnail_url", "") for d in picks)
     return out
 
 

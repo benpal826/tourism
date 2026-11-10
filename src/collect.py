@@ -50,7 +50,8 @@ def collect_food(cfg, use_sample):
         pid = "k" + str(d["id"])
         rows += attrs(pid, "kakao", name=d["place_name"], category=d["_cat"], lat=lat, lng=lng,
                       address=d.get("road_address_name") or d.get("address_name"), station=stn,
-                      distance_m=dist, map_url=place_url(d["id"]), tier=1)
+                      distance_m=dist, map_url=place_url(d["id"]), tier=1,
+                      kind=" · ".join(x.strip() for x in d.get("category_name", "").split(">")[1:3]))
     return rows
 
 

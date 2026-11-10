@@ -27,6 +27,7 @@ trend:
   exclude_phrases: [체험단, 협찬, 원고료, 제공받아, 제공 받아, 소정의]
   max_posts_per_place: 250   # 가게당 최대 가져올 글 수(카카오 검색, 최신순, 최근 30일 이전이 나오면 중단)
   surge_top_n: 10
+  min_reviews: 30            # 카드에 올릴 최소 후기 수(1순위 먹거리)
 
 limits:
   places_per_station_per_category: 15
