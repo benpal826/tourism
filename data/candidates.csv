@@ -1,109 +1,2608 @@
 date,place_id,field,value,source
-2026-11-10,k1001,name,스시신사,kakao
-2026-11-10,k1001,category,식당,kakao
-2026-11-10,k1001,lat,37.516,kakao
-2026-11-10,k1001,lng,127.021,kakao
-2026-11-10,k1001,address,서울 서초구 샘플로 1,kakao
-2026-11-10,k1001,station,신사,kakao
-2026-11-10,k1001,distance_m,70,kakao
-2026-11-10,k1001,map_url,https://map.naver.com/p/search/%EC%8A%A4%EC%8B%9C%EC%8B%A0%EC%82%AC%20%EC%8B%A0%EC%82%AC,kakao
-2026-11-10,k1001,tier,1,kakao
-2026-11-10,k1002,name,잠원 한식당,kakao
-2026-11-10,k1002,category,식당,kakao
-2026-11-10,k1002,lat,37.512,kakao
-2026-11-10,k1002,lng,127.012,kakao
-2026-11-10,k1002,address,서울 서초구 샘플로 1,kakao
-2026-11-10,k1002,station,잠원,kakao
-2026-11-10,k1002,distance_m,99,kakao
-2026-11-10,k1002,map_url,https://map.naver.com/p/search/%EC%9E%A0%EC%9B%90%20%ED%95%9C%EC%8B%9D%EB%8B%B9%20%EC%9E%A0%EC%9B%90,kakao
-2026-11-10,k1002,tier,1,kakao
-2026-11-10,k1003,name,압구정 로스터리,kakao
-2026-11-10,k1003,category,카페,kakao
-2026-11-10,k1003,lat,37.5265,kakao
-2026-11-10,k1003,lng,127.029,kakao
-2026-11-10,k1003,address,서울 서초구 샘플로 1,kakao
-2026-11-10,k1003,station,압구정,kakao
-2026-11-10,k1003,distance_m,70,kakao
-2026-11-10,k1003,map_url,https://map.naver.com/p/search/%EC%95%95%EA%B5%AC%EC%A0%95%20%EB%A1%9C%EC%8A%A4%ED%84%B0%EB%A6%AC%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
-2026-11-10,k1003,tier,1,kakao
-2026-11-10,k1004,name,신사 브런치,kakao
-2026-11-10,k1004,category,카페,kakao
-2026-11-10,k1004,lat,37.517,kakao
-2026-11-10,k1004,lng,127.0195,kakao
-2026-11-10,k1004,address,서울 서초구 샘플로 1,kakao
-2026-11-10,k1004,station,신사,kakao
-2026-11-10,k1004,distance_m,105,kakao
-2026-11-10,k1004,map_url,https://map.naver.com/p/search/%EC%8B%A0%EC%82%AC%20%EB%B8%8C%EB%9F%B0%EC%B9%98%20%EC%8B%A0%EC%82%AC,kakao
-2026-11-10,k1004,tier,1,kakao
-2026-11-10,k1005,name,교대 와인바,kakao
-2026-11-10,k1005,category,술집,kakao
-2026-11-10,k1005,lat,37.4938,kakao
-2026-11-10,k1005,lng,127.015,kakao
-2026-11-10,k1005,address,서울 서초구 샘플로 1,kakao
-2026-11-10,k1005,station,교대,kakao
-2026-11-10,k1005,distance_m,56,kakao
-2026-11-10,k1005,map_url,https://map.naver.com/p/search/%EA%B5%90%EB%8C%80%20%EC%99%80%EC%9D%B8%EB%B0%94%20%EA%B5%90%EB%8C%80,kakao
-2026-11-10,k1005,tier,1,kakao
-2026-11-10,k1006,name,고터 포차,kakao
-2026-11-10,k1006,category,술집,kakao
-2026-11-10,k1006,lat,37.5052,kakao
-2026-11-10,k1006,lng,127.0055,kakao
-2026-11-10,k1006,address,서울 서초구 샘플로 1,kakao
-2026-11-10,k1006,station,고속터미널,kakao
-2026-11-10,k1006,distance_m,62,kakao
-2026-11-10,k1006,map_url,https://map.naver.com/p/search/%EA%B3%A0%ED%84%B0%20%ED%8F%AC%EC%B0%A8%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
-2026-11-10,k1006,tier,1,kakao
-2026-11-10,pfb1201330b,name,OO 팝업,naver-popup
-2026-11-10,pfb1201330b,category,팝업스토어,naver-popup
-2026-11-10,pfb1201330b,station,신사,naver-popup
-2026-11-10,pfb1201330b,period_start,2026-11-20,naver-popup
-2026-11-10,pfb1201330b,period_end,2026-12-15,naver-popup
-2026-11-10,pfb1201330b,map_url,https://map.naver.com/p/search/OO%20%ED%8C%9D%EC%97%85%20%EC%8B%A0%EC%82%AC,naver-popup
-2026-11-10,pfb1201330b,address,신사역 인근,naver-popup
-2026-11-10,pfb1201330b,source_link,https://example.com/p1,naver-popup
-2026-11-10,pfb1201330b,tier,2,naver-popup
-2026-11-10,pf6465bf22b,name,AA 팝업,naver-popup
-2026-11-10,pf6465bf22b,category,팝업스토어,naver-popup
-2026-11-10,pf6465bf22b,station,압구정,naver-popup
-2026-11-10,pf6465bf22b,period_start,2026-12-01,naver-popup
-2026-11-10,pf6465bf22b,period_end,2026-12-20,naver-popup
-2026-11-10,pf6465bf22b,map_url,https://map.naver.com/p/search/AA%20%ED%8C%9D%EC%97%85%20%EC%95%95%EA%B5%AC%EC%A0%95,naver-popup
-2026-11-10,pf6465bf22b,address,압구정역 인근,naver-popup
-2026-11-10,pf6465bf22b,source_link,https://example.com/p2,naver-popup
-2026-11-10,pf6465bf22b,tier,2,naver-popup
-2026-11-10,s2f94897951,name,샘플 사진전,seoul-open
-2026-11-10,s2f94897951,category,전시·축제·기타,seoul-open
-2026-11-10,s2f94897951,subcategory,전시/미술,seoul-open
-2026-11-10,s2f94897951,lat,37.51,seoul-open
-2026-11-10,s2f94897951,lng,127.01,seoul-open
-2026-11-10,s2f94897951,address,세빛섬 인근 갤러리,seoul-open
-2026-11-10,s2f94897951,station,잠원,seoul-open
-2026-11-10,s2f94897951,distance_m,184,seoul-open
-2026-11-10,s2f94897951,period_start,2026-11-01,seoul-open
-2026-11-10,s2f94897951,period_end,2026-12-31,seoul-open
-2026-11-10,s2f94897951,map_url,https://map.naver.com/p/search/%EC%84%B8%EB%B9%9B%EC%84%AC%20%EC%9D%B8%EA%B7%BC%20%EA%B0%A4%EB%9F%AC%EB%A6%AC%20%EC%9E%A0%EC%9B%90,seoul-open
-2026-11-10,s2f94897951,tier,3,seoul-open
-2026-11-10,k1001,menu,대표메뉴,naver-blog
-2026-11-10,k1001,price,"12,000원",naver-blog
-2026-11-10,k1001,menu_date,2026-11-01,naver-blog
-2026-11-10,k1001,vibe,"데이트하기 좋은, 감성적인 곳",naver-blog
-2026-11-10,k1002,menu,대표메뉴,naver-blog
-2026-11-10,k1002,price,"13,000원",naver-blog
-2026-11-10,k1002,menu_date,2026-11-01,naver-blog
-2026-11-10,k1002,vibe,"데이트하기 좋은, 감성적인 곳",naver-blog
-2026-11-10,k1003,menu,대표메뉴,naver-blog
-2026-11-10,k1003,price,"14,000원",naver-blog
-2026-11-10,k1003,menu_date,2026-11-01,naver-blog
-2026-11-10,k1003,vibe,"데이트하기 좋은, 감성적인 곳",naver-blog
-2026-11-10,k1004,menu,대표메뉴,naver-blog
-2026-11-10,k1004,price,"15,000원",naver-blog
-2026-11-10,k1004,menu_date,2026-11-01,naver-blog
-2026-11-10,k1004,vibe,"데이트하기 좋은, 감성적인 곳",naver-blog
-2026-11-10,k1005,menu,대표메뉴,naver-blog
-2026-11-10,k1005,price,"16,000원",naver-blog
-2026-11-10,k1005,menu_date,2026-11-01,naver-blog
-2026-11-10,k1005,vibe,"데이트하기 좋은, 감성적인 곳",naver-blog
-2026-11-10,k1006,menu,대표메뉴,naver-blog
-2026-11-10,k1006,price,"17,000원",naver-blog
-2026-11-10,k1006,menu_date,2026-11-01,naver-blog
-2026-11-10,k1006,vibe,"데이트하기 좋은, 감성적인 곳",naver-blog
+2026-11-10,k1612349591,name,압구정떡볶이,kakao
+2026-11-10,k1612349591,category,식당,kakao
+2026-11-10,k1612349591,lat,37.5266056234256,kakao
+2026-11-10,k1612349591,lng,127.028829991018,kakao
+2026-11-10,k1612349591,address,서울 강남구 논현로 874,kakao
+2026-11-10,k1612349591,station,압구정,kakao
+2026-11-10,k1612349591,distance_m,52,kakao
+2026-11-10,k1612349591,map_url,https://map.naver.com/p/search/%EC%95%95%EA%B5%AC%EC%A0%95%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1612349591,tier,1,kakao
+2026-11-10,k1963572119,name,군밤먹을래꿀밤맞을래,kakao
+2026-11-10,k1963572119,category,식당,kakao
+2026-11-10,k1963572119,lat,37.5265461517717,kakao
+2026-11-10,k1963572119,lng,127.028852594067,kakao
+2026-11-10,k1963572119,address,서울 강남구 논현로 874,kakao
+2026-11-10,k1963572119,station,압구정,kakao
+2026-11-10,k1963572119,distance_m,59,kakao
+2026-11-10,k1963572119,map_url,https://map.naver.com/p/search/%EA%B5%B0%EB%B0%A4%EB%A8%B9%EC%9D%84%EB%9E%98%EA%BF%80%EB%B0%A4%EB%A7%9E%EC%9D%84%EB%9E%98%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1963572119,tier,1,kakao
+2026-11-10,k7904069,name,베이징덕,kakao
+2026-11-10,k7904069,category,식당,kakao
+2026-11-10,k7904069,lat,37.526510120255914,kakao
+2026-11-10,k7904069,lng,127.02881751000578,kakao
+2026-11-10,k7904069,address,서울 강남구 논현로 874,kakao
+2026-11-10,k7904069,station,압구정,kakao
+2026-11-10,k7904069,distance_m,61,kakao
+2026-11-10,k7904069,map_url,https://map.naver.com/p/search/%EB%B2%A0%EC%9D%B4%EC%A7%95%EB%8D%95%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k7904069,tier,1,kakao
+2026-11-10,k2037859287,name,리김밥 압구정점,kakao
+2026-11-10,k2037859287,category,식당,kakao
+2026-11-10,k2037859287,lat,37.526658705907465,kakao
+2026-11-10,k2037859287,lng,127.02914224983066,kakao
+2026-11-10,k2037859287,address,서울 강남구 압구정로30길 12,kakao
+2026-11-10,k2037859287,station,압구정,kakao
+2026-11-10,k2037859287,distance_m,68,kakao
+2026-11-10,k2037859287,map_url,https://map.naver.com/p/search/%EB%A6%AC%EA%B9%80%EB%B0%A5%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k2037859287,tier,1,kakao
+2026-11-10,k1715918915,name,휴135다온반상,kakao
+2026-11-10,k1715918915,category,식당,kakao
+2026-11-10,k1715918915,lat,37.52722486945932,kakao
+2026-11-10,k1715918915,lng,127.02775435633406,kakao
+2026-11-10,k1715918915,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k1715918915,station,압구정,kakao
+2026-11-10,k1715918915,distance_m,70,kakao
+2026-11-10,k1715918915,map_url,https://map.naver.com/p/search/%ED%9C%B4135%EB%8B%A4%EC%98%A8%EB%B0%98%EC%83%81%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1715918915,tier,1,kakao
+2026-11-10,k1926892988,name,오타이,kakao
+2026-11-10,k1926892988,category,식당,kakao
+2026-11-10,k1926892988,lat,37.527123071643445,kakao
+2026-11-10,k1926892988,lng,127.02768870289916,kakao
+2026-11-10,k1926892988,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k1926892988,station,압구정,kakao
+2026-11-10,k1926892988,distance_m,72,kakao
+2026-11-10,k1926892988,map_url,https://map.naver.com/p/search/%EC%98%A4%ED%83%80%EC%9D%B4%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1926892988,tier,1,kakao
+2026-11-10,k1643909034,name,배스킨라빈스 압구정역점,kakao
+2026-11-10,k1643909034,category,식당,kakao
+2026-11-10,k1643909034,lat,37.52636776000566,kakao
+2026-11-10,k1643909034,lng,127.02882537430214,kakao
+2026-11-10,k1643909034,address,서울 강남구 논현로 872,kakao
+2026-11-10,k1643909034,station,압구정,kakao
+2026-11-10,k1643909034,distance_m,75,kakao
+2026-11-10,k1643909034,map_url,https://map.naver.com/p/search/%EB%B0%B0%EC%8A%A4%ED%82%A8%EB%9D%BC%EB%B9%88%EC%8A%A4%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%97%AD%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1643909034,tier,1,kakao
+2026-11-10,k21416787,name,솜리,kakao
+2026-11-10,k21416787,category,식당,kakao
+2026-11-10,k21416787,lat,37.5273600170771,kakao
+2026-11-10,k21416787,lng,127.02776571949627,kakao
+2026-11-10,k21416787,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k21416787,station,압구정,kakao
+2026-11-10,k21416787,distance_m,76,kakao
+2026-11-10,k21416787,map_url,https://map.naver.com/p/search/%EC%86%9C%EB%A6%AC%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k21416787,tier,1,kakao
+2026-11-10,k1224432398,name,압구정면옥,kakao
+2026-11-10,k1224432398,category,식당,kakao
+2026-11-10,k1224432398,lat,37.526457804770274,kakao
+2026-11-10,k1224432398,lng,127.02905166804152,kakao
+2026-11-10,k1224432398,address,서울 강남구 압구정로30길 16,kakao
+2026-11-10,k1224432398,station,압구정,kakao
+2026-11-10,k1224432398,distance_m,77,kakao
+2026-11-10,k1224432398,map_url,https://map.naver.com/p/search/%EC%95%95%EA%B5%AC%EC%A0%95%EB%A9%B4%EC%98%A5%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1224432398,tier,1,kakao
+2026-11-10,k1117855806,name,롯데리아 압구정역점,kakao
+2026-11-10,k1117855806,category,식당,kakao
+2026-11-10,k1117855806,lat,37.5263949745165,kakao
+2026-11-10,k1117855806,lng,127.02805949838925,kakao
+2026-11-10,k1117855806,address,서울 강남구 논현로175길 6,kakao
+2026-11-10,k1117855806,station,압구정,kakao
+2026-11-10,k1117855806,distance_m,77,kakao
+2026-11-10,k1117855806,map_url,https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A6%AC%EC%95%84%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%97%AD%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1117855806,tier,1,kakao
+2026-11-10,k648964257,name,카라멜리에오 현대백화점 본점,kakao
+2026-11-10,k648964257,category,식당,kakao
+2026-11-10,k648964257,lat,37.52722579196015,kakao
+2026-11-10,k648964257,lng,127.02766272080397,kakao
+2026-11-10,k648964257,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k648964257,station,압구정,kakao
+2026-11-10,k648964257,distance_m,77,kakao
+2026-11-10,k648964257,map_url,https://map.naver.com/p/search/%EC%B9%B4%EB%9D%BC%EB%A9%9C%EB%A6%AC%EC%97%90%EC%98%A4%20%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%20%EB%B3%B8%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k648964257,tier,1,kakao
+2026-11-10,k21414358,name,이즈미 현대백화점압구정본점,kakao
+2026-11-10,k21414358,category,식당,kakao
+2026-11-10,k21414358,lat,37.52714201096446,kakao
+2026-11-10,k21414358,lng,127.02761064979971,kakao
+2026-11-10,k21414358,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k21414358,station,압구정,kakao
+2026-11-10,k21414358,distance_m,80,kakao
+2026-11-10,k21414358,map_url,https://map.naver.com/p/search/%EC%9D%B4%EC%A6%88%EB%AF%B8%20%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k21414358,tier,1,kakao
+2026-11-10,k8644701,name,노아종합상사,kakao
+2026-11-10,k8644701,category,식당,kakao
+2026-11-10,k8644701,lat,37.52680550754517,kakao
+2026-11-10,k8644701,lng,127.02939119309444,kakao
+2026-11-10,k8644701,address,서울 강남구 압구정로30길 9,kakao
+2026-11-10,k8644701,station,압구정,kakao
+2026-11-10,k8644701,distance_m,81,kakao
+2026-11-10,k8644701,map_url,https://map.naver.com/p/search/%EB%85%B8%EC%95%84%EC%A2%85%ED%95%A9%EC%83%81%EC%82%AC%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k8644701,tier,1,kakao
+2026-11-10,k1265607649,name,한솔냉면 현대백화점압구정본점,kakao
+2026-11-10,k1265607649,category,식당,kakao
+2026-11-10,k1265607649,lat,37.527088858719985,kakao
+2026-11-10,k1265607649,lng,127.02758121627926,kakao
+2026-11-10,k1265607649,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k1265607649,station,압구정,kakao
+2026-11-10,k1265607649,distance_m,81,kakao
+2026-11-10,k1265607649,map_url,https://map.naver.com/p/search/%ED%95%9C%EC%86%94%EB%83%89%EB%A9%B4%20%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1265607649,tier,1,kakao
+2026-11-10,k1713038062,name,본가스시 현대백화점 압구정본점,kakao
+2026-11-10,k1713038062,category,식당,kakao
+2026-11-10,k1713038062,lat,37.52701317694576,kakao
+2026-11-10,k1713038062,lng,127.02757100668039,kakao
+2026-11-10,k1713038062,address,서울 강남구 압구정동 429,kakao
+2026-11-10,k1713038062,station,압구정,kakao
+2026-11-10,k1713038062,distance_m,81,kakao
+2026-11-10,k1713038062,map_url,https://map.naver.com/p/search/%EB%B3%B8%EA%B0%80%EC%8A%A4%EC%8B%9C%20%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1713038062,tier,1,kakao
+2026-11-10,k7961953,name,스타벅스 압구정역점,kakao
+2026-11-10,k7961953,category,카페,kakao
+2026-11-10,k7961953,lat,37.5267589639676,kakao
+2026-11-10,k7961953,lng,127.028124118825,kakao
+2026-11-10,k7961953,address,서울 강남구 압구정로 170,kakao
+2026-11-10,k7961953,station,압구정,kakao
+2026-11-10,k7961953,distance_m,42,kakao
+2026-11-10,k7961953,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%97%AD%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k7961953,tier,1,kakao
+2026-11-10,k291679922,name,매머드익스프레스 압구정역점,kakao
+2026-11-10,k291679922,category,카페,kakao
+2026-11-10,k291679922,lat,37.5267019690583,kakao
+2026-11-10,k291679922,lng,127.029081176507,kakao
+2026-11-10,k291679922,address,서울 강남구 압구정로30길 12,kakao
+2026-11-10,k291679922,station,압구정,kakao
+2026-11-10,k291679922,distance_m,61,kakao
+2026-11-10,k291679922,map_url,https://map.naver.com/p/search/%EB%A7%A4%EB%A8%B8%EB%93%9C%EC%9D%B5%EC%8A%A4%ED%94%84%EB%A0%88%EC%8A%A4%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%97%AD%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k291679922,tier,1,kakao
+2026-11-10,k172519348,name,커피온 압구정역점,kakao
+2026-11-10,k172519348,category,카페,kakao
+2026-11-10,k172519348,lat,37.52643091358143,kakao
+2026-11-10,k172519348,lng,127.0284814849058,kakao
+2026-11-10,k172519348,address,서울 강남구 압구정로 지하 172,kakao
+2026-11-10,k172519348,station,압구정,kakao
+2026-11-10,k172519348,distance_m,63,kakao
+2026-11-10,k172519348,map_url,https://map.naver.com/p/search/%EC%BB%A4%ED%94%BC%EC%98%A8%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%97%AD%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k172519348,tier,1,kakao
+2026-11-10,k805755201,name,카페프렌즈,kakao
+2026-11-10,k805755201,category,카페,kakao
+2026-11-10,k805755201,lat,37.52643091358143,kakao
+2026-11-10,k805755201,lng,127.0284814849058,kakao
+2026-11-10,k805755201,address,서울 강남구 압구정로 지하 172,kakao
+2026-11-10,k805755201,station,압구정,kakao
+2026-11-10,k805755201,distance_m,63,kakao
+2026-11-10,k805755201,map_url,https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%ED%94%84%EB%A0%8C%EC%A6%88%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k805755201,tier,1,kakao
+2026-11-10,k781909399,name,포스트커피하우스,kakao
+2026-11-10,k781909399,category,카페,kakao
+2026-11-10,k781909399,lat,37.527451036057386,kakao
+2026-11-10,k781909399,lng,127.0276899554312,kakao
+2026-11-10,k781909399,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k781909399,station,압구정,kakao
+2026-11-10,k781909399,distance_m,87,kakao
+2026-11-10,k781909399,map_url,https://map.naver.com/p/search/%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%BB%A4%ED%94%BC%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k781909399,tier,1,kakao
+2026-11-10,k623075336,name,카페몬지 압구정점,kakao
+2026-11-10,k623075336,category,카페,kakao
+2026-11-10,k623075336,lat,37.527382587973264,kakao
+2026-11-10,k623075336,lng,127.02757001133097,kakao
+2026-11-10,k623075336,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k623075336,station,압구정,kakao
+2026-11-10,k623075336,distance_m,92,kakao
+2026-11-10,k623075336,map_url,https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EB%AA%AC%EC%A7%80%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k623075336,tier,1,kakao
+2026-11-10,k2018549479,name,아뜰리에 드 쟈스민 현대백화점압구정본점,kakao
+2026-11-10,k2018549479,category,카페,kakao
+2026-11-10,k2018549479,lat,37.5275726625365,kakao
+2026-11-10,k2018549479,lng,127.027727333695,kakao
+2026-11-10,k2018549479,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k2018549479,station,압구정,kakao
+2026-11-10,k2018549479,distance_m,93,kakao
+2026-11-10,k2018549479,map_url,https://map.naver.com/p/search/%EC%95%84%EB%9C%B0%EB%A6%AC%EC%97%90%20%EB%93%9C%20%EC%9F%88%EC%8A%A4%EB%AF%BC%20%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k2018549479,tier,1,kakao
+2026-11-10,k768521912,name,압구정 직원카페,kakao
+2026-11-10,k768521912,category,카페,kakao
+2026-11-10,k768521912,lat,37.52736459166106,kakao
+2026-11-10,k768521912,lng,127.0274681868836,kakao
+2026-11-10,k768521912,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k768521912,station,압구정,kakao
+2026-11-10,k768521912,distance_m,99,kakao
+2026-11-10,k768521912,map_url,https://map.naver.com/p/search/%EC%95%95%EA%B5%AC%EC%A0%95%20%EC%A7%81%EC%9B%90%EC%B9%B4%ED%8E%98%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k768521912,tier,1,kakao
+2026-11-10,k1879327611,name,오크베리 현대백화점압구정본점,kakao
+2026-11-10,k1879327611,category,카페,kakao
+2026-11-10,k1879327611,lat,37.5272934232875,kakao
+2026-11-10,k1879327611,lng,127.027421777156,kakao
+2026-11-10,k1879327611,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k1879327611,station,압구정,kakao
+2026-11-10,k1879327611,distance_m,100,kakao
+2026-11-10,k1879327611,map_url,https://map.naver.com/p/search/%EC%98%A4%ED%81%AC%EB%B2%A0%EB%A6%AC%20%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1879327611,tier,1,kakao
+2026-11-10,k1912336218,name,에이에스커피 압구정점,kakao
+2026-11-10,k1912336218,category,카페,kakao
+2026-11-10,k1912336218,lat,37.52618326800484,kakao
+2026-11-10,k1912336218,lng,127.02793723963177,kakao
+2026-11-10,k1912336218,address,서울 강남구 논현로175길 7,kakao
+2026-11-10,k1912336218,station,압구정,kakao
+2026-11-10,k1912336218,distance_m,103,kakao
+2026-11-10,k1912336218,map_url,https://map.naver.com/p/search/%EC%97%90%EC%9D%B4%EC%97%90%EC%8A%A4%EC%BB%A4%ED%94%BC%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1912336218,tier,1,kakao
+2026-11-10,k722067495,name,제로쓰로 쇼룸,kakao
+2026-11-10,k722067495,category,카페,kakao
+2026-11-10,k722067495,lat,37.526143627133266,kakao
+2026-11-10,k722067495,lng,127.02792364936047,kakao
+2026-11-10,k722067495,address,서울 강남구 논현로175길 7,kakao
+2026-11-10,k722067495,station,압구정,kakao
+2026-11-10,k722067495,distance_m,107,kakao
+2026-11-10,k722067495,map_url,https://map.naver.com/p/search/%EC%A0%9C%EB%A1%9C%EC%93%B0%EB%A1%9C%20%EC%87%BC%EB%A3%B8%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k722067495,tier,1,kakao
+2026-11-10,k531184941,name,톰딕슨카페,kakao
+2026-11-10,k531184941,category,카페,kakao
+2026-11-10,k531184941,lat,37.52749974614362,kakao
+2026-11-10,k531184941,lng,127.02745013546225,kakao
+2026-11-10,k531184941,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k531184941,station,압구정,kakao
+2026-11-10,k531184941,distance_m,107,kakao
+2026-11-10,k531184941,map_url,https://map.naver.com/p/search/%ED%86%B0%EB%94%95%EC%8A%A8%EC%B9%B4%ED%8E%98%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k531184941,tier,1,kakao
+2026-11-10,k85407144,name,틸화이트 현대백화점압구정본점,kakao
+2026-11-10,k85407144,category,카페,kakao
+2026-11-10,k85407144,lat,37.5274997461369,kakao
+2026-11-10,k85407144,lng,127.027450135462,kakao
+2026-11-10,k85407144,address,서울 강남구 압구정로 165,kakao
+2026-11-10,k85407144,station,압구정,kakao
+2026-11-10,k85407144,distance_m,107,kakao
+2026-11-10,k85407144,map_url,https://map.naver.com/p/search/%ED%8B%B8%ED%99%94%EC%9D%B4%ED%8A%B8%20%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k85407144,tier,1,kakao
+2026-11-10,k1624256715,name,스타벅스 압구정,kakao
+2026-11-10,k1624256715,category,카페,kakao
+2026-11-10,k1624256715,lat,37.5262216594061,kakao
+2026-11-10,k1624256715,lng,127.029386438865,kakao
+2026-11-10,k1624256715,address,서울 강남구 압구정로30길 17,kakao
+2026-11-10,k1624256715,station,압구정,kakao
+2026-11-10,k1624256715,distance_m,116,kakao
+2026-11-10,k1624256715,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EC%95%95%EA%B5%AC%EC%A0%95%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1624256715,tier,1,kakao
+2026-11-10,k1920025267,name,잠바주스 압구정역점,kakao
+2026-11-10,k1920025267,category,카페,kakao
+2026-11-10,k1920025267,lat,37.5262978106492,kakao
+2026-11-10,k1920025267,lng,127.027445169872,kakao
+2026-11-10,k1920025267,address,서울 강남구 압구정로 162,kakao
+2026-11-10,k1920025267,station,압구정,kakao
+2026-11-10,k1920025267,distance_m,121,kakao
+2026-11-10,k1920025267,map_url,https://map.naver.com/p/search/%EC%9E%A0%EB%B0%94%EC%A3%BC%EC%8A%A4%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%97%AD%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1920025267,tier,1,kakao
+2026-11-10,k302504172,name,사브서울,kakao
+2026-11-10,k302504172,category,술집,kakao
+2026-11-10,k302504172,lat,37.5263670758976,kakao
+2026-11-10,k302504172,lng,127.027922601355,kakao
+2026-11-10,k302504172,address,서울 강남구 논현로175길 6,kakao
+2026-11-10,k302504172,station,압구정,kakao
+2026-11-10,k302504172,distance_m,86,kakao
+2026-11-10,k302504172,map_url,https://map.naver.com/p/search/%EC%82%AC%EB%B8%8C%EC%84%9C%EC%9A%B8%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k302504172,tier,1,kakao
+2026-11-10,k9887723,name,오베로 압구정점,kakao
+2026-11-10,k9887723,category,술집,kakao
+2026-11-10,k9887723,lat,37.5263153467043,kakao
+2026-11-10,k9887723,lng,127.029454353214,kakao
+2026-11-10,k9887723,address,서울 강남구 압구정로30길 17,kakao
+2026-11-10,k9887723,station,압구정,kakao
+2026-11-10,k9887723,distance_m,113,kakao
+2026-11-10,k9887723,map_url,https://map.naver.com/p/search/%EC%98%A4%EB%B2%A0%EB%A1%9C%20%EC%95%95%EA%B5%AC%EC%A0%95%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k9887723,tier,1,kakao
+2026-11-10,k516389615,name,바이츠&와인 안다즈 서울강남,kakao
+2026-11-10,k516389615,category,술집,kakao
+2026-11-10,k516389615,lat,37.5254577575934,kakao
+2026-11-10,k516389615,lng,127.028785429349,kakao
+2026-11-10,k516389615,address,서울 강남구 논현로 854,kakao
+2026-11-10,k516389615,station,압구정,kakao
+2026-11-10,k516389615,distance_m,173,kakao
+2026-11-10,k516389615,map_url,https://map.naver.com/p/search/%EB%B0%94%EC%9D%B4%EC%B8%A0%26%EC%99%80%EC%9D%B8%20%EC%95%88%EB%8B%A4%EC%A6%88%20%EC%84%9C%EC%9A%B8%EA%B0%95%EB%82%A8%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k516389615,tier,1,kakao
+2026-11-10,k15558150,name,신사포차,kakao
+2026-11-10,k15558150,category,술집,kakao
+2026-11-10,k15558150,lat,37.5277386631616,kakao
+2026-11-10,k15558150,lng,127.030504772977,kakao
+2026-11-10,k15558150,address,서울 강남구 압구정로 212,kakao
+2026-11-10,k15558150,station,압구정,kakao
+2026-11-10,k15558150,distance_m,194,kakao
+2026-11-10,k15558150,map_url,https://map.naver.com/p/search/%EC%8B%A0%EC%82%AC%ED%8F%AC%EC%B0%A8%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k15558150,tier,1,kakao
+2026-11-10,k568611913,name,비노615,kakao
+2026-11-10,k568611913,category,술집,kakao
+2026-11-10,k568611913,lat,37.5279935871109,kakao
+2026-11-10,k568611913,lng,127.030734534472,kakao
+2026-11-10,k568611913,address,서울 강남구 압구정로 214,kakao
+2026-11-10,k568611913,station,압구정,kakao
+2026-11-10,k568611913,distance_m,225,kakao
+2026-11-10,k568611913,map_url,https://map.naver.com/p/search/%EB%B9%84%EB%85%B8615%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k568611913,tier,1,kakao
+2026-11-10,k98524002,name,제이라운지스윙,kakao
+2026-11-10,k98524002,category,술집,kakao
+2026-11-10,k98524002,lat,37.5279539339034,kakao
+2026-11-10,k98524002,lng,127.030769589063,kakao
+2026-11-10,k98524002,address,서울 강남구 압구정로 214,kakao
+2026-11-10,k98524002,station,압구정,kakao
+2026-11-10,k98524002,distance_m,226,kakao
+2026-11-10,k98524002,map_url,https://map.naver.com/p/search/%EC%A0%9C%EC%9D%B4%EB%9D%BC%EC%9A%B4%EC%A7%80%EC%8A%A4%EC%9C%99%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k98524002,tier,1,kakao
+2026-11-10,k8410723,name,로바다야끼 아라도,kakao
+2026-11-10,k8410723,category,술집,kakao
+2026-11-10,k8410723,lat,37.52547897909448,kakao
+2026-11-10,k8410723,lng,127.02666202366416,kakao
+2026-11-10,k8410723,address,서울 강남구 논현로175길 25,kakao
+2026-11-10,k8410723,station,압구정,kakao
+2026-11-10,k8410723,distance_m,234,kakao
+2026-11-10,k8410723,map_url,https://map.naver.com/p/search/%EB%A1%9C%EB%B0%94%EB%8B%A4%EC%95%BC%EB%81%BC%20%EC%95%84%EB%9D%BC%EB%8F%84%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k8410723,tier,1,kakao
+2026-11-10,k16988519,name,방추,kakao
+2026-11-10,k16988519,category,술집,kakao
+2026-11-10,k16988519,lat,37.5253645773068,kakao
+2026-11-10,k16988519,lng,127.026548855054,kakao
+2026-11-10,k16988519,address,서울 강남구 논현로175길 25,kakao
+2026-11-10,k16988519,station,압구정,kakao
+2026-11-10,k16988519,distance_m,250,kakao
+2026-11-10,k16988519,map_url,https://map.naver.com/p/search/%EB%B0%A9%EC%B6%94%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k16988519,tier,1,kakao
+2026-11-10,k1552355547,name,온투,kakao
+2026-11-10,k1552355547,category,술집,kakao
+2026-11-10,k1552355547,lat,37.5247823487043,kakao
+2026-11-10,k1552355547,lng,127.027342800385,kakao
+2026-11-10,k1552355547,address,서울 강남구 논현로167길 12,kakao
+2026-11-10,k1552355547,station,압구정,kakao
+2026-11-10,k1552355547,distance_m,266,kakao
+2026-11-10,k1552355547,map_url,https://map.naver.com/p/search/%EC%98%A8%ED%88%AC%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1552355547,tier,1,kakao
+2026-11-10,k9516226,name,피터폴앤메리,kakao
+2026-11-10,k9516226,category,술집,kakao
+2026-11-10,k9516226,lat,37.5250149332814,kakao
+2026-11-10,k9516226,lng,127.026793086264,kakao
+2026-11-10,k9516226,address,서울 강남구 압구정로28길 22-9,kakao
+2026-11-10,k9516226,station,압구정,kakao
+2026-11-10,k9516226,distance_m,267,kakao
+2026-11-10,k9516226,map_url,https://map.naver.com/p/search/%ED%94%BC%ED%84%B0%ED%8F%B4%EC%95%A4%EB%A9%94%EB%A6%AC%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k9516226,tier,1,kakao
+2026-11-10,k1235475463,name,글래드위드와인,kakao
+2026-11-10,k1235475463,category,술집,kakao
+2026-11-10,k1235475463,lat,37.5278536249858,kakao
+2026-11-10,k1235475463,lng,127.03189181386,kakao
+2026-11-10,k1235475463,address,서울 강남구 언주로173길 19,kakao
+2026-11-10,k1235475463,station,압구정,kakao
+2026-11-10,k1235475463,distance_m,313,kakao
+2026-11-10,k1235475463,map_url,https://map.naver.com/p/search/%EA%B8%80%EB%9E%98%EB%93%9C%EC%9C%84%EB%93%9C%EC%99%80%EC%9D%B8%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1235475463,tier,1,kakao
+2026-11-10,k1054595541,name,너에게,kakao
+2026-11-10,k1054595541,category,술집,kakao
+2026-11-10,k1054595541,lat,37.5278617330848,kakao
+2026-11-10,k1054595541,lng,127.031895211262,kakao
+2026-11-10,k1054595541,address,서울 강남구 언주로173길 19,kakao
+2026-11-10,k1054595541,station,압구정,kakao
+2026-11-10,k1054595541,distance_m,314,kakao
+2026-11-10,k1054595541,map_url,https://map.naver.com/p/search/%EB%84%88%EC%97%90%EA%B2%8C%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1054595541,tier,1,kakao
+2026-11-10,k1388379689,name,CSR테이블,kakao
+2026-11-10,k1388379689,category,술집,kakao
+2026-11-10,k1388379689,lat,37.5246184410693,kakao
+2026-11-10,k1388379689,lng,127.03070486812,kakao
+2026-11-10,k1388379689,address,서울 강남구 압구정로34길 51,kakao
+2026-11-10,k1388379689,station,압구정,kakao
+2026-11-10,k1388379689,distance_m,328,kakao
+2026-11-10,k1388379689,map_url,https://map.naver.com/p/search/CSR%ED%85%8C%EC%9D%B4%EB%B8%94%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1388379689,tier,1,kakao
+2026-11-10,k26411657,name,바 델마,kakao
+2026-11-10,k26411657,category,술집,kakao
+2026-11-10,k26411657,lat,37.5248025282769,kakao
+2026-11-10,k26411657,lng,127.025752241469,kakao
+2026-11-10,k26411657,address,서울 강남구 압구정로20길 19,kakao
+2026-11-10,k26411657,station,압구정,kakao
+2026-11-10,k26411657,distance_m,344,kakao
+2026-11-10,k26411657,map_url,https://map.naver.com/p/search/%EB%B0%94%20%EB%8D%B8%EB%A7%88%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k26411657,tier,1,kakao
+2026-11-10,k1565489437,name,락교 라이브펍,kakao
+2026-11-10,k1565489437,category,술집,kakao
+2026-11-10,k1565489437,lat,37.524013819617,kakao
+2026-11-10,k1565489437,lng,127.027230525305,kakao
+2026-11-10,k1565489437,address,서울 강남구 논현로163길 11,kakao
+2026-11-10,k1565489437,station,압구정,kakao
+2026-11-10,k1565489437,distance_m,350,kakao
+2026-11-10,k1565489437,map_url,https://map.naver.com/p/search/%EB%9D%BD%EA%B5%90%20%EB%9D%BC%EC%9D%B4%EB%B8%8C%ED%8E%8D%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao
+2026-11-10,k1565489437,tier,1,kakao
+2026-11-10,k1495084339,name,마리왕 신사역점,kakao
+2026-11-10,k1495084339,category,식당,kakao
+2026-11-10,k1495084339,lat,37.516431466794,kakao
+2026-11-10,k1495084339,lng,127.0203289221,kakao
+2026-11-10,k1495084339,address,서울 강남구 도산대로 지하 102,kakao
+2026-11-10,k1495084339,station,신사,kakao
+2026-11-10,k1495084339,distance_m,14,kakao
+2026-11-10,k1495084339,map_url,https://map.naver.com/p/search/%EB%A7%88%EB%A6%AC%EC%99%95%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1495084339,tier,1,kakao
+2026-11-10,k689203779,name,호두당,kakao
+2026-11-10,k689203779,category,식당,kakao
+2026-11-10,k689203779,lat,37.516431466794,kakao
+2026-11-10,k689203779,lng,127.0203289221,kakao
+2026-11-10,k689203779,address,서울 강남구 도산대로 지하 102,kakao
+2026-11-10,k689203779,station,신사,kakao
+2026-11-10,k689203779,distance_m,14,kakao
+2026-11-10,k689203779,map_url,https://map.naver.com/p/search/%ED%98%B8%EB%91%90%EB%8B%B9%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k689203779,tier,1,kakao
+2026-11-10,k972844897,name,더아담 신사역점,kakao
+2026-11-10,k972844897,category,식당,kakao
+2026-11-10,k972844897,lat,37.5164323681869,kakao
+2026-11-10,k972844897,lng,127.020326660056,kakao
+2026-11-10,k972844897,address,서울 강남구 도산대로 지하 102,kakao
+2026-11-10,k972844897,station,신사,kakao
+2026-11-10,k972844897,distance_m,14,kakao
+2026-11-10,k972844897,map_url,https://map.naver.com/p/search/%EB%8D%94%EC%95%84%EB%8B%B4%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k972844897,tier,1,kakao
+2026-11-10,k902200401,name,평안도식당 신사점,kakao
+2026-11-10,k902200401,category,식당,kakao
+2026-11-10,k902200401,lat,37.5160385476976,kakao
+2026-11-10,k902200401,lng,127.02079710672,kakao
+2026-11-10,k902200401,address,서울 강남구 강남대로150길 11,kakao
+2026-11-10,k902200401,station,신사,kakao
+2026-11-10,k902200401,distance_m,52,kakao
+2026-11-10,k902200401,map_url,https://map.naver.com/p/search/%ED%8F%89%EC%95%88%EB%8F%84%EC%8B%9D%EB%8B%B9%20%EC%8B%A0%EC%82%AC%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k902200401,tier,1,kakao
+2026-11-10,k911470323,name,호시,kakao
+2026-11-10,k911470323,category,식당,kakao
+2026-11-10,k911470323,lat,37.5167702683725,kakao
+2026-11-10,k911470323,lng,127.020187620353,kakao
+2026-11-10,k911470323,address,서울 강남구 도산대로 107,kakao
+2026-11-10,k911470323,station,신사,kakao
+2026-11-10,k911470323,distance_m,53,kakao
+2026-11-10,k911470323,map_url,https://map.naver.com/p/search/%ED%98%B8%EC%8B%9C%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k911470323,tier,1,kakao
+2026-11-10,k1939055922,name,우주에서온샐러드,kakao
+2026-11-10,k1939055922,category,식당,kakao
+2026-11-10,k1939055922,lat,37.51677388724086,kakao
+2026-11-10,k1939055922,lng,127.02010052283345,kakao
+2026-11-10,k1939055922,address,서울 강남구 도산대로 107,kakao
+2026-11-10,k1939055922,station,신사,kakao
+2026-11-10,k1939055922,distance_m,55,kakao
+2026-11-10,k1939055922,map_url,https://map.naver.com/p/search/%EC%9A%B0%EC%A3%BC%EC%97%90%EC%84%9C%EC%98%A8%EC%83%90%EB%9F%AC%EB%93%9C%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1939055922,tier,1,kakao
+2026-11-10,k1654154823,name,비아이오 (BIO)타워뷔페,kakao
+2026-11-10,k1654154823,category,식당,kakao
+2026-11-10,k1654154823,lat,37.5167801929108,kakao
+2026-11-10,k1654154823,lng,127.02010844257,kakao
+2026-11-10,k1654154823,address,서울 강남구 도산대로 107,kakao
+2026-11-10,k1654154823,station,신사,kakao
+2026-11-10,k1654154823,distance_m,56,kakao
+2026-11-10,k1654154823,map_url,https://map.naver.com/p/search/%EB%B9%84%EC%95%84%EC%9D%B4%EC%98%A4%20%28BIO%29%ED%83%80%EC%9B%8C%EB%B7%94%ED%8E%98%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1654154823,tier,1,kakao
+2026-11-10,k25040567,name,부산아구,kakao
+2026-11-10,k25040567,category,식당,kakao
+2026-11-10,k25040567,lat,37.5157934886313,kakao
+2026-11-10,k25040567,lng,127.020717859302,kakao
+2026-11-10,k25040567,address,서울 강남구 강남대로150길 10,kakao
+2026-11-10,k25040567,station,신사,kakao
+2026-11-10,k25040567,distance_m,67,kakao
+2026-11-10,k25040567,map_url,https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EC%95%84%EA%B5%AC%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k25040567,tier,1,kakao
+2026-11-10,k1029907935,name,부산집,kakao
+2026-11-10,k1029907935,category,식당,kakao
+2026-11-10,k1029907935,lat,37.515779074953,kakao
+2026-11-10,k1029907935,lng,127.020704281706,kakao
+2026-11-10,k1029907935,address,서울 강남구 강남대로150길 10,kakao
+2026-11-10,k1029907935,station,신사,kakao
+2026-11-10,k1029907935,distance_m,68,kakao
+2026-11-10,k1029907935,map_url,https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EC%A7%91%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1029907935,tier,1,kakao
+2026-11-10,k1214127533,name,향방,kakao
+2026-11-10,k1214127533,category,식당,kakao
+2026-11-10,k1214127533,lat,37.5157646581013,kakao
+2026-11-10,k1214127533,lng,127.020708802259,kakao
+2026-11-10,k1214127533,address,서울 강남구 강남대로150길 10,kakao
+2026-11-10,k1214127533,station,신사,kakao
+2026-11-10,k1214127533,distance_m,69,kakao
+2026-11-10,k1214127533,map_url,https://map.naver.com/p/search/%ED%96%A5%EB%B0%A9%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1214127533,tier,1,kakao
+2026-11-10,k13071346,name,딱좋아,kakao
+2026-11-10,k13071346,category,식당,kakao
+2026-11-10,k13071346,lat,37.51585291957778,kakao
+2026-11-10,k13071346,lng,127.02091808669226,kakao
+2026-11-10,k13071346,address,서울 강남구 강남대로150길 12,kakao
+2026-11-10,k13071346,station,신사,kakao
+2026-11-10,k13071346,distance_m,73,kakao
+2026-11-10,k13071346,map_url,https://map.naver.com/p/search/%EB%94%B1%EC%A2%8B%EC%95%84%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k13071346,tier,1,kakao
+2026-11-10,k1719987589,name,아구본가첨벙 신사본점,kakao
+2026-11-10,k1719987589,category,식당,kakao
+2026-11-10,k1719987589,lat,37.5158457121564,kakao
+2026-11-10,k1719987589,lng,127.020914691275,kakao
+2026-11-10,k1719987589,address,서울 강남구 강남대로150길 12,kakao
+2026-11-10,k1719987589,station,신사,kakao
+2026-11-10,k1719987589,distance_m,74,kakao
+2026-11-10,k1719987589,map_url,https://map.naver.com/p/search/%EC%95%84%EA%B5%AC%EB%B3%B8%EA%B0%80%EC%B2%A8%EB%B2%99%20%EC%8B%A0%EC%82%AC%EB%B3%B8%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1719987589,tier,1,kakao
+2026-11-10,k907022125,name,마운틴가라오케,kakao
+2026-11-10,k907022125,category,식당,kakao
+2026-11-10,k907022125,lat,37.51685502913527,kakao
+2026-11-10,k907022125,lng,127.01979513396233,kakao
+2026-11-10,k907022125,address,서울 강남구 강남대로 616,kakao
+2026-11-10,k907022125,station,신사,kakao
+2026-11-10,k907022125,distance_m,76,kakao
+2026-11-10,k907022125,map_url,https://map.naver.com/p/search/%EB%A7%88%EC%9A%B4%ED%8B%B4%EA%B0%80%EB%9D%BC%EC%98%A4%EC%BC%80%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k907022125,tier,1,kakao
+2026-11-10,k1187731896,name,씨엘33,kakao
+2026-11-10,k1187731896,category,식당,kakao
+2026-11-10,k1187731896,lat,37.5168460236469,kakao
+2026-11-10,k1187731896,lng,127.019767983975,kakao
+2026-11-10,k1187731896,address,서울 강남구 강남대로 616,kakao
+2026-11-10,k1187731896,station,신사,kakao
+2026-11-10,k1187731896,distance_m,76,kakao
+2026-11-10,k1187731896,map_url,https://map.naver.com/p/search/%EC%94%A8%EC%97%9833%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1187731896,tier,1,kakao
+2026-11-10,k1978879550,name,153구포국수 신사역점,kakao
+2026-11-10,k1978879550,category,식당,kakao
+2026-11-10,k1978879550,lat,37.51680549133767,kakao
+2026-11-10,k1978879550,lng,127.01969105509988,kakao
+2026-11-10,k1978879550,address,서울 강남구 강남대로 616,kakao
+2026-11-10,k1978879550,station,신사,kakao
+2026-11-10,k1978879550,distance_m,77,kakao
+2026-11-10,k1978879550,map_url,https://map.naver.com/p/search/153%EA%B5%AC%ED%8F%AC%EA%B5%AD%EC%88%98%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1978879550,tier,1,kakao
+2026-11-10,k69972028,name,푸릇해,kakao
+2026-11-10,k69972028,category,카페,kakao
+2026-11-10,k69972028,lat,37.51643236818,kakao
+2026-11-10,k69972028,lng,127.020326660056,kakao
+2026-11-10,k69972028,address,서울 강남구 도산대로 지하 102,kakao
+2026-11-10,k69972028,station,신사,kakao
+2026-11-10,k69972028,distance_m,14,kakao
+2026-11-10,k69972028,map_url,https://map.naver.com/p/search/%ED%91%B8%EB%A6%87%ED%95%B4%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k69972028,tier,1,kakao
+2026-11-10,k26395435,name,스타벅스 신사역점,kakao
+2026-11-10,k26395435,category,카페,kakao
+2026-11-10,k26395435,lat,37.51622596162784,kakao
+2026-11-10,k26395435,lng,127.0207677490634,kakao
+2026-11-10,k26395435,address,서울 강남구 도산대로 108,kakao
+2026-11-10,k26395435,station,신사,kakao
+2026-11-10,k26395435,distance_m,42,kakao
+2026-11-10,k26395435,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k26395435,tier,1,kakao
+2026-11-10,k464418719,name,인테로뱅커피,kakao
+2026-11-10,k464418719,category,카페,kakao
+2026-11-10,k464418719,lat,37.5167810941137,kakao
+2026-11-10,k464418719,lng,127.020107311663,kakao
+2026-11-10,k464418719,address,서울 강남구 도산대로 107,kakao
+2026-11-10,k464418719,station,신사,kakao
+2026-11-10,k464418719,distance_m,56,kakao
+2026-11-10,k464418719,map_url,https://map.naver.com/p/search/%EC%9D%B8%ED%85%8C%EB%A1%9C%EB%B1%85%EC%BB%A4%ED%94%BC%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k464418719,tier,1,kakao
+2026-11-10,k185608032,name,청담커피 신사역점,kakao
+2026-11-10,k185608032,category,카페,kakao
+2026-11-10,k185608032,lat,37.5169405732719,kakao
+2026-11-10,k185608032,lng,127.020098305239,kakao
+2026-11-10,k185608032,address,서울 강남구 도산대로1길 3,kakao
+2026-11-10,k185608032,station,신사,kakao
+2026-11-10,k185608032,distance_m,73,kakao
+2026-11-10,k185608032,map_url,https://map.naver.com/p/search/%EC%B2%AD%EB%8B%B4%EC%BB%A4%ED%94%BC%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k185608032,tier,1,kakao
+2026-11-10,k531599063,name,은탑플래닝,kakao
+2026-11-10,k531599063,category,카페,kakao
+2026-11-10,k531599063,lat,37.516855929569985,kakao
+2026-11-10,k531599063,lng,127.0197985276517,kakao
+2026-11-10,k531599063,address,서울 강남구 강남대로 616,kakao
+2026-11-10,k531599063,station,신사,kakao
+2026-11-10,k531599063,distance_m,76,kakao
+2026-11-10,k531599063,map_url,https://map.naver.com/p/search/%EC%9D%80%ED%83%91%ED%94%8C%EB%9E%98%EB%8B%9D%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k531599063,tier,1,kakao
+2026-11-10,k100026790,name,카페로얄마카롱 신사역점,kakao
+2026-11-10,k100026790,category,카페,kakao
+2026-11-10,k100026790,lat,37.51715495151583,kakao
+2026-11-10,k100026790,lng,127.02045128310166,kakao
+2026-11-10,k100026790,address,서울 강남구 도산대로1길 6,kakao
+2026-11-10,k100026790,station,신사,kakao
+2026-11-10,k100026790,distance_m,95,kakao
+2026-11-10,k100026790,map_url,https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EB%A1%9C%EC%96%84%EB%A7%88%EC%B9%B4%EB%A1%B1%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k100026790,tier,1,kakao
+2026-11-10,k2071612713,name,베러댄커피,kakao
+2026-11-10,k2071612713,category,카페,kakao
+2026-11-10,k2071612713,lat,37.517075807433805,kakao
+2026-11-10,k2071612713,lng,127.01960063382097,kakao
+2026-11-10,k2071612713,address,서울 강남구 강남대로 620,kakao
+2026-11-10,k2071612713,station,신사,kakao
+2026-11-10,k2071612713,distance_m,106,kakao
+2026-11-10,k2071612713,map_url,https://map.naver.com/p/search/%EB%B2%A0%EB%9F%AC%EB%8C%84%EC%BB%A4%ED%94%BC%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k2071612713,tier,1,kakao
+2026-11-10,k1539001784,name,빽다방 빵연구소 신사사거리점,kakao
+2026-11-10,k1539001784,category,카페,kakao
+2026-11-10,k1539001784,lat,37.51577571972618,kakao
+2026-11-10,k1539001784,lng,127.0192326751727,kakao
+2026-11-10,k1539001784,address,서울 서초구 강남대로 605,kakao
+2026-11-10,k1539001784,station,신사,kakao
+2026-11-10,k1539001784,distance_m,110,kakao
+2026-11-10,k1539001784,map_url,https://map.naver.com/p/search/%EB%B9%BD%EB%8B%A4%EB%B0%A9%20%EB%B9%B5%EC%97%B0%EA%B5%AC%EC%86%8C%20%EC%8B%A0%EC%82%AC%EC%82%AC%EA%B1%B0%EB%A6%AC%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1539001784,tier,1,kakao
+2026-11-10,k838638157,name,언덕,kakao
+2026-11-10,k838638157,category,카페,kakao
+2026-11-10,k838638157,lat,37.5160167900162,kakao
+2026-11-10,k838638157,lng,127.021542520523,kakao
+2026-11-10,k838638157,address,서울 강남구 도산대로6길 10,kakao
+2026-11-10,k838638157,station,신사,kakao
+2026-11-10,k838638157,distance_m,114,kakao
+2026-11-10,k838638157,map_url,https://map.naver.com/p/search/%EC%96%B8%EB%8D%95%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k838638157,tier,1,kakao
+2026-11-10,k1904517202,name,홈즈앤루팡 신사가로수길점,kakao
+2026-11-10,k1904517202,category,카페,kakao
+2026-11-10,k1904517202,lat,37.5173792927342,kakao
+2026-11-10,k1904517202,lng,127.020501115296,kakao
+2026-11-10,k1904517202,address,서울 강남구 강남대로152길 13,kakao
+2026-11-10,k1904517202,station,신사,kakao
+2026-11-10,k1904517202,distance_m,121,kakao
+2026-11-10,k1904517202,map_url,https://map.naver.com/p/search/%ED%99%88%EC%A6%88%EC%95%A4%EB%A3%A8%ED%8C%A1%20%EC%8B%A0%EC%82%AC%EA%B0%80%EB%A1%9C%EC%88%98%EA%B8%B8%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1904517202,tier,1,kakao
+2026-11-10,k16999295,name,S트레인,kakao
+2026-11-10,k16999295,category,카페,kakao
+2026-11-10,k16999295,lat,37.5163555427377,kakao
+2026-11-10,k16999295,lng,127.021677223911,kakao
+2026-11-10,k16999295,address,서울 강남구 도산대로6길 5,kakao
+2026-11-10,k16999295,station,신사,kakao
+2026-11-10,k16999295,distance_m,121,kakao
+2026-11-10,k16999295,map_url,https://map.naver.com/p/search/S%ED%8A%B8%EB%A0%88%EC%9D%B8%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k16999295,tier,1,kakao
+2026-11-10,k20542106,name,파스쿠찌 신사역점,kakao
+2026-11-10,k20542106,category,카페,kakao
+2026-11-10,k20542106,lat,37.51637406163197,kakao
+2026-11-10,k20542106,lng,127.01876340428204,kakao
+2026-11-10,k20542106,address,서울 서초구 강남대로101길 7,kakao
+2026-11-10,k20542106,station,신사,kakao
+2026-11-10,k20542106,distance_m,135,kakao
+2026-11-10,k20542106,map_url,https://map.naver.com/p/search/%ED%8C%8C%EC%8A%A4%EC%BF%A0%EC%B0%8C%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k20542106,tier,1,kakao
+2026-11-10,k889112477,name,텍사스파파크레페 신사점,kakao
+2026-11-10,k889112477,category,카페,kakao
+2026-11-10,k889112477,lat,37.5174191106918,kakao
+2026-11-10,k889112477,lng,127.019474033804,kakao
+2026-11-10,k889112477,address,서울 강남구 강남대로 624,kakao
+2026-11-10,k889112477,station,신사,kakao
+2026-11-10,k889112477,distance_m,144,kakao
+2026-11-10,k889112477,map_url,https://map.naver.com/p/search/%ED%85%8D%EC%82%AC%EC%8A%A4%ED%8C%8C%ED%8C%8C%ED%81%AC%EB%A0%88%ED%8E%98%20%EC%8B%A0%EC%82%AC%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k889112477,tier,1,kakao
+2026-11-10,k26508465,name,투썸플레이스 강남신사점,kakao
+2026-11-10,k26508465,category,카페,kakao
+2026-11-10,k26508465,lat,37.5174088928946,kakao
+2026-11-10,k26508465,lng,127.02125334403449,kakao
+2026-11-10,k26508465,address,서울 강남구 강남대로152길 22,kakao
+2026-11-10,k26508465,station,신사,kakao
+2026-11-10,k26508465,distance_m,149,kakao
+2026-11-10,k26508465,map_url,https://map.naver.com/p/search/%ED%88%AC%EC%8D%B8%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EA%B0%95%EB%82%A8%EC%8B%A0%EC%82%AC%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k26508465,tier,1,kakao
+2026-11-10,k2004029956,name,요고,kakao
+2026-11-10,k2004029956,category,카페,kakao
+2026-11-10,k2004029956,lat,37.5154099756663,kakao
+2026-11-10,k2004029956,lng,127.018838948528,kakao
+2026-11-10,k2004029956,address,서울 서초구 강남대로99길 10,kakao
+2026-11-10,k2004029956,station,신사,kakao
+2026-11-10,k2004029956,distance_m,162,kakao
+2026-11-10,k2004029956,map_url,https://map.naver.com/p/search/%EC%9A%94%EA%B3%A0%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k2004029956,tier,1,kakao
+2026-11-10,k907022125,category,술집,kakao
+2026-11-10,k1187731896,category,술집,kakao
+2026-11-10,k875073447,name,도톤보리 서울,kakao
+2026-11-10,k875073447,category,술집,kakao
+2026-11-10,k875073447,lat,37.517150403346,kakao
+2026-11-10,k875073447,lng,127.020699004796,kakao
+2026-11-10,k875073447,address,서울 강남구 강남대로152길 14,kakao
+2026-11-10,k875073447,station,신사,kakao
+2026-11-10,k875073447,distance_m,100,kakao
+2026-11-10,k875073447,map_url,https://map.naver.com/p/search/%EB%8F%84%ED%86%A4%EB%B3%B4%EB%A6%AC%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k875073447,tier,1,kakao
+2026-11-10,k361574711,name,인쌩맥주 신사역점,kakao
+2026-11-10,k361574711,category,술집,kakao
+2026-11-10,k361574711,lat,37.517322444502064,kakao
+2026-11-10,k361574711,lng,127.02098523517687,kakao
+2026-11-10,k361574711,address,서울 강남구 강남대로152길 18,kakao
+2026-11-10,k361574711,station,신사,kakao
+2026-11-10,k361574711,distance_m,128,kakao
+2026-11-10,k361574711,map_url,https://map.naver.com/p/search/%EC%9D%B8%EC%8C%A9%EB%A7%A5%EC%A3%BC%20%EC%8B%A0%EC%82%AC%EC%97%AD%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k361574711,tier,1,kakao
+2026-11-10,k883629409,name,타츠로바타쇼,kakao
+2026-11-10,k883629409,category,술집,kakao
+2026-11-10,k883629409,lat,37.5176171474055,kakao
+2026-11-10,k883629409,lng,127.02056000079,kakao
+2026-11-10,k883629409,address,서울 강남구 강남대로154길 16,kakao
+2026-11-10,k883629409,station,신사,kakao
+2026-11-10,k883629409,distance_m,148,kakao
+2026-11-10,k883629409,map_url,https://map.naver.com/p/search/%ED%83%80%EC%B8%A0%EB%A1%9C%EB%B0%94%ED%83%80%EC%87%BC%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k883629409,tier,1,kakao
+2026-11-10,k470076994,name,배포차,kakao
+2026-11-10,k470076994,category,술집,kakao
+2026-11-10,k470076994,lat,37.5176893138394,kakao
+2026-11-10,k470076994,lng,127.02005891534,kakao
+2026-11-10,k470076994,address,서울 강남구 도산대로1길 16,kakao
+2026-11-10,k470076994,station,신사,kakao
+2026-11-10,k470076994,distance_m,155,kakao
+2026-11-10,k470076994,map_url,https://map.naver.com/p/search/%EB%B0%B0%ED%8F%AC%EC%B0%A8%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k470076994,tier,1,kakao
+2026-11-10,k79297340,name,덴큐,kakao
+2026-11-10,k79297340,category,술집,kakao
+2026-11-10,k79297340,lat,37.515945212519824,kakao
+2026-11-10,k79297340,lng,127.0185823150273,kakao
+2026-11-10,k79297340,address,서울 서초구 나루터로 79,kakao
+2026-11-10,k79297340,station,신사,kakao
+2026-11-10,k79297340,distance_m,156,kakao
+2026-11-10,k79297340,map_url,https://map.naver.com/p/search/%EB%8D%B4%ED%81%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k79297340,tier,1,kakao
+2026-11-10,k16004904,name,J바,kakao
+2026-11-10,k16004904,category,술집,kakao
+2026-11-10,k16004904,lat,37.5177433757764,kakao
+2026-11-10,k16004904,lng,127.020048749336,kakao
+2026-11-10,k16004904,address,서울 강남구 도산대로1길 16,kakao
+2026-11-10,k16004904,station,신사,kakao
+2026-11-10,k16004904,distance_m,162,kakao
+2026-11-10,k16004904,map_url,https://map.naver.com/p/search/J%EB%B0%94%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k16004904,tier,1,kakao
+2026-11-10,k1785960060,name,술단지,kakao
+2026-11-10,k1785960060,category,술집,kakao
+2026-11-10,k1785960060,lat,37.5176458884052,kakao
+2026-11-10,k1785960060,lng,127.021076949909,kakao
+2026-11-10,k1785960060,address,서울 강남구 강남대로152길 21,kakao
+2026-11-10,k1785960060,station,신사,kakao
+2026-11-10,k1785960060,distance_m,164,kakao
+2026-11-10,k1785960060,map_url,https://map.naver.com/p/search/%EC%88%A0%EB%8B%A8%EC%A7%80%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1785960060,tier,1,kakao
+2026-11-10,k965708805,name,가와사키쉐맘 꼰대포차,kakao
+2026-11-10,k965708805,category,술집,kakao
+2026-11-10,k965708805,lat,37.5158911665028,kakao
+2026-11-10,k965708805,lng,127.01849181075,kakao
+2026-11-10,k965708805,address,서울 서초구 나루터로 79,kakao
+2026-11-10,k965708805,station,신사,kakao
+2026-11-10,k965708805,distance_m,165,kakao
+2026-11-10,k965708805,map_url,https://map.naver.com/p/search/%EA%B0%80%EC%99%80%EC%82%AC%ED%82%A4%EC%89%90%EB%A7%98%20%EA%BC%B0%EB%8C%80%ED%8F%AC%EC%B0%A8%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k965708805,tier,1,kakao
+2026-11-10,k14608329,name,더케이,kakao
+2026-11-10,k14608329,category,술집,kakao
+2026-11-10,k14608329,lat,37.5169831643544,kakao
+2026-11-10,k14608329,lng,127.018609720056,kakao
+2026-11-10,k14608329,address,서울 서초구 강남대로101길 18-6,kakao
+2026-11-10,k14608329,station,신사,kakao
+2026-11-10,k14608329,distance_m,167,kakao
+2026-11-10,k14608329,map_url,https://map.naver.com/p/search/%EB%8D%94%EC%BC%80%EC%9D%B4%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k14608329,tier,1,kakao
+2026-11-10,k1137539216,name,매니아스트리트제이,kakao
+2026-11-10,k1137539216,category,술집,kakao
+2026-11-10,k1137539216,lat,37.51588486266998,kakao
+2026-11-10,k1137539216,lng,127.01847144874927,kakao
+2026-11-10,k1137539216,address,서울 서초구 나루터로 79,kakao
+2026-11-10,k1137539216,station,신사,kakao
+2026-11-10,k1137539216,distance_m,167,kakao
+2026-11-10,k1137539216,map_url,https://map.naver.com/p/search/%EB%A7%A4%EB%8B%88%EC%95%84%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8%EC%A0%9C%EC%9D%B4%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1137539216,tier,1,kakao
+2026-11-10,k1328124039,name,파더스오피스,kakao
+2026-11-10,k1328124039,category,술집,kakao
+2026-11-10,k1328124039,lat,37.5169939778216,kakao
+2026-11-10,k1328124039,lng,127.018600673521,kakao
+2026-11-10,k1328124039,address,서울 서초구 강남대로101길 18-6,kakao
+2026-11-10,k1328124039,station,신사,kakao
+2026-11-10,k1328124039,distance_m,168,kakao
+2026-11-10,k1328124039,map_url,https://map.naver.com/p/search/%ED%8C%8C%EB%8D%94%EC%8A%A4%EC%98%A4%ED%94%BC%EC%8A%A4%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1328124039,tier,1,kakao
+2026-11-10,k1254480155,name,APT Pub,kakao
+2026-11-10,k1254480155,category,술집,kakao
+2026-11-10,k1254480155,lat,37.5148825211076,kakao
+2026-11-10,k1254480155,lng,127.021016223344,kakao
+2026-11-10,k1254480155,address,서울 강남구 강남대로146길 9,kakao
+2026-11-10,k1254480155,station,신사,kakao
+2026-11-10,k1254480155,distance_m,169,kakao
+2026-11-10,k1254480155,map_url,https://map.naver.com/p/search/APT%20Pub%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1254480155,tier,1,kakao
+2026-11-10,k1536766820,name,역전할머니맥주 서울신사가로수길점,kakao
+2026-11-10,k1536766820,category,술집,kakao
+2026-11-10,k1536766820,lat,37.5176575655514,kakao
+2026-11-10,k1536766820,lng,127.021277168976,kakao
+2026-11-10,k1536766820,address,서울 강남구 강남대로152길 23,kakao
+2026-11-10,k1536766820,station,신사,kakao
+2026-11-10,k1536766820,distance_m,173,kakao
+2026-11-10,k1536766820,map_url,https://map.naver.com/p/search/%EC%97%AD%EC%A0%84%ED%95%A0%EB%A8%B8%EB%8B%88%EB%A7%A5%EC%A3%BC%20%EC%84%9C%EC%9A%B8%EC%8B%A0%EC%82%AC%EA%B0%80%EB%A1%9C%EC%88%98%EA%B8%B8%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1536766820,tier,1,kakao
+2026-11-10,k628695031,name,본죽&비빔밥cafe 잠원역점,kakao
+2026-11-10,k628695031,category,식당,kakao
+2026-11-10,k628695031,lat,37.5124997849641,kakao
+2026-11-10,k628695031,lng,127.011390023785,kakao
+2026-11-10,k628695031,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k628695031,station,잠원,kakao
+2026-11-10,k628695031,distance_m,133,kakao
+2026-11-10,k628695031,map_url,https://map.naver.com/p/search/%EB%B3%B8%EC%A3%BD%26%EB%B9%84%EB%B9%94%EB%B0%A5cafe%20%EC%9E%A0%EC%9B%90%EC%97%AD%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k628695031,tier,1,kakao
+2026-11-10,k88846129,name,맘스터치 잠원역점,kakao
+2026-11-10,k88846129,category,식당,kakao
+2026-11-10,k88846129,lat,37.5125763659489,kakao
+2026-11-10,k88846129,lng,127.01143527886,kakao
+2026-11-10,k88846129,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k88846129,station,잠원,kakao
+2026-11-10,k88846129,distance_m,142,kakao
+2026-11-10,k88846129,map_url,https://map.naver.com/p/search/%EB%A7%98%EC%8A%A4%ED%84%B0%EC%B9%98%20%EC%9E%A0%EC%9B%90%EC%97%AD%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k88846129,tier,1,kakao
+2026-11-10,k1589624371,name,바르미스시샤브 반포점,kakao
+2026-11-10,k1589624371,category,식당,kakao
+2026-11-10,k1589624371,lat,37.5103681307626,kakao
+2026-11-10,k1589624371,lng,127.010043747255,kakao
+2026-11-10,k1589624371,address,서울 서초구 신반포로33길 27,kakao
+2026-11-10,k1589624371,station,잠원,kakao
+2026-11-10,k1589624371,distance_m,151,kakao
+2026-11-10,k1589624371,map_url,https://map.naver.com/p/search/%EB%B0%94%EB%A5%B4%EB%AF%B8%EC%8A%A4%EC%8B%9C%EC%83%A4%EB%B8%8C%20%EB%B0%98%ED%8F%AC%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1589624371,tier,1,kakao
+2026-11-10,k1674117471,name,경복궁블랙 잠원점,kakao
+2026-11-10,k1674117471,category,식당,kakao
+2026-11-10,k1674117471,lat,37.510367229765,kakao
+2026-11-10,k1674117471,lng,127.010043747134,kakao
+2026-11-10,k1674117471,address,서울 서초구 신반포로33길 27,kakao
+2026-11-10,k1674117471,station,잠원,kakao
+2026-11-10,k1674117471,distance_m,151,kakao
+2026-11-10,k1674117471,map_url,https://map.naver.com/p/search/%EA%B2%BD%EB%B3%B5%EA%B6%81%EB%B8%94%EB%9E%99%20%EC%9E%A0%EC%9B%90%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1674117471,tier,1,kakao
+2026-11-10,k835972465,name,바르미어촌반상,kakao
+2026-11-10,k835972465,category,식당,kakao
+2026-11-10,k835972465,lat,37.5103744385633,kakao
+2026-11-10,k835972465,lng,127.010034699678,kakao
+2026-11-10,k835972465,address,서울 서초구 신반포로33길 27,kakao
+2026-11-10,k835972465,station,잠원,kakao
+2026-11-10,k835972465,distance_m,151,kakao
+2026-11-10,k835972465,map_url,https://map.naver.com/p/search/%EB%B0%94%EB%A5%B4%EB%AF%B8%EC%96%B4%EC%B4%8C%EB%B0%98%EC%83%81%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k835972465,tier,1,kakao
+2026-11-10,k213272862,name,크리스탈제이드 상하이팰리스 잠원점,kakao
+2026-11-10,k213272862,category,식당,kakao
+2026-11-10,k213272862,lat,37.51036002172881,kakao
+2026-11-10,k213272862,lng,127.01004374616834,kakao
+2026-11-10,k213272862,address,서울 서초구 신반포로33길 27,kakao
+2026-11-10,k213272862,station,잠원,kakao
+2026-11-10,k213272862,distance_m,152,kakao
+2026-11-10,k213272862,map_url,https://map.naver.com/p/search/%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%83%88%EC%A0%9C%EC%9D%B4%EB%93%9C%20%EC%83%81%ED%95%98%EC%9D%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%20%EC%9E%A0%EC%9B%90%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k213272862,tier,1,kakao
+2026-11-10,k1369848066,name,오리지널팬케이크하우스 잠원파스텔점,kakao
+2026-11-10,k1369848066,category,식당,kakao
+2026-11-10,k1369848066,lat,37.51035551766734,kakao
+2026-11-10,k1369848066,lng,127.01003243504059,kakao
+2026-11-10,k1369848066,address,서울 서초구 신반포로33길 27,kakao
+2026-11-10,k1369848066,station,잠원,kakao
+2026-11-10,k1369848066,distance_m,153,kakao
+2026-11-10,k1369848066,map_url,https://map.naver.com/p/search/%EC%98%A4%EB%A6%AC%EC%A7%80%EB%84%90%ED%8C%AC%EC%BC%80%EC%9D%B4%ED%81%AC%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%9E%A0%EC%9B%90%ED%8C%8C%EC%8A%A4%ED%85%94%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1369848066,tier,1,kakao
+2026-11-10,k1724274031,name,오공김밥 잠원역점,kakao
+2026-11-10,k1724274031,category,식당,kakao
+2026-11-10,k1724274031,lat,37.51268267343734,kakao
+2026-11-10,k1724274031,lng,127.01154840383289,kakao
+2026-11-10,k1724274031,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k1724274031,station,잠원,kakao
+2026-11-10,k1724274031,distance_m,155,kakao
+2026-11-10,k1724274031,map_url,https://map.naver.com/p/search/%EC%98%A4%EA%B3%B5%EA%B9%80%EB%B0%A5%20%EC%9E%A0%EC%9B%90%EC%97%AD%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1724274031,tier,1,kakao
+2026-11-10,k2090510438,name,js가든 잠원점,kakao
+2026-11-10,k2090510438,category,식당,kakao
+2026-11-10,k2090510438,lat,37.5127467288248,kakao
+2026-11-10,k2090510438,lng,127.010653722693,kakao
+2026-11-10,k2090510438,address,서울 서초구 잠원로4길 33-2,kakao
+2026-11-10,k2090510438,station,잠원,kakao
+2026-11-10,k2090510438,distance_m,170,kakao
+2026-11-10,k2090510438,map_url,https://map.naver.com/p/search/js%EA%B0%80%EB%93%A0%20%EC%9E%A0%EC%9B%90%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k2090510438,tier,1,kakao
+2026-11-10,k1661187158,name,북촌손만두 잠원메이플자이점,kakao
+2026-11-10,k1661187158,category,식당,kakao
+2026-11-10,k1661187158,lat,37.5127781367296,kakao
+2026-11-10,k1661187158,lng,127.011981625622,kakao
+2026-11-10,k1661187158,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k1661187158,station,잠원,kakao
+2026-11-10,k1661187158,distance_m,175,kakao
+2026-11-10,k1661187158,map_url,https://map.naver.com/p/search/%EB%B6%81%EC%B4%8C%EC%86%90%EB%A7%8C%EB%91%90%20%EC%9E%A0%EC%9B%90%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9E%90%EC%9D%B4%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1661187158,tier,1,kakao
+2026-11-10,k663375570,name,파리바게뜨 잠원역메이플자이점,kakao
+2026-11-10,k663375570,category,식당,kakao
+2026-11-10,k663375570,lat,37.5127781367296,kakao
+2026-11-10,k663375570,lng,127.011981625622,kakao
+2026-11-10,k663375570,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k663375570,station,잠원,kakao
+2026-11-10,k663375570,distance_m,175,kakao
+2026-11-10,k663375570,map_url,https://map.naver.com/p/search/%ED%8C%8C%EB%A6%AC%EB%B0%94%EA%B2%8C%EB%9C%A8%20%EC%9E%A0%EC%9B%90%EC%97%AD%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9E%90%EC%9D%B4%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k663375570,tier,1,kakao
+2026-11-10,k1337651251,name,블랑제리 메이에르,kakao
+2026-11-10,k1337651251,category,식당,kakao
+2026-11-10,k1337651251,lat,37.5127781367296,kakao
+2026-11-10,k1337651251,lng,127.011981625622,kakao
+2026-11-10,k1337651251,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k1337651251,station,잠원,kakao
+2026-11-10,k1337651251,distance_m,175,kakao
+2026-11-10,k1337651251,map_url,https://map.naver.com/p/search/%EB%B8%94%EB%9E%91%EC%A0%9C%EB%A6%AC%20%EB%A9%94%EC%9D%B4%EC%97%90%EB%A5%B4%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1337651251,tier,1,kakao
+2026-11-10,k405543132,name,오마뎅 메이플자이점,kakao
+2026-11-10,k405543132,category,식당,kakao
+2026-11-10,k405543132,lat,37.5127781367296,kakao
+2026-11-10,k405543132,lng,127.011981625622,kakao
+2026-11-10,k405543132,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k405543132,station,잠원,kakao
+2026-11-10,k405543132,distance_m,175,kakao
+2026-11-10,k405543132,map_url,https://map.naver.com/p/search/%EC%98%A4%EB%A7%88%EB%8E%85%20%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9E%90%EC%9D%B4%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k405543132,tier,1,kakao
+2026-11-10,k1311904085,name,샐러링 잠원메이플자이점,kakao
+2026-11-10,k1311904085,category,식당,kakao
+2026-11-10,k1311904085,lat,37.5127781367296,kakao
+2026-11-10,k1311904085,lng,127.011981625622,kakao
+2026-11-10,k1311904085,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k1311904085,station,잠원,kakao
+2026-11-10,k1311904085,distance_m,175,kakao
+2026-11-10,k1311904085,map_url,https://map.naver.com/p/search/%EC%83%90%EB%9F%AC%EB%A7%81%20%EC%9E%A0%EC%9B%90%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9E%90%EC%9D%B4%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1311904085,tier,1,kakao
+2026-11-10,k710856069,name,방배김밥 메이플자이점,kakao
+2026-11-10,k710856069,category,식당,kakao
+2026-11-10,k710856069,lat,37.5127781367296,kakao
+2026-11-10,k710856069,lng,127.011981625622,kakao
+2026-11-10,k710856069,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k710856069,station,잠원,kakao
+2026-11-10,k710856069,distance_m,175,kakao
+2026-11-10,k710856069,map_url,https://map.naver.com/p/search/%EB%B0%A9%EB%B0%B0%EA%B9%80%EB%B0%A5%20%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9E%90%EC%9D%B4%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k710856069,tier,1,kakao
+2026-11-10,k204781080,name,카페데이지,kakao
+2026-11-10,k204781080,category,카페,kakao
+2026-11-10,k204781080,lat,37.5127781367296,kakao
+2026-11-10,k204781080,lng,127.011981625622,kakao
+2026-11-10,k204781080,address,서울 서초구 잠원로4길 50,kakao
+2026-11-10,k204781080,station,잠원,kakao
+2026-11-10,k204781080,distance_m,175,kakao
+2026-11-10,k204781080,map_url,https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EB%8D%B0%EC%9D%B4%EC%A7%80%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k204781080,tier,1,kakao
+2026-11-10,k13327654,name,킹콩,kakao
+2026-11-10,k13327654,category,카페,kakao
+2026-11-10,k13327654,lat,37.5127773694663,kakao
+2026-11-10,k13327654,lng,127.01058133735383,kakao
+2026-11-10,k13327654,address,서울 서초구 잠원로4길 33-2,kakao
+2026-11-10,k13327654,station,잠원,kakao
+2026-11-10,k13327654,distance_m,176,kakao
+2026-11-10,k13327654,map_url,https://map.naver.com/p/search/%ED%82%B9%EC%BD%A9%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k13327654,tier,1,kakao
+2026-11-10,k131905711,name,메가MGC커피 잠원역점,kakao
+2026-11-10,k131905711,category,카페,kakao
+2026-11-10,k131905711,lat,37.5128161056277,kakao
+2026-11-10,k131905711,lng,127.010659388002,kakao
+2026-11-10,k131905711,address,서울 서초구 잠원로4길 33-2,kakao
+2026-11-10,k131905711,station,잠원,kakao
+2026-11-10,k131905711,distance_m,177,kakao
+2026-11-10,k131905711,map_url,https://map.naver.com/p/search/%EB%A9%94%EA%B0%80MGC%EC%BB%A4%ED%94%BC%20%EC%9E%A0%EC%9B%90%EC%97%AD%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k131905711,tier,1,kakao
+2026-11-10,k13603010,name,에버그린카페 늘푸른교회점,kakao
+2026-11-10,k13603010,category,카페,kakao
+2026-11-10,k13603010,lat,37.5131927439557,kakao
+2026-11-10,k13603010,lng,127.010451320043,kakao
+2026-11-10,k13603010,address,서울 서초구 잠원로4길 33-6,kakao
+2026-11-10,k13603010,station,잠원,kakao
+2026-11-10,k13603010,distance_m,223,kakao
+2026-11-10,k13603010,map_url,https://map.naver.com/p/search/%EC%97%90%EB%B2%84%EA%B7%B8%EB%A6%B0%EC%B9%B4%ED%8E%98%20%EB%8A%98%ED%91%B8%EB%A5%B8%EA%B5%90%ED%9A%8C%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k13603010,tier,1,kakao
+2026-11-10,k8403571,name,스타벅스 반포역점,kakao
+2026-11-10,k8403571,category,카페,kakao
+2026-11-10,k8403571,lat,37.5087380227118,kakao
+2026-11-10,k8403571,lng,127.012079379276,kakao
+2026-11-10,k8403571,address,서울 서초구 신반포로 257,kakao
+2026-11-10,k8403571,station,잠원,kakao
+2026-11-10,k8403571,distance_m,293,kakao
+2026-11-10,k8403571,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EB%B0%98%ED%8F%AC%EC%97%AD%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k8403571,tier,1,kakao
+2026-11-10,k692177910,name,영국정원,kakao
+2026-11-10,k692177910,category,카페,kakao
+2026-11-10,k692177910,lat,37.514259406492954,kakao
+2026-11-10,k692177910,lng,127.01179183571978,kakao
+2026-11-10,k692177910,address,서울 서초구 잠원로8길 25,kakao
+2026-11-10,k692177910,station,잠원,kakao
+2026-11-10,k692177910,distance_m,331,kakao
+2026-11-10,k692177910,map_url,https://map.naver.com/p/search/%EC%98%81%EA%B5%AD%EC%A0%95%EC%9B%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k692177910,tier,1,kakao
+2026-11-10,k645416270,name,타스하우스,kakao
+2026-11-10,k645416270,category,카페,kakao
+2026-11-10,k645416270,lat,37.5144576610714,kakao
+2026-11-10,k645416270,lng,127.011449139271,kakao
+2026-11-10,k645416270,address,서울 서초구 잠원로8길 25,kakao
+2026-11-10,k645416270,station,잠원,kakao
+2026-11-10,k645416270,distance_m,351,kakao
+2026-11-10,k645416270,map_url,https://map.naver.com/p/search/%ED%83%80%EC%8A%A4%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k645416270,tier,1,kakao
+2026-11-10,k85087467,name,리틀플레이라운지,kakao
+2026-11-10,k85087467,category,카페,kakao
+2026-11-10,k85087467,lat,37.5144576610714,kakao
+2026-11-10,k85087467,lng,127.011449139271,kakao
+2026-11-10,k85087467,address,서울 서초구 잠원로8길 25,kakao
+2026-11-10,k85087467,station,잠원,kakao
+2026-11-10,k85087467,distance_m,351,kakao
+2026-11-10,k85087467,map_url,https://map.naver.com/p/search/%EB%A6%AC%ED%8B%80%ED%94%8C%EB%A0%88%EC%9D%B4%EB%9D%BC%EC%9A%B4%EC%A7%80%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k85087467,tier,1,kakao
+2026-11-10,k146235475,name,커스텀커피 잠원역점,kakao
+2026-11-10,k146235475,category,카페,kakao
+2026-11-10,k146235475,lat,37.5144576610714,kakao
+2026-11-10,k146235475,lng,127.011449139271,kakao
+2026-11-10,k146235475,address,서울 서초구 잠원로8길 25,kakao
+2026-11-10,k146235475,station,잠원,kakao
+2026-11-10,k146235475,distance_m,351,kakao
+2026-11-10,k146235475,map_url,https://map.naver.com/p/search/%EC%BB%A4%EC%8A%A4%ED%85%80%EC%BB%A4%ED%94%BC%20%EC%9E%A0%EC%9B%90%EC%97%AD%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k146235475,tier,1,kakao
+2026-11-10,k10536360,name,스타벅스 뉴코아강남점,kakao
+2026-11-10,k10536360,category,카페,kakao
+2026-11-10,k10536360,lat,37.5101007401074,kakao
+2026-11-10,k10536360,lng,127.007197993194,kakao
+2026-11-10,k10536360,address,서울 서초구 잠원로 69,kakao
+2026-11-10,k10536360,station,잠원,kakao
+2026-11-10,k10536360,distance_m,385,kakao
+2026-11-10,k10536360,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EB%89%B4%EC%BD%94%EC%95%84%EA%B0%95%EB%82%A8%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k10536360,tier,1,kakao
+2026-11-10,k555885513,name,더벤티 뉴코아강남점,kakao
+2026-11-10,k555885513,category,카페,kakao
+2026-11-10,k555885513,lat,37.5092483706434,kakao
+2026-11-10,k555885513,lng,127.007504422027,kakao
+2026-11-10,k555885513,address,서울 서초구 잠원로 51,kakao
+2026-11-10,k555885513,station,잠원,kakao
+2026-11-10,k555885513,distance_m,405,kakao
+2026-11-10,k555885513,map_url,https://map.naver.com/p/search/%EB%8D%94%EB%B2%A4%ED%8B%B0%20%EB%89%B4%EC%BD%94%EC%95%84%EA%B0%95%EB%82%A8%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k555885513,tier,1,kakao
+2026-11-10,k2047314871,name,백미당 뉴코아강남점,kakao
+2026-11-10,k2047314871,category,카페,kakao
+2026-11-10,k2047314871,lat,37.5101088636431,kakao
+2026-11-10,k2047314871,lng,127.006955949551,kakao
+2026-11-10,k2047314871,address,서울 서초구 잠원로 69,kakao
+2026-11-10,k2047314871,station,잠원,kakao
+2026-11-10,k2047314871,distance_m,405,kakao
+2026-11-10,k2047314871,map_url,https://map.naver.com/p/search/%EB%B0%B1%EB%AF%B8%EB%8B%B9%20%EB%89%B4%EC%BD%94%EC%95%84%EA%B0%95%EB%82%A8%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k2047314871,tier,1,kakao
+2026-11-10,k1000816026,name,카페마마스 강남뉴코아점,kakao
+2026-11-10,k1000816026,category,카페,kakao
+2026-11-10,k1000816026,lat,37.5102413156932,kakao
+2026-11-10,k1000816026,lng,127.006881312496,kakao
+2026-11-10,k1000816026,address,서울 서초구 잠원로 69,kakao
+2026-11-10,k1000816026,station,잠원,kakao
+2026-11-10,k1000816026,distance_m,407,kakao
+2026-11-10,k1000816026,map_url,https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EB%A7%88%EB%A7%88%EC%8A%A4%20%EA%B0%95%EB%82%A8%EB%89%B4%EC%BD%94%EC%95%84%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1000816026,tier,1,kakao
+2026-11-10,k27119527,name,더카페 강남뉴코아아울렛점,kakao
+2026-11-10,k27119527,category,카페,kakao
+2026-11-10,k27119527,lat,37.50925648240845,kakao
+2026-11-10,k27119527,lng,127.00746144347657,kakao
+2026-11-10,k27119527,address,서울 서초구 잠원로 51,kakao
+2026-11-10,k27119527,station,잠원,kakao
+2026-11-10,k27119527,distance_m,407,kakao
+2026-11-10,k27119527,map_url,https://map.naver.com/p/search/%EB%8D%94%EC%B9%B4%ED%8E%98%20%EA%B0%95%EB%82%A8%EB%89%B4%EC%BD%94%EC%95%84%EC%95%84%EC%9A%B8%EB%A0%9B%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k27119527,tier,1,kakao
+2026-11-10,k1278068970,name,스타벅스 뉴코아강남B1점,kakao
+2026-11-10,k1278068970,category,카페,kakao
+2026-11-10,k1278068970,lat,37.50923936473881,kakao
+2026-11-10,k1278068970,lng,127.00743882106094,kakao
+2026-11-10,k1278068970,address,서울 서초구 잠원로 51,kakao
+2026-11-10,k1278068970,station,잠원,kakao
+2026-11-10,k1278068970,distance_m,410,kakao
+2026-11-10,k1278068970,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EB%89%B4%EC%BD%94%EC%95%84%EA%B0%95%EB%82%A8B1%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1278068970,tier,1,kakao
+2026-11-10,k821773342,name,갈데포차,kakao
+2026-11-10,k821773342,category,술집,kakao
+2026-11-10,k821773342,lat,37.51328812022863,kakao
+2026-11-10,k821773342,lng,127.01183127128989,kakao
+2026-11-10,k821773342,address,서울 서초구 잠원로4길 45,kakao
+2026-11-10,k821773342,station,잠원,kakao
+2026-11-10,k821773342,distance_m,225,kakao
+2026-11-10,k821773342,map_url,https://map.naver.com/p/search/%EA%B0%88%EB%8D%B0%ED%8F%AC%EC%B0%A8%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k821773342,tier,1,kakao
+2026-11-10,k1176331672,name,이모네,kakao
+2026-11-10,k1176331672,category,술집,kakao
+2026-11-10,k1176331672,lat,37.5133512213707,kakao
+2026-11-10,k1176331672,lng,127.011519098305,kakao
+2026-11-10,k1176331672,address,서울 서초구 잠원로4길 45,kakao
+2026-11-10,k1176331672,station,잠원,kakao
+2026-11-10,k1176331672,distance_m,228,kakao
+2026-11-10,k1176331672,map_url,https://map.naver.com/p/search/%EC%9D%B4%EB%AA%A8%EB%84%A4%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1176331672,tier,1,kakao
+2026-11-10,k246208986,name,산카이 반포역점,kakao
+2026-11-10,k246208986,category,술집,kakao
+2026-11-10,k246208986,lat,37.5086200056872,kakao
+2026-11-10,k246208986,lng,127.011935719927,kakao
+2026-11-10,k246208986,address,서울 서초구 신반포로 257,kakao
+2026-11-10,k246208986,station,잠원,kakao
+2026-11-10,k246208986,distance_m,303,kakao
+2026-11-10,k246208986,map_url,https://map.naver.com/p/search/%EC%82%B0%EC%B9%B4%EC%9D%B4%20%EB%B0%98%ED%8F%AC%EC%97%AD%EC%A0%90%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k246208986,tier,1,kakao
+2026-11-10,k1027079534,name,오드,kakao
+2026-11-10,k1027079534,category,술집,kakao
+2026-11-10,k1027079534,lat,37.5116685017298,kakao
+2026-11-10,k1027079534,lng,127.016167546578,kakao
+2026-11-10,k1027079534,address,서울 서초구 강남대로95길 87,kakao
+2026-11-10,k1027079534,station,잠원,kakao
+2026-11-10,k1027079534,distance_m,431,kakao
+2026-11-10,k1027079534,map_url,https://map.naver.com/p/search/%EC%98%A4%EB%93%9C%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k1027079534,tier,1,kakao
+2026-11-10,k1169210286,name,탄주 고속터미널 2호점,kakao
+2026-11-10,k1169210286,category,술집,kakao
+2026-11-10,k1169210286,lat,37.507512097346,kakao
+2026-11-10,k1169210286,lng,127.008065228938,kakao
+2026-11-10,k1169210286,address,서울 서초구 신반포로 219,kakao
+2026-11-10,k1169210286,station,고속터미널,kakao
+2026-11-10,k1169210286,distance_m,402,kakao
+2026-11-10,k1169210286,map_url,https://map.naver.com/p/search/%ED%83%84%EC%A3%BC%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%202%ED%98%B8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1169210286,tier,1,kakao
+2026-11-10,k25740595,name,무학주류마켓,kakao
+2026-11-10,k25740595,category,술집,kakao
+2026-11-10,k25740595,lat,37.5141580040995,kakao
+2026-11-10,k25740595,lng,127.015962221609,kakao
+2026-11-10,k25740595,address,서울 서초구 나루터로10길 20,kakao
+2026-11-10,k25740595,station,신사,kakao
+2026-11-10,k25740595,distance_m,450,kakao
+2026-11-10,k25740595,map_url,https://map.naver.com/p/search/%EB%AC%B4%ED%95%99%EC%A3%BC%EB%A5%98%EB%A7%88%EC%BC%93%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k25740595,tier,1,kakao
+2026-11-10,k1523864197,name,릴리즈,kakao
+2026-11-10,k1523864197,category,술집,kakao
+2026-11-10,k1523864197,lat,37.5132783686668,kakao
+2026-11-10,k1523864197,lng,127.017752560067,kakao
+2026-11-10,k1523864197,address,서울 서초구 강남대로95길 42,kakao
+2026-11-10,k1523864197,station,신사,kakao
+2026-11-10,k1523864197,distance_m,404,kakao
+2026-11-10,k1523864197,map_url,https://map.naver.com/p/search/%EB%A6%B4%EB%A6%AC%EC%A6%88%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1523864197,tier,1,kakao
+2026-11-10,k1658162422,name,이자카야 천상 잠원직영점,kakao
+2026-11-10,k1658162422,category,술집,kakao
+2026-11-10,k1658162422,lat,37.51239530633,kakao
+2026-11-10,k1658162422,lng,127.018265862681,kakao
+2026-11-10,k1658162422,address,서울 서초구 신반포로47길 47,kakao
+2026-11-10,k1658162422,station,신사,kakao
+2026-11-10,k1658162422,distance_m,469,kakao
+2026-11-10,k1658162422,map_url,https://map.naver.com/p/search/%EC%9D%B4%EC%9E%90%EC%B9%B4%EC%95%BC%20%EC%B2%9C%EC%83%81%20%EC%9E%A0%EC%9B%90%EC%A7%81%EC%98%81%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k1658162422,tier,1,kakao
+2026-11-10,k342423225,name,노가리학교,kakao
+2026-11-10,k342423225,category,술집,kakao
+2026-11-10,k342423225,lat,37.5128529997793,kakao
+2026-11-10,k342423225,lng,127.018373427782,kakao
+2026-11-10,k342423225,address,서울 서초구 신반포로47길 56,kakao
+2026-11-10,k342423225,station,신사,kakao
+2026-11-10,k342423225,distance_m,419,kakao
+2026-11-10,k342423225,map_url,https://map.naver.com/p/search/%EB%85%B8%EA%B0%80%EB%A6%AC%ED%95%99%EA%B5%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k342423225,tier,1,kakao
+2026-11-10,k16474216,name,아리수포차,kakao
+2026-11-10,k16474216,category,술집,kakao
+2026-11-10,k16474216,lat,37.5069319566879,kakao
+2026-11-10,k16474216,lng,127.00631437732731,kakao
+2026-11-10,k16474216,address,서울 서초구 신반포로 205,kakao
+2026-11-10,k16474216,station,고속터미널,kakao
+2026-11-10,k16474216,distance_m,258,kakao
+2026-11-10,k16474216,map_url,https://map.naver.com/p/search/%EC%95%84%EB%A6%AC%EC%88%98%ED%8F%AC%EC%B0%A8%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k16474216,tier,1,kakao
+2026-11-10,k692530578,name,대왕,kakao
+2026-11-10,k692530578,category,술집,kakao
+2026-11-10,k692530578,lat,37.5137233826795,kakao
+2026-11-10,k692530578,lng,127.018289939512,kakao
+2026-11-10,k692530578,address,서울 서초구 강남대로95길 28,kakao
+2026-11-10,k692530578,station,신사,kakao
+2026-11-10,k692530578,distance_m,336,kakao
+2026-11-10,k692530578,map_url,https://map.naver.com/p/search/%EB%8C%80%EC%99%95%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k692530578,tier,1,kakao
+2026-11-10,k364941407,name,챕터원 파운드로컬지점,kakao
+2026-11-10,k364941407,category,술집,kakao
+2026-11-10,k364941407,lat,37.5155553334805,kakao
+2026-11-10,k364941407,lng,127.016879866372,kakao
+2026-11-10,k364941407,address,서울 서초구 나루터로 65,kakao
+2026-11-10,k364941407,station,신사,kakao
+2026-11-10,k364941407,distance_m,312,kakao
+2026-11-10,k364941407,map_url,https://map.naver.com/p/search/%EC%B1%95%ED%84%B0%EC%9B%90%20%ED%8C%8C%EC%9A%B4%EB%93%9C%EB%A1%9C%EC%BB%AC%EC%A7%80%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k364941407,tier,1,kakao
+2026-11-10,k17100830,name,펀비어킹 서초고속터미널점,kakao
+2026-11-10,k17100830,category,술집,kakao
+2026-11-10,k17100830,lat,37.50607416178623,kakao
+2026-11-10,k17100830,lng,127.00698950481421,kakao
+2026-11-10,k17100830,address,서울 서초구 신반포로 194,kakao
+2026-11-10,k17100830,station,고속터미널,kakao
+2026-11-10,k17100830,distance_m,225,kakao
+2026-11-10,k17100830,map_url,https://map.naver.com/p/search/%ED%8E%80%EB%B9%84%EC%96%B4%ED%82%B9%20%EC%84%9C%EC%B4%88%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k17100830,tier,1,kakao
+2026-11-10,k60069753,name,남도막걸리,kakao
+2026-11-10,k60069753,category,술집,kakao
+2026-11-10,k60069753,lat,37.50942910848337,kakao
+2026-11-10,k60069753,lng,127.01884649362952,kakao
+2026-11-10,k60069753,address,서울 서초구 주흥16길 3,kakao
+2026-11-10,k60069753,station,잠원,kakao
+2026-11-10,k60069753,distance_m,697,kakao
+2026-11-10,k60069753,map_url,https://map.naver.com/p/search/%EB%82%A8%EB%8F%84%EB%A7%89%EA%B1%B8%EB%A6%AC%20%EC%9E%A0%EC%9B%90,kakao
+2026-11-10,k60069753,tier,1,kakao
+2026-11-10,k996530960,name,울리불리 논현점,kakao
+2026-11-10,k996530960,category,술집,kakao
+2026-11-10,k996530960,lat,37.511407655111974,kakao
+2026-11-10,k996530960,lng,127.01921458829298,kakao
+2026-11-10,k996530960,address,서울 서초구 신반포로47길 17,kakao
+2026-11-10,k996530960,station,신사,kakao
+2026-11-10,k996530960,distance_m,552,kakao
+2026-11-10,k996530960,map_url,https://map.naver.com/p/search/%EC%9A%B8%EB%A6%AC%EB%B6%88%EB%A6%AC%20%EB%85%BC%ED%98%84%EC%A0%90%20%EC%8B%A0%EC%82%AC,kakao
+2026-11-10,k996530960,tier,1,kakao
+2026-11-10,k984675354,name,육회바른연어 고속터미널역9호선점,kakao
+2026-11-10,k984675354,category,식당,kakao
+2026-11-10,k984675354,lat,37.5049182753905,kakao
+2026-11-10,k984675354,lng,127.004942340636,kakao
+2026-11-10,k984675354,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k984675354,station,고속터미널,kakao
+2026-11-10,k984675354,distance_m,4,kakao
+2026-11-10,k984675354,map_url,https://map.naver.com/p/search/%EC%9C%A1%ED%9A%8C%EB%B0%94%EB%A5%B8%EC%97%B0%EC%96%B4%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%AD9%ED%98%B8%EC%84%A0%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k984675354,tier,1,kakao
+2026-11-10,k369757630,name,로드샌드위치 강남고속버스터미널역점,kakao
+2026-11-10,k369757630,category,식당,kakao
+2026-11-10,k369757630,lat,37.5049263841073,kakao
+2026-11-10,k369757630,lng,127.004950257964,kakao
+2026-11-10,k369757630,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k369757630,station,고속터미널,kakao
+2026-11-10,k369757630,distance_m,5,kakao
+2026-11-10,k369757630,map_url,https://map.naver.com/p/search/%EB%A1%9C%EB%93%9C%EC%83%8C%EB%93%9C%EC%9C%84%EC%B9%98%20%EA%B0%95%EB%82%A8%EA%B3%A0%EC%86%8D%EB%B2%84%EC%8A%A4%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%AD%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k369757630,tier,1,kakao
+2026-11-10,k1055697976,name,참진돈까스&보리밥 고속터미널역,kakao
+2026-11-10,k1055697976,category,식당,kakao
+2026-11-10,k1055697976,lat,37.5049263841073,kakao
+2026-11-10,k1055697976,lng,127.004950257964,kakao
+2026-11-10,k1055697976,address,서울 서초구 반포동 19-11,kakao
+2026-11-10,k1055697976,station,고속터미널,kakao
+2026-11-10,k1055697976,distance_m,5,kakao
+2026-11-10,k1055697976,map_url,https://map.naver.com/p/search/%EC%B0%B8%EC%A7%84%EB%8F%88%EA%B9%8C%EC%8A%A4%26%EB%B3%B4%EB%A6%AC%EB%B0%A5%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%AD%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1055697976,tier,1,kakao
+2026-11-10,k454206061,name,달가마,kakao
+2026-11-10,k454206061,category,식당,kakao
+2026-11-10,k454206061,lat,37.50492638410732,kakao
+2026-11-10,k454206061,lng,127.004950257964,kakao
+2026-11-10,k454206061,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k454206061,station,고속터미널,kakao
+2026-11-10,k454206061,distance_m,5,kakao
+2026-11-10,k454206061,map_url,https://map.naver.com/p/search/%EB%8B%AC%EA%B0%80%EB%A7%88%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k454206061,tier,1,kakao
+2026-11-10,k82739419,name,브레댄코 고속터미널점,kakao
+2026-11-10,k82739419,category,식당,kakao
+2026-11-10,k82739419,lat,37.50484619591165,kakao
+2026-11-10,k82739419,lng,127.00491971649808,kakao
+2026-11-10,k82739419,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k82739419,station,고속터미널,kakao
+2026-11-10,k82739419,distance_m,6,kakao
+2026-11-10,k82739419,map_url,https://map.naver.com/p/search/%EB%B8%8C%EB%A0%88%EB%8C%84%EC%BD%94%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k82739419,tier,1,kakao
+2026-11-10,k1991655640,name,더베이크 고속터미널역점,kakao
+2026-11-10,k1991655640,category,식당,kakao
+2026-11-10,k1991655640,lat,37.5051165012534,kakao
+2026-11-10,k1991655640,lng,127.004829256365,kakao
+2026-11-10,k1991655640,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k1991655640,station,고속터미널,kakao
+2026-11-10,k1991655640,distance_m,24,kakao
+2026-11-10,k1991655640,map_url,https://map.naver.com/p/search/%EB%8D%94%EB%B2%A0%EC%9D%B4%ED%81%AC%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%AD%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1991655640,tier,1,kakao
+2026-11-10,k811194189,name,베키아에누보 가스트로 신세계백화점강남점,kakao
+2026-11-10,k811194189,category,식당,kakao
+2026-11-10,k811194189,lat,37.5046479848177,kakao
+2026-11-10,k811194189,lng,127.004670890901,kakao
+2026-11-10,k811194189,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k811194189,station,고속터미널,kakao
+2026-11-10,k811194189,distance_m,34,kakao
+2026-11-10,k811194189,map_url,https://map.naver.com/p/search/%EB%B2%A0%ED%82%A4%EC%95%84%EC%97%90%EB%88%84%EB%B3%B4%20%EA%B0%80%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k811194189,tier,1,kakao
+2026-11-10,k912133469,name,샤브보트 강남센트럴시티점,kakao
+2026-11-10,k912133469,category,식당,kakao
+2026-11-10,k912133469,lat,37.50463446866011,kakao
+2026-11-10,k912133469,lng,127.00469803324597,kakao
+2026-11-10,k912133469,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k912133469,station,고속터미널,kakao
+2026-11-10,k912133469,distance_m,34,kakao
+2026-11-10,k912133469,map_url,https://map.naver.com/p/search/%EC%83%A4%EB%B8%8C%EB%B3%B4%ED%8A%B8%20%EA%B0%95%EB%82%A8%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k912133469,tier,1,kakao
+2026-11-10,k984019225,name,오목집 신세계백화점 강남점,kakao
+2026-11-10,k984019225,category,식당,kakao
+2026-11-10,k984019225,lat,37.5051102068673,kakao
+2026-11-10,k984019225,lng,127.004509190518,kakao
+2026-11-10,k984019225,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k984019225,station,고속터미널,kakao
+2026-11-10,k984019225,distance_m,41,kakao
+2026-11-10,k984019225,map_url,https://map.naver.com/p/search/%EC%98%A4%EB%AA%A9%EC%A7%91%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%20%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k984019225,tier,1,kakao
+2026-11-10,k1536145035,name,101번지 남산돈까스 센트럴시티터미널(호남),kakao
+2026-11-10,k1536145035,category,식당,kakao
+2026-11-10,k1536145035,lat,37.5045398610558,kakao
+2026-11-10,k1536145035,lng,127.004748920729,kakao
+2026-11-10,k1536145035,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1536145035,station,고속터미널,kakao
+2026-11-10,k1536145035,distance_m,42,kakao
+2026-11-10,k1536145035,map_url,https://map.naver.com/p/search/101%EB%B2%88%EC%A7%80%20%EB%82%A8%EC%82%B0%EB%8F%88%EA%B9%8C%EC%8A%A4%20%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0%ED%84%B0%EB%AF%B8%EB%84%90%28%ED%98%B8%EB%82%A8%29%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1536145035,tier,1,kakao
+2026-11-10,k14515990,name,오니기리와이규동 고속터미널1호점,kakao
+2026-11-10,k14515990,category,식당,kakao
+2026-11-10,k14515990,lat,37.504963305348014,kakao
+2026-11-10,k14515990,lng,127.0054060417453,kakao
+2026-11-10,k14515990,address,서울 서초구 신반포로 194,kakao
+2026-11-10,k14515990,station,고속터미널,kakao
+2026-11-10,k14515990,distance_m,45,kakao
+2026-11-10,k14515990,map_url,https://map.naver.com/p/search/%EC%98%A4%EB%8B%88%EA%B8%B0%EB%A6%AC%EC%99%80%EC%9D%B4%EA%B7%9C%EB%8F%99%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%901%ED%98%B8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k14515990,tier,1,kakao
+2026-11-10,k1137369879,name,삼송빵집 고속터미널점,kakao
+2026-11-10,k1137369879,category,식당,kakao
+2026-11-10,k1137369879,lat,37.50479215597637,kakao
+2026-11-10,k1137369879,lng,127.00440286035015,kakao
+2026-11-10,k1137369879,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1137369879,station,고속터미널,kakao
+2026-11-10,k1137369879,distance_m,45,kakao
+2026-11-10,k1137369879,map_url,https://map.naver.com/p/search/%EC%82%BC%EC%86%A1%EB%B9%B5%EC%A7%91%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1137369879,tier,1,kakao
+2026-11-10,k2121902972,name,라플 신세계강남점,kakao
+2026-11-10,k2121902972,category,식당,kakao
+2026-11-10,k2121902972,lat,37.505057952687,kakao
+2026-11-10,k2121902972,lng,127.004399483042,kakao
+2026-11-10,k2121902972,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k2121902972,station,고속터미널,kakao
+2026-11-10,k2121902972,distance_m,47,kakao
+2026-11-10,k2121902972,map_url,https://map.naver.com/p/search/%EB%9D%BC%ED%94%8C%20%EC%8B%A0%EC%84%B8%EA%B3%84%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k2121902972,tier,1,kakao
+2026-11-10,k1595025710,name,마망갸또 신세계백화점강남점,kakao
+2026-11-10,k1595025710,category,식당,kakao
+2026-11-10,k1595025710,lat,37.505112012036,kakao
+2026-11-10,k1595025710,lng,127.004425498601,kakao
+2026-11-10,k1595025710,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1595025710,station,고속터미널,kakao
+2026-11-10,k1595025710,distance_m,48,kakao
+2026-11-10,k1595025710,map_url,https://map.naver.com/p/search/%EB%A7%88%EB%A7%9D%EA%B0%B8%EB%98%90%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1595025710,tier,1,kakao
+2026-11-10,k892504542,name,아리키친 신세계백화점 강남점,kakao
+2026-11-10,k892504542,category,식당,kakao
+2026-11-10,k892504542,lat,37.5050489432641,kakao
+2026-11-10,k892504542,lng,127.004382517928,kakao
+2026-11-10,k892504542,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k892504542,station,고속터미널,kakao
+2026-11-10,k892504542,distance_m,48,kakao
+2026-11-10,k892504542,map_url,https://map.naver.com/p/search/%EC%95%84%EB%A6%AC%ED%82%A4%EC%B9%9C%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%20%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k892504542,tier,1,kakao
+2026-11-10,k1722356687,name,텐퍼센트커피 고속터미널역점,kakao
+2026-11-10,k1722356687,category,카페,kakao
+2026-11-10,k1722356687,lat,37.5049263841073,kakao
+2026-11-10,k1722356687,lng,127.004950257964,kakao
+2026-11-10,k1722356687,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k1722356687,station,고속터미널,kakao
+2026-11-10,k1722356687,distance_m,5,kakao
+2026-11-10,k1722356687,map_url,https://map.naver.com/p/search/%ED%85%90%ED%8D%BC%EC%84%BC%ED%8A%B8%EC%BB%A4%ED%94%BC%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%AD%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1722356687,tier,1,kakao
+2026-11-10,k750895069,name,빽다방 고속터미널지하점,kakao
+2026-11-10,k750895069,category,카페,kakao
+2026-11-10,k750895069,lat,37.50492097756015,kakao
+2026-11-10,k750895069,lng,127.00496269828186,kakao
+2026-11-10,k750895069,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k750895069,station,고속터미널,kakao
+2026-11-10,k750895069,distance_m,6,kakao
+2026-11-10,k750895069,map_url,https://map.naver.com/p/search/%EB%B9%BD%EB%8B%A4%EB%B0%A9%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A7%80%ED%95%98%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k750895069,tier,1,kakao
+2026-11-10,k628585618,name,스누피플레이스 신세계백화점 강남점,kakao
+2026-11-10,k628585618,category,카페,kakao
+2026-11-10,k628585618,lat,37.50479936099928,kakao
+2026-11-10,k628585618,lng,127.00448315954408,kakao
+2026-11-10,k628585618,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k628585618,station,고속터미널,kakao
+2026-11-10,k628585618,distance_m,38,kakao
+2026-11-10,k628585618,map_url,https://map.naver.com/p/search/%EC%8A%A4%EB%88%84%ED%94%BC%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%20%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k628585618,tier,1,kakao
+2026-11-10,k1066494582,name,델리에또,kakao
+2026-11-10,k1066494582,category,카페,kakao
+2026-11-10,k1066494582,lat,37.50461735197031,kakao
+2026-11-10,k1066494582,lng,127.00463696001712,kakao
+2026-11-10,k1066494582,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1066494582,station,고속터미널,kakao
+2026-11-10,k1066494582,distance_m,39,kakao
+2026-11-10,k1066494582,map_url,https://map.naver.com/p/search/%EB%8D%B8%EB%A6%AC%EC%97%90%EB%98%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1066494582,tier,1,kakao
+2026-11-10,k487123572,name,온고지신 센트럴시티점,kakao
+2026-11-10,k487123572,category,카페,kakao
+2026-11-10,k487123572,lat,37.50462816711641,kakao
+2026-11-10,k487123572,lng,127.00455779306458,kakao
+2026-11-10,k487123572,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k487123572,station,고속터미널,kakao
+2026-11-10,k487123572,distance_m,42,kakao
+2026-11-10,k487123572,map_url,https://map.naver.com/p/search/%EC%98%A8%EA%B3%A0%EC%A7%80%EC%8B%A0%20%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k487123572,tier,1,kakao
+2026-11-10,k1591066580,name,스타벅스 센트럴F1점,kakao
+2026-11-10,k1591066580,category,카페,kakao
+2026-11-10,k1591066580,lat,37.50464799006265,kakao
+2026-11-10,k1591066580,lng,127.0045363059096,kakao
+2026-11-10,k1591066580,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1591066580,station,고속터미널,kakao
+2026-11-10,k1591066580,distance_m,42,kakao
+2026-11-10,k1591066580,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EC%84%BC%ED%8A%B8%EB%9F%B4F1%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1591066580,tier,1,kakao
+2026-11-10,k568532262,name,앨리스1871 신세계백화점 강남점,kakao
+2026-11-10,k568532262,category,카페,kakao
+2026-11-10,k568532262,lat,37.505098499395174,kakao
+2026-11-10,k568532262,lng,127.00435990136219,kakao
+2026-11-10,k568532262,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k568532262,station,고속터미널,kakao
+2026-11-10,k568532262,distance_m,52,kakao
+2026-11-10,k568532262,map_url,https://map.naver.com/p/search/%EC%95%A8%EB%A6%AC%EC%8A%A41871%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%20%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k568532262,tier,1,kakao
+2026-11-10,k2056467784,name,이디야커피 강남센트럴시티점,kakao
+2026-11-10,k2056467784,category,카페,kakao
+2026-11-10,k2056467784,lat,37.504972361753,kakao
+2026-11-10,k2056467784,lng,127.004275071186,kakao
+2026-11-10,k2056467784,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k2056467784,station,고속터미널,kakao
+2026-11-10,k2056467784,distance_m,55,kakao
+2026-11-10,k2056467784,map_url,https://map.naver.com/p/search/%EC%9D%B4%EB%94%94%EC%95%BC%EC%BB%A4%ED%94%BC%20%EA%B0%95%EB%82%A8%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k2056467784,tier,1,kakao
+2026-11-10,k1855763350,name,커피스니퍼 신세계백화점 강남점,kakao
+2026-11-10,k1855763350,category,카페,kakao
+2026-11-10,k1855763350,lat,37.504708365729485,kakao
+2026-11-10,k1855763350,lng,127.00431463998554,kakao
+2026-11-10,k1855763350,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1855763350,station,고속터미널,kakao
+2026-11-10,k1855763350,distance_m,55,kakao
+2026-11-10,k1855763350,map_url,https://map.naver.com/p/search/%EC%BB%A4%ED%94%BC%EC%8A%A4%EB%8B%88%ED%8D%BC%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%20%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1855763350,tier,1,kakao
+2026-11-10,k651681065,name,오크베리 아사이 신세계백화점강남점,kakao
+2026-11-10,k651681065,category,카페,kakao
+2026-11-10,k651681065,lat,37.5051039084046,kakao
+2026-11-10,k651681065,lng,127.004278471607,kakao
+2026-11-10,k651681065,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k651681065,station,고속터미널,kakao
+2026-11-10,k651681065,distance_m,59,kakao
+2026-11-10,k651681065,map_url,https://map.naver.com/p/search/%EC%98%A4%ED%81%AC%EB%B2%A0%EB%A6%AC%20%EC%95%84%EC%82%AC%EC%9D%B4%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k651681065,tier,1,kakao
+2026-11-10,k345298143,name,호라이즌,kakao
+2026-11-10,k345298143,category,카페,kakao
+2026-11-10,k345298143,lat,37.5050066013826,kakao
+2026-11-10,k345298143,lng,127.004235489128,kakao
+2026-11-10,k345298143,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k345298143,station,고속터미널,kakao
+2026-11-10,k345298143,distance_m,59,kakao
+2026-11-10,k345298143,map_url,https://map.naver.com/p/search/%ED%98%B8%EB%9D%BC%EC%9D%B4%EC%A6%8C%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k345298143,tier,1,kakao
+2026-11-10,k306744050,name,한정선 신세계백화점 강남점,kakao
+2026-11-10,k306744050,category,카페,kakao
+2026-11-10,k306744050,lat,37.5052381552288,kakao
+2026-11-10,k306744050,lng,127.004359909484,kakao
+2026-11-10,k306744050,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k306744050,station,고속터미널,kakao
+2026-11-10,k306744050,distance_m,60,kakao
+2026-11-10,k306744050,map_url,https://map.naver.com/p/search/%ED%95%9C%EC%A0%95%EC%84%A0%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%20%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k306744050,tier,1,kakao
+2026-11-10,k1402628577,name,아메리칸트레일러 고속버스터미널점,kakao
+2026-11-10,k1402628577,category,카페,kakao
+2026-11-10,k1402628577,lat,37.50470290807868,kakao
+2026-11-10,k1402628577,lng,127.00555078676386,kakao
+2026-11-10,k1402628577,address,서울 서초구 신반포로 194,kakao
+2026-11-10,k1402628577,station,고속터미널,kakao
+2026-11-10,k1402628577,distance_m,61,kakao
+2026-11-10,k1402628577,map_url,https://map.naver.com/p/search/%EC%95%84%EB%A9%94%EB%A6%AC%EC%B9%B8%ED%8A%B8%EB%A0%88%EC%9D%BC%EB%9F%AC%20%EA%B3%A0%EC%86%8D%EB%B2%84%EC%8A%A4%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1402628577,tier,1,kakao
+2026-11-10,k943320856,name,제주스 신세계백화점고속터미널점,kakao
+2026-11-10,k943320856,category,카페,kakao
+2026-11-10,k943320856,lat,37.50441372847699,kakao
+2026-11-10,k943320856,lng,127.00454081558671,kakao
+2026-11-10,k943320856,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k943320856,station,고속터미널,kakao
+2026-11-10,k943320856,distance_m,62,kakao
+2026-11-10,k943320856,map_url,https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%A4%20%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k943320856,tier,1,kakao
+2026-11-10,k1307875733,name,공차 엔터식스강남점,kakao
+2026-11-10,k1307875733,category,카페,kakao
+2026-11-10,k1307875733,lat,37.5054480761398,kakao
+2026-11-10,k1307875733,lng,127.004707132057,kakao
+2026-11-10,k1307875733,address,서울 서초구 신반포로 지하 188,kakao
+2026-11-10,k1307875733,station,고속터미널,kakao
+2026-11-10,k1307875733,distance_m,63,kakao
+2026-11-10,k1307875733,map_url,https://map.naver.com/p/search/%EA%B3%B5%EC%B0%A8%20%EC%97%94%ED%84%B0%EC%8B%9D%EC%8A%A4%EA%B0%95%EB%82%A8%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1307875733,tier,1,kakao
+2026-11-10,k1627094944,name,슈퍼스타 바이 폴스타,kakao
+2026-11-10,k1627094944,category,술집,kakao
+2026-11-10,k1627094944,lat,37.5051075163884,kakao
+2026-11-10,k1627094944,lng,127.004167636434,kakao
+2026-11-10,k1627094944,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1627094944,station,고속터미널,kakao
+2026-11-10,k1627094944,distance_m,68,kakao
+2026-11-10,k1627094944,map_url,https://map.naver.com/p/search/%EC%8A%88%ED%8D%BC%EC%8A%A4%ED%83%80%20%EB%B0%94%EC%9D%B4%20%ED%8F%B4%EC%8A%A4%ED%83%80%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1627094944,tier,1,kakao
+2026-11-10,k1921237370,name,JW메리어트호텔서울 모보바,kakao
+2026-11-10,k1921237370,category,술집,kakao
+2026-11-10,k1921237370,lat,37.504008270499675,kakao
+2026-11-10,k1921237370,lng,127.00468216061404,kakao
+2026-11-10,k1921237370,address,서울 서초구 신반포로 176,kakao
+2026-11-10,k1921237370,station,고속터미널,kakao
+2026-11-10,k1921237370,distance_m,101,kakao
+2026-11-10,k1921237370,map_url,https://map.naver.com/p/search/JW%EB%A9%94%EB%A6%AC%EC%96%B4%ED%8A%B8%ED%98%B8%ED%85%94%EC%84%9C%EC%9A%B8%20%EB%AA%A8%EB%B3%B4%EB%B0%94%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1921237370,tier,1,kakao
+2026-11-10,k18629885,name,담은,kakao
+2026-11-10,k18629885,category,술집,kakao
+2026-11-10,k18629885,lat,37.5065256712987,kakao
+2026-11-10,k18629885,lng,127.004881372892,kakao
+2026-11-10,k18629885,address,서울 서초구 신반포로 189,kakao
+2026-11-10,k18629885,station,고속터미널,kakao
+2026-11-10,k18629885,distance_m,180,kakao
+2026-11-10,k18629885,map_url,https://map.naver.com/p/search/%EB%8B%B4%EC%9D%80%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k18629885,tier,1,kakao
+2026-11-10,k16326700,name,하얀집호프,kakao
+2026-11-10,k16326700,category,술집,kakao
+2026-11-10,k16326700,lat,37.5065436919612,kakao
+2026-11-10,k16326700,lng,127.004867802126,kakao
+2026-11-10,k16326700,address,서울 서초구 신반포로 189,kakao
+2026-11-10,k16326700,station,고속터미널,kakao
+2026-11-10,k16326700,distance_m,182,kakao
+2026-11-10,k16326700,map_url,https://map.naver.com/p/search/%ED%95%98%EC%96%80%EC%A7%91%ED%98%B8%ED%94%84%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k16326700,tier,1,kakao
+2026-11-10,k883056783,name,명불허전원조골뱅이,kakao
+2026-11-10,k883056783,category,술집,kakao
+2026-11-10,k883056783,lat,37.50610044860171,kakao
+2026-11-10,k883056783,lng,127.00340653655219,kakao
+2026-11-10,k883056783,address,서울 서초구 신반포로 177,kakao
+2026-11-10,k883056783,station,고속터미널,kakao
+2026-11-10,k883056783,distance_m,187,kakao
+2026-11-10,k883056783,map_url,https://map.naver.com/p/search/%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%9B%90%EC%A1%B0%EA%B3%A8%EB%B1%85%EC%9D%B4%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k883056783,tier,1,kakao
+2026-11-10,k13724756,name,하트타임,kakao
+2026-11-10,k13724756,category,술집,kakao
+2026-11-10,k13724756,lat,37.5066589980308,kakao
+2026-11-10,k13724756,lng,127.005388068075,kakao
+2026-11-10,k13724756,address,서울 서초구 신반포로 195,kakao
+2026-11-10,k13724756,station,고속터미널,kakao
+2026-11-10,k13724756,distance_m,200,kakao
+2026-11-10,k13724756,map_url,https://map.naver.com/p/search/%ED%95%98%ED%8A%B8%ED%83%80%EC%9E%84%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k13724756,tier,1,kakao
+2026-11-10,k1044782199,name,블루호프,kakao
+2026-11-10,k1044782199,category,술집,kakao
+2026-11-10,k1044782199,lat,37.5067076449777,kakao
+2026-11-10,k1044782199,lng,127.005546411206,kakao
+2026-11-10,k1044782199,address,서울 서초구 신반포로 195,kakao
+2026-11-10,k1044782199,station,고속터미널,kakao
+2026-11-10,k1044782199,distance_m,208,kakao
+2026-11-10,k1044782199,map_url,https://map.naver.com/p/search/%EB%B8%94%EB%A3%A8%ED%98%B8%ED%94%84%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1044782199,tier,1,kakao
+2026-11-10,k19592698,name,터미날포차,kakao
+2026-11-10,k19592698,category,술집,kakao
+2026-11-10,k19592698,lat,37.5067418844426,kakao
+2026-11-10,k19592698,lng,127.00551926979,kakao
+2026-11-10,k19592698,address,서울 서초구 신반포로 195,kakao
+2026-11-10,k19592698,station,고속터미널,kakao
+2026-11-10,k19592698,distance_m,211,kakao
+2026-11-10,k19592698,map_url,https://map.naver.com/p/search/%ED%84%B0%EB%AF%B8%EB%82%A0%ED%8F%AC%EC%B0%A8%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k19592698,tier,1,kakao
+2026-11-10,k942652842,name,탄주 고속터미널점,kakao
+2026-11-10,k942652842,category,술집,kakao
+2026-11-10,k942652842,lat,37.5057247585774,kakao
+2026-11-10,k942652842,lng,127.002171486522,kakao
+2026-11-10,k942652842,address,서울 서초구 신반포로 165,kakao
+2026-11-10,k942652842,station,고속터미널,kakao
+2026-11-10,k942652842,distance_m,257,kakao
+2026-11-10,k942652842,map_url,https://map.naver.com/p/search/%ED%83%84%EC%A3%BC%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k942652842,tier,1,kakao
+2026-11-10,k1650250925,name,술먹는하시무,kakao
+2026-11-10,k1650250925,category,술집,kakao
+2026-11-10,k1650250925,lat,37.5056896206075,kakao
+2026-11-10,k1650250925,lng,127.002103626582,kakao
+2026-11-10,k1650250925,address,서울 서초구 신반포로 165,kakao
+2026-11-10,k1650250925,station,고속터미널,kakao
+2026-11-10,k1650250925,distance_m,261,kakao
+2026-11-10,k1650250925,map_url,https://map.naver.com/p/search/%EC%88%A0%EB%A8%B9%EB%8A%94%ED%95%98%EC%8B%9C%EB%AC%B4%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k1650250925,tier,1,kakao
+2026-11-10,k26330704,name,데블스도어 센트럴시티점,kakao
+2026-11-10,k26330704,category,술집,kakao
+2026-11-10,k26330704,lat,37.504938763158854,kakao
+2026-11-10,k26330704,lng,127.00894597828004,kakao
+2026-11-10,k26330704,address,서울 서초구 사평대로 205,kakao
+2026-11-10,k26330704,station,고속터미널,kakao
+2026-11-10,k26330704,distance_m,356,kakao
+2026-11-10,k26330704,map_url,https://map.naver.com/p/search/%EB%8D%B0%EB%B8%94%EC%8A%A4%EB%8F%84%EC%96%B4%20%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k26330704,tier,1,kakao
+2026-11-10,k19091206,name,천지 이자까야,kakao
+2026-11-10,k19091206,category,술집,kakao
+2026-11-10,k19091206,lat,37.5087890425333,kakao
+2026-11-10,k19091206,lng,127.003574050989,kakao
+2026-11-10,k19091206,address,서울 서초구 신반포로23길 30,kakao
+2026-11-10,k19091206,station,고속터미널,kakao
+2026-11-10,k19091206,distance_m,447,kakao
+2026-11-10,k19091206,map_url,https://map.naver.com/p/search/%EC%B2%9C%EC%A7%80%20%EC%9D%B4%EC%9E%90%EA%B9%8C%EC%95%BC%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao
+2026-11-10,k19091206,tier,1,kakao
+2026-11-10,k8770376,name,교대복집,kakao
+2026-11-10,k8770376,category,식당,kakao
+2026-11-10,k8770376,lat,37.493477401173706,kakao
+2026-11-10,k8770376,lng,127.01459294633956,kakao
+2026-11-10,k8770376,address,서울 서초구 서초대로52길 7,kakao
+2026-11-10,k8770376,station,교대,kakao
+2026-11-10,k8770376,distance_m,8,kakao
+2026-11-10,k8770376,map_url,https://map.naver.com/p/search/%EA%B5%90%EB%8C%80%EB%B3%B5%EC%A7%91%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k8770376,tier,1,kakao
+2026-11-10,k1252347522,name,불이아 교대점,kakao
+2026-11-10,k1252347522,category,식당,kakao
+2026-11-10,k1252347522,lat,37.4935107284916,kakao
+2026-11-10,k1252347522,lng,127.014673239507,kakao
+2026-11-10,k1252347522,address,서울 서초구 서초대로52길 7,kakao
+2026-11-10,k1252347522,station,교대,kakao
+2026-11-10,k1252347522,distance_m,13,kakao
+2026-11-10,k1252347522,map_url,https://map.naver.com/p/search/%EB%B6%88%EC%9D%B4%EC%95%84%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1252347522,tier,1,kakao
+2026-11-10,k250605146,name,왁버거 교대역,kakao
+2026-11-10,k250605146,category,식당,kakao
+2026-11-10,k250605146,lat,37.4933215004864,kakao
+2026-11-10,k250605146,lng,127.014805505561,kakao
+2026-11-10,k250605146,address,서울 서초구 서초중앙로22길 17,kakao
+2026-11-10,k250605146,station,교대,kakao
+2026-11-10,k250605146,distance_m,20,kakao
+2026-11-10,k250605146,map_url,https://map.naver.com/p/search/%EC%99%81%EB%B2%84%EA%B1%B0%20%EA%B5%90%EB%8C%80%EC%97%AD%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k250605146,tier,1,kakao
+2026-11-10,k16297733,name,오니기리와이규동 교대메가스터디점,kakao
+2026-11-10,k16297733,category,식당,kakao
+2026-11-10,k16297733,lat,37.49331969862109,kakao
+2026-11-10,k16297733,lng,127.01480437441,kakao
+2026-11-10,k16297733,address,서울 서초구 서초중앙로22길 17,kakao
+2026-11-10,k16297733,station,교대,kakao
+2026-11-10,k16297733,distance_m,20,kakao
+2026-11-10,k16297733,map_url,https://map.naver.com/p/search/%EC%98%A4%EB%8B%88%EA%B8%B0%EB%A6%AC%EC%99%80%EC%9D%B4%EA%B7%9C%EB%8F%99%20%EA%B5%90%EB%8C%80%EB%A9%94%EA%B0%80%EC%8A%A4%ED%84%B0%EB%94%94%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k16297733,tier,1,kakao
+2026-11-10,k822605814,name,메가스터디 메가푸드 서초지점,kakao
+2026-11-10,k822605814,category,식당,kakao
+2026-11-10,k822605814,lat,37.4932764491453,kakao
+2026-11-10,k822605814,lng,127.014813412232,kakao
+2026-11-10,k822605814,address,서울 서초구 서초중앙로22길 17,kakao
+2026-11-10,k822605814,station,교대,kakao
+2026-11-10,k822605814,distance_m,23,kakao
+2026-11-10,k822605814,map_url,https://map.naver.com/p/search/%EB%A9%94%EA%B0%80%EC%8A%A4%ED%84%B0%EB%94%94%20%EB%A9%94%EA%B0%80%ED%91%B8%EB%93%9C%20%EC%84%9C%EC%B4%88%EC%A7%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k822605814,tier,1,kakao
+2026-11-10,k501414554,name,대찬횟집 교대점,kakao
+2026-11-10,k501414554,category,식당,kakao
+2026-11-10,k501414554,lat,37.4930430953643,kakao
+2026-11-10,k501414554,lng,127.014756826579,kakao
+2026-11-10,k501414554,address,서울 서초구 서초대로52길 17,kakao
+2026-11-10,k501414554,station,교대,kakao
+2026-11-10,k501414554,distance_m,42,kakao
+2026-11-10,k501414554,map_url,https://map.naver.com/p/search/%EB%8C%80%EC%B0%AC%ED%9A%9F%EC%A7%91%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k501414554,tier,1,kakao
+2026-11-10,k495667742,name,바른식시골보쌈&감자옹심이 교대점,kakao
+2026-11-10,k495667742,category,식당,kakao
+2026-11-10,k495667742,lat,37.4930385883572,kakao
+2026-11-10,k495667742,lng,127.01477265677,kakao
+2026-11-10,k495667742,address,서울 서초구 서초대로52길 17,kakao
+2026-11-10,k495667742,station,교대,kakao
+2026-11-10,k495667742,distance_m,42,kakao
+2026-11-10,k495667742,map_url,https://map.naver.com/p/search/%EB%B0%94%EB%A5%B8%EC%8B%9D%EC%8B%9C%EA%B3%A8%EB%B3%B4%EC%8C%88%26%EA%B0%90%EC%9E%90%EC%98%B9%EC%8B%AC%EC%9D%B4%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k495667742,tier,1,kakao
+2026-11-10,k883350880,name,프레퍼스 교대점,kakao
+2026-11-10,k883350880,category,식당,kakao
+2026-11-10,k883350880,lat,37.493100740234375,kakao
+2026-11-10,k883350880,lng,127.01491288724053,kakao
+2026-11-10,k883350880,address,서울 서초구 서초중앙로22길 18,kakao
+2026-11-10,k883350880,station,교대,kakao
+2026-11-10,k883350880,distance_m,43,kakao
+2026-11-10,k883350880,map_url,https://map.naver.com/p/search/%ED%94%84%EB%A0%88%ED%8D%BC%EC%8A%A4%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k883350880,tier,1,kakao
+2026-11-10,k16472450,name,이심전심 언양불고기 본점,kakao
+2026-11-10,k16472450,category,식당,kakao
+2026-11-10,k16472450,lat,37.49309622202072,kakao
+2026-11-10,k16472450,lng,127.01501691921567,kakao
+2026-11-10,k16472450,address,서울 서초구 서초중앙로22길 18,kakao
+2026-11-10,k16472450,station,교대,kakao
+2026-11-10,k16472450,distance_m,49,kakao
+2026-11-10,k16472450,map_url,https://map.naver.com/p/search/%EC%9D%B4%EC%8B%AC%EC%A0%84%EC%8B%AC%20%EC%96%B8%EC%96%91%EB%B6%88%EA%B3%A0%EA%B8%B0%20%EB%B3%B8%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k16472450,tier,1,kakao
+2026-11-10,k673807403,name,이삭토스트 서울교대점,kakao
+2026-11-10,k673807403,category,식당,kakao
+2026-11-10,k673807403,lat,37.49311062703536,kakao
+2026-11-10,k673807403,lng,127.01510399310837,kakao
+2026-11-10,k673807403,address,서울 서초구 서초중앙로22길 18,kakao
+2026-11-10,k673807403,station,교대,kakao
+2026-11-10,k673807403,distance_m,54,kakao
+2026-11-10,k673807403,map_url,https://map.naver.com/p/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8%20%EC%84%9C%EC%9A%B8%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k673807403,tier,1,kakao
+2026-11-10,k1556579270,name,교대쌀빵,kakao
+2026-11-10,k1556579270,category,식당,kakao
+2026-11-10,k1556579270,lat,37.4938423473118,kakao
+2026-11-10,k1556579270,lng,127.014279784817,kakao
+2026-11-10,k1556579270,address,서울 서초구 서초대로 지하 294,kakao
+2026-11-10,k1556579270,station,교대,kakao
+2026-11-10,k1556579270,distance_m,56,kakao
+2026-11-10,k1556579270,map_url,https://map.naver.com/p/search/%EA%B5%90%EB%8C%80%EC%8C%80%EB%B9%B5%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1556579270,tier,1,kakao
+2026-11-10,k1742684158,name,가마솥순대국밥 교대역점,kakao
+2026-11-10,k1742684158,category,식당,kakao
+2026-11-10,k1742684158,lat,37.4928998315482,kakao
+2026-11-10,k1742684158,lng,127.014786198911,kakao
+2026-11-10,k1742684158,address,서울 서초구 서초대로52길 19,kakao
+2026-11-10,k1742684158,station,교대,kakao
+2026-11-10,k1742684158,distance_m,57,kakao
+2026-11-10,k1742684158,map_url,https://map.naver.com/p/search/%EA%B0%80%EB%A7%88%EC%86%A5%EC%88%9C%EB%8C%80%EA%B5%AD%EB%B0%A5%20%EA%B5%90%EB%8C%80%EC%97%AD%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1742684158,tier,1,kakao
+2026-11-10,k1907313399,name,자담치킨 서초교대점,kakao
+2026-11-10,k1907313399,category,식당,kakao
+2026-11-10,k1907313399,lat,37.4928980303828,kakao
+2026-11-10,k1907313399,lng,127.014779413821,kakao
+2026-11-10,k1907313399,address,서울 서초구 서초대로52길 19,kakao
+2026-11-10,k1907313399,station,교대,kakao
+2026-11-10,k1907313399,distance_m,58,kakao
+2026-11-10,k1907313399,map_url,https://map.naver.com/p/search/%EC%9E%90%EB%8B%B4%EC%B9%98%ED%82%A8%20%EC%84%9C%EC%B4%88%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1907313399,tier,1,kakao
+2026-11-10,k2075040884,name,사이공본가 교대점,kakao
+2026-11-10,k2075040884,category,식당,kakao
+2026-11-10,k2075040884,lat,37.49332864704511,kakao
+2026-11-10,k2075040884,lng,127.0152883566959,kakao
+2026-11-10,k2075040884,address,서울 서초구 서초중앙로22길 25,kakao
+2026-11-10,k2075040884,station,교대,kakao
+2026-11-10,k2075040884,distance_m,61,kakao
+2026-11-10,k2075040884,map_url,https://map.naver.com/p/search/%EC%82%AC%EC%9D%B4%EA%B3%B5%EB%B3%B8%EA%B0%80%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k2075040884,tier,1,kakao
+2026-11-10,k1190192183,name,H바,kakao
+2026-11-10,k1190192183,category,식당,kakao
+2026-11-10,k1190192183,lat,37.4931286217129,kakao
+2026-11-10,k1190192183,lng,127.015301885435,kakao
+2026-11-10,k1190192183,address,서울 서초구 서초중앙로22길 24,kakao
+2026-11-10,k1190192183,station,교대,kakao
+2026-11-10,k1190192183,distance_m,68,kakao
+2026-11-10,k1190192183,map_url,https://map.naver.com/p/search/H%EB%B0%94%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1190192183,tier,1,kakao
+2026-11-10,k24485105,name,파스쿠찌 교대메가스터디점,kakao
+2026-11-10,k24485105,category,카페,kakao
+2026-11-10,k24485105,lat,37.49324943586826,kakao
+2026-11-10,k24485105,lng,127.01467771156726,kakao
+2026-11-10,k24485105,address,서울 서초구 서초중앙로22길 17,kakao
+2026-11-10,k24485105,station,교대,kakao
+2026-11-10,k24485105,distance_m,18,kakao
+2026-11-10,k24485105,map_url,https://map.naver.com/p/search/%ED%8C%8C%EC%8A%A4%EC%BF%A0%EC%B0%8C%20%EA%B5%90%EB%8C%80%EB%A9%94%EA%B0%80%EC%8A%A4%ED%84%B0%EB%94%94%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k24485105,tier,1,kakao
+2026-11-10,k974754894,name,쿠지커피 교대역,kakao
+2026-11-10,k974754894,category,카페,kakao
+2026-11-10,k974754894,lat,37.4937188584477,kakao
+2026-11-10,k974754894,lng,127.014694765453,kakao
+2026-11-10,k974754894,address,서울 서초구 서초대로 302,kakao
+2026-11-10,k974754894,station,교대,kakao
+2026-11-10,k974754894,distance_m,36,kakao
+2026-11-10,k974754894,map_url,https://map.naver.com/p/search/%EC%BF%A0%EC%A7%80%EC%BB%A4%ED%94%BC%20%EA%B5%90%EB%8C%80%EC%97%AD%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k974754894,tier,1,kakao
+2026-11-10,k342258861,name,컴포즈커피 서초교대점,kakao
+2026-11-10,k342258861,category,카페,kakao
+2026-11-10,k342258861,lat,37.4930422309994,kakao
+2026-11-10,k342258861,lng,127.014460559092,kakao
+2026-11-10,k342258861,address,서울 서초구 서초중앙로22길 8,kakao
+2026-11-10,k342258861,station,교대,kakao
+2026-11-10,k342258861,distance_m,41,kakao
+2026-11-10,k342258861,map_url,https://map.naver.com/p/search/%EC%BB%B4%ED%8F%AC%EC%A6%88%EC%BB%A4%ED%94%BC%20%EC%84%9C%EC%B4%88%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k342258861,tier,1,kakao
+2026-11-10,k1573041663,name,스탠브루 교대역점,kakao
+2026-11-10,k1573041663,category,카페,kakao
+2026-11-10,k1573041663,lat,37.4932621208777,kakao
+2026-11-10,k1573041663,lng,127.014095354828,kakao
+2026-11-10,k1573041663,address,서울 서초구 서초중앙로 130,kakao
+2026-11-10,k1573041663,station,교대,kakao
+2026-11-10,k1573041663,distance_m,47,kakao
+2026-11-10,k1573041663,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%A0%EB%B8%8C%EB%A3%A8%20%EA%B5%90%EB%8C%80%EC%97%AD%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1573041663,tier,1,kakao
+2026-11-10,k1061033774,name,요거트월드 교대역점,kakao
+2026-11-10,k1061033774,category,카페,kakao
+2026-11-10,k1061033774,lat,37.4930989237409,kakao
+2026-11-10,k1061033774,lng,127.015027096886,kakao
+2026-11-10,k1061033774,address,서울 서초구 서초중앙로22길 18,kakao
+2026-11-10,k1061033774,station,교대,kakao
+2026-11-10,k1061033774,distance_m,50,kakao
+2026-11-10,k1061033774,map_url,https://map.naver.com/p/search/%EC%9A%94%EA%B1%B0%ED%8A%B8%EC%9B%94%EB%93%9C%20%EA%B5%90%EB%8C%80%EC%97%AD%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1061033774,tier,1,kakao
+2026-11-10,k21301236,name,투썸플레이스 교대역점,kakao
+2026-11-10,k21301236,category,카페,kakao
+2026-11-10,k21301236,lat,37.493815238861146,kakao
+2026-11-10,k21301236,lng,127.01491302930377,kakao
+2026-11-10,k21301236,address,서울 서초구 서초대로 304,kakao
+2026-11-10,k21301236,station,교대,kakao
+2026-11-10,k21301236,distance_m,53,kakao
+2026-11-10,k21301236,map_url,https://map.naver.com/p/search/%ED%88%AC%EC%8D%B8%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EA%B5%90%EB%8C%80%EC%97%AD%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k21301236,tier,1,kakao
+2026-11-10,k27095351,name,빽다방 서울교대점,kakao
+2026-11-10,k27095351,category,카페,kakao
+2026-11-10,k27095351,lat,37.49339257909976,kakao
+2026-11-10,k27095351,lng,127.01559029241177,kakao
+2026-11-10,k27095351,address,서울 서초구 서초중앙로22길 25,kakao
+2026-11-10,k27095351,station,교대,kakao
+2026-11-10,k27095351,distance_m,87,kakao
+2026-11-10,k27095351,map_url,https://map.naver.com/p/search/%EB%B9%BD%EB%8B%A4%EB%B0%A9%20%EC%84%9C%EC%9A%B8%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k27095351,tier,1,kakao
+2026-11-10,k1637773291,name,서초창업스테이션,kakao
+2026-11-10,k1637773291,category,카페,kakao
+2026-11-10,k1637773291,lat,37.4937451147013,kakao
+2026-11-10,k1637773291,lng,127.013635209229,kakao
+2026-11-10,k1637773291,address,서울 서초구 서초대로 지하 294,kakao
+2026-11-10,k1637773291,station,교대,kakao
+2026-11-10,k1637773291,distance_m,93,kakao
+2026-11-10,k1637773291,map_url,https://map.naver.com/p/search/%EC%84%9C%EC%B4%88%EC%B0%BD%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%85%98%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1637773291,tier,1,kakao
+2026-11-10,k875437833,name,백억커피 교대역점,kakao
+2026-11-10,k875437833,category,카페,kakao
+2026-11-10,k875437833,lat,37.49360791261085,kakao
+2026-11-10,k875437833,lng,127.0156446155622,kakao
+2026-11-10,k875437833,address,서울 서초구 서초중앙로22길 25,kakao
+2026-11-10,k875437833,station,교대,kakao
+2026-11-10,k875437833,distance_m,95,kakao
+2026-11-10,k875437833,map_url,https://map.naver.com/p/search/%EB%B0%B1%EC%96%B5%EC%BB%A4%ED%94%BC%20%EA%B5%90%EB%8C%80%EC%97%AD%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k875437833,tier,1,kakao
+2026-11-10,k313165462,name,커피베이 잡코리아점,kakao
+2026-11-10,k313165462,category,카페,kakao
+2026-11-10,k313165462,lat,37.4943324670118,kakao
+2026-11-10,k313165462,lng,127.014510563523,kakao
+2026-11-10,k313165462,address,서울 서초구 서초대로 301,kakao
+2026-11-10,k313165462,station,교대,kakao
+2026-11-10,k313165462,distance_m,103,kakao
+2026-11-10,k313165462,map_url,https://map.naver.com/p/search/%EC%BB%A4%ED%94%BC%EB%B2%A0%EC%9D%B4%20%EC%9E%A1%EC%BD%94%EB%A6%AC%EC%95%84%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k313165462,tier,1,kakao
+2026-11-10,k703886524,name,바나프레소 교대역1번출구점,kakao
+2026-11-10,k703886524,category,카페,kakao
+2026-11-10,k703886524,lat,37.4939800415059,kakao
+2026-11-10,k703886524,lng,127.015546313111,kakao
+2026-11-10,k703886524,address,서울 서초구 서초대로 310,kakao
+2026-11-10,k703886524,station,교대,kakao
+2026-11-10,k703886524,distance_m,105,kakao
+2026-11-10,k703886524,map_url,https://map.naver.com/p/search/%EB%B0%94%EB%82%98%ED%94%84%EB%A0%88%EC%86%8C%20%EA%B5%90%EB%8C%80%EC%97%AD1%EB%B2%88%EC%B6%9C%EA%B5%AC%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k703886524,tier,1,kakao
+2026-11-10,k829336865,name,스타벅스 교대역3번출구점,kakao
+2026-11-10,k829336865,category,카페,kakao
+2026-11-10,k829336865,lat,37.49434232909094,kakao
+2026-11-10,k829336865,lng,127.01490408762076,kakao
+2026-11-10,k829336865,address,서울 서초구 서초중앙로24길 10,kakao
+2026-11-10,k829336865,station,교대,kakao
+2026-11-10,k829336865,distance_m,108,kakao
+2026-11-10,k829336865,map_url,https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4%20%EA%B5%90%EB%8C%80%EC%97%AD3%EB%B2%88%EC%B6%9C%EA%B5%AC%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k829336865,tier,1,kakao
+2026-11-10,k642550269,name,카페우소,kakao
+2026-11-10,k642550269,category,카페,kakao
+2026-11-10,k642550269,lat,37.4930099176198,kakao
+2026-11-10,k642550269,lng,127.013419094532,kakao
+2026-11-10,k642550269,address,서울 서초구 서초중앙로 125,kakao
+2026-11-10,k642550269,station,교대,kakao
+2026-11-10,k642550269,distance_m,112,kakao
+2026-11-10,k642550269,map_url,https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EC%9A%B0%EC%86%8C%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k642550269,tier,1,kakao
+2026-11-10,k1715978389,name,잠바주스 교대역,kakao
+2026-11-10,k1715978389,category,카페,kakao
+2026-11-10,k1715978389,lat,37.4927089646883,kakao
+2026-11-10,k1715978389,lng,127.013563781331,kakao
+2026-11-10,k1715978389,address,서울 서초구 서초중앙로 123,kakao
+2026-11-10,k1715978389,station,교대,kakao
+2026-11-10,k1715978389,distance_m,119,kakao
+2026-11-10,k1715978389,map_url,https://map.naver.com/p/search/%EC%9E%A0%EB%B0%94%EC%A3%BC%EC%8A%A4%20%EA%B5%90%EB%8C%80%EC%97%AD%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1715978389,tier,1,kakao
+2026-11-10,k26644153,name,설빙 교대역점,kakao
+2026-11-10,k26644153,category,카페,kakao
+2026-11-10,k26644153,lat,37.4931789925648,kakao
+2026-11-10,k26644153,lng,127.015948709508,kakao
+2026-11-10,k26644153,address,서울 서초구 서초대로54길 24,kakao
+2026-11-10,k26644153,station,교대,kakao
+2026-11-10,k26644153,distance_m,121,kakao
+2026-11-10,k26644153,map_url,https://map.naver.com/p/search/%EC%84%A4%EB%B9%99%20%EA%B5%90%EB%8C%80%EC%97%AD%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k26644153,tier,1,kakao
+2026-11-10,k1190192183,category,술집,kakao
+2026-11-10,k15955534,name,제일호프 교대점,kakao
+2026-11-10,k15955534,category,술집,kakao
+2026-11-10,k15955534,lat,37.4934132985291,kakao
+2026-11-10,k15955534,lng,127.015618566641,kakao
+2026-11-10,k15955534,address,서울 서초구 서초중앙로22길 25,kakao
+2026-11-10,k15955534,station,교대,kakao
+2026-11-10,k15955534,distance_m,89,kakao
+2026-11-10,k15955534,map_url,https://map.naver.com/p/search/%EC%A0%9C%EC%9D%BC%ED%98%B8%ED%94%84%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k15955534,tier,1,kakao
+2026-11-10,k1890643584,name,위스키힐스,kakao
+2026-11-10,k1890643584,category,술집,kakao
+2026-11-10,k1890643584,lat,37.49359890059973,kakao
+2026-11-10,k1890643584,lng,127.01565931407838,kakao
+2026-11-10,k1890643584,address,서울 서초구 서초중앙로22길 25,kakao
+2026-11-10,k1890643584,station,교대,kakao
+2026-11-10,k1890643584,distance_m,96,kakao
+2026-11-10,k1890643584,map_url,https://map.naver.com/p/search/%EC%9C%84%EC%8A%A4%ED%82%A4%ED%9E%90%EC%8A%A4%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1890643584,tier,1,kakao
+2026-11-10,k784044071,name,마브,kakao
+2026-11-10,k784044071,category,술집,kakao
+2026-11-10,k784044071,lat,37.49238458668722,kakao
+2026-11-10,k784044071,lng,127.01369715487492,kakao
+2026-11-10,k784044071,address,서울 서초구 서초중앙로 119,kakao
+2026-11-10,k784044071,station,교대,kakao
+2026-11-10,k784044071,distance_m,138,kakao
+2026-11-10,k784044071,map_url,https://map.naver.com/p/search/%EB%A7%88%EB%B8%8C%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k784044071,tier,1,kakao
+2026-11-10,k1847815112,name,노가리학교 교대점,kakao
+2026-11-10,k1847815112,category,술집,kakao
+2026-11-10,k1847815112,lat,37.4922384127721,kakao
+2026-11-10,k1847815112,lng,127.015407997068,kakao
+2026-11-10,k1847815112,address,서울 서초구 서초중앙로20길 24,kakao
+2026-11-10,k1847815112,station,교대,kakao
+2026-11-10,k1847815112,distance_m,147,kakao
+2026-11-10,k1847815112,map_url,https://map.naver.com/p/search/%EB%85%B8%EA%B0%80%EB%A6%AC%ED%95%99%EA%B5%90%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1847815112,tier,1,kakao
+2026-11-10,k468611449,name,친화력,kakao
+2026-11-10,k468611449,category,술집,kakao
+2026-11-10,k468611449,lat,37.4945668149653,kakao
+2026-11-10,k468611449,lng,127.013791410983,kakao
+2026-11-10,k468611449,address,서울 서초구 서초중앙로 142,kakao
+2026-11-10,k468611449,station,교대,kakao
+2026-11-10,k468611449,distance_m,148,kakao
+2026-11-10,k468611449,map_url,https://map.naver.com/p/search/%EC%B9%9C%ED%99%94%EB%A0%A5%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k468611449,tier,1,kakao
+2026-11-10,k16058264,name,북새통,kakao
+2026-11-10,k16058264,category,술집,kakao
+2026-11-10,k16058264,lat,37.4930347876313,kakao
+2026-11-10,k16058264,lng,127.016269823538,kakao
+2026-11-10,k16058264,address,서울 서초구 서초대로54길 27,kakao
+2026-11-10,k16058264,station,교대,kakao
+2026-11-10,k16058264,distance_m,152,kakao
+2026-11-10,k16058264,map_url,https://map.naver.com/p/search/%EB%B6%81%EC%83%88%ED%86%B5%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k16058264,tier,1,kakao
+2026-11-10,k1809892994,name,교대콘서트노래방,kakao
+2026-11-10,k1809892994,category,술집,kakao
+2026-11-10,k1809892994,lat,37.4928802239723,kakao
+2026-11-10,k1809892994,lng,127.012958840267,kakao
+2026-11-10,k1809892994,address,서울 서초구 반포대로30길 81,kakao
+2026-11-10,k1809892994,station,교대,kakao
+2026-11-10,k1809892994,distance_m,155,kakao
+2026-11-10,k1809892994,map_url,https://map.naver.com/p/search/%EA%B5%90%EB%8C%80%EC%BD%98%EC%84%9C%ED%8A%B8%EB%85%B8%EB%9E%98%EB%B0%A9%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1809892994,tier,1,kakao
+2026-11-10,k1981010576,name,위스키앤티파니,kakao
+2026-11-10,k1981010576,category,술집,kakao
+2026-11-10,k1981010576,lat,37.4926279418293,kakao
+2026-11-10,k1981010576,lng,127.012959927465,kakao
+2026-11-10,k1981010576,address,서울 서초구 반포대로30길 82,kakao
+2026-11-10,k1981010576,station,교대,kakao
+2026-11-10,k1981010576,distance_m,168,kakao
+2026-11-10,k1981010576,map_url,https://map.naver.com/p/search/%EC%9C%84%EC%8A%A4%ED%82%A4%EC%95%A4%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k1981010576,tier,1,kakao
+2026-11-10,k21331450,name,티파니,kakao
+2026-11-10,k21331450,category,술집,kakao
+2026-11-10,k21331450,lat,37.4936767427616,kakao
+2026-11-10,k21331450,lng,127.012696632087,kakao
+2026-11-10,k21331450,address,서울 서초구 서초대로 283,kakao
+2026-11-10,k21331450,station,교대,kakao
+2026-11-10,k21331450,distance_m,170,kakao
+2026-11-10,k21331450,map_url,https://map.naver.com/p/search/%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k21331450,tier,1,kakao
+2026-11-10,k679584327,name,금별맥주 교대역점,kakao
+2026-11-10,k679584327,category,술집,kakao
+2026-11-10,k679584327,lat,37.492405388435,kakao
+2026-11-10,k679584327,lng,127.01300172793425,kakao
+2026-11-10,k679584327,address,서울 서초구 서초대로50길 19,kakao
+2026-11-10,k679584327,station,교대,kakao
+2026-11-10,k679584327,distance_m,179,kakao
+2026-11-10,k679584327,map_url,https://map.naver.com/p/search/%EA%B8%88%EB%B3%84%EB%A7%A5%EC%A3%BC%20%EA%B5%90%EB%8C%80%EC%97%AD%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k679584327,tier,1,kakao
+2026-11-10,k614552073,name,정남커피&호프,kakao
+2026-11-10,k614552073,category,술집,kakao
+2026-11-10,k614552073,lat,37.4938587608129,kakao
+2026-11-10,k614552073,lng,127.012559835664,kakao
+2026-11-10,k614552073,address,서울 서초구 법원로2길 14,kakao
+2026-11-10,k614552073,station,교대,kakao
+2026-11-10,k614552073,distance_m,187,kakao
+2026-11-10,k614552073,map_url,https://map.naver.com/p/search/%EC%A0%95%EB%82%A8%EC%BB%A4%ED%94%BC%26%ED%98%B8%ED%94%84%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k614552073,tier,1,kakao
+2026-11-10,k874563325,name,바오밥 교대점,kakao
+2026-11-10,k874563325,category,술집,kakao
+2026-11-10,k874563325,lat,37.4949918883104,kakao
+2026-11-10,k874563325,lng,127.015424394216,kakao
+2026-11-10,k874563325,address,서울 서초구 서초중앙로24길 17,kakao
+2026-11-10,k874563325,station,교대,kakao
+2026-11-10,k874563325,distance_m,191,kakao
+2026-11-10,k874563325,map_url,https://map.naver.com/p/search/%EB%B0%94%EC%98%A4%EB%B0%A5%20%EA%B5%90%EB%8C%80%EC%A0%90%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k874563325,tier,1,kakao
+2026-11-10,k2034370206,name,추억속의더카페,kakao
+2026-11-10,k2034370206,category,술집,kakao
+2026-11-10,k2034370206,lat,37.4939204174777,kakao
+2026-11-10,k2034370206,lng,127.016700852175,kakao
+2026-11-10,k2034370206,address,서울 서초구 서초대로54길 9-18,kakao
+2026-11-10,k2034370206,station,교대,kakao
+2026-11-10,k2034370206,distance_m,194,kakao
+2026-11-10,k2034370206,map_url,https://map.naver.com/p/search/%EC%B6%94%EC%96%B5%EC%86%8D%EC%9D%98%EB%8D%94%EC%B9%B4%ED%8E%98%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k2034370206,tier,1,kakao
+2026-11-10,k8106829,name,초록나무,kakao
+2026-11-10,k8106829,category,술집,kakao
+2026-11-10,k8106829,lat,37.4925631018004,kakao
+2026-11-10,k8106829,lng,127.012660258484,kakao
+2026-11-10,k8106829,address,서울 서초구 서초대로50길 14,kakao
+2026-11-10,k8106829,station,교대,kakao
+2026-11-10,k8106829,distance_m,194,kakao
+2026-11-10,k8106829,map_url,https://map.naver.com/p/search/%EC%B4%88%EB%A1%9D%EB%82%98%EB%AC%B4%20%EA%B5%90%EB%8C%80,kakao
+2026-11-10,k8106829,tier,1,kakao
+2026-11-10,pa060f76b22,name,티어스 팝업,kakao-popup
+2026-11-10,pa060f76b22,category,팝업스토어,kakao-popup
+2026-11-10,pa060f76b22,station,압구정,kakao-popup
+2026-11-10,pa060f76b22,map_url,https://map.naver.com/p/search/%ED%8B%B0%EC%96%B4%EC%8A%A4%20%ED%8C%9D%EC%97%85%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao-popup
+2026-11-10,pa060f76b22,address,압구정역 인근,kakao-popup
+2026-11-10,pa060f76b22,source_link,https://yootothesol.tistory.com/55,kakao-popup
+2026-11-10,pa060f76b22,tier,2,kakao-popup
+2026-11-10,p612d64aa33,name,쉬프트앤 팝업,kakao-popup
+2026-11-10,p612d64aa33,category,팝업스토어,kakao-popup
+2026-11-10,p612d64aa33,station,압구정,kakao-popup
+2026-11-10,p612d64aa33,map_url,https://map.naver.com/p/search/%EC%89%AC%ED%94%84%ED%8A%B8%EC%95%A4%20%ED%8C%9D%EC%97%85%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao-popup
+2026-11-10,p612d64aa33,address,압구정역 인근,kakao-popup
+2026-11-10,p612d64aa33,source_link,https://blog.naver.com/foren00n/224450365343,kakao-popup
+2026-11-10,p612d64aa33,tier,2,kakao-popup
+2026-11-10,p995eb33039,name,주얼리 팝업,kakao-popup
+2026-11-10,p995eb33039,category,팝업스토어,kakao-popup
+2026-11-10,p995eb33039,station,압구정,kakao-popup
+2026-11-10,p995eb33039,map_url,https://map.naver.com/p/search/%EC%A3%BC%EC%96%BC%EB%A6%AC%20%ED%8C%9D%EC%97%85%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao-popup
+2026-11-10,p995eb33039,address,압구정역 인근,kakao-popup
+2026-11-10,p995eb33039,source_link,https://blog.naver.com/julie16kr/224450205166,kakao-popup
+2026-11-10,p995eb33039,tier,2,kakao-popup
+2026-11-10,p3152a9ac80,name,아틀리에 팝업,kakao-popup
+2026-11-10,p3152a9ac80,category,팝업스토어,kakao-popup
+2026-11-10,p3152a9ac80,station,압구정,kakao-popup
+2026-11-10,p3152a9ac80,map_url,https://map.naver.com/p/search/%EC%95%84%ED%8B%80%EB%A6%AC%EC%97%90%20%ED%8C%9D%EC%97%85%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao-popup
+2026-11-10,p3152a9ac80,address,압구정역 인근,kakao-popup
+2026-11-10,p3152a9ac80,source_link,https://blog.naver.com/sweet_rainny/224437311172,kakao-popup
+2026-11-10,p3152a9ac80,tier,2,kakao-popup
+2026-11-10,p49cb5ba243,name,현대백화점 팝업,kakao-popup
+2026-11-10,p49cb5ba243,category,팝업스토어,kakao-popup
+2026-11-10,p49cb5ba243,station,압구정,kakao-popup
+2026-11-10,p49cb5ba243,map_url,https://map.naver.com/p/search/%ED%98%84%EB%8C%80%EB%B0%B1%ED%99%94%EC%A0%90%20%ED%8C%9D%EC%97%85%20%EC%95%95%EA%B5%AC%EC%A0%95,kakao-popup
+2026-11-10,p49cb5ba243,address,압구정역 인근,kakao-popup
+2026-11-10,p49cb5ba243,source_link,https://blog.naver.com/saphire253/224430395015,kakao-popup
+2026-11-10,p49cb5ba243,tier,2,kakao-popup
+2026-11-10,p22585c1f0a,name,덕후 팝업,kakao-popup
+2026-11-10,p22585c1f0a,category,팝업스토어,kakao-popup
+2026-11-10,p22585c1f0a,station,신사,kakao-popup
+2026-11-10,p22585c1f0a,map_url,https://map.naver.com/p/search/%EB%8D%95%ED%9B%84%20%ED%8C%9D%EC%97%85%20%EC%8B%A0%EC%82%AC,kakao-popup
+2026-11-10,p22585c1f0a,address,신사역 인근,kakao-popup
+2026-11-10,p22585c1f0a,source_link,https://blog.naver.com/maimai20/224468041295,kakao-popup
+2026-11-10,p22585c1f0a,tier,2,kakao-popup
+2026-11-10,pd4188b49fb,name,데이식스 팝업,kakao-popup
+2026-11-10,pd4188b49fb,category,팝업스토어,kakao-popup
+2026-11-10,pd4188b49fb,station,신사,kakao-popup
+2026-11-10,pd4188b49fb,map_url,https://map.naver.com/p/search/%EB%8D%B0%EC%9D%B4%EC%8B%9D%EC%8A%A4%20%ED%8C%9D%EC%97%85%20%EC%8B%A0%EC%82%AC,kakao-popup
+2026-11-10,pd4188b49fb,address,신사역 인근,kakao-popup
+2026-11-10,pd4188b49fb,source_link,https://blog.naver.com/dazzle_y/224444851780,kakao-popup
+2026-11-10,pd4188b49fb,tier,2,kakao-popup
+2026-11-10,p2764808554,name,고속터미널 팝업,kakao-popup
+2026-11-10,p2764808554,category,팝업스토어,kakao-popup
+2026-11-10,p2764808554,station,고속터미널,kakao-popup
+2026-11-10,p2764808554,map_url,https://map.naver.com/p/search/%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,p2764808554,address,고속터미널역 인근,kakao-popup
+2026-11-10,p2764808554,source_link,https://blog.naver.com/sgm04257/224472190935,kakao-popup
+2026-11-10,p2764808554,tier,2,kakao-popup
+2026-11-10,p4ce43f8ad1,name,에이티즈 팝업,kakao-popup
+2026-11-10,p4ce43f8ad1,category,팝업스토어,kakao-popup
+2026-11-10,p4ce43f8ad1,station,고속터미널,kakao-popup
+2026-11-10,p4ce43f8ad1,map_url,https://map.naver.com/p/search/%EC%97%90%EC%9D%B4%ED%8B%B0%EC%A6%88%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,p4ce43f8ad1,address,고속터미널역 인근,kakao-popup
+2026-11-10,p4ce43f8ad1,source_link,https://blog.naver.com/aprilkjw/224468870406,kakao-popup
+2026-11-10,p4ce43f8ad1,tier,2,kakao-popup
+2026-11-10,pbecda974d2,name,서울·대구 팝업,kakao-popup
+2026-11-10,pbecda974d2,category,팝업스토어,kakao-popup
+2026-11-10,pbecda974d2,station,고속터미널,kakao-popup
+2026-11-10,pbecda974d2,map_url,https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%C2%B7%EB%8C%80%EA%B5%AC%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,pbecda974d2,address,고속터미널역 인근,kakao-popup
+2026-11-10,pbecda974d2,source_link,https://blog.naver.com/easystorybokji/224468921166,kakao-popup
+2026-11-10,pbecda974d2,tier,2,kakao-popup
+2026-11-10,p35a83e5bbc,name,메다비타 팝업,kakao-popup
+2026-11-10,p35a83e5bbc,category,팝업스토어,kakao-popup
+2026-11-10,p35a83e5bbc,station,고속터미널,kakao-popup
+2026-11-10,p35a83e5bbc,map_url,https://map.naver.com/p/search/%EB%A9%94%EB%8B%A4%EB%B9%84%ED%83%80%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,p35a83e5bbc,address,고속터미널역 인근,kakao-popup
+2026-11-10,p35a83e5bbc,source_link,https://blog.naver.com/inaudadak/224468304560,kakao-popup
+2026-11-10,p35a83e5bbc,tier,2,kakao-popup
+2026-11-10,paa590e8ddc,name,후쿠요시카페 팝업,kakao-popup
+2026-11-10,paa590e8ddc,category,팝업스토어,kakao-popup
+2026-11-10,paa590e8ddc,station,고속터미널,kakao-popup
+2026-11-10,paa590e8ddc,map_url,https://map.naver.com/p/search/%ED%9B%84%EC%BF%A0%EC%9A%94%EC%8B%9C%EC%B9%B4%ED%8E%98%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,paa590e8ddc,address,고속터미널역 인근,kakao-popup
+2026-11-10,paa590e8ddc,source_link,https://blog.naver.com/hemusic/224467245220,kakao-popup
+2026-11-10,paa590e8ddc,tier,2,kakao-popup
+2026-11-10,paab0383f32,name,모먼트 팝업,kakao-popup
+2026-11-10,paab0383f32,category,팝업스토어,kakao-popup
+2026-11-10,paab0383f32,station,고속터미널,kakao-popup
+2026-11-10,paab0383f32,map_url,https://map.naver.com/p/search/%EB%AA%A8%EB%A8%BC%ED%8A%B8%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,paab0383f32,address,고속터미널역 인근,kakao-popup
+2026-11-10,paab0383f32,source_link,https://blog.naver.com/motortrendy/224467094439,kakao-popup
+2026-11-10,paab0383f32,tier,2,kakao-popup
+2026-11-10,pcbca7620e2,name,스위트파크 팝업,kakao-popup
+2026-11-10,pcbca7620e2,category,팝업스토어,kakao-popup
+2026-11-10,pcbca7620e2,station,고속터미널,kakao-popup
+2026-11-10,pcbca7620e2,map_url,https://map.naver.com/p/search/%EC%8A%A4%EC%9C%84%ED%8A%B8%ED%8C%8C%ED%81%AC%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,pcbca7620e2,address,고속터미널역 인근,kakao-popup
+2026-11-10,pcbca7620e2,source_link,https://blog.naver.com/imsogroovy/224464165771,kakao-popup
+2026-11-10,pcbca7620e2,tier,2,kakao-popup
+2026-11-10,p2ea289d238,name,170주년 팝업,kakao-popup
+2026-11-10,p2ea289d238,category,팝업스토어,kakao-popup
+2026-11-10,p2ea289d238,station,고속터미널,kakao-popup
+2026-11-10,p2ea289d238,map_url,https://map.naver.com/p/search/170%EC%A3%BC%EB%85%84%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,p2ea289d238,address,고속터미널역 인근,kakao-popup
+2026-11-10,p2ea289d238,source_link,https://blog.naver.com/seizetheday8282/224462490241,kakao-popup
+2026-11-10,p2ea289d238,tier,2,kakao-popup
+2026-11-10,p38d47ece48,name,아우터웨어 팝업,kakao-popup
+2026-11-10,p38d47ece48,category,팝업스토어,kakao-popup
+2026-11-10,p38d47ece48,station,고속터미널,kakao-popup
+2026-11-10,p38d47ece48,map_url,https://map.naver.com/p/search/%EC%95%84%EC%9A%B0%ED%84%B0%EC%9B%A8%EC%96%B4%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,p38d47ece48,address,고속터미널역 인근,kakao-popup
+2026-11-10,p38d47ece48,source_link,https://blog.naver.com/ssi4468/224461387282,kakao-popup
+2026-11-10,p38d47ece48,tier,2,kakao-popup
+2026-11-10,p30d73877bf,name,버버리 팝업,kakao-popup
+2026-11-10,p30d73877bf,category,팝업스토어,kakao-popup
+2026-11-10,p30d73877bf,station,고속터미널,kakao-popup
+2026-11-10,p30d73877bf,map_url,https://map.naver.com/p/search/%EB%B2%84%EB%B2%84%EB%A6%AC%20%ED%8C%9D%EC%97%85%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90,kakao-popup
+2026-11-10,p30d73877bf,address,고속터미널역 인근,kakao-popup
+2026-11-10,p30d73877bf,source_link,https://blog.naver.com/banpobilly/224460508606,kakao-popup
+2026-11-10,p30d73877bf,tier,2,kakao-popup
+2026-11-10,k1612349591,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/BWP9Vfsadtn,kakao-blog
+2026-11-10,k1612349591,vibe,"뷰가 좋은, 감성적인 곳",kakao-blog
+2026-11-10,k1963572119,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/BWP9Vfsadtn,kakao-blog
+2026-11-10,k1963572119,menu,피자호떡,kakao-blog
+2026-11-10,k1963572119,price,"4,000원",kakao-blog
+2026-11-10,k1963572119,menu_date,2025-06-29,kakao-blog
+2026-11-10,k1963572119,vibe,분위기 있는 곳,kakao-blog
+2026-11-10,k7904069,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Kia9TIPAsRk,kakao-blog
+2026-11-10,k7904069,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k2037859287,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/CDQ31YwTfvo,kakao-blog
+2026-11-10,k1715918915,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/9EBBGlZlMYu,kakao-blog
+2026-11-10,k1715918915,menu,버터장조림솥밥,kakao-blog
+2026-11-10,k1715918915,price,"25,000원",kakao-blog
+2026-11-10,k1715918915,menu_date,2025-10-05,kakao-blog
+2026-11-10,k1715918915,vibe,"분위기 있는, 웨이팅 있는 인기 곳",kakao-blog
+2026-11-10,k1926892988,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/1PgfXDoyEjZ,kakao-blog
+2026-11-10,k1926892988,menu,반상,kakao-blog
+2026-11-10,k1926892988,price,"39,000원",kakao-blog
+2026-11-10,k1926892988,menu_date,2026-01-11,kakao-blog
+2026-11-10,k1926892988,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1643909034,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/69fm6w73Vxi,kakao-blog
+2026-11-10,k1643909034,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k21416787,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/5cjTgFvR48t,kakao-blog
+2026-11-10,k21416787,menu,정식은,kakao-blog
+2026-11-10,k21416787,price,"19,000원",kakao-blog
+2026-11-10,k21416787,menu_date,2026-10-02,kakao-blog
+2026-11-10,k21416787,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k1224432398,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/30RDIq3NXf3,kakao-blog
+2026-11-10,k1224432398,vibe,"분위기 있는, 와인 한잔하기 좋은 곳",kakao-blog
+2026-11-10,k1117855806,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/3NfuHhvk7wC,kakao-blog
+2026-11-10,k1117855806,vibe,"뷰가 좋은, 웨이팅 있는 인기 곳",kakao-blog
+2026-11-10,k648964257,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/1bM2KJ9MxK7,kakao-blog
+2026-11-10,k21414358,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/lubydfVu80,kakao-blog
+2026-11-10,k21414358,vibe,"와인 한잔하기 좋은, 웨이팅 있는 인기 곳",kakao-blog
+2026-11-10,k8644701,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/DrL2208NxN2,kakao-blog
+2026-11-10,k1265607649,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/6uuIty2hKTa,kakao-blog
+2026-11-10,k1713038062,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/DqLIMeMNQG4,kakao-blog
+2026-11-10,k7961953,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/6wM7HWeEW6y,kakao-blog
+2026-11-10,k7961953,menu,높은,kakao-blog
+2026-11-10,k7961953,price,"4,900원",kakao-blog
+2026-11-10,k7961953,menu_date,2026-03-03,kakao-blog
+2026-11-10,k7961953,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k291679922,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/LJ8TKNcPBUa,kakao-blog
+2026-11-10,k172519348,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/8Q7wQ9u7w1Z,kakao-blog
+2026-11-10,k805755201,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/7rjOcmg5WJD,kakao-blog
+2026-11-10,k781909399,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/HhCn6uPEmE3,kakao-blog
+2026-11-10,k781909399,menu,BRKT,kakao-blog
+2026-11-10,k781909399,price,"184,000원",kakao-blog
+2026-11-10,k781909399,menu_date,2026-02-23,kakao-blog
+2026-11-10,k781909399,vibe,"조용한, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k623075336,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/F6D0nTq6BTj,kakao-blog
+2026-11-10,k2018549479,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/6wOtoOJQFYL,kakao-blog
+2026-11-10,k768521912,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/KynyBJRz7YI,kakao-blog
+2026-11-10,k1879327611,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/DrnOBO7Vaks,kakao-blog
+2026-11-10,k1912336218,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/ISnagogjkdr,kakao-blog
+2026-11-10,k1912336218,vibe,웨이팅 있는 인기 곳,kakao-blog
+2026-11-10,k722067495,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/KircFDwbJUy,kakao-blog
+2026-11-10,k722067495,vibe,"데이트하기 좋은, 감성적인 곳",kakao-blog
+2026-11-10,k531184941,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/8BS7sfEJTDV,kakao-blog
+2026-11-10,k531184941,vibe,"웨이팅 있는 인기, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k85407144,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/GpMijr9N4e8,kakao-blog
+2026-11-10,k85407144,menu,바닐라라떼,kakao-blog
+2026-11-10,k85407144,price,"8,500원",kakao-blog
+2026-11-10,k85407144,menu_date,2026-11-05,kakao-blog
+2026-11-10,k1624256715,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/7whwCpFGgOE,kakao-blog
+2026-11-10,k1624256715,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1920025267,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/KupkVtffv4a,kakao-blog
+2026-11-10,k1920025267,menu,에너지보울,kakao-blog
+2026-11-10,k1920025267,price,"7,800원",kakao-blog
+2026-11-10,k1920025267,menu_date,2025-07-21,kakao-blog
+2026-11-10,k1920025267,vibe,"조용한, 분위기 있는 곳",kakao-blog
+2026-11-10,k302504172,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/FMASloLVPCG,kakao-blog
+2026-11-10,k302504172,menu,브로콜리,kakao-blog
+2026-11-10,k302504172,price,"16,000원",kakao-blog
+2026-11-10,k302504172,menu_date,2026-09-24,kakao-blog
+2026-11-10,k302504172,vibe,"와인 한잔하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k9887723,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/LLL2DEvyvGO,kakao-blog
+2026-11-10,k9887723,vibe,"감성적인, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k516389615,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/4HMPMf81zdz,kakao-blog
+2026-11-10,k15558150,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/HmD5mo9AsPs,kakao-blog
+2026-11-10,k15558150,vibe,분위기 있는 곳,kakao-blog
+2026-11-10,k568611913,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Ju0vPeKAHa8,kakao-blog
+2026-11-10,k568611913,vibe,"와인 한잔하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k98524002,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/8ZoZEz7svxe,kakao-blog
+2026-11-10,k98524002,vibe,"분위기 있는, 조용한 곳",kakao-blog
+2026-11-10,k8410723,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/9eOIxmC5FrO,kakao-blog
+2026-11-10,k8410723,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k16988519,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/IqT0BWtGazv,kakao-blog
+2026-11-10,k16988519,vibe,"분위기 있는, 조용한 곳",kakao-blog
+2026-11-10,k1552355547,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/B0GVnUDh4ba,kakao-blog
+2026-11-10,k1552355547,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k9516226,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/KlCcKwTmNSg,kakao-blog
+2026-11-10,k9516226,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k1235475463,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/1WxKQVfCoCm,kakao-blog
+2026-11-10,k1235475463,vibe,와인 한잔하기 좋은 곳,kakao-blog
+2026-11-10,k1054595541,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/JpUAN6Q0Ip2,kakao-blog
+2026-11-10,k1388379689,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/4rUvK8g6GFL,kakao-blog
+2026-11-10,k26411657,vibe,와인 한잔하기 좋은 곳,kakao-blog
+2026-11-10,k1565489437,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/EHAwqnw9sYR,kakao-blog
+2026-11-10,k1565489437,menu,현장예매,kakao-blog
+2026-11-10,k1565489437,price,"20,000원",kakao-blog
+2026-11-10,k1565489437,menu_date,2025-08-11,kakao-blog
+2026-11-10,k1565489437,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1495084339,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/7ocV6Bm5wy5,kakao-blog
+2026-11-10,k1495084339,vibe,"데이트하기 좋은, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k689203779,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/DqMjkPDC0kb,kakao-blog
+2026-11-10,k972844897,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/JCi8TRov1Rr,kakao-blog
+2026-11-10,k902200401,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/CDM6Ea4BuP2,kakao-blog
+2026-11-10,k902200401,menu,순대국밥,kakao-blog
+2026-11-10,k902200401,price,"14,000원",kakao-blog
+2026-11-10,k902200401,menu_date,2026-09-24,kakao-blog
+2026-11-10,k902200401,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k911470323,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/8tPpadKkz87,kakao-blog
+2026-11-10,k911470323,vibe,"뷰가 좋은, 와인 한잔하기 좋은 곳",kakao-blog
+2026-11-10,k1939055922,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/6WwXDWZIbCi,kakao-blog
+2026-11-10,k1654154823,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/Kt7cH1fsSIj,kakao-blog
+2026-11-10,k25040567,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/5OsH4uTKcLF,kakao-blog
+2026-11-10,k25040567,vibe,"루프탑, 분위기 있는 곳",kakao-blog
+2026-11-10,k1029907935,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/LR0VJOkBF2q,kakao-blog
+2026-11-10,k1029907935,vibe,"감성적인, 분위기 있는 곳",kakao-blog
+2026-11-10,k1214127533,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/6iGIVKpBGRw,kakao-blog
+2026-11-10,k1214127533,menu,차돌짬뽕,kakao-blog
+2026-11-10,k1214127533,price,"12,000원",kakao-blog
+2026-11-10,k1214127533,menu_date,2026-09-24,kakao-blog
+2026-11-10,k1214127533,vibe,"뷰가 좋은, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k13071346,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/4VZYOwLkVxE,kakao-blog
+2026-11-10,k13071346,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k1719987589,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/HKtuq4q0aaH,kakao-blog
+2026-11-10,k1719987589,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k907022125,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/Id4NX3zARPN,kakao-blog
+2026-11-10,k907022125,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k1187731896,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/893xwBpG9rj,kakao-blog
+2026-11-10,k1187731896,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k1978879550,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/8zV2TLZ242q,kakao-blog
+2026-11-10,k1978879550,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k69972028,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/A2VstkzpV4x,kakao-blog
+2026-11-10,k69972028,vibe,"분위기 있는, 조용한 곳",kakao-blog
+2026-11-10,k26395435,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/8lO7SOX0raA,kakao-blog
+2026-11-10,k26395435,vibe,조용한 곳,kakao-blog
+2026-11-10,k464418719,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/CGMTKNvDoCf,kakao-blog
+2026-11-10,k464418719,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k185608032,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/3Xyih7mqUHV,kakao-blog
+2026-11-10,k185608032,vibe,"뷰가 좋은, 조용한 곳",kakao-blog
+2026-11-10,k100026790,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Ghw1fCi4j85,kakao-blog
+2026-11-10,k100026790,vibe,"아늑한, 분위기 있는 곳",kakao-blog
+2026-11-10,k2071612713,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/3EWqKS6eQr6,kakao-blog
+2026-11-10,k2071612713,menu,봉뵈르로스티드토마토,kakao-blog
+2026-11-10,k2071612713,price,"10,500원",kakao-blog
+2026-11-10,k2071612713,menu_date,2025-12-31,kakao-blog
+2026-11-10,k2071612713,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k1539001784,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/9K21sRt1HvX,kakao-blog
+2026-11-10,k1539001784,menu,바게트,kakao-blog
+2026-11-10,k1539001784,price,"4,600원",kakao-blog
+2026-11-10,k1539001784,menu_date,2026-10-21,kakao-blog
+2026-11-10,k1539001784,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k838638157,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/6MS3eEW5NHW,kakao-blog
+2026-11-10,k838638157,menu,버스투어,kakao-blog
+2026-11-10,k838638157,price,"49,000원",kakao-blog
+2026-11-10,k838638157,menu_date,2026-11-06,kakao-blog
+2026-11-10,k838638157,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1904517202,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/3gTInIRGNKu,kakao-blog
+2026-11-10,k1904517202,vibe,"데이트하기 좋은, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k16999295,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/BrhIlNZpayb,kakao-blog
+2026-11-10,k20542106,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/CZDh1r7rbfV,kakao-blog
+2026-11-10,k20542106,vibe,"웨이팅 있는 인기, 조용한 곳",kakao-blog
+2026-11-10,k889112477,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/LFZPiuHf4hs,kakao-blog
+2026-11-10,k889112477,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k26508465,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/KlvaEdw30ux,kakao-blog
+2026-11-10,k26508465,vibe,"아늑한, 분위기 있는 곳",kakao-blog
+2026-11-10,k2004029956,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/ImNCuA798Zq,kakao-blog
+2026-11-10,k2004029956,menu,크림브륄레브리오슈,kakao-blog
+2026-11-10,k2004029956,price,"6,500원",kakao-blog
+2026-11-10,k2004029956,menu_date,2026-11-04,kakao-blog
+2026-11-10,k2004029956,vibe,"감성적인, 분위기 있는 곳",kakao-blog
+2026-11-10,k875073447,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/8VlHUgI8PyT,kakao-blog
+2026-11-10,k875073447,vibe,"분위기 있는, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k361574711,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/4ESUzGLXRgy,kakao-blog
+2026-11-10,k361574711,menu,뷔페,kakao-blog
+2026-11-10,k361574711,price,"9,000원",kakao-blog
+2026-11-10,k361574711,menu_date,2026-10-20,kakao-blog
+2026-11-10,k361574711,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k883629409,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/JWcy9JuKSD4,kakao-blog
+2026-11-10,k883629409,menu,봉초밥,kakao-blog
+2026-11-10,k883629409,price,"32,000원",kakao-blog
+2026-11-10,k883629409,menu_date,2026-10-02,kakao-blog
+2026-11-10,k883629409,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k470076994,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/CFMkGaNHD4V,kakao-blog
+2026-11-10,k470076994,vibe,아늑한 곳,kakao-blog
+2026-11-10,k79297340,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/G5S6pVY7Q7o,kakao-blog
+2026-11-10,k79297340,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k16004904,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/H9LxrfrfO6h,kakao-blog
+2026-11-10,k1785960060,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/Le2Af9fVfqm,kakao-blog
+2026-11-10,k965708805,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/1BQn1InMxq0,kakao-blog
+2026-11-10,k965708805,vibe,"아늑한, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k14608329,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/IP0RtGV0HHE,kakao-blog
+2026-11-10,k1137539216,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/8ASn6j1NuE,kakao-blog
+2026-11-10,k1137539216,menu,찻자리,kakao-blog
+2026-11-10,k1137539216,price,"9,000원",kakao-blog
+2026-11-10,k1137539216,menu_date,2026-09-24,kakao-blog
+2026-11-10,k1137539216,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1328124039,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/A2SwVlhDHcI,kakao-blog
+2026-11-10,k1328124039,vibe,"감성적인, 분위기 있는 곳",kakao-blog
+2026-11-10,k1536766820,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/5OXoSJtmRWs,kakao-blog
+2026-11-10,k1536766820,vibe,"조용한, 분위기 있는 곳",kakao-blog
+2026-11-10,k88846129,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/M9FLS4482f,kakao-blog
+2026-11-10,k1589624371,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Bqzh059OTQ8,kakao-blog
+2026-11-10,k1589624371,menu,점심,kakao-blog
+2026-11-10,k1589624371,price,"42,800원",kakao-blog
+2026-11-10,k1589624371,menu_date,2026-07-07,kakao-blog
+2026-11-10,k1589624371,vibe,"와인 한잔하기 좋은, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1674117471,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/Ecw3gc9aqGx,kakao-blog
+2026-11-10,k1674117471,menu,한정식,kakao-blog
+2026-11-10,k1674117471,price,"78,000원",kakao-blog
+2026-11-10,k1674117471,menu_date,2026-09-24,kakao-blog
+2026-11-10,k1674117471,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k835972465,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/CtNyYfGSYMc,kakao-blog
+2026-11-10,k835972465,vibe,"분위기 있는, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k213272862,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/B7ZQnOItIFU,kakao-blog
+2026-11-10,k1369848066,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/LEaw5YqjwiL,kakao-blog
+2026-11-10,k1369848066,vibe,"감성적인, 분위기 있는 곳",kakao-blog
+2026-11-10,k1724274031,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/CSyV1um1iaM,kakao-blog
+2026-11-10,k1724274031,menu,김밥이,kakao-blog
+2026-11-10,k1724274031,price,"4,800원",kakao-blog
+2026-11-10,k1724274031,menu_date,2026-05-09,kakao-blog
+2026-11-10,k1724274031,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k2090510438,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/9zp72CRrrJ8,kakao-blog
+2026-11-10,k2090510438,menu,셰프특선,kakao-blog
+2026-11-10,k2090510438,price,"69,000원",kakao-blog
+2026-11-10,k2090510438,menu_date,2026-03-31,kakao-blog
+2026-11-10,k2090510438,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1661187158,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/AdFtw9rWbQX,kakao-blog
+2026-11-10,k1661187158,vibe,"뷰가 좋은, 와인 한잔하기 좋은 곳",kakao-blog
+2026-11-10,k663375570,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/9uSDFija3lx,kakao-blog
+2026-11-10,k1337651251,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Caxw1jQxaOj,kakao-blog
+2026-11-10,k1337651251,menu,바게트,kakao-blog
+2026-11-10,k1337651251,price,"7,800원",kakao-blog
+2026-11-10,k1337651251,menu_date,2026-04-13,kakao-blog
+2026-11-10,k1337651251,vibe,분위기 있는 곳,kakao-blog
+2026-11-10,k405543132,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/EnBOYSkjwNs,kakao-blog
+2026-11-10,k405543132,vibe,분위기 있는 곳,kakao-blog
+2026-11-10,k1311904085,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/CJNvAsoXpmj,kakao-blog
+2026-11-10,k1311904085,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k710856069,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/CbYC6tG70jw,kakao-blog
+2026-11-10,k204781080,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/LnIM0t6f0MC,kakao-blog
+2026-11-10,k204781080,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k13327654,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/9y5PXIxCfmz,kakao-blog
+2026-11-10,k13327654,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k131905711,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/G5BmSBES0ah,kakao-blog
+2026-11-10,k131905711,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k13603010,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/1v51hHJuG1o,kakao-blog
+2026-11-10,k8403571,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/rx4cfYz8tB,kakao-blog
+2026-11-10,k8403571,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k692177910,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/4QbXLXsokj6,kakao-blog
+2026-11-10,k692177910,vibe,감성적인 곳,kakao-blog
+2026-11-10,k645416270,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/HjDylMm6r0m,kakao-blog
+2026-11-10,k645416270,vibe,"감성적인, 분위기 있는 곳",kakao-blog
+2026-11-10,k146235475,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/2v0lBIZq3kS,kakao-blog
+2026-11-10,k10536360,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/8XhKziV7xnX,kakao-blog
+2026-11-10,k10536360,vibe,분위기 있는 곳,kakao-blog
+2026-11-10,k555885513,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/L67pp66JT6S,kakao-blog
+2026-11-10,k2047314871,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/Ci52K2cGyQ6,kakao-blog
+2026-11-10,k1000816026,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/AIGxUO3ijoj,kakao-blog
+2026-11-10,k1000816026,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k27119527,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/Wht3eHPV6m,kakao-blog
+2026-11-10,k821773342,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/i4bilg4D5P,kakao-blog
+2026-11-10,k821773342,menu,훈제삼겹두부김치,kakao-blog
+2026-11-10,k821773342,price,"23,000원",kakao-blog
+2026-11-10,k821773342,menu_date,2026-09-24,kakao-blog
+2026-11-10,k821773342,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k1176331672,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/JWTZvSHBhZS,kakao-blog
+2026-11-10,k1176331672,vibe,"감성적인, 분위기 있는 곳",kakao-blog
+2026-11-10,k246208986,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/5jxbYp1kUBz,kakao-blog
+2026-11-10,k1027079534,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/4l1LOlhQf3R,kakao-blog
+2026-11-10,k1027079534,menu,Tall,kakao-blog
+2026-11-10,k1027079534,price,"5,900원",kakao-blog
+2026-11-10,k1027079534,menu_date,2023-06-13,kakao-blog
+2026-11-10,k1027079534,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k1169210286,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/7BwO4PUEaxq,kakao-blog
+2026-11-10,k1169210286,vibe,"웨이팅 있는 인기, 분위기 있는 곳",kakao-blog
+2026-11-10,k25740595,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/D7XNaFEEYZf,kakao-blog
+2026-11-10,k25740595,menu,정상가,kakao-blog
+2026-11-10,k25740595,price,"85,000원",kakao-blog
+2026-11-10,k25740595,menu_date,2018-11-23,kakao-blog
+2026-11-10,k25740595,vibe,"와인 한잔하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k1523864197,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/1nyuMFm0CUj,kakao-blog
+2026-11-10,k1523864197,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k1658162422,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/28ZOC9M0UB0,kakao-blog
+2026-11-10,k1658162422,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k342423225,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/4YR9EEsz3AP,kakao-blog
+2026-11-10,k16474216,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/9pcMIK3APeW,kakao-blog
+2026-11-10,k16474216,menu,오징어데침,kakao-blog
+2026-11-10,k16474216,price,"15,000원",kakao-blog
+2026-11-10,k16474216,menu_date,2024-11-12,kakao-blog
+2026-11-10,k16474216,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k692530578,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/IifDTNYi644,kakao-blog
+2026-11-10,k692530578,menu,균일가,kakao-blog
+2026-11-10,k692530578,price,"19,900원",kakao-blog
+2026-11-10,k692530578,menu_date,2026-11-10,kakao-blog
+2026-11-10,k692530578,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k364941407,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/GbCbfrCZJxO,kakao-blog
+2026-11-10,k17100830,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/JwqLYCyMDaj,kakao-blog
+2026-11-10,k60069753,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/sYZ26LXlcs,kakao-blog
+2026-11-10,k996530960,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/49NmvTbHZNR,kakao-blog
+2026-11-10,k996530960,menu,가리비관자버터구이,kakao-blog
+2026-11-10,k996530960,price,"32,000원",kakao-blog
+2026-11-10,k996530960,menu_date,2026-09-24,kakao-blog
+2026-11-10,k996530960,vibe,"뷰가 좋은, 와인 한잔하기 좋은 곳",kakao-blog
+2026-11-10,k984675354,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/CM0ZWUGc6vn,kakao-blog
+2026-11-10,k369757630,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/L5aWBlSSdAu,kakao-blog
+2026-11-10,k1055697976,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/A1NqXIt4ej1,kakao-blog
+2026-11-10,k454206061,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/2SZzYGtrFRC,kakao-blog
+2026-11-10,k454206061,vibe,"뷰가 좋은, 웨이팅 있는 인기 곳",kakao-blog
+2026-11-10,k82739419,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/L5aWBlSSdAu,kakao-blog
+2026-11-10,k82739419,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k1991655640,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/2i74W88tkhq,kakao-blog
+2026-11-10,k811194189,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/EcQSsdgXuvI,kakao-blog
+2026-11-10,k912133469,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/JORoBdZKsHD,kakao-blog
+2026-11-10,k912133469,vibe,웨이팅 있는 인기 곳,kakao-blog
+2026-11-10,k984019225,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/zcirIH75yA,kakao-blog
+2026-11-10,k1536145035,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/Ci52K2cGyQ6,kakao-blog
+2026-11-10,k14515990,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/C6IH8BkRUIL,kakao-blog
+2026-11-10,k14515990,menu,세트,kakao-blog
+2026-11-10,k14515990,price,"27,400원",kakao-blog
+2026-11-10,k14515990,menu_date,2026-02-28,kakao-blog
+2026-11-10,k14515990,vibe,"웨이팅 있는 인기, 분위기 있는 곳",kakao-blog
+2026-11-10,k1137369879,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/582P3N7k2LD,kakao-blog
+2026-11-10,k2121902972,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/8DujK0zIdNP,kakao-blog
+2026-11-10,k1595025710,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/1YUYXhtonO4,kakao-blog
+2026-11-10,k892504542,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/6kXTx66QrMt,kakao-blog
+2026-11-10,k750895069,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Ftwq01TddaJ,kakao-blog
+2026-11-10,k628585618,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/4B9TEG41Mei,kakao-blog
+2026-11-10,k1066494582,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/HaQKgEHP2as,kakao-blog
+2026-11-10,k1066494582,menu,민치카레,kakao-blog
+2026-11-10,k1066494582,price,"14,000원",kakao-blog
+2026-11-10,k1066494582,menu_date,2024-12-23,kakao-blog
+2026-11-10,k1066494582,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k487123572,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/IJ4363KQ2qj,kakao-blog
+2026-11-10,k487123572,vibe,"조용한, 분위기 있는 곳",kakao-blog
+2026-11-10,k1591066580,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/LZNFGVSJgz1,kakao-blog
+2026-11-10,k568532262,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/G7oMkm7FOS,kakao-blog
+2026-11-10,k2056467784,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/LpOqRiF727A,kakao-blog
+2026-11-10,k1855763350,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Lgx7kingddx,kakao-blog
+2026-11-10,k1855763350,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k651681065,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/Jg170EgGHsy,kakao-blog
+2026-11-10,k345298143,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/CSYuyPALAaJ,kakao-blog
+2026-11-10,k345298143,menu,스테이크,kakao-blog
+2026-11-10,k345298143,price,"29,000원",kakao-blog
+2026-11-10,k345298143,menu_date,2026-06-23,kakao-blog
+2026-11-10,k345298143,vibe,"웨이팅 있는 인기, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k306744050,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/ALCLaHWyXNR,kakao-blog
+2026-11-10,k306744050,vibe,웨이팅 있는 인기 곳,kakao-blog
+2026-11-10,k1402628577,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/1Tpb2aqyIK5,kakao-blog
+2026-11-10,k943320856,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/slUKgyg5Cp,kakao-blog
+2026-11-10,k1307875733,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/37RURF91Elz,kakao-blog
+2026-11-10,k1627094944,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/6T8EQygo9oe,kakao-blog
+2026-11-10,k1627094944,vibe,"웨이팅 있는 인기, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k1921237370,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/GdMlitZLzOw,kakao-blog
+2026-11-10,k1921237370,vibe,"데이트하기 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k18629885,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/EtlegTj3tTY,kakao-blog
+2026-11-10,k18629885,menu,수강료,kakao-blog
+2026-11-10,k18629885,price,"200,000원",kakao-blog
+2026-11-10,k18629885,menu_date,2026-11-06,kakao-blog
+2026-11-10,k18629885,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k16326700,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/HHHvtgPQ5PN,kakao-blog
+2026-11-10,k16326700,menu,시간에,kakao-blog
+2026-11-10,k16326700,price,"5,000원",kakao-blog
+2026-11-10,k16326700,menu_date,2026-10-22,kakao-blog
+2026-11-10,k16326700,vibe,"뷰가 좋은, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k883056783,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/IeN5WJZLIaE,kakao-blog
+2026-11-10,k883056783,menu,계란전,kakao-blog
+2026-11-10,k883056783,price,"53,000원",kakao-blog
+2026-11-10,k883056783,menu_date,2025-05-08,kakao-blog
+2026-11-10,k883056783,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k13724756,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/EX1d9tV0J3N,kakao-blog
+2026-11-10,k13724756,menu,돈까스,kakao-blog
+2026-11-10,k13724756,price,"10,500원",kakao-blog
+2026-11-10,k13724756,menu_date,2026-10-16,kakao-blog
+2026-11-10,k13724756,vibe,"감성적인, 분위기 있는 곳",kakao-blog
+2026-11-10,k1044782199,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/JwqLYCyMDaj,kakao-blog
+2026-11-10,k1044782199,vibe,"감성적인, 조용한 곳",kakao-blog
+2026-11-10,k19592698,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/1dMVgz8aDsI,kakao-blog
+2026-11-10,k942652842,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/DnwnDgWFopF,kakao-blog
+2026-11-10,k942652842,menu,김치우동,kakao-blog
+2026-11-10,k942652842,price,"11,000원",kakao-blog
+2026-11-10,k942652842,menu_date,2026-11-07,kakao-blog
+2026-11-10,k942652842,vibe,"웨이팅 있는 인기, 분위기 있는 곳",kakao-blog
+2026-11-10,k1650250925,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/FaPAFGTJYCp,kakao-blog
+2026-11-10,k26330704,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/LLy6VMt4nN5,kakao-blog
+2026-11-10,k26330704,vibe,"분위기 있는, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k19091206,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/FWSUVgZRxzV,kakao-blog
+2026-11-10,k19091206,vibe,조용한 곳,kakao-blog
+2026-11-10,k8770376,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/2dIlqYYiAak,kakao-blog
+2026-11-10,k1252347522,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/2l0bIYz0qOg,kakao-blog
+2026-11-10,k1252347522,menu,새우볶음밥,kakao-blog
+2026-11-10,k1252347522,price,"30,000원",kakao-blog
+2026-11-10,k1252347522,menu_date,2026-09-09,kakao-blog
+2026-11-10,k1252347522,vibe,"웨이팅 있는 인기, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k250605146,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/HDJt8q0K0P9,kakao-blog
+2026-11-10,k250605146,vibe,"분위기 있는, 감성적인 곳",kakao-blog
+2026-11-10,k16297733,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/JTnqV4wFkFQ,kakao-blog
+2026-11-10,k16297733,menu,차돌짬뽕,kakao-blog
+2026-11-10,k16297733,price,"8,900원",kakao-blog
+2026-11-10,k16297733,menu_date,2025-06-07,kakao-blog
+2026-11-10,k16297733,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k822605814,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/EQCAinwjY6R,kakao-blog
+2026-11-10,k501414554,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/F9joLRqpvlc,kakao-blog
+2026-11-10,k501414554,vibe,"뷰가 좋은, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k495667742,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/9uj0mqirSSE,kakao-blog
+2026-11-10,k495667742,menu,인주문,kakao-blog
+2026-11-10,k495667742,price,"52,000원",kakao-blog
+2026-11-10,k495667742,menu_date,2025-08-06,kakao-blog
+2026-11-10,k495667742,vibe,"뷰가 좋은, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k883350880,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/CBybeBf84aF,kakao-blog
+2026-11-10,k883350880,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k16472450,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/EkzkBRl5DAY,kakao-blog
+2026-11-10,k16472450,menu,한우불고기,kakao-blog
+2026-11-10,k16472450,price,"25,000원",kakao-blog
+2026-11-10,k16472450,menu_date,2026-09-10,kakao-blog
+2026-11-10,k16472450,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k673807403,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/GJiQQ241VLJ,kakao-blog
+2026-11-10,k673807403,menu,포테이토,kakao-blog
+2026-11-10,k673807403,price,"5,300원",kakao-blog
+2026-11-10,k673807403,menu_date,2026-03-16,kakao-blog
+2026-11-10,k673807403,vibe,뷰가 좋은 곳,kakao-blog
+2026-11-10,k1556579270,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/8cQkzuYKXxh,kakao-blog
+2026-11-10,k1742684158,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/HR1nfdGLOuc,kakao-blog
+2026-11-10,k1742684158,vibe,조용한 곳,kakao-blog
+2026-11-10,k1907313399,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/FikejYz9MQD,kakao-blog
+2026-11-10,k1907313399,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k2075040884,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/6ge016lgcfz,kakao-blog
+2026-11-10,k2075040884,menu,숯불볶음밥,kakao-blog
+2026-11-10,k2075040884,price,"8,500원",kakao-blog
+2026-11-10,k2075040884,menu_date,2025-04-29,kakao-blog
+2026-11-10,k2075040884,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1190192183,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/IuSDlxfPGt6,kakao-blog
+2026-11-10,k24485105,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/7AAhnCirjlM,kakao-blog
+2026-11-10,k24485105,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k974754894,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/JMhZnIldxSR,kakao-blog
+2026-11-10,k342258861,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/DuVNC96g3Sy,kakao-blog
+2026-11-10,k342258861,vibe,"뷰가 좋은, 웨이팅 있는 인기 곳",kakao-blog
+2026-11-10,k1573041663,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/L6P8PnyxoQU,kakao-blog
+2026-11-10,k1061033774,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/GGVtnXz6Yp4,kakao-blog
+2026-11-10,k1061033774,menu,아메리카노,kakao-blog
+2026-11-10,k1061033774,price,"4,800원",kakao-blog
+2026-11-10,k1061033774,menu_date,2026-09-09,kakao-blog
+2026-11-10,k1061033774,vibe,"뷰가 좋은, 데이트하기 좋은 곳",kakao-blog
+2026-11-10,k21301236,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/JYJ6zSrGXLv,kakao-blog
+2026-11-10,k21301236,menu,주스,kakao-blog
+2026-11-10,k21301236,price,"6,500원",kakao-blog
+2026-11-10,k21301236,menu_date,2026-06-05,kakao-blog
+2026-11-10,k21301236,vibe,"조용한, 분위기 있는 곳",kakao-blog
+2026-11-10,k27095351,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/Kou94qww1Vu,kakao-blog
+2026-11-10,k27095351,menu,푸딩멜론쉐이크,kakao-blog
+2026-11-10,k27095351,price,"4,500원",kakao-blog
+2026-11-10,k27095351,menu_date,2024-11-30,kakao-blog
+2026-11-10,k27095351,vibe,"데이트하기 좋은, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k1637773291,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/6huMP5BRev3,kakao-blog
+2026-11-10,k875437833,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/53yVEbDBxYU,kakao-blog
+2026-11-10,k875437833,menu,곱창쌀국수,kakao-blog
+2026-11-10,k875437833,price,"16,500원",kakao-blog
+2026-11-10,k875437833,menu_date,2024-08-17,kakao-blog
+2026-11-10,k875437833,vibe,"뷰가 좋은, 조용한 곳",kakao-blog
+2026-11-10,k703886524,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/5nW0c7Z4Md9,kakao-blog
+2026-11-10,k829336865,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/EQCAinwjY6R,kakao-blog
+2026-11-10,k1715978389,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/CqSWt7w8WRO,kakao-blog
+2026-11-10,k1715978389,menu,정가,kakao-blog
+2026-11-10,k1715978389,price,"5,400원",kakao-blog
+2026-11-10,k1715978389,menu_date,2026-07-29,kakao-blog
+2026-11-10,k1715978389,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k26644153,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/E6GiZqyLLUI,kakao-blog
+2026-11-10,k26644153,vibe,"조용한, 분위기 있는 곳",kakao-blog
+2026-11-10,k15955534,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/6M6Vutcx0ml,kakao-blog
+2026-11-10,k1890643584,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/LPd8WDdpF7I,kakao-blog
+2026-11-10,k784044071,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/17c1Pzeo89C,kakao-blog
+2026-11-10,k784044071,menu,감자튀김,kakao-blog
+2026-11-10,k784044071,price,"16,000원",kakao-blog
+2026-11-10,k784044071,menu_date,2026-09-10,kakao-blog
+2026-11-10,k784044071,vibe,"분위기 있는, 와인 한잔하기 좋은 곳",kakao-blog
+2026-11-10,k1847815112,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/4H9abH2sLXT,kakao-blog
+2026-11-10,k1847815112,menu,ml,kakao-blog
+2026-11-10,k1847815112,price,"4,500원",kakao-blog
+2026-11-10,k1847815112,menu_date,2026-06-10,kakao-blog
+2026-11-10,k1847815112,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k468611449,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/LxqVzJO7VeK,kakao-blog
+2026-11-10,k468611449,vibe,"분위기 있는, 아늑한 곳",kakao-blog
+2026-11-10,k16058264,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/GT0ptuy06P3,kakao-blog
+2026-11-10,k16058264,vibe,"웨이팅 있는 인기, 분위기 있는 곳",kakao-blog
+2026-11-10,k1809892994,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/Rm4D47tKGf,kakao-blog
+2026-11-10,k1981010576,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/Ci52K2cGyQ6,kakao-blog
+2026-11-10,k21331450,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/6TxRi9zGlrz,kakao-blog
+2026-11-10,k679584327,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/1kPgIPfLkrN,kakao-blog
+2026-11-10,k679584327,vibe,"분위기 있는, 뷰가 좋은 곳",kakao-blog
+2026-11-10,k874563325,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/5FkRIs0k1Ny,kakao-blog
+2026-11-10,k874563325,vibe,"뷰가 좋은, 분위기 있는 곳",kakao-blog
+2026-11-10,k2034370206,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/LuAUbNgsBGV,kakao-blog
+2026-11-10,k8106829,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/7f4WSsIUx7R,kakao-blog
+2026-11-10,k8106829,vibe,분위기 있는 곳,kakao-blog
+2026-11-10,pa060f76b22,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/rR60rWA70E,kakao-image
+2026-11-10,p612d64aa33,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/CjYDIlu8Rbr,kakao-image
+2026-11-10,p995eb33039,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/5Eug0octKB0,kakao-image
+2026-11-10,p3152a9ac80,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/LAxQUS1mRBk,kakao-image
+2026-11-10,p49cb5ba243,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/ADFQ68AYk4i,kakao-image
+2026-11-10,p22585c1f0a,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/9eAZulgacPe,kakao-image
+2026-11-10,pd4188b49fb,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/5RjCBoWphIt,kakao-image
+2026-11-10,p2764808554,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/ARQ26hx5vhK,kakao-image
+2026-11-10,p4ce43f8ad1,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/LhZtl77tPmO,kakao-image
+2026-11-10,pbecda974d2,thumb,https://search2.kakaocdn.net/argon/130x130_85_c/30u2h2Quq45,kakao-image
+2026-11-10,p35a83e5bbc,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/5pbtrcmNo9s,kakao-image
+2026-11-10,paa590e8ddc,thumb,https://search4.kakaocdn.net/argon/130x130_85_c/AoovzjQ46jR,kakao-image
+2026-11-10,paab0383f32,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/JVnyiVoMC1J,kakao-image
+2026-11-10,pcbca7620e2,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/EyQCFh6UFX3,kakao-image
+2026-11-10,p2ea289d238,thumb,https://search3.kakaocdn.net/argon/130x130_85_c/IZE0ehEERTF,kakao-image
+2026-11-10,p38d47ece48,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/L8NLfoPzHbV,kakao-image
+2026-11-10,p30d73877bf,thumb,https://search1.kakaocdn.net/argon/130x130_85_c/1kyPQq0vIZh,kakao-image

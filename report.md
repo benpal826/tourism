@@ -1,40 +1,60 @@
-**요약: 후보 9곳(미확인), 급상승 0곳 — 샘플 모드, 신규 행 120건.**
+**요약: 후보 236곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 3045건.**
 
 # 이번 주 추천 (2026-11-10)
 
-- **고터 포차** [술집] · 고속터미널역 62m
-  - 후기 450건 (30일 45건, 주간 -)
-  - 대표: 대표메뉴 17,000원 (후기 2026-11-01)
-  - 분위기: 데이트하기 좋은, 감성적인 곳
-  - [네이버 지도](https://map.naver.com/p/search/%EA%B3%A0%ED%84%B0%20%ED%8F%AC%EC%B0%A8%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
-- **교대 와인바** [술집] · 교대역 56m
-  - 후기 400건 (30일 40건, 주간 -)
-  - 대표: 대표메뉴 16,000원 (후기 2026-11-01)
-  - 분위기: 데이트하기 좋은, 감성적인 곳
-  - [네이버 지도](https://map.naver.com/p/search/%EA%B5%90%EB%8C%80%20%EC%99%80%EC%9D%B8%EB%B0%94%20%EA%B5%90%EB%8C%80)
-- **신사 브런치** [카페] · 신사역 105m
-  - 후기 350건 (30일 35건, 주간 -)
-  - 대표: 대표메뉴 15,000원 (후기 2026-11-01)
-  - 분위기: 데이트하기 좋은, 감성적인 곳
-  - [네이버 지도](https://map.naver.com/p/search/%EC%8B%A0%EC%82%AC%20%EB%B8%8C%EB%9F%B0%EC%B9%98%20%EC%8B%A0%EC%82%AC)
-- **압구정 로스터리** [카페] · 압구정역 70m
-  - 후기 300건 (30일 30건, 주간 -)
-  - 대표: 대표메뉴 14,000원 (후기 2026-11-01)
-  - 분위기: 데이트하기 좋은, 감성적인 곳
-  - [네이버 지도](https://map.naver.com/p/search/%EC%95%95%EA%B5%AC%EC%A0%95%20%EB%A1%9C%EC%8A%A4%ED%84%B0%EB%A6%AC%20%EC%95%95%EA%B5%AC%EC%A0%95)
-- **잠원 한식당** [식당] · 잠원역 99m
-  - 후기 250건 (30일 25건, 주간 -)
-  - 대표: 대표메뉴 13,000원 (후기 2026-11-01)
-  - 분위기: 데이트하기 좋은, 감성적인 곳
-  - [네이버 지도](https://map.naver.com/p/search/%EC%9E%A0%EC%9B%90%20%ED%95%9C%EC%8B%9D%EB%8B%B9%20%EC%9E%A0%EC%9B%90)
-- **스시신사** [식당] · 신사역 70m
-  - 후기 200건 (30일 20건, 주간 -)
-  - 대표: 대표메뉴 12,000원 (후기 2026-11-01)
-  - 분위기: 데이트하기 좋은, 감성적인 곳
-  - [네이버 지도](https://map.naver.com/p/search/%EC%8A%A4%EC%8B%9C%EC%8B%A0%EC%82%AC%20%EC%8B%A0%EC%82%AC)
-- **OO 팝업** [팝업스토어] · 신사역 인근 · 기간 2026-11-20~2026-12-15
-  - [네이버 지도](https://map.naver.com/p/search/OO%20%ED%8C%9D%EC%97%85%20%EC%8B%A0%EC%82%AC)
-- **AA 팝업** [팝업스토어] · 압구정역 인근 · 기간 2026-12-01~2026-12-20
-  - [네이버 지도](https://map.naver.com/p/search/AA%20%ED%8C%9D%EC%97%85%20%EC%95%95%EA%B5%AC%EC%A0%95)
-- **샘플 사진전** [전시·축제·기타] · 잠원역 184m · 기간 2026-11-01~2026-12-31
-  - [네이버 지도](https://map.naver.com/p/search/%EC%84%B8%EB%B9%9B%EC%84%AC%20%EC%9D%B8%EA%B7%BC%20%EA%B0%A4%EB%9F%AC%EB%A6%AC%20%EC%9E%A0%EC%9B%90)
+- **언덕** [카페] · 신사역 114m
+  - 후기 46112건 (30일 186건, 주간 -)
+  - 대표: 버스투어 49,000원 (후기 2026-11-06)
+  - 분위기: 분위기 있는, 뷰가 좋은 곳
+  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/6MS3eEW5NHW
+  - [네이버 지도](https://map.naver.com/p/search/%EC%96%B8%EB%8D%95%20%EC%8B%A0%EC%82%AC)
+- **담은** [술집] · 고속터미널역 180m
+  - 후기 16535건 (30일 169건, 주간 -)
+  - 대표: 수강료 200,000원 (후기 2026-11-06)
+  - 분위기: 분위기 있는, 감성적인 곳
+  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/EtlegTj3tTY
+  - [네이버 지도](https://map.naver.com/p/search/%EB%8B%B4%EC%9D%80%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
+- **대왕** [술집] · 신사역 336m
+  - 후기 18445건 (30일 157건, 주간 -)
+  - 대표: 균일가 19,900원 (후기 2026-11-10)
+  - 분위기: 분위기 있는, 뷰가 좋은 곳
+  - 사진: https://search2.kakaocdn.net/argon/130x130_85_c/IifDTNYi644
+  - [네이버 지도](https://map.naver.com/p/search/%EB%8C%80%EC%99%95%20%EC%8B%A0%EC%82%AC)
+- **베이징덕** [식당] · 압구정역 61m
+  - 후기 4780건 (30일 57건, 주간 -)
+  - 분위기: 데이트하기 좋은, 분위기 있는 곳
+  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/Kia9TIPAsRk
+  - [네이버 지도](https://map.naver.com/p/search/%EB%B2%A0%EC%9D%B4%EC%A7%95%EB%8D%95%20%EC%95%95%EA%B5%AC%EC%A0%95)
+- **친화력** [술집] · 교대역 148m
+  - 후기 1282건 (30일 27건, 주간 -)
+  - 분위기: 분위기 있는, 아늑한 곳
+  - 사진: https://search3.kakaocdn.net/argon/130x130_85_c/LxqVzJO7VeK
+  - [네이버 지도](https://map.naver.com/p/search/%EC%B9%9C%ED%99%94%EB%A0%A5%20%EA%B5%90%EB%8C%80)
+- **도톤보리 서울** [술집] · 신사역 100m
+  - 후기 1482건 (30일 25건, 주간 -)
+  - 분위기: 분위기 있는, 데이트하기 좋은 곳
+  - 사진: https://search3.kakaocdn.net/argon/130x130_85_c/8VlHUgI8PyT
+  - [네이버 지도](https://map.naver.com/p/search/%EB%8F%84%ED%86%A4%EB%B3%B4%EB%A6%AC%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EC%82%AC)
+- **요고** [카페] · 신사역 162m
+  - 후기 4798건 (30일 26건, 주간 -)
+  - 대표: 크림브륄레브리오슈 6,500원 (후기 2026-11-04)
+  - 분위기: 감성적인, 분위기 있는 곳
+  - 사진: https://search1.kakaocdn.net/argon/130x130_85_c/ImNCuA798Zq
+  - [네이버 지도](https://map.naver.com/p/search/%EC%9A%94%EA%B3%A0%20%EC%8B%A0%EC%82%AC)
+- **향방** [식당] · 신사역 69m
+  - 후기 1253건 (30일 19건, 주간 -)
+  - 대표: 차돌짬뽕 12,000원 (후기 2026-09-24)
+  - 분위기: 뷰가 좋은, 데이트하기 좋은 곳
+  - 사진: https://search1.kakaocdn.net/argon/130x130_85_c/6iGIVKpBGRw
+  - [네이버 지도](https://map.naver.com/p/search/%ED%96%A5%EB%B0%A9%20%EC%8B%A0%EC%82%AC)
+- **호시** [식당] · 신사역 53m
+  - 후기 2432건 (30일 16건, 주간 -)
+  - 분위기: 뷰가 좋은, 와인 한잔하기 좋은 곳
+  - 사진: https://search2.kakaocdn.net/argon/130x130_85_c/8tPpadKkz87
+  - [네이버 지도](https://map.naver.com/p/search/%ED%98%B8%EC%8B%9C%20%EC%8B%A0%EC%82%AC)
+- **탄주 고속터미널점** [술집] · 고속터미널역 257m
+  - 후기 197건 (30일 18건, 주간 -)
+  - 대표: 김치우동 11,000원 (후기 2026-11-07)
+  - 분위기: 웨이팅 있는 인기, 분위기 있는 곳
+  - 사진: https://search4.kakaocdn.net/argon/130x130_85_c/DnwnDgWFopF
+  - [네이버 지도](https://map.naver.com/p/search/%ED%83%84%EC%A3%BC%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)

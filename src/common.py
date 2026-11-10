@@ -89,6 +89,12 @@ def http_json(url, params=None, headers=None):
         return json.loads(r.read().decode("utf-8"))
 
 
+def kakao_search(kind, query, **params):
+    """다음 검색(blog/web/image). 같은 카카오 REST 키 사용."""
+    h = {"Authorization": "KakaoAK " + env("KAKAO_REST_KEY")}
+    return http_json(f"https://dapi.kakao.com/v2/search/{kind}", {"query": query, **params}, h)
+
+
 def env(name):
     return os.environ.get(name, "").strip()
 
@@ -96,6 +102,5 @@ def env(name):
 def have_keys():
     return {
         "kakao": bool(env("KAKAO_REST_KEY")),
-        "naver": bool(env("NAVER_CLIENT_ID") and env("NAVER_CLIENT_SECRET")),
         "seoul": bool(env("SEOUL_OPEN_KEY")),
     }

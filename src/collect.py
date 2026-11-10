@@ -1,10 +1,10 @@
 """후보 수집: 카카오(먹거리) / 네이버(팝업) / 서울 열린데이터(전시·축제). 키 없으면 sample/ 사용."""
 import hashlib, html, json, re
+from datetime import timedelta
 from .common import *
 
 TAG = re.compile(r"<[^>]+>")
 clean = lambda s: html.unescape(TAG.sub("", s or "")).strip()
-naver_h = lambda: {"X-Naver-Client-Id": env("NAVER_CLIENT_ID"), "X-Naver-Client-Secret": env("NAVER_CLIENT_SECRET")}
 hid = lambda p, s: p + hashlib.md5(s.encode()).hexdigest()[:10]
 map_url = lambda name, area="": "https://map.naver.com/p/search/" + urllib.parse.quote(f"{name} {area}".strip())
 
@@ -53,7 +53,10 @@ def collect_food(cfg, use_sample):
     return rows
 
 
-# ---- 2순위: 팝업 (네이버 블로그/뉴스, 최신순) ----
+# ---- 2순위: 팝업 (다음 블로그/웹 검색, 최신순) ----
+POPUP_NAME = re.compile(r"([가-힣A-Za-z0-9&·]{2,12})\s*팝업(?:스토어)?")
+POPUP_GENERIC = {"서울", "강남", "신사", "압구정", "성수", "카페", "크리스마스", "체험형", "홍보", "논란", "기념", "대구", "부산", "무료", "전용", "신세계", "현대", "백화점", "신규", "오픈", "이색", "인기", "핫플", "한정"}
+POPUP_JUNK = ("임대", "매물", "맛집", "나무위키", "사무실", "상가", "건물", "권리금", "채용", "창업", "추천", "순위", "총정리", "정리", "베스트", "BEST", "코스", "비교")
 DATE_RE = re.compile(r"(\d{1,2})[./월]\s*(\d{1,2})일?\s*[~\-–부터]+\s*(?:(\d{1,2})[./월]\s*)?(\d{1,2})")
 
 
@@ -74,19 +77,23 @@ def collect_popup(cfg, use_sample):
         posts = sample("popup_posts.json")
     else:
         for st in cfg["nearby"]["stations"]:
-            for kind in ("blog", "news"):
-                j = http_json(f"https://openapi.naver.com/v1/search/{kind}.json",
-                              {"query": f"{st['name']} 팝업스토어", "display": 30, "sort": "date"}, naver_h())
-                for it in j.get("items", []):
-                    it["_station"] = st["name"]
-                    posts.append(it)
+            for kind in ("blog", "web"):
+                j = kakao_search(kind, f"{st['name']}역 팝업스토어", sort="recency", size=30)
+                for d in j.get("documents", []):
+                    posts.append({"title": d["title"], "description": d["contents"], "link": d["url"],
+                                  "_station": st["name"], "_dt": d.get("datetime", "")[:10]})
     seen = set()
+    fresh = (date.today() - timedelta(days=45)).isoformat()
     for it in posts:
         title, desc = clean(it["title"]), clean(it.get("description", ""))
-        if "팝업" not in title + desc:
+        if "팝업" not in title or any(j in title for j in POPUP_JUNK):
+            continue  # 제목에 팝업이 없거나 부동산·순위·정리글이면 제외
+        if it.get("_dt") and it["_dt"] < fresh:
+            continue  # 오래된 글 제외 (샘플엔 날짜 없음)
+        m = next((m for m in POPUP_NAME.finditer(title) if m.group(1) not in POPUP_GENERIC), None)
+        if not m:
             continue
-        m = re.search(r"([^\s\[\]()]{2,20}?)\s*(?:팝업스토어|팝업)", title)
-        name = (m.group(1) + " 팝업") if m else title[:20]
+        name = m.group(1) + " 팝업"
         if name in seen:
             continue
         seen.add(name)
@@ -94,7 +101,7 @@ def collect_popup(cfg, use_sample):
         if end and end < date.today().isoformat():
             continue  # 종료된 팝업 제외
         pid = hid("p", name)
-        rows += attrs(pid, "naver-popup", name=name, category="팝업스토어", station=it["_station"],
+        rows += attrs(pid, "kakao-popup", name=name, category="팝업스토어", station=it["_station"],
                       period_start=start, period_end=end, map_url=map_url(name, it["_station"]),
                       address=it["_station"] + "역 인근", source_link=it.get("link", ""), tier=2)
     return rows
@@ -134,7 +141,10 @@ def run(cfg, keys, force_sample=False):
     if cfg["mode"] != "nearby":
         raise SystemExit(f"mode={cfg['mode']} 는 아직 미구현입니다 (구조만 열어둠). config.yaml 의 mode 를 nearby 로 두세요.")
     rows = []
-    rows += collect_food(cfg, force_sample or not keys["kakao"])
-    rows += collect_popup(cfg, force_sample or not keys["naver"])
-    rows += collect_culture(cfg, force_sample or not keys["seoul"])
+    # 키가 없는 소스는 --sample 일 때만 샘플 사용, 아니면 건너뜀(샘플이 실데이터에 섞이지 않게)
+    if force_sample or keys["kakao"]:
+        rows += collect_food(cfg, force_sample)
+        rows += collect_popup(cfg, force_sample)
+    if force_sample or keys["seoul"]:
+        rows += collect_culture(cfg, force_sample)
     return rows
