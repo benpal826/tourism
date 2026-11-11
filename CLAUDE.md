@@ -14,6 +14,10 @@
 - `taste.md` 취향 요약(자동), `report.md` 이번 주 추천, `docs/cards.json` 스와이프 앱용 카드
 - `python3 -m src.record 가게명 점수 "한줄평"` 방문 기록, `python3 -m src.course 신사 저녁` 코스 제안
 
+## 대표메뉴·가격대 (주간 갱신 때 Claude 가 직접 선별)
+- 카카오맵 메뉴 데이터는 공식 API 에 없음 → `python3 -m src.menus todo 30` 으로 메뉴 없는 곳의 후기 요약을 뽑아, Claude 가 읽고 **가게가 맞고 메뉴명이 분명한 것만** 골라 `{"place_id":[메뉴,가격,가격대,후기날짜]}` JSON 으로 만든 뒤 `python3 -m src.menus import FILE`. 확인 안 되면 비워 둠(지어내지 않음). 선별된 곳은 자동추출이 덮어쓰지 않음.
+- `--sample` 실행은 data/_sample, out/sample 에만 씀(실데이터와 분리).
+
 ## 요청 처리
 - "토요일 신사 저녁 코스 짜줘" → `src.course 신사 저녁` 실행 후 결과를 요약해 제안(저장한 곳만 사용, 도보 동선).
 - "○○ 갔다왔는데 4점, ~했어" → `src.record` 로 기록.

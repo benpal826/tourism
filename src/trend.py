@@ -118,6 +118,9 @@ def one(cfg, pid, a, use_sample, samp):
             total, posts = fetch_posts(cfg, a["name"], a["station"])
             res = analyze(cfg, total, posts, a["name"])
             th = thumb(a["name"], a["station"])
+        if a.get("menu_source") == "curated":
+            for k in ("menu", "price", "price_band", "menu_mentions", "menu_date"):
+                res.pop(k, None)
         for f in ("reviews_total", "reviews_30d"):
             if f in res:
                 mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": "kakao-blog"})

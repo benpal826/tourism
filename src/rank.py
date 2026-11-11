@@ -49,7 +49,7 @@ def build_taste(cands, places):
         items = sorted(((k[1], v) for k, v in w.items() if k[0] == kind), key=lambda x: -x[1])
         if items:
             lines.append(f"\n## 선호 {title}\n" + "\n".join(f"- {n}: {v:+.1f}" for n, v in items[:5]))
-    (ROOT / "taste.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (ROOT / ("out/sample/taste.md" if any(r.get("source") == "sample" for r in places[:1]) else "taste.md")).write_text("\n".join(lines) + "\n", encoding="utf-8")
     return w
 
 
@@ -83,8 +83,8 @@ def build_cards(cfg, cands, mentions, places):
         c = {"place_id": pid, **a, **m_latest.get(pid, {})}
         if c.get("tier") == "1" and float(c.get("reviews_total", 0)) < cfg["trend"]["min_reviews"]:
             continue  # 후기 수가 너무 적은 곳 제외 (카카오맵 평점은 공식 API에 없어 후기 수로 대체)
-        if int(c.get("menu_mentions") or 0) < 2:  # 후기에서 2번 이상 확인된 메뉴만 노출 (오추출 방지)
-            for k in ("menu", "price", "price_band", "menu_mentions"):
+        if c.get("menu_source") != "curated" and int(c.get("menu_mentions") or 0) < 2:
+            for k in ("menu", "price", "price_band", "menu_mentions"):  # 자동추출은 2회 이상 확인된 것만
                 c.pop(k, None)
         if not c.get("lat") and c.get("station") in stations:  # 좌표 없는 팝업은 역 위치로 대략 표시
             st = stations[c["station"]]

@@ -3560,3 +3560,425 @@ date,place_id,field,value,source
 2026-11-10,pcbca7620e2,thumb_lo,https://search2.kakaocdn.net/argon/130x130_85_c/8V7W2F7zL9a,kakao-image
 2026-11-10,p2ea289d238,thumb,https://postfiles.pstatic.net/MjAyNjExMDJfMjM3/MDAxNzkzNjA4NTI2NDcy.gbtoVh8A4e15dQsL1zMNHeEg5QoHhQ9lhPUO7u9C8ZQg.ZfxCIkyrga5zd_9Ub4cqk7y05i9Rr9SEvUudLldbo44g.JPEG/R.jpg?type=w966,kakao-image
 2026-11-10,p2ea289d238,thumb_lo,https://search3.kakaocdn.net/argon/130x130_85_c/IZE0ehEERTF,kakao-image
+2026-11-11,k18629885,menu,모듬전,menu-curated
+2026-11-11,k18629885,price,"32,000원",menu-curated
+2026-11-11,k18629885,price_band,2만원대,menu-curated
+2026-11-11,k18629885,menu_date,2026-10-29,menu-curated
+2026-11-11,k18629885,menu_source,curated,menu-curated
+2026-11-11,k7904069,menu,베이징덕 구이 한마리,menu-curated
+2026-11-11,k7904069,price,"99,000원",menu-curated
+2026-11-11,k7904069,price_band,한마리 10만원 안팎(2~3인),menu-curated
+2026-11-11,k7904069,menu_date,2026-07-28,menu-curated
+2026-11-11,k7904069,menu_source,curated,menu-curated
+2026-11-11,k468611449,menu,오란 카펠리니,menu-curated
+2026-11-11,k468611449,price,"25,000원",menu-curated
+2026-11-11,k468611449,price_band,2~3만원대,menu-curated
+2026-11-11,k468611449,menu_date,2026-04-16,menu-curated
+2026-11-11,k468611449,menu_source,curated,menu-curated
+2026-11-11,k875073447,menu,명란감자치즈구이,menu-curated
+2026-11-11,k875073447,price,"10,000원",menu-curated
+2026-11-11,k875073447,price_band,1~2만원대,menu-curated
+2026-11-11,k875073447,menu_date,2026-10-28,menu-curated
+2026-11-11,k875073447,menu_source,curated,menu-curated
+2026-11-11,k1214127533,menu,차돌짬뽕,menu-curated
+2026-11-11,k1214127533,price,"12,000원",menu-curated
+2026-11-11,k1214127533,price_band,1만원대,menu-curated
+2026-11-11,k1214127533,menu_date,2026-04-28,menu-curated
+2026-11-11,k1214127533,menu_source,curated,menu-curated
+2026-11-11,k942652842,menu,야키토리 세트,menu-curated
+2026-11-11,k942652842,price,"10,000원",menu-curated
+2026-11-11,k942652842,price_band,1만원대,menu-curated
+2026-11-11,k942652842,menu_date,2026-10-31,menu-curated
+2026-11-11,k942652842,menu_source,curated,menu-curated
+2026-11-11,k1624256715,menu,아메리카노(톨),menu-curated
+2026-11-11,k1624256715,price,"4,700원",menu-curated
+2026-11-11,k1624256715,price_band,4~6천원대,menu-curated
+2026-11-11,k1624256715,menu_date,2026-08-28,menu-curated
+2026-11-11,k1624256715,menu_source,curated,menu-curated
+2026-11-11,k1224432398,menu,평양냉면(일반),menu-curated
+2026-11-11,k1224432398,price,"15,000원",menu-curated
+2026-11-11,k1224432398,price_band,1만원대 중후반,menu-curated
+2026-11-11,k1224432398,menu_date,2026-11-09,menu-curated
+2026-11-11,k1224432398,menu_source,curated,menu-curated
+2026-11-11,k13724756,menu,김치볶음밥,menu-curated
+2026-11-11,k13724756,price,"9,000원",menu-curated
+2026-11-11,k13724756,price_band,1만원 안팎,menu-curated
+2026-11-11,k13724756,menu_date,2026-10-01,menu-curated
+2026-11-11,k13724756,menu_source,curated,menu-curated
+2026-11-11,k7961953,menu,아메리카노(톨),menu-curated
+2026-11-11,k7961953,price,"4,700원",menu-curated
+2026-11-11,k7961953,price_band,4~6천원대,menu-curated
+2026-11-11,k7961953,menu_date,2026-08-28,menu-curated
+2026-11-11,k7961953,menu_source,curated,menu-curated
+2026-11-11,k306744050,menu,생과일 찹쌀떡,menu-curated
+2026-11-11,k306744050,price,"개당 4,000~6,500원",menu-curated
+2026-11-11,k306744050,price_band,선물세트 3~4만원대,menu-curated
+2026-11-11,k306744050,menu_date,2026-10-11,menu-curated
+2026-11-11,k306744050,menu_source,curated,menu-curated
+2026-11-11,k302504172,menu,모네의 정원,menu-curated
+2026-11-11,k302504172,price,"21,000원",menu-curated
+2026-11-11,k302504172,price_band,2~3만원대,menu-curated
+2026-11-11,k302504172,menu_date,2026-11-08,menu-curated
+2026-11-11,k302504172,menu_source,curated,menu-curated
+2026-11-11,k16326700,menu,하얀집치킨,menu-curated
+2026-11-11,k16326700,price,"24,000원",menu-curated
+2026-11-11,k16326700,price_band,2만원대,menu-curated
+2026-11-11,k16326700,menu_date,2026-09-09,menu-curated
+2026-11-11,k16326700,menu_source,curated,menu-curated
+2026-11-11,k1169210286,menu,야키토리 세트,menu-curated
+2026-11-11,k1169210286,price,"10,000원",menu-curated
+2026-11-11,k1169210286,price_band,1만원대,menu-curated
+2026-11-11,k1169210286,menu_date,2026-10-31,menu-curated
+2026-11-11,k1169210286,menu_source,curated,menu-curated
+2026-11-11,k1855763350,menu,아메리카노,menu-curated
+2026-11-11,k1855763350,price,"5,500원",menu-curated
+2026-11-11,k1855763350,price_band,"도넛 5,500~9,000원",menu-curated
+2026-11-11,k1855763350,menu_date,2026-08-10,menu-curated
+2026-11-11,k1855763350,menu_source,curated,menu-curated
+2026-11-11,k345298143,menu,아메리카노,menu-curated
+2026-11-11,k345298143,price,"8,500원",menu-curated
+2026-11-11,k345298143,price_band,브런치·빙수 2만원대,menu-curated
+2026-11-11,k345298143,menu_date,2026-09-19,menu-curated
+2026-11-11,k345298143,menu_source,curated,menu-curated
+2026-11-11,k1904517202,menu,이용료(1인 1음료),menu-curated
+2026-11-11,k1904517202,price,"1시간 3,000원",menu-curated
+2026-11-11,k1904517202,price_band,스낵 1만원 안팎,menu-curated
+2026-11-11,k1904517202,menu_date,2026-09-09,menu-curated
+2026-11-11,k1904517202,menu_source,curated,menu-curated
+2026-11-11,k883629409,menu,삼치구이,menu-curated
+2026-11-11,k883629409,price,"23,000원",menu-curated
+2026-11-11,k883629409,price_band,2~3만원대,menu-curated
+2026-11-11,k883629409,menu_date,2026-10-12,menu-curated
+2026-11-11,k883629409,menu_source,curated,menu-curated
+2026-11-11,k1539001784,menu,소시지 바게트,menu-curated
+2026-11-11,k1539001784,price,"4,600원",menu-curated
+2026-11-11,k1539001784,price_band,3~5천원대,menu-curated
+2026-11-11,k1539001784,menu_date,2026-10-21,menu-curated
+2026-11-11,k1539001784,menu_source,curated,menu-curated
+2026-11-11,k14515990,menu,규동,menu-curated
+2026-11-11,k14515990,price,"8,900원",menu-curated
+2026-11-11,k14515990,price_band,1만원 안팎,menu-curated
+2026-11-11,k14515990,menu_date,2026-07-13,menu-curated
+2026-11-11,k14515990,menu_source,curated,menu-curated
+2026-11-11,k16472450,menu,한우불고기(1인),menu-curated
+2026-11-11,k16472450,price,"25,000원",menu-curated
+2026-11-11,k16472450,price_band,"점심 12,000원",menu-curated
+2026-11-11,k16472450,menu_date,2026-10-30,menu-curated
+2026-11-11,k16472450,menu_source,curated,menu-curated
+2026-11-11,k454206061,menu,왕갈비탕,menu-curated
+2026-11-11,k454206061,price,"23,000원",menu-curated
+2026-11-11,k454206061,price_band,1~2만원대,menu-curated
+2026-11-11,k454206061,menu_date,2026-05-16,menu-curated
+2026-11-11,k454206061,menu_source,curated,menu-curated
+2026-11-11,k26330704,menu,스파이시 쉬림프 피자,menu-curated
+2026-11-11,k26330704,price,"19,500원",menu-curated
+2026-11-11,k26330704,price_band,2만원대,menu-curated
+2026-11-11,k26330704,menu_date,2026-09-27,menu-curated
+2026-11-11,k26330704,menu_source,curated,menu-curated
+2026-11-11,k1920025267,menu,스트로베리 에너지보울,menu-curated
+2026-11-11,k1920025267,price,"7,800원",menu-curated
+2026-11-11,k1920025267,price_band,8천원대,menu-curated
+2026-11-11,k1920025267,menu_date,2025-07-21,menu-curated
+2026-11-11,k1920025267,menu_source,curated,menu-curated
+2026-11-11,k912133469,menu,소고기샤브,menu-curated
+2026-11-11,k912133469,price,"15,900원",menu-curated
+2026-11-11,k912133469,price_band,1만원대 중반,menu-curated
+2026-11-11,k912133469,menu_date,2026-09-07,menu-curated
+2026-11-11,k912133469,menu_source,curated,menu-curated
+2026-11-11,k26508465,menu,블랙 치즈폼 라떼,menu-curated
+2026-11-11,k26508465,price,"6,300원",menu-curated
+2026-11-11,k26508465,price_band,5~6천원대,menu-curated
+2026-11-11,k26508465,menu_date,2026-10-02,menu-curated
+2026-11-11,k26508465,menu_source,curated,menu-curated
+2026-11-11,k1926892988,menu,시그니처 오타이동 반상,menu-curated
+2026-11-11,k1926892988,price,"29,000원",menu-curated
+2026-11-11,k1926892988,price_band,"3만원대(프리미엄 58,000원)",menu-curated
+2026-11-11,k1926892988,menu_date,2026-10-08,menu-curated
+2026-11-11,k1926892988,menu_source,curated,menu-curated
+2026-11-11,k25040567,menu,아구찜(소),menu-curated
+2026-11-11,k25040567,price,"40,000원",menu-curated
+2026-11-11,k25040567,price_band,4~6만원대,menu-curated
+2026-11-11,k25040567,menu_date,2025-09-16,menu-curated
+2026-11-11,k25040567,menu_source,curated,menu-curated
+2026-11-11,k250605146,menu,홀쉬림프업버거 세트,menu-curated
+2026-11-11,k250605146,price_band,단품 1만원 안팎·사이드 4~6천원,menu-curated
+2026-11-11,k250605146,menu_date,2026-01-22,menu-curated
+2026-11-11,k250605146,menu_source,curated,menu-curated
+2026-11-11,k16297733,menu,돈까스김치나베우동+오니기리 세트,menu-curated
+2026-11-11,k16297733,price,"11,500원",menu-curated
+2026-11-11,k16297733,price_band,1만원 안팎,menu-curated
+2026-11-11,k16297733,menu_date,2026-03-26,menu-curated
+2026-11-11,k16297733,menu_source,curated,menu-curated
+2026-11-11,k24485105,menu,아메리카노,menu-curated
+2026-11-11,k24485105,price_band,5~7천원대·홀케이크 3만원대,menu-curated
+2026-11-11,k24485105,menu_date,2025-09-02,menu-curated
+2026-11-11,k24485105,menu_source,curated,menu-curated
+2026-11-11,k1176331672,menu,파전,menu-curated
+2026-11-11,k1176331672,price,"15,000원",menu-curated
+2026-11-11,k1176331672,price_band,안주 1.5~3.5만원(시세),menu-curated
+2026-11-11,k1176331672,menu_date,2026-11-07,menu-curated
+2026-11-11,k1176331672,menu_source,curated,menu-curated
+2026-11-11,k781909399,menu,아메리카노,menu-curated
+2026-11-11,k781909399,price,"5,500원",menu-curated
+2026-11-11,k781909399,price_band,"브루잉커피 8~10,000원",menu-curated
+2026-11-11,k781909399,menu_date,2025-05-25,menu-curated
+2026-11-11,k781909399,menu_source,curated,menu-curated
+2026-11-11,k26395435,menu,아메리카노(톨),menu-curated
+2026-11-11,k26395435,price,"4,700원",menu-curated
+2026-11-11,k26395435,price_band,4~8천원대,menu-curated
+2026-11-11,k26395435,menu_date,2026-09-07,menu-curated
+2026-11-11,k26395435,menu_source,curated,menu-curated
+2026-11-11,k1591066580,menu,아메리카노(톨),menu-curated
+2026-11-11,k1591066580,price,"4,700원",menu-curated
+2026-11-11,k1591066580,price_band,4~8천원대,menu-curated
+2026-11-11,k1591066580,menu_date,2026-09-06,menu-curated
+2026-11-11,k1591066580,menu_source,curated,menu-curated
+2026-11-11,k501414554,menu,대방어회(1인),menu-curated
+2026-11-11,k501414554,price,"30,000원",menu-curated
+2026-11-11,k501414554,price_band,"점심 대찬한상 1인 20,000원",menu-curated
+2026-11-11,k501414554,menu_date,2026-03-24,menu-curated
+2026-11-11,k501414554,menu_source,curated,menu-curated
+2026-11-11,k495667742,menu,시골보쌈(2인),menu-curated
+2026-11-11,k495667742,price,"45,000원",menu-curated
+2026-11-11,k495667742,price_band,"감자옹심이 12,000원",menu-curated
+2026-11-11,k495667742,menu_date,2026-01-17,menu-curated
+2026-11-11,k495667742,menu_source,curated,menu-curated
+2026-11-11,k902200401,menu,순대국밥,menu-curated
+2026-11-11,k902200401,price,"14,000원",menu-curated
+2026-11-11,k902200401,price_band,1만원대 중반·24시간,menu-curated
+2026-11-11,k902200401,menu_date,2026-10-12,menu-curated
+2026-11-11,k902200401,menu_source,curated,menu-curated
+2026-11-11,k100026790,menu,수제 마카롱,menu-curated
+2026-11-11,k100026790,price,"개당 2,800원",menu-curated
+2026-11-11,k100026790,price_band,"아메리카노 3,000원",menu-curated
+2026-11-11,k100026790,menu_date,2025-11-26,menu-curated
+2026-11-11,k100026790,menu_source,curated,menu-curated
+2026-11-11,k1674117471,menu,상견례 한정식 코스,menu-curated
+2026-11-11,k1674117471,price,"78,000~80,000원",menu-curated
+2026-11-11,k1674117471,price_band,"평일 점심특선 36,000원",menu-curated
+2026-11-11,k1674117471,menu_date,2025-12-28,menu-curated
+2026-11-11,k1674117471,menu_source,curated,menu-curated
+2026-11-11,k213272862,menu,상하이 런치코스 A,menu-curated
+2026-11-11,k213272862,price,"45,000원",menu-curated
+2026-11-11,k213272862,price_band,코스 4~7만원대,menu-curated
+2026-11-11,k213272862,menu_date,2025-09-25,menu-curated
+2026-11-11,k213272862,menu_source,curated,menu-curated
+2026-11-11,k2121902972,menu,갓 구운 애플파이,menu-curated
+2026-11-11,k2121902972,price,"6,000원",menu-curated
+2026-11-11,k2121902972,price_band,5~6천원대,menu-curated
+2026-11-11,k2121902972,menu_date,2026-10-04,menu-curated
+2026-11-11,k2121902972,menu_source,curated,menu-curated
+2026-11-11,k21301236,menu,피스타치오 초콜릿 모카,menu-curated
+2026-11-11,k21301236,price,"6,500원",menu-curated
+2026-11-11,k21301236,price_band,5~7천원대,menu-curated
+2026-11-11,k21301236,menu_date,2026-03-06,menu-curated
+2026-11-11,k21301236,menu_source,curated,menu-curated
+2026-11-11,k1963572119,menu,떡볶이 1인분,menu-curated
+2026-11-11,k1963572119,price,"4,500원",menu-curated
+2026-11-11,k1963572119,price_band,"순대 4,500원·군밤 5,000원",menu-curated
+2026-11-11,k1963572119,menu_date,2025-11-13,menu-curated
+2026-11-11,k1963572119,menu_source,curated,menu-curated
+2026-11-11,k85407144,menu,틸화이트커피,menu-curated
+2026-11-11,k85407144,price,"8,000원",menu-curated
+2026-11-11,k85407144,price_band,음료 7~9천원대·브런치 1.6~1.9만원,menu-curated
+2026-11-11,k85407144,menu_date,2026-07-20,menu-curated
+2026-11-11,k85407144,menu_source,curated,menu-curated
+2026-11-11,k1495084339,menu,꼬마김밥,menu-curated
+2026-11-11,k1495084339,price,"개당 2,000원",menu-curated
+2026-11-11,k1495084339,price_band,"오뎅 1,500원·순대꼬치 3,000원",menu-curated
+2026-11-11,k1495084339,menu_date,2026-09-07,menu-curated
+2026-11-11,k1495084339,menu_source,curated,menu-curated
+2026-11-11,k2071612713,menu,플레인 스콘,menu-curated
+2026-11-11,k2071612713,price,"4,500원",menu-curated
+2026-11-11,k2071612713,price_band,음료·스콘 5천원 안팎,menu-curated
+2026-11-11,k2071612713,menu_date,2026-11-07,menu-curated
+2026-11-11,k2071612713,menu_source,curated,menu-curated
+2026-11-11,k79297340,menu,오덴큐(모듬오뎅),menu-curated
+2026-11-11,k79297340,price,"26,000원",menu-curated
+2026-11-11,k79297340,price_band,안주 2~3만원대,menu-curated
+2026-11-11,k79297340,menu_date,2025-10-22,menu-curated
+2026-11-11,k79297340,menu_source,curated,menu-curated
+2026-11-11,k1402628577,menu,트리플비타민주스 XL,menu-curated
+2026-11-11,k1402628577,price,"7,490원",menu-curated
+2026-11-11,k1402628577,price_band,7~1.4만원,menu-curated
+2026-11-11,k1402628577,menu_date,2025-03-04,menu-curated
+2026-11-11,k1402628577,menu_source,curated,menu-curated
+2026-11-11,k8770376,menu,참복지리(1인),menu-curated
+2026-11-11,k8770376,price,"45,000원",menu-curated
+2026-11-11,k8770376,price_band,4~5만원대,menu-curated
+2026-11-11,k8770376,menu_date,2022-04-26,menu-curated
+2026-11-11,k8770376,menu_source,curated,menu-curated
+2026-11-11,k1252347522,menu,불이아 정식,menu-curated
+2026-11-11,k1252347522,price,"27,000원",menu-curated
+2026-11-11,k1252347522,price_band,정식 2.7~4.9만원,menu-curated
+2026-11-11,k1252347522,menu_date,2025-06-09,menu-curated
+2026-11-11,k1252347522,menu_source,curated,menu-curated
+2026-11-11,k1715918915,menu,해산물 솥밥,menu-curated
+2026-11-11,k1715918915,price,"28,000원",menu-curated
+2026-11-11,k1715918915,price_band,솥밥 2.4~2.8만원,menu-curated
+2026-11-11,k1715918915,menu_date,2026-03-17,menu-curated
+2026-11-11,k1715918915,menu_source,curated,menu-curated
+2026-11-11,k1643909034,menu,파인트,menu-curated
+2026-11-11,k1643909034,price,"9,800원",menu-curated
+2026-11-11,k1643909034,price_band,싱글 4~5천원대,menu-curated
+2026-11-11,k1643909034,menu_date,2024-12-05,menu-curated
+2026-11-11,k1643909034,menu_source,curated,menu-curated
+2026-11-11,k1536766820,menu,고르곤졸라 피자,menu-curated
+2026-11-11,k1536766820,price,"9,000원",menu-curated
+2026-11-11,k1536766820,price_band,"안주 1만원 안팎·세트 최대 15,000원",menu-curated
+2026-11-11,k1536766820,menu_date,2026-10-20,menu-curated
+2026-11-11,k1536766820,menu_source,curated,menu-curated
+2026-11-11,k2090510438,menu,런치코스 셰프특선,menu-curated
+2026-11-11,k2090510438,price,"69,000원",menu-curated
+2026-11-11,k2090510438,price_band,코스 7~10만원대,menu-curated
+2026-11-11,k2090510438,menu_date,2026-03-31,menu-curated
+2026-11-11,k2090510438,menu_source,curated,menu-curated
+2026-11-11,k1715978389,menu,디카페인 코코넛 커피 스무디,menu-curated
+2026-11-11,k1715978389,price,"6,400원",menu-curated
+2026-11-11,k1715978389,price_band,"6~7천원대·베이글 5,500원",menu-curated
+2026-11-11,k1715978389,menu_date,2026-11-09,menu-curated
+2026-11-11,k1715978389,menu_source,curated,menu-curated
+2026-11-11,k21416787,menu,솜리정식,menu-curated
+2026-11-11,k21416787,price,"28,000원",menu-curated
+2026-11-11,k21416787,price_band,"보쌈정식 33,000원·청국장 21,000원",menu-curated
+2026-11-11,k21416787,menu_date,2026-11-01,menu-curated
+2026-11-11,k21416787,menu_source,curated,menu-curated
+2026-11-11,k21414358,menu,이즈미 코스 A,menu-curated
+2026-11-11,k21414358,price,"48,000원",menu-curated
+2026-11-11,k21414358,price_band,코스 4.8~6만원,menu-curated
+2026-11-11,k21414358,menu_date,2025-03-06,menu-curated
+2026-11-11,k21414358,menu_source,curated,menu-curated
+2026-11-11,k1265607649,menu,비빔냉면+한돈양념구이 세트,menu-curated
+2026-11-11,k1265607649,price,"18,000원",menu-curated
+2026-11-11,k1265607649,price_band,"냉면 단품 12,500원",menu-curated
+2026-11-11,k1265607649,menu_date,2026-05-09,menu-curated
+2026-11-11,k1265607649,menu_source,curated,menu-curated
+2026-11-11,k15558150,menu,두부김치,menu-curated
+2026-11-11,k15558150,price,"16,000원",menu-curated
+2026-11-11,k15558150,price_band,"안주 1.6만원·소주 6,000원",menu-curated
+2026-11-11,k15558150,menu_date,2026-06-14,menu-curated
+2026-11-11,k15558150,menu_source,curated,menu-curated
+2026-11-11,k1066494582,menu,바닐라 젤라또(컵),menu-curated
+2026-11-11,k1066494582,price,"6,500원",menu-curated
+2026-11-11,k1066494582,price_band,"아메리카노 6,300원",menu-curated
+2026-11-11,k1066494582,menu_date,2026-04-28,menu-curated
+2026-11-11,k1066494582,menu_source,curated,menu-curated
+2026-11-11,k1589624371,menu,스시·샤브 무한리필(평일 런치),menu-curated
+2026-11-11,k1589624371,price,"35,800원",menu-curated
+2026-11-11,k1589624371,price_band,1인 3.5~4.3만원,menu-curated
+2026-11-11,k1589624371,menu_date,2026-08-24,menu-curated
+2026-11-11,k1589624371,menu_source,curated,menu-curated
+2026-11-11,k16474216,menu,골뱅이무침,menu-curated
+2026-11-11,k16474216,price,"22,000원",menu-curated
+2026-11-11,k16474216,price_band,안주 1.6~2.2만원,menu-curated
+2026-11-11,k16474216,menu_date,2026-09-28,menu-curated
+2026-11-11,k16474216,menu_source,curated,menu-curated
+2026-11-11,k1742684158,menu,사골순대국,menu-curated
+2026-11-11,k1742684158,price,"10,000원",menu-curated
+2026-11-11,k1742684158,price_band,1만원 안팎,menu-curated
+2026-11-11,k1742684158,menu_date,2026-09-08,menu-curated
+2026-11-11,k1742684158,menu_source,curated,menu-curated
+2026-11-11,k1719987589,menu,아구찜(소),menu-curated
+2026-11-11,k1719987589,price,"39,000원",menu-curated
+2026-11-11,k1719987589,price_band,3.9~6.9만원,menu-curated
+2026-11-11,k1719987589,menu_date,2026-08-24,menu-curated
+2026-11-11,k1719987589,menu_source,curated,menu-curated
+2026-11-11,k185608032,menu,아메리카노,menu-curated
+2026-11-11,k185608032,price,"2,500원",menu-curated
+2026-11-11,k185608032,price_band,2~4천원대,menu-curated
+2026-11-11,k185608032,menu_date,2023-11-24,menu-curated
+2026-11-11,k185608032,menu_source,curated,menu-curated
+2026-11-11,k1978879550,menu,잔치국수,menu-curated
+2026-11-11,k1978879550,price,"7,500원",menu-curated
+2026-11-11,k1978879550,price_band,6.5~1만원,menu-curated
+2026-11-11,k1978879550,menu_date,2025-12-03,menu-curated
+2026-11-11,k1978879550,menu_source,curated,menu-curated
+2026-11-11,k361574711,menu,편노가리,menu-curated
+2026-11-11,k361574711,price,"9,900원",menu-curated
+2026-11-11,k361574711,price_band,안주 1만원 안팎,menu-curated
+2026-11-11,k361574711,menu_date,2023-10-17,menu-curated
+2026-11-11,k361574711,menu_source,curated,menu-curated
+2026-11-11,k883056783,menu,골뱅이 모듬탕(2~3인),menu-curated
+2026-11-11,k883056783,price,"39,000원",menu-curated
+2026-11-11,k883056783,price_band,세트 5.3만원,menu-curated
+2026-11-11,k883056783,menu_date,2026-03-17,menu-curated
+2026-11-11,k883056783,menu_source,curated,menu-curated
+2026-11-11,k27095351,menu,아메리카노,menu-curated
+2026-11-11,k27095351,price_band,2~4천원대,menu-curated
+2026-11-11,k27095351,menu_date,2025-05-19,menu-curated
+2026-11-11,k27095351,menu_source,curated,menu-curated
+2026-11-11,k1369848066,menu,1/2 바나나 팬케이크,menu-curated
+2026-11-11,k1369848066,price,"11,000원",menu-curated
+2026-11-11,k1369848066,price_band,브런치 2~2.5만원,menu-curated
+2026-11-11,k1369848066,menu_date,2026-10-03,menu-curated
+2026-11-11,k1369848066,menu_source,curated,menu-curated
+2026-11-11,k722067495,menu,앰프레소(에스프레소 앰플),menu-curated
+2026-11-11,k722067495,price,"3,000원",menu-curated
+2026-11-11,k722067495,price_band,"시그니처 코스 12,000원",menu-curated
+2026-11-11,k722067495,menu_date,2025-09-08,menu-curated
+2026-11-11,k722067495,menu_source,curated,menu-curated
+2026-11-11,k531184941,menu,TD 아인슈페너,menu-curated
+2026-11-11,k531184941,price,"9,000원",menu-curated
+2026-11-11,k531184941,price_band,"아메리카노 6,500원",menu-curated
+2026-11-11,k531184941,menu_date,2025-01-14,menu-curated
+2026-11-11,k531184941,menu_source,curated,menu-curated
+2026-11-11,k26644153,menu,애플망고 치즈 설빙,menu-curated
+2026-11-11,k26644153,price,"11,900원",menu-curated
+2026-11-11,k26644153,price_band,1만원대,menu-curated
+2026-11-11,k26644153,menu_date,2021-12-29,menu-curated
+2026-11-11,k26644153,menu_source,curated,menu-curated
+2026-11-11,k20542106,menu,아메리카노,menu-curated
+2026-11-11,k20542106,price,"4,300원",menu-curated
+2026-11-11,k20542106,price_band,4~6천원대,menu-curated
+2026-11-11,k20542106,menu_date,2024-12-29,menu-curated
+2026-11-11,k20542106,menu_source,curated,menu-curated
+2026-11-11,k13327654,menu,아메리카노,menu-curated
+2026-11-11,k13327654,price,"3,000원",menu-curated
+2026-11-11,k13327654,price_band,"라떼 3,500원",menu-curated
+2026-11-11,k13327654,menu_date,2025-11-11,menu-curated
+2026-11-11,k13327654,menu_source,curated,menu-curated
+2026-11-11,k679584327,menu,물떡 모둠꼬치 어묵탕,menu-curated
+2026-11-11,k679584327,price,"23,000원",menu-curated
+2026-11-11,k679584327,price_band,안주 1~3만원,menu-curated
+2026-11-11,k679584327,menu_date,2026-09-17,menu-curated
+2026-11-11,k679584327,menu_source,curated,menu-curated
+2026-11-11,k889112477,menu,바나나 크레페,menu-curated
+2026-11-11,k889112477,price,"5,500원",menu-curated
+2026-11-11,k889112477,price_band,크레페 4.8~8.8천원,menu-curated
+2026-11-11,k889112477,menu_date,2026-09-21,menu-curated
+2026-11-11,k889112477,menu_source,curated,menu-curated
+2026-11-11,k784044071,menu,명란 톡톡 로제 파스타,menu-curated
+2026-11-11,k784044071,price,"18,900원",menu-curated
+2026-11-11,k784044071,price_band,파스타 1.7~1.9만원·피자 2만원,menu-curated
+2026-11-11,k784044071,menu_date,2026-01-20,menu-curated
+2026-11-11,k784044071,menu_source,curated,menu-curated
+2026-11-11,k1847815112,menu,대관령 황태,menu-curated
+2026-11-11,k1847815112,price,"17,000원",menu-curated
+2026-11-11,k1847815112,price_band,안주 8천~1.5만원,menu-curated
+2026-11-11,k1847815112,menu_date,2023-02-20,menu-curated
+2026-11-11,k1847815112,menu_source,curated,menu-curated
+2026-11-11,k1137539216,menu,갓파더,menu-curated
+2026-11-11,k1137539216,price,"16,000원",menu-curated
+2026-11-11,k1137539216,price_band,칵테일 1.4~1.8만원,menu-curated
+2026-11-11,k1137539216,menu_date,2026-09-24,menu-curated
+2026-11-11,k1137539216,menu_source,curated,menu-curated
+2026-11-11,k16988519,menu,모듬꼬치구이,menu-curated
+2026-11-11,k16988519,price,"35,000원",menu-curated
+2026-11-11,k16988519,price_band,"닭껍질 13,000원·소주 6,000원",menu-curated
+2026-11-11,k16988519,menu_date,2024-08-26,menu-curated
+2026-11-11,k16988519,menu_source,curated,menu-curated
+2026-11-11,k821773342,menu,박속낙지(연포탕),menu-curated
+2026-11-11,k821773342,price,싯가,menu-curated
+2026-11-11,k821773342,price_band,"안주 1.1~2만원·소주 4,000원",menu-curated
+2026-11-11,k821773342,menu_date,2026-04-22,menu-curated
+2026-11-11,k821773342,menu_source,curated,menu-curated
+2026-11-11,k98524002,menu,위스키 샷,menu-curated
+2026-11-11,k98524002,price,"17,000원~",menu-curated
+2026-11-11,k98524002,price_band,1.7만원~,menu-curated
+2026-11-11,k98524002,menu_date,2025-07-02,menu-curated
+2026-11-11,k98524002,menu_source,curated,menu-curated
+2026-11-11,k1000816026,menu,마마스 샐러드,menu-curated
+2026-11-11,k1000816026,price,"14,300원",menu-curated
+2026-11-11,k1000816026,price_band,샐러드·파니니 1.4~1.6만원,menu-curated
+2026-11-11,k1000816026,menu_date,2026-06-29,menu-curated
+2026-11-11,k1000816026,menu_source,curated,menu-curated

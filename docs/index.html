@@ -84,7 +84,7 @@ function body(c){
   const stats=c.reviews_total?`<div class=stats>
     <div class=stat><b>${Number(c.reviews_total).toLocaleString()}</b><span>후기</span></div>
     <div class=stat><b>${c.weekly_growth?"+"+c.weekly_growth:"-"}</b><span>주간 증가</span></div></div>`:"";
-  const menu=c.menu?`<div class=row><i>🍴</i><div>대표 ${esc(c.menu)} ${esc(c.price||"")}${c.price_band?` · 가격대 ${esc(c.price_band)}`:""} <small>(후기 ${c.menu_mentions||1}건 언급 기준)</small></div></div>`:"";
+  const menu=c.menu?`<div class=row><i>🍴</i><div><b>${esc(c.menu)}</b> ${esc(c.price||"")}${c.price_band?`<br><small>가격대 ${esc(c.price_band)}</small>`:""} <small>· 후기 ${esc((c.menu_date||"").slice(0,7))} 기준</small></div></div>`:"";
   const vibe=c.vibe?`<div class=row><i>✨</i><div>${esc(c.vibe)}</div></div>`:"";
   const ph=photoList(c);
   const first=ph[0];

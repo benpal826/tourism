@@ -1,60 +1,54 @@
-**요약: 후보 135곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 3999건.**
+**요약: 후보 144곳(미확인), 급상승 0곳 — 샘플 모드, 신규 행 120건.**
 
-# 이번 주 추천 (2026-11-10)
+# 이번 주 추천 (2026-11-11)
 
 - **언덕** [카페] · 신사역 114m
   - 후기 46125건 (주간 -)
-  - 대표: 버스투어 49,000원 · 가격대 4만원대 (후기 언급 기준)
   - 분위기: 분위기 있는, 뷰가 좋은 곳
   - 사진: http://cfile294.uf.daum.net/image/236B6534530FDDD2129B4F
   - [카카오맵](https://place.map.kakao.com/838638157)
 - **담은** [술집] · 고속터미널역 180m
   - 후기 16542건 (주간 -)
-  - 대표: 박스 27,800원 · 가격대 2만원대 (후기 언급 기준)
+  - 대표: 모듬전 32,000원 · 가격대 2만원대 (후기 2026-10-29 기준)
   - 분위기: 분위기 있는, 감성적인 곳
   - 사진: https://postfiles.pstatic.net/MjAyNjA4MjRfMzMg/MDAxNzg3NTU4NTcwODcy.zyptM3xjJO-G5Alx7ylZh3RQbwqyDfc1hN0QFY_VAF8g.dqXwd4FL6SEAlD716fPykQvvry7S405XRDFBffVTIxQg.JPEG/%EB%A9%94%EB%89%B4_02.jpg?type=w773
   - [카카오맵](https://place.map.kakao.com/18629885)
 - **대왕** [술집] · 신사역 336m
   - 후기 18548건 (주간 -)
-  - 대표: 균일가 19,900원 · 가격대 1만원대 (후기 언급 기준)
   - 분위기: 분위기 있는, 웨이팅 있는 인기 곳
   - 사진: http://scrap.kakaocdn.net/dn/D6CEH/bl4NiMx5fGn/5whvG4kLiLZSjI9SarkPn1/kakaolink40_original.jpg?width=508&height=302
   - [카카오맵](https://place.map.kakao.com/692530578)
 - **베이징덕** [식당] · 압구정역 61m
   - 후기 4781건 (주간 -)
+  - 대표: 베이징덕 구이 한마리 99,000원 · 가격대 한마리 10만원 안팎(2~3인) (후기 2026-07-28 기준)
   - 분위기: 데이트하기 좋은, 분위기 있는 곳
   - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20230427_194%252F1682579409998dsHGQ_JPEG%252FDSC_4795.jpg%22&type=ff500_300
   - [카카오맵](https://place.map.kakao.com/7904069)
+- **고터 포차** [술집] · 고속터미널역 62m
+  - 후기 450건 (주간 -)
+  - 분위기: 데이트하기 좋은, 감성적인 곳
+  - [카카오맵](https://place.map.kakao.com/1006)
+- **교대 와인바** [술집] · 교대역 56m
+  - 후기 400건 (주간 -)
+  - 분위기: 데이트하기 좋은, 감성적인 곳
+  - [카카오맵](https://place.map.kakao.com/1005)
+- **신사 브런치** [카페] · 신사역 105m
+  - 후기 350건 (주간 -)
+  - 분위기: 데이트하기 좋은, 감성적인 곳
+  - [카카오맵](https://place.map.kakao.com/1004)
+- **압구정 로스터리** [카페] · 압구정역 70m
+  - 후기 300건 (주간 -)
+  - 분위기: 데이트하기 좋은, 감성적인 곳
+  - [카카오맵](https://place.map.kakao.com/1003)
 - **친화력** [술집] · 교대역 148m
   - 후기 1283건 (주간 -)
+  - 대표: 오란 카펠리니 25,000원 · 가격대 2~3만원대 (후기 2026-04-16 기준)
   - 분위기: 분위기 있는, 아늑한 곳
   - 사진: https://postfiles.pstatic.net/MjAyNDEwMDZfNjIg/MDAxNzI4MjIzNzE0NDc4.VYzYUGjUjfgS86RneLq_AHdhp5r8Aljz8Aq40SHv3BUg.51LMky6cZAVvT4-sxGP38cK2qnifmi7Mi_S7n51rLwIg.JPEG/20240810%EF%BC%BF173021.jpg?type=w773
   - [카카오맵](https://place.map.kakao.com/468611449)
 - **도톤보리 서울** [술집] · 신사역 100m
   - 후기 1447건 (주간 -)
+  - 대표: 명란감자치즈구이 10,000원 · 가격대 1~2만원대 (후기 2026-10-28 기준)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
   - 사진: https://postfiles.pstatic.net/MjAyNDAzMTJfMjA3/MDAxNzEwMjQxNTQ4MjY3.tPv6nsdQSXRmfRX6lYdYS54iAVOuBoJkbMdv2CcshUQg.dD7z9OdgtqV42mcTvM8Tedbq71RsotrslRI0-x4TjUMg.JPEG/IMG_1749.JPG?type=w966
   - [카카오맵](https://place.map.kakao.com/875073447)
-- **요고** [카페] · 신사역 162m
-  - 후기 4798건 (주간 -)
-  - 대표: 크림브륄레브리오슈 6,500원 · 가격대 8천원대 (후기 언급 기준)
-  - 분위기: 감성적인, 분위기 있는 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNDA3MDdfMjky/MDAxNzIwMzQxMDUwNTk2.HP1kr7kyGaTj34Xps_Azcf03Y3I7CMLN4J2z_NnyA4Qg.IyK1nrzZmZfHQe-2ts7i4PxKH3nlFdGPcPvbwqiMBRgg.JPEG/j__(41)%ED%95%B4%EC%82%B0%EB%AC%BC.jpg?type=w773
-  - [카카오맵](https://place.map.kakao.com/2004029956)
-- **향방** [식당] · 신사역 69m
-  - 후기 1253건 (주간 -)
-  - 대표: 차돌짬뽕 12,000원 · 가격대 1만원대 (후기 언급 기준)
-  - 분위기: 뷰가 좋은, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAxODAxMTdfMTMy/MDAxNTE2MTcwMjAzMzIx.mdatUqjmuYHx4H6h0F-0ZZQIwe1cmHnyzzGqf7H0v1Ug.86bceQfC6uC9YY29heGy1ctKj655bkhhind23r6YkB0g.JPEG.yj6487/IMG_0524.jpg?type=w966
-  - [카카오맵](https://place.map.kakao.com/1214127533)
-- **호시** [식당] · 신사역 53m
-  - 후기 2433건 (주간 -)
-  - 분위기: 뷰가 좋은, 와인 한잔하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyMTA0MTJfMTkx/MDAxNjE4MjM4OTU2OTAx.iurA09GFmtFslZ8moaoFNI0_WZMs5pwzKAIU3_MTsQYg.yzzdpbBC5u7eU4DOkoEV1ZBhFuuk9kFL3shN0DWK3yUg.JPEG.mansion9official/%EC%9D%B8%EC%8A%A4%ED%83%80%EC%9A%A9,%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg?type=w966
-  - [카카오맵](https://place.map.kakao.com/911470323)
-- **탄주 고속터미널점** [술집] · 고속터미널역 257m
-  - 후기 197건 (주간 -)
-  - 대표: 김치우동 11,000원 · 가격대 1만원대 (후기 언급 기준)
-  - 분위기: 웨이팅 있는 인기, 분위기 있는 곳
-  - 사진: https://blog.kakaocdn.net/dn/cByIQO/dJMcab6M2zw/KQVIURUWf2Ri0Dkd13xdiK/img.jpg
-  - [카카오맵](https://place.map.kakao.com/942652842)

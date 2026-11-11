@@ -22,7 +22,8 @@ def main():
         n = sync_swipes(url)
         print(f"시트에서 스와이프 {n}건 반영")
 
-    cand_path, men_path, pl_path = DATA / "candidates.csv", DATA / "mentions.csv", DATA / "places.csv"
+    base = DATA / "_sample" if sample else DATA  # 샘플은 실데이터와 섞이지 않게 별도 폴더
+    cand_path, men_path, pl_path = base / "candidates.csv", base / "mentions.csv", base / "places.csv"
     n_c = append_rows(cand_path, collect.run(cfg, keys, sample))
     cands = latest_cands(cand_path)
     m_rows, d_rows = trend.run(cfg, cands, keys, sample)
@@ -31,8 +32,8 @@ def main():
     cands = latest_cands(cand_path)
     cards = rank.build_cards(cfg, cands, read_rows(men_path), read_rows(pl_path))
 
-    out = ROOT / "docs"
-    out.mkdir(exist_ok=True)
+    out = ROOT / "out" / "sample" if sample else ROOT / "docs"
+    out.mkdir(parents=True, exist_ok=True)
     (out / "cards.json").write_text(json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "stations.json").write_text(json.dumps({st["name"]: st for st in cfg["nearby"]["stations"]},
                                                   ensure_ascii=False), encoding="utf-8")
@@ -44,7 +45,7 @@ def main():
              f"# 이번 주 추천 ({date.today().isoformat()})\n"]
     for c in top:
         lines.append(card_md(c))
-    (ROOT / "report.md").write_text("\n".join(lines), encoding="utf-8")
+    (out / "report.md" if sample else ROOT / "report.md").write_text("\n".join(lines), encoding="utf-8")
     print("\n".join(lines))
 
 
@@ -71,7 +72,7 @@ def card_md(c):
     dist = f" · {c['station']}역 {c['distance_m']}m" if c.get("distance_m") else f" · {c.get('station', '')}역 인근"
     g = c.get("weekly_growth")
     rev = f"\n  - 후기 {c['reviews_total']}건 (주간 {'+' + str(g) if g else '-'})" if c.get("reviews_total") else ""
-    menu = f"\n  - 대표: {c['menu']} {c.get('price', '')} · 가격대 {c.get('price_band', '-')} (후기 언급 기준)" if c.get("menu") else ""
+    menu = f"\n  - 대표: {c['menu']} {c.get('price', '')} · 가격대 {c.get('price_band', '-')} (후기 {c.get('menu_date', '')} 기준)" if c.get("menu") else ""
     vibe = f"\n  - 분위기: {c['vibe']}" if c.get("vibe") else ""
     thumb = f"\n  - 사진: {c['thumb']}" if c.get("thumb") else ""
     return f"- {'🔥' if c.get('surge') else ''}**{c['name']}** [{c['category']}]{dist}{period}{rev}{menu}{vibe}{thumb}\n  - [카카오맵]({c['map_url']})"
