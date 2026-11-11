@@ -31,7 +31,9 @@ def snippets(name, station, per_query=15, limit=6):
 
 def todo(n):
     cands = latest_cands(DATA / "candidates.csv")
-    todo = [(p, a) for p, a in cands.items() if a.get("tier") == "1" and not a.get("menu")]
+    m, min_rev = latest(read_rows(DATA / "mentions.csv")), load_config()["trend"]["min_reviews"]
+    todo = [(p, a) for p, a in cands.items() if a.get("tier") == "1" and not a.get("menu")
+            and float(m.get(p, {}).get("reviews_total", 0)) >= min_rev]  # 카드에 올라가는 곳만
     print(f"요약: 메뉴 없는 먹거리 {len(todo)}곳 중 {min(n, len(todo))}곳의 후기 요약.\n")
     for p, a in todo[:n]:
         print(f"### {p} {a['name']} [{a.get('kind', '')}]")
