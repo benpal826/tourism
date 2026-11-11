@@ -30,10 +30,10 @@ def main():
     n_m = append_rows(men_path, m_rows)
     n_d = append_rows(cand_path, d_rows)
     cands = latest_cands(cand_path)
-    cards = rank.build_cards(cfg, cands, read_rows(men_path), read_rows(pl_path))
-
     out = ROOT / "out" / "sample" if sample else ROOT / "docs"
     out.mkdir(parents=True, exist_ok=True)
+    cards = rank.build_cards(cfg, cands, read_rows(men_path), read_rows(pl_path),
+                             out / "taste.md" if sample else ROOT / "taste.md")
     (out / "cards.json").write_text(json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "stations.json").write_text(json.dumps({st["name"]: st for st in cfg["nearby"]["stations"]},
                                                   ensure_ascii=False), encoding="utf-8")

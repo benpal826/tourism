@@ -1,5 +1,6 @@
 """급상승 / 취향(taste.md) / 점수화 / 카드 생성."""
 from collections import Counter
+from pathlib import Path
 from .common import *
 
 ACTIONS = ("swipe", "score", "review")
@@ -23,7 +24,7 @@ def seen_ids(places):
     return {r["place_id"] for r in places if r["field"] == "swipe"}
 
 
-def build_taste(cands, places):
+def build_taste(cands, places, taste_path=ROOT / "taste.md"):
     """저장/패스 이력 → 카테고리·역 선호 가중치와 taste.md."""
     swipes = {r["place_id"]: r["value"] for r in sorted(places, key=lambda r: r["date"]) if r["field"] == "swipe"}
     scores = {}
@@ -49,7 +50,7 @@ def build_taste(cands, places):
         items = sorted(((k[1], v) for k, v in w.items() if k[0] == kind), key=lambda x: -x[1])
         if items:
             lines.append(f"\n## 선호 {title}\n" + "\n".join(f"- {n}: {v:+.1f}" for n, v in items[:5]))
-    (ROOT / ("out/sample/taste.md" if any(r.get("source") == "sample" for r in places[:1]) else "taste.md")).write_text("\n".join(lines) + "\n", encoding="utf-8")
+    Path(taste_path).write_text("\n".join(lines) + "\n", encoding="utf-8")
     return w
 
 
@@ -64,12 +65,12 @@ def score(a, growth, surge_set, taste):
     return round(s, 2)
 
 
-def build_cards(cfg, cands, mentions, places):
+def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
     growth = weekly_growth(mentions)
     m_latest = latest(mentions)
     ranked_growth = sorted((p for p, g in growth.items() if g and g > 0), key=lambda p: -growth[p])
     surge = set(ranked_growth[: cfg["trend"]["surge_top_n"]])
-    taste = build_taste(cands, places)
+    taste = build_taste(cands, places, taste_path)
     seen = seen_ids(places)
     today = date.today().isoformat()
     stations = {st["name"]: st for st in cfg["nearby"]["stations"]}
