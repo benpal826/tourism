@@ -12,9 +12,11 @@ def main():
     slot = sys.argv[2] if len(sys.argv) > 2 else "저녁"
     cands = latest_cands(DATA / "candidates.csv")
     places = read_rows(DATA / "places.csv")
-    saved = {r["place_id"] for r in places if r["field"] == "swipe" and r["value"] == "save"}
+    saved = {p for p, v in latest([r for r in places if r["field"] == "swipe"]).items() if v.get("swipe") == "save"}  # 최신 선택이 저장인 곳만
     scores = {p: float(s[-1][1]) for p, s in series(places, "score").items()}
-    pool = [cands[p] for p in saved if p in cands and (not station or cands[p].get("station") == station)]
+    today = date.today().isoformat()
+    pool = [cands[p] for p in saved if p in cands and (not station or cands[p].get("station") == station)
+            and not (cands[p].get("period_end") and cands[p]["period_end"] < today)]
     if not pool:
         print(f"요약: {station or '전체'}에 저장된 곳이 없어 코스를 못 짰습니다. 먼저 스와이프로 저장하세요.")
         return

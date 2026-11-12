@@ -136,7 +136,19 @@ def run(cfg, cands, keys, force_sample=False):
     """팝업/문화행사는 후기 집계 없이 썸네일만. 가게별 호출은 4개씩 병렬."""
     from concurrent.futures import ThreadPoolExecutor
     use_sample = force_sample
+    if not use_sample and not keys.get("kakao"):
+        return [], []  # 카카오 키가 없으면 후기·사진 보강을 건너뜀
     samp = sample("blog_stats.json") if use_sample else {}
+    failed = []
+
+    def safe(kv):  # 장소 하나의 오류가 전체 갱신을 멈추지 않게 격리
+        try:
+            return one(cfg, kv[0], kv[1], use_sample, samp)
+        except Exception as e:
+            failed.append((kv[1].get("name"), type(e).__name__))
+            return [], []
     with ThreadPoolExecutor(4) as ex:
-        results = list(ex.map(lambda kv: one(cfg, kv[0], kv[1], use_sample, samp), cands.items()))
+        results = list(ex.map(safe, cands.items()))
+    if failed:
+        print(f"경고: 보강 실패 {len(failed)}곳(나머지는 정상 반영): " + ", ".join(f"{n}({t})" for n, t in failed[:5]))
     return [r for m, _ in results for r in m], [r for _, d in results for r in d]

@@ -1,5 +1,6 @@
 """급상승 / 취향(taste.md) / 점수화 / 카드 생성."""
 from collections import Counter
+import math
 from pathlib import Path
 from .common import *
 
@@ -21,19 +22,22 @@ def weekly_growth(mentions):
 
 
 def seen_ids(places):
-    return {r["place_id"] for r in places if r["field"] == "swipe"}
+    """최신 스와이프가 저장/패스인 곳(되돌리기 undo 가 최신이면 다시 후보로)."""
+    return {p for p, v in latest([r for r in places if r["field"] == "swipe"]).items() if v.get("swipe") in ("save", "pass")}
 
 
 def build_taste(cands, places, taste_path=ROOT / "taste.md"):
     """저장/패스 이력 → 카테고리·역 선호 가중치와 taste.md."""
-    swipes = {r["place_id"]: r["value"] for r in sorted(places, key=lambda r: r["date"]) if r["field"] == "swipe"}
+    swipes = {p: v["swipe"] for p, v in latest([r for r in places if r["field"] == "swipe"]).items() if v.get("swipe") in ("save", "pass")}
     scores = {}
     for r in places:
         if r["field"] == "score":
             try:
-                scores[r["place_id"]] = float(r["value"])
+                v = float(r["value"])
             except ValueError:
-                pass
+                continue
+            if math.isfinite(v) and 1 <= v <= 5:
+                scores[r["place_id"]] = v
     w = {}
     for pid, v in swipes.items():
         a = cands.get(pid, {})

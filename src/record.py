@@ -1,5 +1,5 @@
 """방문 후 한 줄 평·점수 기록: python -m src.record "가게명" 4 "한 줄 평" """
-import sys
+import math, sys
 from .common import *
 from .run import latest_cands
 
@@ -8,6 +8,12 @@ def main():
     if len(sys.argv) < 3:
         raise SystemExit("사용: python -m src.record 가게명 점수(1-5) [한줄평]")
     name, score = sys.argv[1], sys.argv[2]
+    try:
+        ok = math.isfinite(float(score)) and 1 <= float(score) <= 5
+    except ValueError:
+        ok = False
+    if not ok:
+        raise SystemExit(f"요약: 점수는 1~5 사이 숫자여야 합니다 (입력: {score}).")
     review = " ".join(sys.argv[3:])
     cands = latest_cands(DATA / "candidates.csv")
     hits = [p for p, a in cands.items() if name in a["name"]]

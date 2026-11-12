@@ -115,7 +115,10 @@ def collect_culture(cfg, use_sample):
     if use_sample:
         items = sample("seoul_culture.json")
     else:
-        j = http_json(f"http://openapi.seoul.go.kr:8088/{env('SEOUL_OPEN_KEY')}/json/culturalEventInfo/1/1000/")
+        try:
+            j = http_json(f"https://openapi.seoul.go.kr:8088/{env('SEOUL_OPEN_KEY')}/json/culturalEventInfo/1/1000/")
+        except Exception as e:  # 오류 메시지에 키가 든 주소가 남지 않게 마스킹
+            raise RuntimeError("서울 열린데이터 호출 실패: " + str(e).replace(env("SEOUL_OPEN_KEY"), "***")) from None
         items = j.get("culturalEventInfo", {}).get("row", [])
     today = date.today().isoformat()
     for d in items:

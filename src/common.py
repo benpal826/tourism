@@ -62,9 +62,11 @@ def series(rows, field):
     for r in sorted(rows, key=lambda r: r["date"]):
         if r["field"] == field:
             try:
-                out.setdefault(r["place_id"], []).append((r["date"], float(r["value"])))
+                v = float(r["value"])
             except ValueError:
-                pass
+                continue
+            if math.isfinite(v):  # nan/inf 는 버림(카드 JSON 손상 방지)
+                out.setdefault(r["place_id"], []).append((r["date"], v))
     return out
 
 

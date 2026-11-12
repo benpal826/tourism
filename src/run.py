@@ -1,5 +1,5 @@
 """주간 갱신 단일 진입점: python -m src.run [--sample] [--import-swipes FILE]"""
-import argparse, csv, json
+import argparse, csv, json, math
 from . import collect, trend, rank
 from .common import *
 
@@ -58,13 +58,21 @@ def build_history(cands, mentions, places):
     """저장/패스한 곳(+방문 점수·한줄평)을 카드 정보와 함께. 스와이프 앱의 기록 메뉴용."""
     m = latest(mentions)
     last = {}
-    for r in sorted(places, key=lambda r: r["date"]):
+    for r in sorted(places, key=lambda r: r["date"]):  # 필드마다 따로 최신값을 유지(스와이프가 점수·한줄평을 지우지 않게)
+        v = last.setdefault(r["place_id"], {})
         if r["field"] == "swipe":
-            last[r["place_id"]] = {"action": r["value"], "swiped": r["date"]}
-        elif r["field"] in ("score", "review"):
-            last.setdefault(r["place_id"], {})[r["field"]] = r["value"]
+            v["action"], v["swiped"] = r["value"], r["date"]
+        elif r["field"] == "score":
+            try:
+                ok = 1 <= float(r["value"]) <= 5 and math.isfinite(float(r["value"]))
+            except ValueError:
+                ok = False
+            if ok:
+                v["score"] = r["value"]  # nan/범위 밖 점수는 무시
+        elif r["field"] == "review":
+            v["review"] = r["value"]
     return [{"place_id": pid, **cands[pid], **m.get(pid, {}), **v}
-            for pid, v in last.items() if pid in cands and "action" in v]
+            for pid, v in last.items() if pid in cands and v.get("action") in ("save", "pass")]
 
 
 def card_md(c):
@@ -86,14 +94,16 @@ def sync_swipes(url):
 
 
 def import_swipes(path):
+    """시트/CSV(place_id,action,ts[,id])의 스와이프를 반영. date 에 전체 시각(초 단위)을 보존해
+    같은 날 저장→패스→저장 번복도 마지막 값이 최신으로 남고, 같은 이벤트 재수신만 중복 제거된다."""
     rows = []
     f = open(path, newline="", encoding="utf-8") if isinstance(path, str) else path
-    if True:
-        for r in csv.DictReader(f):
-            act = {"right": "save", "left": "pass"}.get(r.get("action"), r.get("action"))
-            if act in ("save", "pass"):
-                rows.append({"date": (r.get("ts") or "")[:10], "place_id": r.get("place_id"),
-                             "field": "swipe", "value": act, "source": "swipe"})
+    for r in csv.DictReader(f):
+        act = {"right": "save", "left": "pass"}.get(r.get("action"), r.get("action"))
+        pid, ts = (r.get("place_id") or "").strip(), (r.get("ts") or "").strip()
+        if act not in ("save", "pass", "undo") or not pid or len(ts) < 10:
+            continue  # 헤더 중복·잘못된 행 무시
+        rows.append({"date": ts[:19].replace("Z", ""), "place_id": pid, "field": "swipe", "value": act, "source": "swipe"})
     return append_rows(DATA / "places.csv", rows)
 
 

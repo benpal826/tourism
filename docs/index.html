@@ -78,7 +78,7 @@ nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box
 const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
 const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 if(location.search.includes("reset")){try{localStorage.clear()}catch(e){}}
-let seen=LS("seen")||[],queue=LS("queue")||[],dec=LS("dec")||{},snap=LS("snap")||{},cards=[],hist=[],sending=false,view="deck";
+let seen=LS("seen")||[],queue=(LS("queue")||[]).map(q=>q.id?q:{...q,id:Math.random().toString(36).slice(2)+Date.now().toString(36)}),dec=LS("dec")||{},snap=LS("snap")||{},cards=[],hist=[],sending=false,view="deck";
 const stack=document.getElementById("stack"),cnt=document.getElementById("count");
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 let STATIONS={};
@@ -164,23 +164,38 @@ function decide(c,action){
   seen.push(c.place_id);SV("seen",seen);
   dec[c.place_id]={action,ts:new Date().toISOString()};SV("dec",dec);
   const {_ph,...plain}=c;snap[c.place_id]=plain;SV("snap",snap);
-  queue.push({place_id:c.place_id,action,ts:new Date().toISOString()});SV("queue",queue);
+  queue.push(ev(c.place_id,action));SV("queue",queue);pending();
   flush();render();
 }
+const newId=()=>{try{return crypto.randomUUID().replace(/-/g,"").slice(0,32)}catch(e){return Date.now().toString(36)+Math.random().toString(36).slice(2,10)}};
+const ev=(place_id,action)=>({place_id,action,ts:new Date().toISOString(),id:newId()});
+let inflight=new Set(),fails=0,timer=null;
+function pending(){const n=queue.length;let b=document.getElementById("pend");
+  if(!b){b=document.createElement("span");b.id="pend";document.querySelector("header").appendChild(b)}
+  b.textContent=n?`⏳ 전송 대기 ${n}`:"";b.style.cssText="color:#ffb454;font-size:12px;margin-left:8px"}
 async function flush(){
   if(sending||!window.SWIPE_ENDPOINT||!queue.length)return;
-  sending=true;const batch=queue.slice();
-  try{await fetch(window.SWIPE_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(batch)});
-    queue=queue.slice(batch.length);SV("queue",queue)}catch(e){}
-  sending=false;if(queue.length)flush();
+  sending=true;const batch=queue.slice();inflight=new Set(batch.map(q=>q.id));
+  try{
+    const r=await fetch(window.SWIPE_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(batch)});
+    const t=await r.text();let acked;
+    try{const j=JSON.parse(t);acked=j.ok?new Set(j.ids):null}catch(e){acked=t.trim()==="ok"?new Set(batch.map(q=>q.id)):null} // 예전 스크립트는 'ok' 만 응답
+    if(!acked)throw new Error("not acked");
+    queue=queue.filter(q=>!acked.has(q.id));SV("queue",queue);fails=0; // 서버가 받았다고 확인한 이벤트만 제거
+  }catch(e){fails++}
+  inflight=new Set();sending=false;pending();
+  if(queue.length){clearTimeout(timer);timer=setTimeout(flush,fails?Math.min(60000,1000*2**fails):0)} // 실패 시 점점 길게 재시도
 }
 const cur=()=>deckCards()[0];
 const act=a=>{const c=cur(),el=stack.querySelector(".card:not(.back)");if(c&&el)fly(el,c,a)};
 document.getElementById("yes").onclick=()=>act("save");
 document.getElementById("no").onclick=()=>act("pass");
-document.getElementById("undo").onclick=()=>{ // 마지막 선택 되돌리기(아직 전송 전이면 대기열에서도 제거, 이미 전송됐으면 화면에서만 복구)
+document.getElementById("undo").onclick=()=>{ // 마지막 선택 되돌리기
   if(!seen.length)return;const id=seen.pop();SV("seen",seen);delete dec[id];SV("dec",dec);
-  const i=queue.map(q=>q.place_id).lastIndexOf(id);if(i>=0){queue.splice(i,1);SV("queue",queue)}render()};
+  const i=queue.map(q=>q.place_id).lastIndexOf(id);
+  if(i>=0&&!inflight.has(queue[i].id))queue.splice(i,1);   // 아직 안 보낸 이벤트는 취소
+  else queue.push(ev(id,"undo"));                          // 이미 보냈거나 전송 중이면 되돌리기 기록을 추가로 보냄
+  SV("queue",queue);pending();flush();render()};
 addEventListener("keydown",e=>{if(e.key==="ArrowRight")act("save");if(e.key==="ArrowLeft")act("pass")});
 const histIds=()=>new Set(hist.map(h=>h.place_id));
 function deckCards(){const hs=histIds();return cards.filter(c=>!seen.includes(c.place_id)&&!hs.has(c.place_id))}
@@ -202,7 +217,7 @@ function showList(kind){
     <div class=bt><a href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵</a><button data-id="${esc(c.place_id)}" data-to="${kind==="save"?"pass":"save"}">${kind==="save"?"✕ 패스로 이동":"♥ 저장으로 이동"}</button></div></div></div>`}).join(""):'<div class=empty style="position:static;padding:60px 0">아직 없어요</div>';
   L.querySelectorAll("button[data-id]").forEach(b=>b.onclick=()=>{
     const id=b.dataset.id,to=b.dataset.to;dec[id]={action:to,ts:new Date().toISOString()};SV("dec",dec);
-    queue.push({place_id:id,action:to,ts:dec[id].ts});SV("queue",queue);flush();counts();showList(kind)});
+    queue.push(ev(id,to));SV("queue",queue);pending();flush();counts();showList(kind)});
 }
 function setView(v){
   view=v;document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
@@ -228,6 +243,7 @@ function showMap(c){
   map.fitBounds(pts.length>1?pts:[p,p],{padding:[28,28],maxZoom:17});
 }
 const _render=render;render=function(){_render();counts();showMap(deckCards()[0])};
+addEventListener("online",()=>flush());
 const jf=(u,d)=>fetch(u).then(r=>r.ok?r.json():d).catch(()=>d);
-Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");flush()});
+Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");pending();flush()});
 </script></body></html>
