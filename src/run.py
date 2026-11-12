@@ -51,7 +51,9 @@ def main():
 
 def latest_cands(path):
     d = latest(read_rows(path))
-    return {pid: {"place_id": pid, **a} for pid, a in d.items() if "name" in a}
+    # 사진 필드 "-" = 이번 갱신에서 해당 카테고리 사진 없음(빈값은 행을 만들지 않으므로 이전 값을 덮는 표식)
+    return {pid: {"place_id": pid, **{k: v for k, v in a.items() if not (k.startswith("photo_") and v == "-")}}
+            for pid, a in d.items() if "name" in a}
 
 
 def build_history(cands, mentions, places):

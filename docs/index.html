@@ -105,10 +105,10 @@ function body(c){
   <a class=map href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵에서 보기</a></div>
   <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;
 }
-const LABEL={food:"음식",mood:"분위기",outside:"외관"};
+const LABEL={food:"음식",mood:"분위기",outside:"외관",etc:"사진"};
 function photoList(c){ // 음식→분위기→외관 순으로 펼친 한 줄 시퀀스
   const l=[];
-  for(const k of ["food","mood","outside"]){const v=c["photo_"+k];if(v)v.split("§").forEach(x=>{const[hi,lo]=x.split("|");l.push({label:LABEL[k],hi,lo})})}
+  for(const k of ["food","mood","outside","etc"]){const v=c["photo_"+k];if(v)v.split("§").forEach(x=>{const[hi,lo]=x.split("|");l.push({label:LABEL[k],hi,lo})})}
   if(!l.length&&(c.thumb||c.thumb_lo))l.push({label:"사진",hi:c.thumb,lo:c.thumb_lo});
   c._ph=l;return l;
 }

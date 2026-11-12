@@ -24,7 +24,7 @@ def fetch_posts(cfg, name, station):
         total = j["meta"].get("total_count", 0)
         for d in j["documents"]:
             posts.append({"title": d["title"], "description": d["contents"],
-                          "postdate": d["datetime"][:10].replace("-", "")})
+                          "postdate": d["datetime"][:10].replace("-", ""), "url": d.get("url", "")})
         if j["meta"].get("is_end") or (posts and posts[-1]["postdate"] < cutoff):
             break
     return total, posts
@@ -90,26 +90,74 @@ def thumb(name, station):
     return best.get("image_url", ""), best.get("thumbnail_url", "")
 
 
-PHOTO_KINDS = [("food", "음식"), ("mood", "내부 분위기"), ("outside", "외관")]
-PHOTOS_PER_KIND = 3
+PHOTO_KINDS = [("food", "음식 메뉴"), ("mood", "내부 분위기"), ("outside", "외관")]
+MIN_PHOTOS, MAX_PHOTOS, PER_POST = 3, 6, 2
 
 
-def photos(name, station):
-    """카테고리별 사진 3장(음식/분위기/외관). 카카오 이미지 검색 기반이라 카카오맵 사진탭과는 다름."""
-    out, used = {}, set()
-    for key, q in PHOTO_KINDS:
+def url_key(u):
+    """블로그·카페 글 주소를 비교용 키로 정규화(http/https·모바일·쿼리 차이 무시)."""
+    u = re.sub(r"^https?://(www\.|m\.)?", "", (u or "").strip().lower()).split("#")[0]
+    m = re.match(r"blog\.naver\.com/(?:postview\.naver\?blogid=(\w+)&logno=(\d+)|(\w+)/(\d+))", u)
+    if m:
+        return "nb/" + "/".join(x for x in m.groups() if x)
+    return u.split("?")[0].rstrip("/")
+
+
+def verified_urls(name, posts, station=""):
+    """가게 이름이 제목·요약에 실제로 들어간 글의 주소 집합."""
+    key = re.sub(r"(본점|직영점|[가-힣]{1,4}점)$", "", name.replace(" ", "")) or name.replace(" ", "")  # 지점명 뗀 이름
+    return {url_key(p["url"]) for p in posts
+            if p.get("url") and key in (txt := (clean(p["title"]) + clean(p.get("description", ""))).replace(" ", ""))
+            and (not station or station.replace("역", "") in txt)}  # 체인점 오인 방지: 역(지역)명도 함께 언급된 글만
+
+
+def good_image(d):
+    """메뉴판·영수증·지도·배너로 보이는 이미지 제외(크기·비율)."""
+    w, h = d.get("width", 0), d.get("height", 0)
+    if w < 400 or h < 300:
+        return False
+    r = w / h
+    return 0.6 <= r <= 1.8  # 너무 길쭉한 캡처·배너·긴 메뉴판 제외
+
+
+def photos(name, station, posts):
+    """가게가 확인된 후기 글의 사진만 사용(이미지 검색 doc_url == 글 주소). 한 글에서 최대 2장, 부족하면 적게."""
+    extra = []
+    for pg in (1, 2, 3):  # 정확도순 블로그 글도 확인 대상에 추가(이미지 검색 결과와 겹침을 늘림)
         try:
-            docs = kakao_search("image", f"{name} {station} {q}", size=20).get("documents", [])
+            j = kakao_search("blog", f"{name} {station}", sort="accuracy", size=50, page=pg)
+        except Exception:
+            break
+        extra += [{"title": d["title"], "description": d["contents"], "url": d["url"]} for d in j["documents"]]
+        if j["meta"].get("is_end"):
+            break
+    ok = verified_urls(name, posts + extra, station)
+    none = {"photo_" + k: "-" for k in ("food", "mood", "outside", "etc")}  # 이전 주 사진을 덮는 표식
+    if not ok:
+        return none
+    cand, seen = [], set()
+    queries = [(k, f"{name} {station} {q}", 1) for k, q in PHOTO_KINDS] + [(k, f"{name} {q}", 1) for k, q in PHOTO_KINDS]
+    queries += [("etc", f"{name} {station}", pg) for pg in (1, 2, 3)]  # 분류 불명 사진
+    for key, query, pg in queries:
+        try:
+            docs = kakao_search("image", query, size=30, page=pg).get("documents", [])
         except Exception:
             continue
-        wide = [d for d in docs if d.get("width", 0) >= 400 and d["image_url"] not in used]
-        mine = [d for d in wide if d.get("collection") in ("blog", "cafe")]
-        picks = ((mine + [d for d in wide if d not in mine])[:PHOTOS_PER_KIND])
-        for d in picks:
-            used.add(d["image_url"])
-        if picks:
-            out["photo_" + key] = "§".join(d["image_url"] + "|" + d.get("thumbnail_url", "") for d in picks)
-    return out
+        for d in docs:
+            u = d.get("image_url")
+            if not u or u in seen or url_key(d.get("doc_url")) not in ok or not good_image(d):
+                continue
+            seen.add(u)
+            cand.append((key, d))
+    out, per_post, picked = {}, {}, 0
+    for key, d in sorted(cand, key=lambda x: -x[1].get("width", 0) * x[1].get("height", 0) // 1):  # 큰 사진 먼저
+        pk = url_key(d["doc_url"])
+        if picked >= MAX_PHOTOS or per_post.get(pk, 0) >= PER_POST:
+            continue
+        per_post[pk] = per_post.get(pk, 0) + 1
+        picked += 1
+        out.setdefault("photo_" + key, []).append(d["image_url"] + "|" + d.get("thumbnail_url", ""))
+    return {**none, **{k: "§".join(v) for k, v in out.items()}}
 
 
 def one(cfg, pid, a, use_sample, samp):
@@ -132,7 +180,7 @@ def one(cfg, pid, a, use_sample, samp):
         for f in ("reviews_total", "reviews_30d"):
             if f in res:
                 mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": "kakao-blog"})
-        ph = {} if use_sample else photos(a["name"], a["station"])
+        ph = {} if use_sample else photos(a["name"], a["station"], posts)
         detail_rows += attrs(pid, "kakao-blog", thumb=th[0], thumb_lo=th[1], **res, **ph)
     elif not a.get("thumb") and not use_sample:
         th = thumb(a["name"], a.get("station", ""))
