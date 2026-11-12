@@ -106,3 +106,20 @@ def have_keys():
         "kakao": bool(env("KAKAO_REST_KEY")),
         "seoul": bool(env("SEOUL_OPEN_KEY")),
     }
+
+
+def in_scope(cfg, a):
+    """현재 config 의 역·반경 안에 있는 후보인지. 지역을 바꾸면 누적 CSV 의 이전 지역 후보는 제외된다."""
+    st = {s["name"]: s for s in cfg["nearby"]["stations"]}
+    name = a.get("station")
+    if name not in st:
+        return False
+    limit = cfg["nearby"]["culture_radius_m"] if str(a.get("tier")) == "3" else cfg["nearby"]["radius_m"]
+    try:
+        d = haversine(float(a["lat"]), float(a["lng"]), st[name]["lat"], st[name]["lng"])
+    except (KeyError, ValueError, TypeError):
+        try:
+            d = float(a["distance_m"])  # 좌표 없으면 저장된 거리
+        except (KeyError, ValueError, TypeError):
+            return True  # 좌표도 거리도 없는 팝업(역 인근 표기)은 역 기준만 확인
+    return d <= limit

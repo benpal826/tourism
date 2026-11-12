@@ -80,7 +80,7 @@ def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
     stations = {st["name"]: st for st in cfg["nearby"]["stations"]}
     cards = []
     for pid, a in cands.items():
-        if pid in seen:
+        if pid in seen or not in_scope(cfg, a):
             continue
         end = a.get("period_end")
         if end and end < today:

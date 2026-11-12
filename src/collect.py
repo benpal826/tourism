@@ -59,18 +59,32 @@ def collect_food(cfg, use_sample):
 POPUP_NAME = re.compile(r"([가-힣A-Za-z0-9&·]{2,12})\s*팝업(?:스토어)?")
 POPUP_GENERIC = {"서울", "강남", "신사", "압구정", "성수", "카페", "크리스마스", "체험형", "홍보", "논란", "기념", "대구", "부산", "무료", "전용", "신세계", "현대", "백화점", "신규", "오픈", "이색", "인기", "핫플", "한정"}
 POPUP_JUNK = ("임대", "매물", "맛집", "나무위키", "사무실", "상가", "건물", "권리금", "채용", "창업", "추천", "순위", "총정리", "정리", "베스트", "BEST", "코스", "비교")
-DATE_RE = re.compile(r"(\d{1,2})[./월]\s*(\d{1,2})일?\s*[~\-–부터]+\s*(?:(\d{1,2})[./월]\s*)?(\d{1,2})")
+DATE_RE = re.compile(
+    r"(?:(\d{4})\s*[./년]\s*)?(\d{1,2})\s*[./월]\s*(\d{1,2})\s*일?\s*(?:~|-|–|부터)+\s*"
+    r"(?:(?:(\d{4})\s*[./년]\s*)?(\d{1,2})\s*[./월]\s*)?(\d{1,2})")
 
 
-def parse_period(text, year):
-    m = DATE_RE.search(text)
-    if not m:
-        return "", ""
-    m1, d1, m2, d2 = m.group(1), m.group(2), m.group(3) or m.group(1), m.group(4)
-    try:
-        return f"{year}-{int(m1):02d}-{int(d1):02d}", f"{year}-{int(m2):02d}-{int(d2):02d}"
-    except ValueError:
-        return "", ""
+def parse_period(text, ref):
+    """'11.20~12.5', '2026.12.20~2027.1.5', '12월 20일~1월 5일' 등 → (시작, 종료) ISO. ref(date)는 연도 미표기 때 기준.
+    존재하지 않는 날짜·종료<시작(연말 걸침이 아닌 경우)·1년 초과 기간은 버림."""
+    for m in DATE_RE.finditer(text):
+        y1, m1, d1, y2, m2, d2 = m.groups()
+        try:
+            sy = int(y1) if y1 else ref.year
+            start = date(sy, int(m1), int(d1))
+            if m2:
+                ey = int(y2) if y2 else sy
+                end = date(ey, int(m2), int(d2))
+                if end < start and not y2 and int(m2) < int(m1):
+                    end = date(ey + 1, int(m2), int(d2))  # 연말 걸침: 12.20~1.5
+            else:
+                end = date(sy, int(m1), int(d2))  # 월 생략: 시작과 같은 달
+        except ValueError:
+            continue
+        if end < start or (end - start).days > 365:
+            continue
+        return start.isoformat(), end.isoformat()
+    return "", ""
 
 
 def collect_popup(cfg, use_sample):
@@ -99,7 +113,11 @@ def collect_popup(cfg, use_sample):
         if name in seen:
             continue
         seen.add(name)
-        start, end = parse_period(title + " " + desc, date.today().year)
+        try:
+            ref = date.fromisoformat(it["_dt"]) if it.get("_dt") else date.today()  # 글 작성일 기준 연도
+        except ValueError:
+            ref = date.today()
+        start, end = parse_period(title + " " + desc, ref)
         if end and end < date.today().isoformat():
             continue  # 종료된 팝업 제외
         pid = hid("p", name)

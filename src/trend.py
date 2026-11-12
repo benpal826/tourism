@@ -40,19 +40,27 @@ def analyze(cfg, total, posts, name=""):
         total, posts = int(total * ratio), hit
     ads = recent = 0
     menus, vibes, last_date = {}, {}, ""
+    seen_posts = set()
     for p in posts:
         text = clean(p["title"]) + " " + clean(p.get("description", ""))
+        sig = re.sub(r"\s+", "", text)[:120]
+        if sig in seen_posts:
+            continue  # 같은 글이 중복 수집된 경우 한 번만
+        seen_posts.add(sig)
         if is_ad(text, t["exclude_phrases"]):
             ads += 1
             continue
         pd = p.get("postdate", "")
         if pd >= cutoff:
             recent += 1
+        in_post = {}  # 한 글 안에서 반복된 같은 메뉴는 1회로 셈('2회 확인' = 서로 다른 글 2개)
         for m in PRICE_RE.finditer(text):
             mn, pr = m.group(1), int(m.group(2).replace(",", ""))
             if any(b in mn for b in BAD_MENU) or not 3000 <= pr <= 200000:
                 continue
-            menus.setdefault(mn, []).append((pr, pd))
+            in_post.setdefault(mn, (pr, pd))
+        for mn, v in in_post.items():
+            menus.setdefault(mn, []).append(v)
         for k, v in VIBE.items():
             if k in text:
                 vibes[v] = vibes.get(v, 0) + 1

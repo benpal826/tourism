@@ -55,22 +55,13 @@ def latest_cands(path):
 
 
 def build_history(cands, mentions, places):
-    """저장/패스한 곳(+방문 점수·한줄평)을 카드 정보와 함께. 스와이프 앱의 기록 메뉴용."""
+    """저장/패스한 곳을 카드 정보와 함께. 스와이프 앱의 기록 메뉴용.
+    docs/ 는 공개 저장소(GitHub Pages)라 방문 점수·한줄평(개인 기록)은 넣지 않는다(places.csv 에만 보관)."""
     m = latest(mentions)
     last = {}
-    for r in sorted(places, key=lambda r: r["date"]):  # 필드마다 따로 최신값을 유지(스와이프가 점수·한줄평을 지우지 않게)
-        v = last.setdefault(r["place_id"], {})
+    for r in sorted(places, key=lambda r: r["date"]):
         if r["field"] == "swipe":
-            v["action"], v["swiped"] = r["value"], r["date"]
-        elif r["field"] == "score":
-            try:
-                ok = 1 <= float(r["value"]) <= 5 and math.isfinite(float(r["value"]))
-            except ValueError:
-                ok = False
-            if ok:
-                v["score"] = r["value"]  # nan/범위 밖 점수는 무시
-        elif r["field"] == "review":
-            v["review"] = r["value"]
+            last[r["place_id"]] = {"action": r["value"], "swiped": r["date"]}
     return [{"place_id": pid, **cands[pid], **m.get(pid, {}), **v}
             for pid, v in last.items() if pid in cands and v.get("action") in ("save", "pass")]
 

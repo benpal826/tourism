@@ -10,7 +10,8 @@ SLOTS = {"저녁": ["식당", "카페", "술집"], "점심": ["식당", "카페"
 def main():
     station = sys.argv[1] if len(sys.argv) > 1 else None
     slot = sys.argv[2] if len(sys.argv) > 2 else "저녁"
-    cands = latest_cands(DATA / "candidates.csv")
+    cfg = load_config()
+    cands = {p: a for p, a in latest_cands(DATA / "candidates.csv").items() if in_scope(cfg, a)}
     places = read_rows(DATA / "places.csv")
     saved = {p for p, v in latest([r for r in places if r["field"] == "swipe"]).items() if v.get("swipe") == "save"}  # 최신 선택이 저장인 곳만
     scores = {p: float(s[-1][1]) for p, s in series(places, "score").items()}
