@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest
+# 4단계 화면 점검 (tests/e2e). 브라우저는 `python -m playwright install chromium` 으로 설치
+playwright
+pytest-playwright
+axe-playwright-python

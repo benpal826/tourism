@@ -1,0 +1,15 @@
+2026-11-13 15:01:53,890 WARNING carbon.pipeline: 실패한 항목: EU presscorner
+2026-11-13 15:01:53,890 INFO carbon.pipeline: 신규 기사 총 5건 저장
+2026-11-13 15:01:53,920 INFO carbon.pipeline: 출처 등급 부여: 언론사 166곳, 기사 등급 분포 {'미분류': 167, '공식': 75, '일반': 49} (변경 10건)
+2026-11-13 15:01:53,921 INFO carbon.llm: LLM 분류 건너뜀: 인증 정보 없음 (ANTHROPIC_API_KEY 설정 또는 `ant auth login`). 키워드 태그로 계속 진행합니다
+2026-11-13 15:01:53,923 INFO carbon.pipeline: 공식 문서 후속 보도 검색: 문서 0건 → 검색 0 (실패 0), 결과 0건 중 저장 대상 0, 신규 0
+2026-11-13 15:01:53,946 INFO carbon.pipeline: 뉴스–공식 문서 연결: 시도 5건 → 연결됨 0, 공식 확인 안 됨 5 (재시도 0)
+2026-11-13 15:01:53,949 INFO carbon.agencies: 기관 중요도 계산 건너뜀 (누적 부족: DB에 쌓인 기간 0일 < 14일)
+2026-11-13 15:01:53,969 INFO main: 리포트 생성: D:\Users\LJS\Desktop\claude\news\reports\report_2026-11-13.html
+2026-11-13 15:01:53,970 INFO main: 완료 (65.3초)
+2026-11-13 15:01:54,509 INFO main: 내보냄: D:\Users\LJS\Desktop\claude\news\work\ai_classify_2026-11-13.json (150건) → 결과는 D:\Users\LJS\Desktop\claude\news\work\ai_classify_2026-11-13.out.json 에 쓰세요
+2026-11-13 15:03:15,289 INFO main: 가져옴 (classify): {'applied': 150, 'invalid': 0, 'unknown_id': 0, 'missing': 0}
+2026-11-13 15:03:20,160 INFO main: 내보냄: D:\Users\LJS\Desktop\claude\news\work\ai_summary_2026-11-13.json (15건) → 결과는 D:\Users\LJS\Desktop\claude\news\work\ai_summary_2026-11-13.out.json 에 쓰세요
+2026-11-13 15:03:35,020 INFO main: 가져옴 (summary): {'saved': True, 'conclusions': 5, 'report_items': 3, 'dropped': []}
+2026-11-13 15:03:35,553 INFO main: 리포트 생성: D:\Users\LJS\Desktop\claude\news\reports\report_2026-11-13.html
+2026-11-13 15:03:35,553 INFO main: 완료 (0.0초)
