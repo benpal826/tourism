@@ -19,6 +19,8 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
 [hidden]{display:none !important}
 .dash-skeleton{opacity:.55}
 [data-draw]{position:relative}
+/* 공개판: 체중 숨김 */
+#dtile-weight,#tile-weight,#weight,#mtile-weight,#mweight,.ll-wt{display:none !important}
 .ll-loadmsg{color:var(--color-fg-muted);text-align:center;padding:24px}
 </style>
 <script>
@@ -252,7 +254,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
   <section class="ll-page" id="day" data-page="day">
     <div class="ll-sub-head">
       <p class="ll-line" id="dayline">
-        <b data-draw="d" data-source="days" data-field="label_long">—</b><span class="ll-sep">·</span><b data-draw="d" data-source="days" data-field="place">—</b><span class="ll-sep">·</span>운동 <b data-draw="d" data-source="days" data-field="volume_t">—</b><span class="ll-sep">·</span>체중 <b data-draw="d" data-source="days" data-field="weight_t">—</b>kg
+        <b data-draw="d" data-source="days" data-field="label_long">—</b><span class="ll-sep">·</span><b data-draw="d" data-source="days" data-field="place">—</b><span class="ll-sep">·</span>운동 <b data-draw="d" data-source="days" data-field="volume_t">—</b>
       </p>
       <select class="dash-select ll-pick" id="daypick" data-draw="daypick" aria-label="날짜 선택" data-source="days"></select>
     </div>
@@ -340,7 +342,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
   <!-- ============ 주 ============ -->
   <section class="ll-page" id="week" data-page="week" hidden>
     <div class="ll-sub-head">
-      <p class="ll-line" id="oneline">운동 <b data-draw="w" data-source="weeks" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="w" data-source="weeks" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>체중 <b data-draw="w" data-source="weeks" data-field="w_delta_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="w" data-source="weeks" data-field="pos">—</b>일<span class="ll-sep">·</span>아이디어 <b data-draw="w" data-source="weeks" data-field="ideas">—</b>개</p>
+      <p class="ll-line" id="oneline">운동 <b data-draw="w" data-source="weeks" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="w" data-source="weeks" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="w" data-source="weeks" data-field="pos">—</b>일<span class="ll-sep">·</span>아이디어 <b data-draw="w" data-source="weeks" data-field="ideas">—</b>개</p>
       <select class="dash-select ll-pick" id="weekpick" data-draw="weekpick" aria-label="주 선택" data-source="weeks"></select>
     </div>
 
@@ -420,7 +422,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
   <!-- ============ 월 ============ -->
   <section class="ll-page" id="month" data-page="month" hidden>
     <div class="ll-sub-head">
-      <p class="ll-line" id="monthline">운동 <b data-draw="m" data-source="months" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="m" data-source="months" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>체중 <b data-draw="m" data-source="months" data-field="w_delta_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="m" data-source="months" data-field="pos_pct">—</b>%<span class="ll-sep">·</span>아이디어 <b data-draw="m" data-source="months" data-field="ideas">—</b>개</p>
+      <p class="ll-line" id="monthline">운동 <b data-draw="m" data-source="months" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="m" data-source="months" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="m" data-source="months" data-field="pos_pct">—</b>%<span class="ll-sep">·</span>아이디어 <b data-draw="m" data-source="months" data-field="ideas">—</b>개</p>
       <select class="dash-select ll-pick" id="monthpick" data-draw="monthpick" aria-label="달 선택" data-source="months"></select>
     </div>
 

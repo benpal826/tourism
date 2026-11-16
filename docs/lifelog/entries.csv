@@ -9,7 +9,6 @@ date,time,kind,item,value,unit,source
 2026-11-10,00:00,goal,workout:레그 컬,50,kg,coach
 2026-11-10,00:00,goal,workout:체스트프레스,50,kg,coach
 2026-11-10,00:00,goal,workout:랫풀다운,50,kg,coach
-2026-11-10,18:22,quant,weight,78,kg,chat
 2026-11-10,18:40,qual,place,당진,-,chat
 2026-11-10,20:20,goal,nudge,운동 시간! 체스트·랫풀다운 45kg 3×10~12 시도 + 클램쉘 15×2,-,coach
 2026-11-10,21:58,quant,cardio:인클라인 트레드밀,15,분,chat
