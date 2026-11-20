@@ -245,19 +245,6 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
 .ll :is(.ll-tab,.ll-go){position:relative}
 .ll :is(.ll-tab,.ll-go,.bc)::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);translate:-50% -50%}
 .ll .ll-pick{min-height:44px}
-/* F16 테마 드롭다운: 기본 선택창 대신 */
-.ll select.ll-pick.ll-native{display:none}
-.ll .ll-pickwrap{position:relative;display:inline-block;max-width:100%}
-.ll .ll-pickbtn{display:inline-flex;align-items:center;gap:8px;text-align:left;cursor:pointer}
-.ll .ll-pickbtn::before{content:"";order:2;width:8px;height:8px;border:solid currentColor;border-width:0 2px 2px 0;rotate:45deg;margin:-4px 2px 0 4px;transition:rotate .2s}
-.ll .ll-pickbtn[aria-expanded=true]::before{rotate:225deg;margin-top:4px}
-.ll .ll-menu{position:absolute;left:0;top:calc(100% + 6px);z-index:40;min-width:100%;max-width:min(320px,calc(100vw - 32px));max-height:300px;overflow:auto;margin:0;padding:6px;list-style:none;background:var(--v-paper,#fff8e3);color:var(--v-ink,#583b23);border:2px solid var(--v-ink,#583b23);border-radius:22px;box-shadow:0 10px 24px rgba(60,40,20,.22)}
-.ll .ll-menu[hidden]{display:none}
-.ll .ll-menu [role=option]{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border-radius:16px;cursor:pointer;white-space:nowrap;outline:none}
-.ll .ll-menu [role=option]:is(:hover,:focus-visible){background:var(--v-soft,#e7edc2)}
-.ll .ll-menu [role=option][aria-selected=true]{background:var(--v-green,#639d47);color:#fff;font-weight:600}
-.ll .ll-menu [role=option][aria-selected=true]::after{content:"✓";margin-left:auto}
-@media (prefers-reduced-motion: no-preference){.ll .ll-menu{animation:llmenu .16s var(--cds-ease-out,ease-out)}@keyframes llmenu{from{opacity:0;translate:0 -6px}to{opacity:1;translate:0}}.ll .ll-menu [role=option]:active{scale:.97}}
 </style>
 
 <div class="ll village-theme village-world">
@@ -1630,41 +1617,8 @@ dash.draw('mideas', (el) => {
 });
 // F16 누를 때 짧은 진동 (운동 탭은 자체 연출이 있어 제외)
 document.addEventListener('pointerdown', (e) => { const b = e.target.closest?.('.ll button, .ll select, .ll [role=option]'); if (b && !b.closest('.wk')) try { navigator.vibrate?.(25); } catch {} });
-// F16 테마 드롭다운: select는 숨겨 값만 보관(그리기 코드 그대로), 버튼+목록으로 고른다
-LL.pickMenu = (sel) => {
-  const wrap = document.createElement('span'); wrap.className = 'll-pickwrap';
-  const btn = document.createElement('button'); btn.type = 'button'; btn.className = sel.className + ' ll-pickbtn';
-  btn.setAttribute('aria-haspopup', 'listbox'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', sel.getAttribute('aria-label') || '');
-  const lab = document.createElement('span'); btn.append(lab);
-  const menu = document.createElement('ul'); menu.setAttribute('role', 'listbox'); menu.className = 'll-menu'; menu.hidden = true; menu.id = sel.id + '-menu';
-  btn.setAttribute('aria-controls', menu.id);
-  sel.before(wrap); wrap.append(sel, btn, menu); sel.classList.add('ll-native');
-  const sync = () => { lab.textContent = sel.selectedOptions[0]?.textContent || '—'; btn.disabled = !sel.options.length; };
-  const items = () => [...menu.children];
-  const close = (focus) => { if (menu.hidden) return; menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); if (focus) btn.focus(); };
-  const choose = (v) => { if (sel.value !== v) { sel.value = v; sel.dispatchEvent(new Event('change', {bubbles: true})); } sync(); close(true); };
-  const open = () => {
-    menu.replaceChildren(...[...sel.options].map((o) => {
-      const li = document.createElement('li'); li.setAttribute('role', 'option'); li.tabIndex = -1; li.textContent = o.textContent; li.dataset.v = o.value;
-      li.setAttribute('aria-selected', String(o.value === sel.value)); li.onclick = () => choose(o.value); return li;
-    }));
-    menu.hidden = false; btn.setAttribute('aria-expanded', 'true');
-    (items().find((li) => li.getAttribute('aria-selected') === 'true') || items()[0])?.focus();
-  };
-  btn.onclick = () => (menu.hidden ? open() : close(true));
-  btn.addEventListener('keydown', (e) => { if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); open(); } });
-  menu.addEventListener('keydown', (e) => {
-    const list = items(), i = list.indexOf(document.activeElement);
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); list[Math.max(0, Math.min(list.length - 1, i + (e.key === 'ArrowDown' ? 1 : -1)))]?.focus(); }
-    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (i >= 0) choose(list[i].dataset.v); }
-    else if (e.key === 'Escape' || e.key === 'Tab') close(e.key === 'Escape');
-  });
-  document.addEventListener('pointerdown', (e) => { if (!wrap.contains(e.target)) close(false); });
-  sel.addEventListener('change', sync);
-  new MutationObserver(sync).observe(sel, {childList: true, subtree: true, characterData: true}); // 그리기가 목록·값을 바꾸면 따라감
-  sync();
-};
-document.querySelectorAll('.ll select.ll-pick').forEach(LL.pickMenu);
+// F16 테마 드롭다운: 운동 탭과 같은 LLW.pickMenu (app/ui.js)
+document.querySelectorAll('.ll select.ll-pick').forEach(LLW.pickMenu);
 </script>
 
 </body></html>
