@@ -666,7 +666,6 @@ dash.calc('days', {
     for (const s of sets) { const d = day(s.date); d.volume += s.vol; d.sets_n += s.set; d.workout = 'yes'; }
     // 오늘(한국 시간)은 기록이 없어도 하루로 둔다
     const today = new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'}).format(new Date());
-    day(today);
     const out = [...map.values()].sort((a, b) => (a.date < b.date ? -1 : 1));
     let prevW = null;
     return out.map((d) => {
