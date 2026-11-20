@@ -14,7 +14,7 @@
 :root[data-theme="dark"]{--color-bg:#1c1b1a;--color-panel:#262523;--color-fg:#ecebe8;--color-fg-muted:#a3a19c;--color-border-line:#3a3936;
  --cds-border:#45433f;--cds-chart-grid:#33322f;--cds-chart-muted:#77756f;--cds-text-secondary:#a3a19c;--cds-surface-popover:#2b2a28;--cds-shadow-popover:0 4px 14px rgba(0,0,0,.5);color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-body);line-height:1.45;overflow-x:hidden}
+body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-body);line-height:1.45;overflow-x:hidden}
 .dash-select{font:inherit;color:inherit;background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:8px;padding:6px 10px;max-width:100%}
 [hidden]{display:none !important}
 .dash-skeleton{opacity:.55}
@@ -27,7 +27,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
 // claude.ai 대시보드 런타임 대신: CSV 두 개를 읽어 calc를 계산하고 draw를 그린다.
 (function(){
   const calcs = {}, draws = {}, made = new WeakMap(), cache = {};
-  const base = {entries: {status: 'loading', data: []}, muscles: {status: 'loading', data: []}};
+  const base = {entries: {status: 'loading', data: []}, muscles: {status: 'loading', data: []}, gyms: {status: 'loading', data: []}, appsets: {status: 'ok', data: []}, appcardio: {status: 'ok', data: []}};
   let ready = false;
   function data(id){
     if (base[id]) return base[id];
@@ -56,9 +56,9 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
   };
   const parse = (t) => d3.csvParse(t.replace(/^﻿/, ''));
   const v = '?t=' + Date.now();
-  Promise.all([fetch('entries.csv' + v).then((r) => r.text()), fetch('muscles.csv' + v).then((r) => r.text())])
-    .then(([e, m]) => {
-      base.entries = {status: 'ok', data: parse(e)}; base.muscles = {status: 'ok', data: parse(m)};
+  Promise.all([fetch('entries.csv' + v).then((r) => r.text()), fetch('muscles.csv' + v).then((r) => r.text()), fetch('gyms.csv' + v).then((r) => r.text())])
+    .then(([e, m, g]) => {
+      base.entries = {status: 'ok', data: parse(e)}; base.muscles = {status: 'ok', data: parse(m), columns: parse(m).columns}; base.gyms = {status: 'ok', data: parse(g), columns: parse(g).columns};
       ready = true;
       Object.keys(draws).forEach(drawOne);
       if (window.LL) LL.showTab((location.hash || '#day').slice(1), false);
@@ -67,6 +67,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
   let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => window.LL && LL.redraw(LL.tab), 200); });
 })();
 </script>
+<script>window.claude = {use: async () => null};</script>
 </head><body>
 <meta name="dash-one-writer">
 <style>
@@ -89,6 +90,9 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
 .ll-tab.on{background:var(--ll-accent);color:#fff;font-weight:var(--cds-font-weight-medium)}
 .ll-tab:focus-visible{outline:2px solid var(--color-fg);outline-offset:1px}
 .ll-pick{min-width:0;max-width:100%}
+.ll-go{appearance:none;border:0;background:var(--ll-accent);color:#fff;font:inherit;font-weight:var(--cds-font-weight-medium);padding:8px 16px;border-radius:999px;cursor:pointer}
+.ll-go:focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}
+.ll-wk{max-width:520px;margin:0 auto;width:100%}
 .ll-sub-head{display:flex;justify-content:space-between;align-items:center;gap:var(--cds-gap-sm);flex-wrap:wrap}
 .ll-line{margin:0;font-size:var(--cds-font-size-heading);line-height:1.55;text-wrap:balance}
 .ll-line b{font-weight:var(--cds-font-weight-medium);font-variant-numeric:tabular-nums}
@@ -236,7 +240,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
 [data-dash-source-state=refreshing]{opacity:.5}
 </style>
 
-<div class="ll">
+<div class="ll village-theme village-world">
   <header class="ll-head" id="top">
     <div class="ll-headrow">
       <h1 class="ll-title"><span class="ll-flame" aria-hidden="true">🔥</span> 오늘의 나 <span class="ll-brand">lifelog</span></h1>
@@ -244,6 +248,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
         <button type="button" class="ll-tab on" data-tab="day" id="tab-day">일</button>
         <button type="button" class="ll-tab" data-tab="week" id="tab-week">주</button>
         <button type="button" class="ll-tab" data-tab="month" id="tab-month">월</button>
+        <button type="button" class="ll-tab" data-tab="input" id="tab-input">운동</button>
       </nav>
     </div>
   </header>
@@ -257,6 +262,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
         <b data-draw="d" data-source="days" data-field="label_long">—</b><span class="ll-sep">·</span><b data-draw="d" data-source="days" data-field="place">—</b><span class="ll-sep">·</span>운동 <b data-draw="d" data-source="days" data-field="volume_t">—</b>
       </p>
       <select class="dash-select ll-pick" id="daypick" data-draw="daypick" aria-label="날짜 선택" data-source="days"></select>
+      <button type="button" class="ll-go" id="wk-go">✏️ 입력</button>
     </div>
 
     <section class="ll-sec" id="workout">
@@ -269,7 +275,7 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
         <div class="ll-bodywrap">
           <div>
             <div class="ll-body" data-draw="body" data-source="mday"></div>
-            <div class="ll-glegend"><span><i style="background:var(--ll-push)"></i>밀기</span><span><i style="background:var(--ll-pull)"></i>당기기</span><span><i style="background:var(--ll-legs)"></i>하체</span><span><i style="background:var(--ll-core)"></i>코어</span><span>· 진할수록 많이</span></div>
+            <div class="ll-glegend"><span><i style="background:var(--v-orange)"></i>자극된 부위 · 진할수록 많이</span></div>
           </div>
           <div class="ll-sec">
             <ul class="ll-points" data-draw="comment" data-source="days"></ul>
@@ -493,14 +499,64 @@ body{margin:0;padding:16px;background:var(--color-bg);color:var(--color-fg);font
       <ul class="ll-ideas" data-draw="mideas" data-source="ideas"></ul>
     </section>
   </section>
+
+  <!-- ============ 운동 (입력) — F14 ============ -->
+  <section class="ll-page" id="input" data-page="input" hidden>
+    <div class="ll-wk" id="wk" data-draw="wk" data-source="gyms muscles entries appsets appcardio"></div>
+  </section>
 </div>
 
+<script src="workout.js"></script>
+<script src="exercises-pull.js"></script>
+<script src="exercises-shoulders.js"></script>
+<script src="exercises-legs.js"></script>
+<script src="exercises-floor.js"></script>
+<script src="exercises-cardio.js"></script>
+<script>const villageFont=document.createElement("link");villageFont.rel="stylesheet";villageFont.href="https://fonts.googleapis.com/css2?family=Jua&display=swap";document.head.append(villageFont);const villageStyle=document.createElement("style");villageStyle.textContent=LLW.VILLAGE_CSS+LLW.VILLAGE_DASH_CSS;document.head.append(villageStyle);</script>
 <script>
+// ---------- F14 기록 + 운동 탭 기록 (아직 entries.csv로 안 옮긴 것만, app/core.js appRows와 같은 규칙) ----------
+dash.calc('ent', {
+  title: '기록 + 운동 탭 기록',
+  description: 'entries.csv에 운동 탭에서 저장했지만 아직 "가져와"로 안 옮긴 세트·유산소를 더함. (날짜,시각,종목)마다 source=app 개수만큼은 이미 옮긴 것으로 봄.',
+  inputs: ['entries', 'appsets', 'appcardio'],
+  fn: (entries, appsets, appcardio) => {
+    const isNum = (x) => typeof x === 'number' && Number.isFinite(x);
+    const lines = (s) => {
+      if (!s || typeof s !== 'object') return null;
+      const {date, time} = s, ex = typeof s.exercise === 'string' ? s.exercise.trim() : '';
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date ?? '') || !/^\d{2}:\d{2}$/.test(time ?? '') || !ex || ex.includes(',')) return null;
+      if ('min' in s) {
+        if (!isNum(s.min) || s.min <= 0) return null;
+        const out = [[String(s.min), '분']];
+        for (const [k, u] of [['kmh', 'km/h'], ['deg', '도']]) {
+          if (s[k] == null) continue;
+          if (!isNum(s[k]) || s[k] < 0) return null;
+          out.push([String(s[k]), u]);
+        }
+        return {date, time, item: `cardio:${ex}`, out};
+      }
+      const [k, u] = s.sec != null ? ['sec', '초'] : ['rep', 'rep'];
+      if (!isNum(s.kg) || s.kg < 0 || !Number.isInteger(s[k]) || s[k] <= 0) return null;
+      return {date, time, item: `workout:${ex}`, out: [[String(s.kg), 'kg'], ['1', 'set'], [String(s[k]), u]]};
+    };
+    const have = {}, seen = {}, rows = [];
+    for (const r of entries) if (r.source === 'app' && (r.unit === 'kg' || r.unit === '분')) { const k = `${r.date}|${r.time}|${r.item}`; have[k] = (have[k] ?? 0) + 1; }
+    for (const s of [...(appsets || []), ...(appcardio || [])]) {
+      const l = lines(s);
+      if (!l) continue;
+      const k = `${l.date}|${l.time}|${l.item}`;
+      seen[k] = (seen[k] ?? 0) + 1;
+      if (seen[k] <= (have[k] ?? 0)) continue;
+      for (const [value, unit] of l.out) rows.push({date: l.date, time: l.time, kind: 'quant', item: l.item, value, unit, source: 'app'});
+    }
+    return [...entries, ...rows];
+  },
+});
 // ---------- 공통 날짜 도우미 (calc 안에서 쓰므로 각 fn에 다시 정의) ----------
 dash.calc('sets', {
   title: '운동 세트',
   description: 'workout:<종목>의 kg·set·rep 3줄을 한 세트로 묶음. 볼륨 = kg×세트×횟수, 맨몸은 kg 0.',
-  inputs: ['entries'],
+  inputs: ['ent'],
   fn: (entries) => {
     let cur = null;
     const sets = [];
@@ -524,7 +580,7 @@ dash.calc('sets', {
 dash.calc('nudges', {
   title: '알림 · 제안',
   description: '알림 세션이 보낸 제안(item=nudge)과 오늘의 목표(today_focus). 화면 맨 위 띠에 오늘 것부터 보여요.',
-  inputs: ['entries'],
+  inputs: ['ent'],
   fn: (entries) => {
     const slot = (t) => { const h = +t.slice(0, 2), m = +t.slice(3, 5), x = h * 60 + m;
       return x < 600 ? '아침' : x < 720 ? '오전' : x < 900 ? '점심 후' : x < 1140 ? '퇴근길' : x < 1320 ? '운동 전' : '자기 전'; };
@@ -539,7 +595,7 @@ dash.calc('nudges', {
 dash.calc('cardio', {
   title: '유산소',
   description: 'cardio:<종목>의 시간(분)·속도·경사를 한 번으로 묶음.',
-  inputs: ['entries'],
+  inputs: ['ent'],
   fn: (entries) => {
     const m = new Map();
     for (const r of entries) {
@@ -577,7 +633,7 @@ dash.calc('mday', {
 dash.calc('days', {
   title: '하루 요약',
   description: '기록을 하루 한 줄로: 운동 볼륨, 체중(전날 대비), 톤, 태그, 아이디어 수, 요약, 그날의 목표, 장소.',
-  inputs: ['entries', 'sets'],
+  inputs: ['ent', 'sets'],
   fn: (entries, sets) => {
     const weekOf = (ds) => {
       const t = new Date(ds + 'T00:00:00Z');
@@ -637,7 +693,7 @@ dash.calc('days', {
 dash.calc('weeks', {
   title: '주간 요약',
   description: '하루 요약을 주(월~일) 단위로: 운동한 날, 볼륨 합, 체중 변화, 톤 분포, 아이디어 수, 태그 수.',
-  inputs: ['days', 'entries'],
+  inputs: ['days', 'ent'],
   fn: (days, entries) => {
     const tagNames = ['일', '연애', '운동', '아이디어', '기타'];
     const groups = new Map();
@@ -696,7 +752,7 @@ dash.calc('weeks', {
 dash.calc('months', {
   title: '월간 요약',
   description: '하루 요약을 달 단위로: 운동한 날과 주 평균, 총 볼륨, 체중 변화, 톤 비율, 아이디어 수, 태그 수.',
-  inputs: ['days', 'entries'],
+  inputs: ['days', 'ent'],
   fn: (days, entries) => {
     const tagNames = ['일', '연애', '운동', '아이디어', '기타'];
     const groups = new Map();
@@ -769,7 +825,7 @@ dash.calc('mweek', {
 dash.calc('exday', {
   title: '오늘 한 종목',
   description: '날짜·종목마다 한 것(무게×세트×횟수), 부위, 다음 목표(최근 목표 무게).',
-  inputs: ['sets', 'muscles', 'entries'],
+  inputs: ['sets', 'muscles', 'ent'],
   fn: (sets, muscles, entries) => {
     const mm = new Map();
     for (const r of muscles) { if (!mm.has(r.exercise)) mm.set(r.exercise, []); mm.get(r.exercise).push(r); }
@@ -835,7 +891,7 @@ dash.calc('lifts', {
 dash.calc('goals', {
   title: '목표와 현재',
   description: 'kind=goal 줄(항목마다 가장 최근 것)과 현재값: 체중은 최근 기록, 종목은 최근 세션 최고 무게, 주 운동 횟수는 이번 주.',
-  inputs: ['entries', 'sets', 'days'],
+  inputs: ['ent', 'sets', 'days'],
   fn: (entries, sets, days) => {
     const weekOf = (ds) => {
       const t = new Date(ds + 'T00:00:00Z');
@@ -893,7 +949,7 @@ dash.calc('goals', {
 dash.calc('ideas', {
   title: '아이디어 목록',
   description: '대화에서 뽑은 아이디어 한 줄씩 (item=idea), 날짜·주·달 포함.',
-  inputs: ['entries'],
+  inputs: ['ent'],
   fn: (entries) => {
     const weekOf = (ds) => {
       const t = new Date(ds + 'T00:00:00Z');
@@ -919,6 +975,7 @@ window.LL = {
     day: ['d', 'daypick', 'comment', 'grade', 'gradesub', 'ppl', 'daystats', 'body', 'mweekbars', 'daysets', 'dayideas'],
     week: ['w', 'weekpick', 'dots', 'tonebar', 'wmuscle', 'strip', 'wchart', 'lifts', 'tags', 'ideas'],
     month: ['m', 'monthpick', 'mtonebar', 'progchart', 'proglegend', 'mvol', 'mwchart', 'mtone', 'mtags', 'mideas'],
+    input: ['wk'],
   },
   rows(id) {
     const g = dash.data(id);
@@ -985,9 +1042,11 @@ window.LL = {
       g.append('line').attr('x1', left).attr('x2', W - right).attr('y1', y(t)).attr('y2', y(t)).style('stroke', 'var(--cds-chart-grid)');
       g.append('text').attr('x', left - 8).attr('y', y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text(yFmt(t));
     });
-    const xt = x.ticks(xTicks || Math.max(2, Math.min(5, Math.floor(W / 110))));
+    const xn = xTicks || Math.max(2, Math.min(5, Math.floor(W / 110)));
+    const xt0 = x.ticks(xn), xt = xt0.filter((_, i) => i % Math.ceil(xt0.length / xn) === 0); // d3가 날짜 눈금을 더 많이 줘도 xn개 안팎만
     xt.forEach((t) => g.append('text').attr('x', x(t)).attr('y', H - 6).attr('text-anchor', 'middle').text(d3.utcFormat('%-m/%-d')(t)));
     const line = d3.line().x((d) => x(d.x)).y((d) => y(d.y));
+    const ends = [];
     for (const s of series) {
       if (!s.pts.length) continue;
       const p = svg.append('path').datum(s.pts).attr('d', line).style('fill', 'none').style('stroke', s.color).style('stroke-width', s.dashed ? 1.5 : 2);
@@ -996,9 +1055,11 @@ window.LL = {
         svg.append('g').selectAll('circle').data(s.pts).join('circle').attr('cx', (d) => x(d.x)).attr('cy', (d) => y(d.y)).attr('r', 2.5).style('fill', s.color);
         const last = s.pts[s.pts.length - 1];
         svg.append('circle').attr('cx', x(last.x)).attr('cy', y(last.y)).attr('r', 5).style('fill', s.color).style('stroke', 'var(--color-bg)').style('stroke-width', 2);
-        svg.append('text').attr('x', x(last.x) + 8).attr('y', y(last.y)).attr('dy', '0.32em').style('fill', 'var(--color-fg)').text(yFmt(last.y));
+        ends.push({x: x(last.x) + 8, y: y(last.y), t: yFmt(last.y)});
       }
     }
+    ends.sort((a, b) => a.y - b.y).forEach((e, i, a) => { if (i && e.y - a[i - 1].y < 15) e.y = a[i - 1].y + 15; }); // 끝 라벨끼리 겹치지 않게
+    for (const e of ends) svg.append('text').attr('x', e.x).attr('y', e.y).attr('dy', '0.32em').style('fill', 'var(--color-fg)').text(e.t);
     const hover = svg.append('circle').attr('r', 5).style('fill', 'none').style('stroke', 'var(--color-fg)').style('stroke-width', 2).style('opacity', 0);
     const solid = series.filter((s) => !s.dashed).flatMap((s) => s.pts.map((p) => ({...p, name: s.name})));
     svg.append('rect').attr('x', left).attr('y', 0).attr('width', W - left - right).attr('height', H).style('fill', 'transparent')
@@ -1033,6 +1094,32 @@ window.LL = {
 };
 
 document.querySelectorAll('.ll-tab').forEach((b) => { b.onclick = () => LL.showTab(b.dataset.tab); });
+document.querySelectorAll('#wk-go').forEach((b) => { b.onclick = () => LL.showTab('input'); });
+
+// ---------- F14 운동 탭: 운동 화면(app/ui.js → workout.js)을 이 칸 안에 그림, 세트·유산소는 db sets·cardio ----------
+dash.draw('wk', {
+  mount(el) {
+    const ls = (() => { try { return window.localStorage; } catch { return null; } })();
+    const w = LLW.mountWorkout(el, {ls, onNavigate: (tab) => LL.showTab(tab)});
+    claude.use('db').then((db) => {
+      if (!db) return;
+      w.setStore({add: async (r) => { r._id = (await db.collection('sets').add(r)).id; }, remove: (r) => db.doc(`sets/${r._id}`).delete()});
+      w.setCStore({add: async (r) => { r._id = (await db.collection('cardio').add(r)).id; }, remove: (r) => db.doc(`cardio/${r._id}`).delete()});
+    }).catch(() => {});
+    return w;
+  },
+  update(el, w) {
+    const csv = (g) => [g.columns.join(','), ...g.data.map((r) => g.columns.map((c) => String(r[c] ?? '').replace(/[,\r\n]/g, ' ')).join(','))].join('\n');
+    const g = dash.data('gyms'), m = dash.data('muscles'), e = dash.data('entries'), s = dash.data('appsets'), c = dash.data('appcardio');
+    const both = g.status === 'ok' && m.status === 'ok';
+    w.setData({gymsText: both ? csv(g) : null, musclesText: both ? csv(m) : null, entriesText: e.status === 'ok' ? LLW.toCSV(e.data) : null});
+    const clean = (r) => { const {id, ...rest} = r; return {...rest, _id: id}; };
+    if (s.status === 'ok') w.setSets(s.data.map(clean).sort((a, b) => `${a.date}${a.time}`.localeCompare(`${b.date}${b.time}`)));
+    if (c.status === 'ok') w.setCardio(c.data.map(clean));
+    w.cardioRead(c.status !== 'error');
+  },
+  unmount(el, w) { w.destroy(); },
+});
 window.addEventListener('hashchange', () => LL.showTab((location.hash || '#day').slice(1), false));
 LL.showTab((location.hash || '#day').slice(1), false);
 
@@ -1141,36 +1228,11 @@ dash.draw('daystats', (el) => {
 
 dash.draw('body', {
   mount(el) {
-    const NS = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '0 0 240 216'); svg.setAttribute('role', 'img');
+    el.innerHTML = LLW.villageBody(true);
+    const svg = el.querySelector('.village-body');
     const tip = document.createElement('div'); tip.className = 'll-tip'; tip.style.opacity = 0;
-    el.append(svg, tip);
-    const regs = [];
-    const add = (tag, attrs, muscle) => {
-      const e = document.createElementNS(NS, tag);
-      for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
-      if (muscle) { e.setAttribute('class', 'rg'); e.setAttribute('tabindex', '0'); e.dataset.muscle = muscle; regs.push(e); }
-      else e.setAttribute('class', 'nt');
-      svg.append(e);
-      return e;
-    };
-    const fig = (ox, back) => {
-      const R = (x, y, w, h, m, rx = 5) => add('rect', {x: ox + x, y, width: w, height: h, rx}, m);
-      add('circle', {cx: ox + 50, cy: 16, r: 11});
-      R(45, 27, 10, 6, null, 2);
-      add('circle', {cx: ox + 27, cy: 41, r: 9}, '어깨'); add('circle', {cx: ox + 73, cy: 41, r: 9}, '어깨');
-      if (!back) { R(34, 34, 15, 21, '가슴', 4); R(51, 34, 15, 21, '가슴', 4); R(37, 57, 26, 34, '코어'); }
-      else { R(33, 34, 34, 38, '등', 6); R(37, 74, 26, 17, '등', 5); }
-      R(14, 50, 10, 30, back ? '삼두' : '이두'); R(76, 50, 10, 30, back ? '삼두' : '이두');
-      R(12, 82, 9, 28, null, 4); R(79, 82, 9, 28, null, 4);
-      if (!back) R(35, 93, 30, 11, null, 4); else R(35, 93, 30, 16, '둔근', 6);
-      R(35, back ? 111 : 106, 13, back ? 40 : 45, back ? '햄스트링' : '대퇴사두', 6);
-      R(52, back ? 111 : 106, 13, back ? 40 : 45, back ? '햄스트링' : '대퇴사두', 6);
-      R(36, 155, 11, 38, back ? '종아리' : null); R(53, 155, 11, 38, back ? '종아리' : null);
-      const t = document.createElementNS(NS, 'text'); t.setAttribute('x', ox + 50); t.setAttribute('y', 210); t.setAttribute('text-anchor', 'middle'); t.textContent = back ? '뒤' : '앞'; svg.append(t);
-    };
-    fig(10, false); fig(130, true);
+    el.append(tip);
+    const regs = [...el.querySelectorAll('.village-region')];
     return {svg, tip, regs};
   },
   update(el, {svg, tip, regs}) {
@@ -1182,8 +1244,9 @@ dash.draw('body', {
     for (const g of regs) {
       const m = by.get(g.dataset.muscle);
       const f = MUSCLE_FILL(m ? m.sets : 0, g.dataset.muscle);
-      g.style.fill = f ? f.fill : 'var(--cds-chart-grid)';
-      g.style.fillOpacity = f ? f.op : 1;
+      g.classList.toggle('active', !!m && m.sets > 0);
+      g.style.opacity = m && m.sets > 0 ? Math.min(.95, .35 + m.sets / 20) : 1;
+      g.setAttribute('aria-label', g.dataset.muscle + ' ' + (m ? m.sets : 0) + '세트');
       g.removeAttribute('data-source');
       if (m) { g.setAttribute('data-source', 'mday'); g.setAttribute('data-field', 'sets'); g.setAttribute('data-where', 'key=' + encodeURIComponent(m.key)); }
       const show = () => {
