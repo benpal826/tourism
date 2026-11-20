@@ -238,6 +238,13 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
 .ll-points .tg.good{background:var(--ll-good)} .ll-points .tg.mid{background:var(--ll-mid)} .ll-points .tg.next{background:var(--ll-pull)} .ll-points .tg.etc{background:var(--cds-chart-muted)}
 .ll-points .tx{line-height:1.5;overflow-wrap:anywhere}
 [data-dash-source-state=refreshing]{opacity:.5}
+/* F16 공통 터치 반응 (운동 탭 .wk 제외) */
+.ll :is(button,select):not(.wk *){-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+@media (prefers-reduced-motion: no-preference){.ll :is(button,select):not(.wk *){transition:scale .12s var(--cds-ease-out,ease-out)}.ll :is(button,select):not(.wk *):active{scale:.96}}
+.ll :is(button,select):not(.wk *):focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}
+.ll :is(.ll-tab,.ll-go){position:relative}
+.ll :is(.ll-tab,.ll-go,.bc)::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);translate:-50% -50%}
+.ll .ll-pick{min-height:44px}
 </style>
 
 <div class="ll village-theme village-world">
@@ -1608,6 +1615,8 @@ dash.draw('mideas', (el) => {
   const rows = r ? LL.rows('ideas').rows.filter((x) => x.month === r.month) : [];
   el.replaceChildren(...(rows.length ? rows.map(LL.ideaItem) : [LL.empty('li', '이달은 아이디어가 없어요')]));
 });
+// F16 누를 때 짧은 진동 (운동 탭은 자체 연출이 있어 제외)
+document.addEventListener('pointerdown', (e) => { const b = e.target.closest?.('.ll button, .ll select'); if (b && !b.closest('.wk')) try { navigator.vibrate?.(10); } catch {} });
 </script>
 
 </body></html>
