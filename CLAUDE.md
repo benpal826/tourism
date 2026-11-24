@@ -20,8 +20,9 @@
 - `--sample` 실행은 data/_sample, out/sample 에만 씀(실데이터와 분리).
 
 ## 카드 사진 (주간 갱신 때 Claude 가 직접 선별)
-- 자동 사진은 검색어 기준 분류라 메뉴판·거리·복도가 섞임 → `python -m src.photos todo 30` 으로 미선별 카드 상위 30곳의 후보 모음 이미지(out/photos/<place_id>.jpg, 번호 붙음)를 만들고, Claude 가 이미지를 직접 보고 `{"place_id":{"food":[번호],"interior":[번호],"mood":[번호]}}` JSON 을 만든 뒤 `python -m src.photos import FILE`.
+- 자동 사진은 검색어 기준 분류라 메뉴판·거리·복도가 섞임 → `python -m src.photos todo 30`(이미 선별된 곳도 다시: `todo 200 all`) 으로 미선별 카드 상위 30곳의 후보 모음 이미지(out/photos/<place_id>.jpg, 번호 붙음)를 만들고, Claude 가 이미지를 직접 보고 `{"place_id":{"food":[번호],"interior":[번호],"mood":[번호],"summary":"2~3줄 요약"}}` JSON 을 만든 뒤 `python -m src.photos import FILE`.
 - food=메인 요리가 잘 보이는 것, interior=실내 공간·좌석, mood=조명·테이블 등 분위기. 종류당 최대 2장. 외관·메뉴판·영수증·거리·안내문·사람 위주 사진은 고르지 않음. 맞는 사진이 없으면 빈 목록(지어내지 않음). 선별된 곳은 자동 수집이 덮어쓰지 않음.
+- summary: todo 가 함께 출력하는 후기 요약과 사진에서 확인되는 것만으로 2~3줄(어떤 곳·대표 메뉴·분위기·웨이팅/팁). 다른 가게 글뿐이면 비움.
 
 ## 요청 처리
 - "토요일 신사 저녁 코스 짜줘" → `src.course 신사 저녁` 실행 후 결과를 요약해 제안(저장한 곳만 사용, 도보 동선).

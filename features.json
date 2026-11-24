@@ -71,7 +71,7 @@
       "WHEN 카드에 summary 가 있으면 THEN 앱은 가게 이름 아래에 요약을 보여 준다"
     ],
     "verify": "python -m tests.test_f06_summary",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F07",
@@ -80,7 +80,7 @@
       "WHEN 카드 사진을 보여 주면 THEN 앱은 사진을 자르지 않고(object-fit:contain) 같은 사진을 흐리게 뒤에 깔며, 사진을 넘겨도 같은 방식이고 로드 실패 시 작은 썸네일로 바꾼다"
     ],
     "verify": "python -m tests.test_f07_photo_fit",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F08",
@@ -90,6 +90,6 @@
       "WHEN 네이버 이미지 검색이 실패하면 THEN 시스템은 카카오 후보만으로 진행한다"
     ],
     "verify": "python -m tests.test_f08_naver_images",
-    "passes": false
+    "passes": true
   }
 ]
