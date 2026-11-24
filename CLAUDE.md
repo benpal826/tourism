@@ -4,7 +4,7 @@
 2. **단일 스키마**: 모든 data/*.csv 는 `date,place_id,field,value,source` 5열. 예외 없음.
    세로형 누적(append only), **빈값은 행 자체를 만들지 않음(skip)**. 읽을 때는 같은 필드의 최신 값 사용.
 3. **규칙·구조 변경 시** decisions.md 에 `YYYY-MM-DD — 한 줄 요약` 추가.
-4. **API 키는 환경변수로만** (KAKAO_REST_KEY, SEOUL_OPEN_KEY, SWIPE_SYNC_URL). 커밋 금지, .env 는 gitignore.
+4. **API 키는 환경변수로만** (KAKAO_REST_KEY, SEOUL_OPEN_KEY, SWIPE_SYNC_URL, NAVER_CLIENT_ID·NAVER_CLIENT_SECRET=NAVER API HUB 검색, NAVER_MAP_CLIENT_ID·NAVER_MAP_CLIENT_SECRET=NCP Maps — 네이버 키는 아직 코드 미사용). 커밋 금지, .env 는 gitignore.
 5. 지역/반경/카테고리는 **config.yaml 만** 수정. 코드에 지역 하드코딩 금지.
 6. main 에 바로 커밋·푸시.
 
@@ -28,3 +28,7 @@
 - run_weekly.sh 실행 시 시트의 스와이프가 data/places.csv 로 들어가고 본 곳은 cards.json 에서 제외됨.
 - 앱의 '저장/패스' 메뉴는 docs/history.json(run 이 생성) + 폰 로컬 기록을 합쳐 보여줌. 저장↔패스 이동은 새 스와이프로 시트에 추가됨(스와이프 date 는 초 단위 시각이라 같은 날 번복도 마지막 값이 유지됨).
 - Apps Script(`apps_script/Code.gs`)를 고치면 시트에서 **배포 관리 → 새 버전으로 재배포**해야 반영됨(주소는 유지). 앱 헤더의 '⏳ 전송 대기 N'이 계속 보이면 전송 실패.
+
+## 실행·검증 (방법론)
+- 실행: `bash run_weekly.sh` (주간 갱신, 키는 .env) · Windows 로컬은 `$env:PYTHONUTF8=1; python -m src.run`
+- 검증: `powershell -File init.ps1` — F00(샘플 모드 전체 파이프라인)이 통과하면 exit 0. 기능별은 `features.json`의 `verify`

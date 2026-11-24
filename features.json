@@ -1,0 +1,12 @@
+[
+  {
+    "id": "F00",
+    "title": "기존 시스템이 돈다 (수집·집계·점수·카드·코스·기록, 샘플 모드)",
+    "criteria": [
+      "WHEN powershell -File init.ps1 을 실행하면 THEN 시스템은 requirements.txt 를 설치하고 키 없이 python -m src.run --sample 로 전체 파이프라인을 돌려 out/sample/cards.json 에 카드가 1개 이상 생기면 exit 0, 아니면 exit 1 로 끝난다",
+      "WHEN 샘플 모드를 실행하면 THEN 시스템은 data/_sample, out/sample 에만 쓰고 실데이터(data/*.csv, docs/)는 건드리지 않는다"
+    ],
+    "verify": "powershell -NoProfile -ExecutionPolicy Bypass -File init.ps1",
+    "passes": true
+  }
+]
