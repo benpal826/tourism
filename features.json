@@ -112,6 +112,6 @@
       "WHEN 네이버 키가 있고 후기를 모으면 THEN 시스템은 네이버 카페 글을 본문 재료로 더하되(주소 중복 제외) 후기 수·최근 30일 수에는 넣지 않고, 카페 검색이 실패해도 나머지는 그대로 집계한다"
     ],
     "verify": "python -m tests.test_f10_text_quality",
-    "passes": false
+    "passes": true
   }
 ]

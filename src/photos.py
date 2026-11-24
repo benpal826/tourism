@@ -52,7 +52,7 @@ def naver_images(a):
             return out  # 네이버 장애·한도 초과면 카카오 후보만
         for d in items:
             w, h = int(d.get("sizewidth") or 0), int(d.get("sizeheight") or 0)
-            if trend.is_about({"title": d.get("title", "")}, name, station, a.get("address", ""))                     and trend.good_image({"width": w, "height": h}):
+            if trend.is_about({"title": d.get("title", "")}, name, station, a.get("address", ""), hashtags=True)                     and trend.good_image({"width": w, "height": h}):
                 out.append({"hi": d["link"], "lo": d.get("thumbnail", "")})
     return out
 
@@ -69,7 +69,7 @@ def snippets(posts, a, n=8):
         if trend.is_ad(t, cfg["trend"]["exclude_phrases"]) or t[:40] in seen:
             continue
         seen.add(t[:40])
-        out.append(p.get("postdate", "") + " " + t[:220])
+        out.append((p.get("postdate") or "카페") + " " + t[:220])
     return out[:n]
 
 
@@ -79,7 +79,7 @@ def candidates(a):
     name, station = a["name"], a.get("station", "")
     _, posts, _ = trend.fetch_posts(load_config(), name, station)
     out, per_post, seen = [], {}, set()
-    for _, d in trend.photo_candidates(name, station, posts):
+    for _, d in trend.photo_candidates(name, station, posts, a.get("address", "")):
         pk = trend.url_key(d["doc_url"])
         if per_post.get(pk, 0) < PER_POST:  # 한 글에 몰리지 않게
             per_post[pk] = per_post.get(pk, 0) + 1

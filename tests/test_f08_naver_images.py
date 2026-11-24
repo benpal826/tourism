@@ -14,7 +14,7 @@ assert {c["hi"] for c in got} == {"https://n/1.jpg"}, got
 os.environ["NAVER_CLIENT_ID"], os.environ["NAVER_CLIENT_SECRET"] = "x", "y"
 trend.fetch_posts = lambda cfg, n, s: ({"kakao": 0}, [], trend.SRC_BOTH)
 kd = lambda u: {"image_url": u, "thumbnail_url": "", "doc_url": u}
-trend.photo_candidates = lambda n, s, p: [("etc", kd("https://k/1.jpg")), ("etc", kd("https://n/1.jpg"))]
+trend.photo_candidates = lambda n, s, p, addr="": [("etc", kd("https://k/1.jpg")), ("etc", kd("https://n/1.jpg"))]
 c, sn = photos.candidates(a)
 assert [x["hi"] for x in c] == ["https://k/1.jpg", "https://n/1.jpg"], c
 

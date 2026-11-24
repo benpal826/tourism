@@ -5,7 +5,7 @@ from .collect import attrs, clean, sample
 from .common import *
 
 # 출처 표기: 집계 기준이 바뀌면 이름을 바꿔 급상승이 다른 기준 스냅샷과 비교되지 않게 함(rank.weekly_growth)
-SRC_KAKAO, SRC_BOTH = "kakao-blog/v2", "kakao+naver-blog/v2"
+SRC_KAKAO, SRC_BOTH = "kakao-blog/v3", "kakao+naver-blog/v3"  # v3: 해시태그만 있는 글 제외(F10)
 PRICE_RE = re.compile(r"([가-힣A-Za-z]{2,10})\s*[:\-]?\s*(\d{1,3},\d{3})\s*원")
 BAD_MENU = ("가격", "비용", "요금", "금액", "티켓", "주차", "발레", "입장", "합계", "총", "메뉴", "이용", "할인", "포인트", "적립", "서비스", "예약", "수강", "학원", "회비", "보증금", "임대", "발렛", "영화", "각각", "최대", "인당", "기본", "추가", "최소", "평균", "대략", "약", "총액")
 VIBE = {"데이트": "데이트하기 좋은", "조용": "조용한", "감성": "감성적인", "분위기": "분위기 있는", "웨이팅": "웨이팅 있는 인기",
@@ -47,8 +47,16 @@ def fetch_posts(cfg, name, station):
     except Exception:
         return {"kakao": total}, posts, SRC_KAKAO  # 네이버 장애·한도 초과면 카카오만으로(가게 보강 전체를 잃지 않게)
     new = [p for p in nposts if url_key(p["url"]) not in seen]
+    cafe = []
+    try:  # 카페 글: 작성일이 없어 후기 수·최근 30일 수에는 안 넣고 본문 재료(메뉴·분위기·요약 발췌)로만
+        items = naver_search("cafearticle", f"{name} {station}", sort="date", display=100).get("items", [])
+        seen |= {url_key(p["url"]) for p in new}
+        cafe = [{"title": d["title"], "description": d["description"], "postdate": "", "url": d["link"], "src": "cafe"}
+                for d in items if url_key(d["link"]) not in seen]
+    except Exception:
+        pass
     # shortcut: 카카오와 겹치는 비율을 가져온 글로 추정해 네이버 전체 건수에 적용. 겹침이 크게 틀리면 출처별 따로 집계로 바꿀 것
-    return {"kakao": total, "naver": int(ntotal * len(new) / len(nposts)) if nposts else 0}, posts + new, SRC_BOTH
+    return {"kakao": total, "naver": int(ntotal * len(new) / len(nposts)) if nposts else 0}, posts + new + cafe, SRC_BOTH
 
 
 PARTICLES = set("은는이가을를에의도과와로랑")
@@ -66,7 +74,7 @@ def name_pattern(name):
     return re.escape(toks[0]) + r" ?" + re.escape(branch) + r"(?:[0-9]*호?점)?", toks[0]
 
 
-def is_about(p, name, station="", address=""):
+def is_about(p, name, station="", address="", hashtags=False):
     """이 글이 이 가게 후기인가. 이름이 앞뒤에 붙지 않고(뒤 조사 허용) 나오고,
     이름을 뺀 나머지에 위치 단서(역명·도로명 길 이름)가 있어야 함. 두 글자 이하 상호는 제목에 있어야 함."""
     title, body = clean(p["title"]), clean(p.get("description", ""))
@@ -78,7 +86,7 @@ def is_about(p, name, station="", address=""):
     for m in re.finditer(pat, text):
         before = text[m.start() - 1] if m.start() else " "
         after = text[m.end()] if m.end() < len(text) else " "
-        if not SOLID.match(before) and (not SOLID.match(after) or after in PARTICLES):
+        if (hashtags or before != "#") and not SOLID.match(before) and (not SOLID.match(after) or after in PARTICLES):  # #가게명 해시태그는 후기 근거로 안 봄(이미지 제목은 해시태그가 전부라 hashtags=True)
             spans.append(m.span())
     if not spans:
         return False
@@ -167,12 +175,9 @@ def url_key(u):
     return u.split("?")[0].rstrip("/")
 
 
-def verified_urls(name, posts, station=""):
-    """가게 이름이 제목·요약에 실제로 들어간 글의 주소 집합."""
-    key = re.sub(r"(본점|직영점|[가-힣]{1,4}점)$", "", name.replace(" ", "")) or name.replace(" ", "")  # 지점명 뗀 이름
-    return {url_key(p["url"]) for p in posts
-            if p.get("url") and key in (txt := (clean(p["title"]) + clean(p.get("description", ""))).replace(" ", ""))
-            and (not station or station.replace("역", "") in txt)}  # 체인점 오인 방지: 역(지역)명도 함께 언급된 글만
+def verified_urls(name, posts, station="", address=""):
+    """이 가게 후기로 확인된 글의 주소 집합. 후기 집계와 같은 is_about 판정(이름 정확히·위치 단서·지점명)."""
+    return {url_key(p["url"]) for p in posts if p.get("url") and is_about(p, name, station, address)}
 
 
 def good_image(d):
@@ -184,7 +189,7 @@ def good_image(d):
     return 0.6 <= r <= 1.8  # 너무 길쭉한 캡처·배너·긴 메뉴판 제외
 
 
-def photo_candidates(name, station, posts):
+def photo_candidates(name, station, posts, address=""):
     """[(검색어 종류, 이미지 검색 결과)] 큰 사진 순. 가게가 확인된 후기 글의 사진만 사용(이미지 검색 doc_url == 글 주소)."""
     extra = []
     for pg in (1, 2, 3):  # 정확도순 블로그 글도 확인 대상에 추가(이미지 검색 결과와 겹침을 늘림)
@@ -195,7 +200,7 @@ def photo_candidates(name, station, posts):
         extra += [{"title": d["title"], "description": d["contents"], "url": d["url"]} for d in j["documents"]]
         if j["meta"].get("is_end"):
             break
-    ok = verified_urls(name, posts + extra, station)
+    ok = verified_urls(name, posts + extra, station, address)
     if not ok:
         return []
     cand, seen = [], set()
@@ -215,11 +220,11 @@ def photo_candidates(name, station, posts):
     return sorted(cand, key=lambda x: -x[1].get("width", 0) * x[1].get("height", 0))  # 큰 사진 먼저
 
 
-def photos(name, station, posts):
+def photos(name, station, posts, address=""):
     """자동 사진(미선별 가게용). 한 글에서 최대 2장, 최대 6장. 분류는 검색어 기준이라 앱은 '사진' 하나로 보여 줌."""
     none = {"photo_" + k: "-" for k in ("food", "mood", "outside", "etc")}  # 이전 주 사진을 덮는 표식
     out, per_post, picked = {}, {}, 0
-    for key, d in photo_candidates(name, station, posts):
+    for key, d in photo_candidates(name, station, posts, address):
         pk = url_key(d["doc_url"])
         if picked >= MAX_PHOTOS or per_post.get(pk, 0) >= PER_POST:
             continue
@@ -250,7 +255,7 @@ def one(cfg, pid, a, use_sample, samp):
         for f in ("reviews_total", "reviews_30d"):
             if f in res:
                 mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": src})
-        ph = {} if use_sample or a.get("photo_source") == "curated" else photos(a["name"], a["station"], posts)  # 선별 사진은 덮지 않음
+        ph = {} if use_sample or a.get("photo_source") == "curated" else photos(a["name"], a["station"], posts, a.get("address", ""))  # 선별 사진은 덮지 않음
         detail_rows += attrs(pid, "kakao-blog", thumb=th[0], thumb_lo=th[1], **res, **ph)
     elif not a.get("thumb") and not use_sample:
         th = thumb(a["name"], a.get("station", ""))
