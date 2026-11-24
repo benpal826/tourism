@@ -674,7 +674,7 @@ const USAGI = {
   assets:USAGI_ASSETS,haptic:VILLAGE.haptic,body:usagiBody,exerciseArt:usagiExerciseArt,
   awake:{char:USAGI_ASSETS.awake,fire:USAGI_ASSETS.fire}, // 오운완(큰 부위 6/6) 각성: 앞뒤 캐릭터(누끼) + 불꽃 6프레임 띠. 없는 테마는 오운완 버튼 숨김
   pop:USAGI_POP, // 터치 팝콘: 누른 자리에서 6마리 튀어오름(ui.js touchPop). 없는 테마는 효과 없음
-  slots:{top:()=>`<header class="village-topbar"><a class="village-brand usagi-shop-link" data-action="nav" data-nav="day" href="../dashboard/local.html#day">Lifelog 운동</a><label class="village-place">장소 <select id="wk-place"></select></label></header><p id="wk-notice"></p>`},
+  slots:{top:()=>`<header class="village-topbar"><a class="village-brand usagi-shop-link" data-action="nav" data-nav="day" href="../dashboard/local.html#day">Lifelog</a><label class="village-place">장소 <select id="wk-place"></select></label></header><p id="wk-notice"></p>`},
 };
 
 // ---- app/theme.js ----
@@ -771,7 +771,7 @@ const CSS = `
 // F19 화면 조각(기본). 테마가 slots에 같은 이름의 함수를 주면 그 조각으로 바꿔 낀다
 // 약속: 버튼은 data-action(+data-*)으로 동작을 찾고, 값·출력 칸은 아래 wk- id를 그대로 쓴다. 화면 3개는 #wk-home·#wk-set·#wk-cardio
 const SLOTS = {
-  top: () => `<header class="village-topbar"><a class="village-brand" data-action="nav" data-nav="day" href="../dashboard/local.html#day"><i class="village-leaf" aria-hidden="true"></i>Lifelog 운동</a><label class="village-place">장소 <select id="wk-place"></select></label></header>
+  top: () => `<header class="village-topbar"><a class="village-brand" data-action="nav" data-nav="day" href="../dashboard/local.html#day"><i class="village-leaf" aria-hidden="true"></i>Lifelog</a><label class="village-place">장소 <select id="wk-place"></select></label></header>
 <p id="wk-notice"></p>`,
   home: () => `<section id="wk-home">
   <h1 class="village-title">어떤 운동을 할까요?</h1>
