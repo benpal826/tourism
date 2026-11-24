@@ -44,12 +44,12 @@
     "title": "카드 사진 AI 선별",
     "criteria": [
       "WHEN python -m src.photos todo N 을 실행하면 THEN 시스템은 미선별 카드 상위 N곳마다 번호 붙인 후보 사진 모음 이미지(out/photos/<place_id>.jpg)와 번호→사진 주소 목록(out/photos/todo.json)을 만든다",
-      "WHEN python -m src.photos import FILE 로 {place_id:{food:[번호],interior:[번호],mood:[번호]}} 를 반영하면 THEN 시스템은 candidates.csv 에 photo_food·photo_interior·photo_mood 와 photo_source=curated 를 추가하고 외관·기타 사진은 비우며, docs/cards.json·history.json 의 해당 카드도 바로 고친다",
+      "WHEN python -m src.photos import FILE 로 {place_id:{food:[번호],interior:[번호]}} 를 반영하면 THEN 시스템은 종류당 최대 4장을 candidates.csv 의 photo_food·photo_interior 와 photo_source=curated 로 추가하고(예전 형식의 mood 번호는 interior 에 합침), 외관·기타·분위기 사진은 비우며, docs/cards.json·history.json 의 해당 카드도 바로 고친다",
       "WHEN 주간 갱신에서 photo_source=curated 인 곳을 보강하면 THEN 시스템은 자동 사진 수집을 건너뛰어 선별 결과를 덮어쓰지 않는다",
-      "WHEN 앱이 카드를 그리면 THEN 시스템은 선별된 곳은 메인요리·인테리어·분위기 탭으로, 미선별 곳은 '사진' 한 종류로 보여 준다"
+      "WHEN 앱이 카드를 그리면 THEN 시스템은 선별된 곳은 메인요리·인테리어 탭으로, 미선별 곳은 '사진' 한 종류로 보여 준다"
     ],
     "verify": "python -m tests.test_f04_photos",
-    "passes": true
+    "passes": false
   },
   {
     "id": "F05",
