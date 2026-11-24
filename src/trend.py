@@ -4,6 +4,8 @@ from datetime import timedelta
 from .collect import attrs, clean, sample
 from .common import *
 
+# 출처 표기: 집계 기준이 바뀌면 이름을 바꿔 급상승이 다른 기준 스냅샷과 비교되지 않게 함(rank.weekly_growth)
+SRC_KAKAO, SRC_BOTH = "kakao-blog/v2", "kakao+naver-blog/v2"
 PRICE_RE = re.compile(r"([가-힣A-Za-z]{2,10})\s*[:\-]?\s*(\d{1,3},\d{3})\s*원")
 BAD_MENU = ("가격", "비용", "요금", "금액", "티켓", "주차", "발레", "입장", "합계", "총", "메뉴", "이용", "할인", "포인트", "적립", "서비스", "예약", "수강", "학원", "회비", "보증금", "임대", "발렛", "영화", "각각", "최대", "인당", "기본", "추가", "최소", "평균", "대략", "약", "총액")
 VIBE = {"데이트": "데이트하기 좋은", "조용": "조용한", "감성": "감성적인", "분위기": "분위기 있는", "웨이팅": "웨이팅 있는 인기",
@@ -15,43 +17,91 @@ def is_ad(text, phrases):
 
 
 def fetch_posts(cfg, name, station):
-    """카카오(다음) 블로그 검색, 최신순. 최근 recent_days 이전 글이 나오면 중단."""
+    """카카오(다음)+네이버 블로그 검색, 최신순. 최근 recent_days 이전 글이 나오면 중단.
+    반환: ({출처: 전체 건수}, 글 목록(각 글에 src), mentions 출처 표기)."""
     t = cfg["trend"]
+    cap = t["max_posts_per_place"]
     cutoff = (date.today() - timedelta(days=t["recent_days"])).strftime("%Y%m%d")
     posts, total = [], 0
-    for page in range(1, min(50, -(-t["max_posts_per_place"] // 50)) + 1):
+    for page in range(1, min(50, -(-cap // 50)) + 1):
         j = kakao_search("blog", f"{name} {station}", sort="recency", size=50, page=page)
         total = j["meta"].get("total_count", 0)
         for d in j["documents"]:
-            posts.append({"title": d["title"], "description": d["contents"],
+            posts.append({"title": d["title"], "description": d["contents"], "src": "kakao",
                           "postdate": d["datetime"][:10].replace("-", ""), "url": d.get("url", "")})
         if j["meta"].get("is_end") or (posts and posts[-1]["postdate"] < cutoff):
             break
     if not have_keys()["naver"]:
-        return total, posts, "kakao-blog"
+        return {"kakao": total}, posts, SRC_KAKAO
     seen = {url_key(p["url"]) for p in posts}
     nposts, ntotal = [], 0
-    for start in range(1, min(1000, t["max_posts_per_place"]) + 1, 100):  # 네이버: display 최대 100, start 최대 1000
-        j = naver_search("blog", f"{name} {station}", sort="date", display=100, start=start)
-        ntotal = j.get("total", 0)
-        items = j.get("items", [])
-        nposts += [{"title": d["title"], "description": d["description"], "postdate": d["postdate"], "url": d["link"]} for d in items]
-        if len(items) < 100 or (nposts and nposts[-1]["postdate"] < cutoff):
-            break
+    try:
+        for start in range(1, min(1000, cap) + 1, 100):  # 네이버: display 최대 100, start 최대 1000
+            j = naver_search("blog", f"{name} {station}", sort="date", display=min(100, cap - len(nposts)), start=start)
+            ntotal = j.get("total", 0)
+            items = j.get("items", [])
+            nposts += [{"title": d["title"], "description": d["description"], "postdate": d["postdate"],
+                        "url": d["link"], "src": "naver"} for d in items]
+            if len(items) < 100 or len(nposts) >= cap or nposts[-1]["postdate"] < cutoff:
+                break
+    except Exception:
+        return {"kakao": total}, posts, SRC_KAKAO  # 네이버 장애·한도 초과면 카카오만으로(가게 보강 전체를 잃지 않게)
     new = [p for p in nposts if url_key(p["url"]) not in seen]
     # shortcut: 카카오와 겹치는 비율을 가져온 글로 추정해 네이버 전체 건수에 적용. 겹침이 크게 틀리면 출처별 따로 집계로 바꿀 것
-    total += int(ntotal * len(new) / len(nposts)) if nposts else 0
-    return total, posts + new, "kakao+naver-blog"
+    return {"kakao": total, "naver": int(ntotal * len(new) / len(nposts)) if nposts else 0}, posts + new, SRC_BOTH
 
 
-def analyze(cfg, total, posts, name=""):
+PARTICLES = set("은는이가을를에의도과와로랑")
+SOLID = re.compile(r"[가-힣A-Za-z0-9]")
+ROAD = re.compile(r"([가-힣]+(?:대로|로|길)[0-9]*(?:번?길)?)\s*[0-9]")
+
+
+def name_pattern(name):
+    """글에서 찾을 이름 정규식. 한 단어면 그대로. 여러 단어면 '상호 + 지점명 핵심'이 붙어 나와야 함
+    ('스타벅스 압구정역점' → '스타벅스 ?압구정역(N호점|점)?'). 상호만 쓴 글은 어느 지점인지 몰라 안 셈."""
+    toks = name.split()
+    if len(toks) == 1:
+        return re.escape(name.strip()), name.strip()
+    branch = re.sub(r"(호점|점)$", "", re.sub(r"[0-9]+", "", toks[1]))
+    return re.escape(toks[0]) + r" ?" + re.escape(branch) + r"(?:[0-9]*호?점)?", toks[0]
+
+
+def is_about(p, name, station="", address=""):
+    """이 글이 이 가게 후기인가. 이름이 앞뒤에 붙지 않고(뒤 조사 허용) 나오고,
+    이름을 뺀 나머지에 위치 단서(역명·도로명 길 이름)가 있어야 함. 두 글자 이하 상호는 제목에 있어야 함."""
+    title, body = clean(p["title"]), clean(p.get("description", ""))
+    text = re.sub(r"\s+", " ", title + " " + body)
+    pat, b = name_pattern(name)
+    if not b or (len(b) <= 2 and b not in title):
+        return False
+    spans = []
+    for m in re.finditer(pat, text):
+        before = text[m.start() - 1] if m.start() else " "
+        after = text[m.end()] if m.end() < len(text) else " "
+        if not SOLID.match(before) and (not SOLID.match(after) or after in PARTICLES):
+            spans.append(m.span())
+    if not spans:
+        return False
+    rest = "".join(text[a:b2] for a, b2 in zip([0] + [e for _, e in spans], [s for s, _ in spans] + [len(text)]))
+    clues = [station.replace("역", "")] if station else []
+    road = ROAD.search(address or "")
+    clues += [road.group(1)] if road else []
+    return not clues or any(c and c in rest for c in clues)
+
+
+def analyze(cfg, total, posts, name="", station="", address=""):
+    """total: 전체 건수(int) 또는 {출처: 건수}. 출처별로 '이 가게 글' 비율을 곱해 보정."""
     t = cfg["trend"]
     cutoff = (date.today() - timedelta(days=t["recent_days"])).strftime("%Y%m%d")
-    key = name.replace(" ", "")
-    if key:  # 가게 이름이 실제로 들어간 글만 대상 (검색 엔진이 느슨하게 매칭한 글 제외)
-        hit = [p for p in posts if key in (clean(p["title"]) + clean(p.get("description", ""))).replace(" ", "")]
-        ratio = len(hit) / len(posts) if posts else 0
-        total, posts = int(total * ratio), hit
+    if name:  # 이 가게 후기로 확인된 글만 대상 (검색 엔진이 느슨하게 매칭한 글 제외)
+        totals = total if isinstance(total, dict) else {None: total}
+        hit = [p for p in posts if is_about(p, name, station, address)]
+        ok = {id(p) for p in hit}
+        total = 0
+        for src, n in totals.items():
+            mine = [p for p in posts if src is None or p.get("src") == src]
+            total += int(n * sum(id(p) in ok for p in mine) / len(mine)) if mine else 0
+        posts = hit
     ads = recent = 0
     menus, vibes, last_date = {}, {}, ""
     seen_posts = set()
@@ -182,7 +232,7 @@ def photos(name, station, posts):
 def one(cfg, pid, a, use_sample, samp):
     """한 곳의 (mention_rows, detail_rows)."""
     mention_rows, detail_rows = [], []
-    src = "kakao-blog"
+    src = SRC_KAKAO
     if a.get("tier") == "1":
         if use_sample:
             s = samp.get(a["name"])
@@ -192,7 +242,7 @@ def one(cfg, pid, a, use_sample, samp):
             th = (s.get("thumb", ""), "")
         else:
             total, posts, src = fetch_posts(cfg, a["name"], a["station"])
-            res = analyze(cfg, total, posts, a["name"])
+            res = analyze(cfg, total, posts, a["name"], a["station"], a.get("address", ""))
             th = thumb(a["name"], a["station"])
         if a.get("menu_source") == "curated":
             for k in ("menu", "price", "price_band", "menu_mentions", "menu_date"):

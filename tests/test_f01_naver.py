@@ -30,14 +30,14 @@ trend.kakao_search, trend.naver_search = fake_kakao, fake_naver
 for k in ("NAVER_CLIENT_ID", "NAVER_CLIENT_SECRET"):
     os.environ.pop(k, None)
 total, posts, src = trend.fetch_posts(cfg, "한우집", "신사")
-assert (total, len(posts), src) == (2, 2, "kakao-blog"), (total, len(posts), src)
+assert (total, len(posts), src) == ({"kakao": 2}, 2, trend.SRC_KAKAO), (total, len(posts), src)
 
 # 2) 네이버 키 있음: 합치고 같은 글(aaa/111, http/https 차이)은 한 번만
 os.environ["NAVER_CLIENT_ID"], os.environ["NAVER_CLIENT_SECRET"] = "x", "y"
 total, posts, src = trend.fetch_posts(cfg, "한우집", "신사")
-assert src == "kakao+naver-blog" and len(posts) == 4, (src, len(posts))
-assert total == 2 + int(3 * 2 / 3), total  # 네이버 3건 중 2건이 새 글
-res = trend.analyze(cfg, total, posts, "한우집")
+assert src == trend.SRC_BOTH and len(posts) == 4, (src, len(posts))
+assert total == {"kakao": 2, "naver": int(3 * 2 / 3)}, total  # 네이버 3건 중 2건이 새 글
+res = trend.analyze(cfg, total, posts, "한우집", "신사")
 assert res["reviews_30d"] == 3, res  # 60일 전 글 제외
 
 # 3) 출처가 바뀐 주는 급상승으로 세지 않음, 같은 출처끼리는 비교

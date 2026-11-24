@@ -19,7 +19,11 @@ def weekly_growth(mentions):
             continue
         last_d, last_v = s[-1]
         target = date.fromisoformat(last_d).toordinal() - 7
-        prev = min(s[:-1], key=lambda x: abs(date.fromisoformat(x[0]).toordinal() - target))
+        older = [x for x in s[:-1] if date.fromisoformat(x[0][:10]).toordinal() <= target + 2]  # 5일 이상 전만(이틀 차 비교는 검색 건수 흔들림이 급상승으로 잡힘)
+        if not older:
+            out[pid] = None
+            continue
+        prev = min(older, key=lambda x: abs(date.fromisoformat(x[0][:10]).toordinal() - target))
         out[pid] = int(last_v - prev[1])
     return out
 

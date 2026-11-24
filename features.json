@@ -60,6 +60,6 @@
       "WHEN 주간 증가를 계산하면 THEN 시스템은 최근 스냅샷보다 5일 이상 이전인 같은 출처 스냅샷과만 비교하고, 없으면 증가 없음(None)으로 둔다"
     ],
     "verify": "python -m tests.test_f05_reviews",
-    "passes": false
+    "passes": true
   }
 ]
