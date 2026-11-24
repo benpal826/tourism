@@ -14,7 +14,7 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .seg button{flex:1;border:0;background:none;color:var(--mut);padding:8px 0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
 .seg button.on{background:var(--pink);color:#fff}
 #map{position:relative;flex:0 0 150px;margin:0 14px 4px;border-radius:16px;overflow:hidden;background:#23232d;touch-action:auto}
-#map.nomap::after{content:"지도를 불러오지 못했어요. 카카오맵 버튼으로 위치를 확인하세요.";position:absolute;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:13px;color:var(--mut);background:#23232d}
+#map.nomap::after{content:"지도를 불러오지 못했어요. 카카오맵·네이버지도 버튼으로 위치를 확인하세요.";position:absolute;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:13px;color:var(--mut);background:#23232d}
 .pin{width:18px;height:18px;background:var(--pink);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #000a}
 .stn{background:#fee500;border:2px solid #111;border-radius:6px;width:auto!important;height:auto!important;padding:2px 6px;font-size:11px;font-weight:700;color:#111;white-space:nowrap}
 #list{flex:1;overflow:auto;margin:8px 14px 14px;display:none}
@@ -55,6 +55,7 @@ h2{margin:0 0 8px;font-size:24px;line-height:1.25}
 .stat{flex:1;background:#262633;border-radius:12px;padding:8px 10px}
 .stat b{display:block;font-size:18px}.stat span{font-size:11.5px;color:var(--mut)}
 .map{display:inline-block;margin-top:8px;padding:9px 14px;border-radius:12px;background:#fee500;color:#111;font-weight:700;font-size:14px;text-decoration:none}
+.map.nv,.item .bt a.nv{background:#03c75a;color:#fff;margin-left:6px}.item .bt a.nv{margin-left:0}
 .stamp{position:absolute;top:26px;z-index:3;font-size:30px;font-weight:900;padding:2px 12px;border:4px solid;border-radius:10px;opacity:0;letter-spacing:2px}
 .s-save{left:20px;color:var(--green);transform:rotate(-12deg)}.s-pass{right:20px;color:var(--pink);transform:rotate(12deg)}
 nav{display:flex;justify-content:center;align-items:center;gap:26px;padding:10px 0 calc(16px + env(safe-area-inset-bottom))}
@@ -86,6 +87,7 @@ let seen=LS("seen")||[],queue=(LS("queue")||[]).map(q=>q.id?q:{...q,id:Math.rand
 const stack=document.getElementById("stack"),cnt=document.getElementById("count");
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 let STATIONS={};
+const nvUrl=c=>"https://map.naver.com/p/search/"+encodeURIComponent((c.station&&!c.name.includes(c.station)?c.name+" "+c.station:c.name).trim());  // 키 없이 검색 링크, 이름에 역명이 있으면 안 붙임
 const EMOJI={"식당":"🍽","카페":"☕","술집":"🍷","팝업스토어":"🛍","전시·축제·기타":"🎨"};
 const fmt=d=>d?d.slice(2).replace(/-/g,"."):"?";
 
@@ -106,7 +108,7 @@ function body(c){
   <div class=info><h2>${esc(c.name)}</h2>
   <div class=chips><span class="chip cat">${esc(c.category)}</span>${c.kind?`<span class=chip>${esc(c.kind)}</span>`:""}<span class=chip>📍 ${dist}</span></div>
   ${stats}${per}${menu}${vibe}
-  <a class=map href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵에서 보기</a></div>
+  <a class=map href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵에서 보기</a><a class="map nv" href="${esc(nvUrl(c))}" target=_blank rel=noopener>네이버지도</a></div>
   <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;
 }
 const LABEL={food:"음식",mood:"분위기",outside:"외관",etc:"사진"};
@@ -218,7 +220,7 @@ function showList(kind){
     const rv=c.score?`<div>⭐ ${esc(c.score)} ${esc(c.review||"")}</div>`:"";
     return `<div class=item><div class=th>${EMOJI[c.category]||"📍"}${p?`<img src="${esc(p.replace(/^http:/,"https:"))}" referrerpolicy="no-referrer" onerror="this.remove()" alt="">`:""}</div>
     <div class=tx><b>${esc(c.name)}</b><small>${sub}</small><div>${extra}</div>${rv}
-    <div class=bt><a href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵</a><button data-id="${esc(c.place_id)}" data-to="${kind==="save"?"pass":"save"}">${kind==="save"?"✕ 패스로 이동":"♥ 저장으로 이동"}</button></div></div></div>`}).join(""):'<div class=empty style="position:static;padding:60px 0">아직 없어요</div>';
+    <div class=bt><a href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵</a><a class=nv href="${esc(nvUrl(c))}" target=_blank rel=noopener>네이버지도</a><button data-id="${esc(c.place_id)}" data-to="${kind==="save"?"pass":"save"}">${kind==="save"?"✕ 패스로 이동":"♥ 저장으로 이동"}</button></div></div></div>`}).join(""):'<div class=empty style="position:static;padding:60px 0">아직 없어요</div>';
   L.querySelectorAll("button[data-id]").forEach(b=>b.onclick=()=>{
     const id=b.dataset.id,to=b.dataset.to;dec[id]={action:to,ts:new Date().toISOString()};SV("dec",dec);
     queue.push(ev(id,to));SV("queue",queue);pending();flush();counts();showList(kind)});
