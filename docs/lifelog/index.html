@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>오늘의 나 lifelog</title>
+<title>득근득근</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <style>
 :root{--color-bg:#ffffff;--color-panel:#f6f6f4;--color-fg:#1f1e1c;--color-fg-muted:#6b6a66;--color-border-line:#e4e2dc;--color-ok:#1f9d63;--color-bad:#e0564a;
@@ -193,6 +193,34 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
 .ll-mbar span.week{opacity:.4}
 .ll-hero{background:var(--ll-hero-bg);border:1px solid var(--color-border-line);border-radius:calc(var(--cds-radius) * 1.6);box-shadow:0 6px 20px rgba(0,0,0,.06);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-md)}
 .ll-hero-top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--cds-gap-sm);flex-wrap:wrap}
+/* 오운완: 큰 부위 6/6이면 켜짐 → 누르면 앞뒤 그림이 각성 그림으로(다시 누르면 원래대로). 각성 그림이 없는 테마는 숨김 */
+.ll-hero-top{position:relative}
+.ll-grade{flex-wrap:wrap}.ll-owan{align-self:center;margin-left:4px;font:inherit;font-weight:700;font-size:15px;padding:0 16px;min-height:44px;border-radius:999px;border:2px solid #594136;background:#f47fa3;color:#fff;cursor:pointer;box-shadow:0 3px 0 #594136}
+.ll-owan:disabled{background:#d9d4cc;color:#8c857c;border-color:#b9b2a8;box-shadow:none;cursor:default;opacity:.7}
+.ll-owan:not(:disabled){animation:ll-owan 1.6s ease-in-out infinite}
+.ll-owan.off{display:none}
+@keyframes ll-owan{50%{transform:scale(1.08)}}
+.ll-owan[aria-pressed="true"]{background:#e8547d;animation:none;transform:translateY(2px);box-shadow:0 1px 0 #594136}
+.ll-body.awake :is(.village-people,.village-region){visibility:hidden}
+/* 각성 장면: 뒤 불꽃 6프레임 → 떨리는 캐릭터(주황 테두리 빛) → 발 덮는 앞 불꽃 → 앞으로 튀는 불씨 */
+.ll-aura{position:absolute;left:0;right:0;top:50%;translate:0 -50%;aspect-ratio:1348/760;pointer-events:none;animation:ll-awake .5s cubic-bezier(.2,1.6,.4,1)}
+.ll-aura>*{position:absolute}
+.ll-aura .ch{inset:0;width:100%;height:100%;z-index:3;transform-origin:50% 100%;animation:ll-shake .12s steps(2) infinite,ll-breathe 1.2s ease-in-out infinite alternate,ll-rim .6s steps(3) infinite}
+.ll-aura .fx{bottom:-6%;height:128%;z-index:1;background:var(--fire) 0 0/600% 100% no-repeat;animation:ll-fire .6s steps(6) infinite}
+.ll-aura .fx.f{left:-6%;width:62%}.ll-aura .fx.b{left:46%;width:60%;animation-duration:.66s;animation-delay:-.3s}
+.ll-aura .fx.front{z-index:5;opacity:.95;-webkit-mask-image:linear-gradient(to top,#000 0,#000 12%,transparent 26%);mask-image:linear-gradient(to top,#000 0,#000 12%,transparent 26%);animation-delay:-.2s}
+.ll-aura .fx.front.b{animation-delay:-.45s}
+.ll-aura .fl{bottom:-4%;height:12%;z-index:0;border-radius:50%;background:radial-gradient(closest-side,#ff8a2acc,#ff5a1600);animation:ll-flick .3s steps(2) infinite alternate}
+.ll-aura .fl.f{left:4%;width:42%}.ll-aura .fl.b{left:55%;width:40%}
+.ll-aura .em{z-index:6;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:#ffd36b;box-shadow:0 0 5px 1px #ff7a1a;opacity:0;animation:ll-ember var(--d,1.2s) ease-out infinite;animation-delay:var(--t,0s)}
+@keyframes ll-awake{from{scale:.6;opacity:0}}
+@keyframes ll-fire{to{background-position:120% 0}}
+@keyframes ll-shake{0%{translate:-.25% 0}50%{translate:.25% -.2%}100%{translate:0 .15%}}
+@keyframes ll-breathe{to{scale:1.02 1.035}}
+@keyframes ll-rim{0%{filter:drop-shadow(0 0 3px #ff8a2a) drop-shadow(0 0 1px #ffd36b)}50%{filter:drop-shadow(0 0 7px #ff6a13) drop-shadow(0 0 2px #ffd36b)}100%{filter:drop-shadow(0 0 5px #ff9a3d) drop-shadow(0 0 1px #ffd36b)}}
+@keyframes ll-flick{from{opacity:.4}to{opacity:1}}
+@keyframes ll-ember{0%{transform:translate(0,0) scale(1);opacity:0}10%{opacity:1}70%{opacity:.9}100%{transform:translate(var(--x,0),var(--y,-150px)) scale(.2);opacity:0}}
+@media (prefers-reduced-motion: reduce){.ll-owan:not(:disabled),.ll-aura,.ll-aura *{animation:none!important}.ll-aura .em{display:none}}
 .ll-grade{display:flex;align-items:baseline;gap:8px}
 .ll-grade b{font-family:var(--font-anthropic-serif);font-weight:400;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
 .ll-grade span{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
@@ -243,19 +271,29 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
 @media (prefers-reduced-motion: no-preference){.ll :is(button,select):not(.wk *){transition:scale .28s cubic-bezier(.34,1.56,.64,1),filter .15s}.ll :is(button,select):not(.wk *):active{scale:.92;filter:brightness(.9);transition-duration:.06s}}
 .ll :is(button,select):not(.wk *):focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}
 .ll :is(.ll-tab,.ll-go){position:relative}
-.ll :is(.ll-tab,.ll-go,.bc)::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);translate:-50% -50%}
-.ll .ll-pick{min-height:44px}
+.ll .bc::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);translate:-50% -50%}
+.ll :is(.ll-tab,.ll-go,.ll-owan,.ll-pick){min-height:44px}
+/* F19 🎨 테마 고르기: 제목 줄 오른쪽 끝 */
+.ll .ll-headrow{position:relative}
+.ll .ll-headrow>.ll-pickwrap{position:absolute;right:10px;top:10px;z-index:5}
+.ll .ll-headrow .ll-themepick.ll-pickbtn{width:44px;height:44px;min-height:44px;padding:0;border-radius:50%;justify-content:center;font-size:20px;line-height:1}
+.ll .ll-headrow .ll-themepick.ll-pickbtn::after{display:none}
+.ll .ll-headrow>.ll-pickwrap .ll-menu{left:auto;right:0}
+.ll .ll-menu .ll-sw::before{content:"";display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--sw);margin-right:8px;vertical-align:-2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
 </style>
 
-<div class="ll village-theme village-world">
+<div class="ll">
   <header class="ll-head" id="top">
     <div class="ll-headrow">
-      <h1 class="ll-title"><span class="ll-flame" aria-hidden="true">🔥</span> 오늘의 나 <span class="ll-brand">lifelog</span></h1>
+      <h1 class="ll-title"><span class="ll-flame" aria-hidden="true">💪</span> 득근득근</h1>
+      <select class="ll-themepick" id="theme-pick" aria-label="테마" data-icon="🎨"></select>
       <nav class="ll-tabs" aria-label="기간" id="tabs">
-        <button type="button" class="ll-tab on" data-tab="day" id="tab-day">일</button>
-        <button type="button" class="ll-tab" data-tab="week" id="tab-week">주</button>
-        <button type="button" class="ll-tab" data-tab="month" id="tab-month">월</button>
-        <button type="button" class="ll-tab" data-tab="input" id="tab-input">운동</button>
+        <select class="ll-tab ll-per" id="tab-per" aria-label="기간">
+          <option value="day">일</option>
+          <option value="week">주</option>
+          <option value="month">월</option>
+        </select>
+        <button type="button" class="ll-tab ll-input" data-tab="input" id="tab-input">✏️ 운동 기록</button>
       </nav>
     </div>
   </header>
@@ -276,7 +314,7 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
       <div class="ll-hero">
         <div class="ll-hero-top">
           <h2 class="ll-h2">오늘 종합 평가</h2>
-          <div class="ll-grade"><b data-draw="grade" data-source="mday">—</b><span data-draw="gradesub" data-source="mday">—</span></div>
+          <div class="ll-grade"><b data-draw="grade" data-source="mday">—</b><span data-draw="gradesub" data-source="mday">—</span><button type="button" class="ll-owan" data-draw="owan" data-source="mday" aria-pressed="false" disabled>오운완!</button></div>
         </div>
         <div class="ll-stats" data-draw="daystats" data-source="exday cardio"></div>
         <div class="ll-bodywrap">
@@ -336,26 +374,19 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
           <span class="ll-big sm" data-draw="d" data-source="days" data-field="tone">—</span>
           <span class="ll-sub">태그 <b data-draw="d" data-source="days" data-field="tags">—</b></span>
         </div>
-        <div class="ll-card" id="dtile-ideas">
-          <span class="ll-label">아이디어</span>
-          <span class="ll-big"><span data-draw="d" data-source="days" data-field="ideas">—</span><span class="ll-unit">개</span></span>
-          <span class="ll-sub">글 <b data-draw="d" data-source="days" data-field="chars_t">—</b></span>
-        </div>
       </div>
     </section>
 
     <section class="ll-sec" id="daythoughts">
       <h2 class="ll-h2">하루 요약</h2>
       <p class="ll-summary" data-draw="d" data-source="days" data-field="summary">—</p>
-      <h2 class="ll-h2">아이디어</h2>
-      <ul class="ll-ideas" data-draw="dayideas" data-source="ideas"></ul>
     </section>
   </section>
 
   <!-- ============ 주 ============ -->
   <section class="ll-page" id="week" data-page="week" hidden>
     <div class="ll-sub-head">
-      <p class="ll-line" id="oneline">운동 <b data-draw="w" data-source="weeks" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="w" data-source="weeks" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="w" data-source="weeks" data-field="pos">—</b>일<span class="ll-sep">·</span>아이디어 <b data-draw="w" data-source="weeks" data-field="ideas">—</b>개</p>
+      <p class="ll-line" id="oneline">운동 <b data-draw="w" data-source="weeks" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="w" data-source="weeks" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="w" data-source="weeks" data-field="pos">—</b>일</p>
       <select class="dash-select ll-pick" id="weekpick" data-draw="weekpick" aria-label="주 선택" data-source="weeks"></select>
     </div>
 
@@ -383,11 +414,6 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
         <span class="ll-big"><span data-draw="w" data-source="weeks" data-field="pos">—</span><span class="ll-unit">일</span></span>
         <div class="ll-tbar" data-draw="tonebar" data-source="weeks" aria-label="톤 분포"></div>
         <span class="ll-sub">중립 <b data-draw="w" data-source="weeks" data-field="neu">—</b> · 부정 <b data-draw="w" data-source="weeks" data-field="neg">—</b></span>
-      </div>
-      <div class="ll-card" id="tile-ideas">
-        <span class="ll-label">아이디어</span>
-        <span class="ll-big"><span data-draw="w" data-source="weeks" data-field="ideas">—</span><span class="ll-unit">개</span></span>
-        <span class="ll-sub">많이 쓴 주제 <b data-draw="w" data-source="weeks" data-field="top_tag">—</b></span>
       </div>
     </div>
 
@@ -426,16 +452,12 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
       </section>
     </div>
 
-    <section class="ll-sec" id="ideas">
-      <h2 class="ll-h2">이번 주 아이디어</h2>
-      <ul class="ll-ideas" data-draw="ideas" data-source="ideas"></ul>
-    </section>
   </section>
 
   <!-- ============ 월 ============ -->
   <section class="ll-page" id="month" data-page="month" hidden>
     <div class="ll-sub-head">
-      <p class="ll-line" id="monthline">운동 <b data-draw="m" data-source="months" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="m" data-source="months" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="m" data-source="months" data-field="pos_pct">—</b>%<span class="ll-sep">·</span>아이디어 <b data-draw="m" data-source="months" data-field="ideas">—</b>개</p>
+      <p class="ll-line" id="monthline">운동 <b data-draw="m" data-source="months" data-field="gym_label">—</b><span class="ll-sep">·</span>볼륨 <b data-draw="m" data-source="months" data-field="volume_t">—</b>kg<span class="ll-sep">·</span>긍정 <b data-draw="m" data-source="months" data-field="pos_pct">—</b>%</p>
       <select class="dash-select ll-pick" id="monthpick" data-draw="monthpick" aria-label="달 선택" data-source="months"></select>
     </div>
 
@@ -501,10 +523,6 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
       </section>
     </div>
 
-    <section class="ll-sec" id="mideas">
-      <h2 class="ll-h2">이달의 아이디어</h2>
-      <ul class="ll-ideas" data-draw="mideas" data-source="ideas"></ul>
-    </section>
   </section>
 
   <!-- ============ 운동 (입력) — F14 ============ -->
@@ -513,13 +531,29 @@ body{margin:0;padding:0;background:var(--color-bg);color:var(--color-fg);font-fa
   </section>
 </div>
 
+<script src="exercises-main.js"></script>
 <script src="workout.js"></script>
 <script src="exercises-pull.js"></script>
 <script src="exercises-shoulders.js"></script>
 <script src="exercises-legs.js"></script>
 <script src="exercises-floor.js"></script>
 <script src="exercises-cardio.js"></script>
-<script>const villageFont=document.createElement("link");villageFont.rel="stylesheet";villageFont.href="https://fonts.googleapis.com/css2?family=Jua&display=swap";document.head.append(villageFont);const villageStyle=document.createElement("style");villageStyle.textContent=LLW.VILLAGE_CSS+LLW.VILLAGE_DASH_CSS;document.head.append(villageStyle);</script>
+<script>
+// F19 테마: 글꼴·화면 CSS·대시보드 클래스는 지금 테마에서 (app/theme.js). 바뀌면 새로고침 없이 다시 적용
+function llApplyTheme(t) {
+  let f = document.getElementById('ll-theme-font');
+  if (!f) { f = document.createElement('link'); f.id = 'll-theme-font'; f.rel = 'stylesheet'; document.head.append(f); }
+  if (f.getAttribute('href') !== t.font.href) f.href = t.font.href;
+  let st = document.getElementById('ll-theme-css');
+  if (!st) { st = document.createElement('style'); st.id = 'll-theme-css'; document.head.append(st); }
+  st.textContent = t.css.base + t.css.dash;
+  const root = document.querySelector('.ll');
+  (root.dataset.themeClasses || '').split(' ').filter(Boolean).forEach((c) => root.classList.remove(c));
+  root.classList.add(...t.classes.dash.split(' ')); root.dataset.themeClasses = t.classes.dash; root.dataset.theme = t.id;
+}
+llApplyTheme(LLW.theme()); LLW.onTheme(llApplyTheme); LLW.onTheme(() => dash.draw('owan'));
+LLW.touchPop(document.querySelector('.ll')); // 화면 어디를 눌러도 우사기 팝콘 (마을 테마는 없음)
+</script>
 <script>
 // ---------- F14 기록 + 운동 탭 기록 (아직 entries.csv로 안 옮긴 것만, app/core.js appRows와 같은 규칙) ----------
 dash.calc('ent', {
@@ -978,9 +1012,9 @@ dash.calc('ideas', {
 window.LL = {
   tab: 'day', day: null, week: null, month: null,
   draws: {
-    day: ['d', 'daypick', 'comment', 'grade', 'gradesub', 'ppl', 'daystats', 'body', 'mweekbars', 'daysets', 'dayideas'],
-    week: ['w', 'weekpick', 'dots', 'tonebar', 'wmuscle', 'strip', 'wchart', 'lifts', 'tags', 'ideas'],
-    month: ['m', 'monthpick', 'mtonebar', 'progchart', 'proglegend', 'mvol', 'mwchart', 'mtone', 'mtags', 'mideas'],
+    day: ['d', 'daypick', 'comment', 'grade', 'gradesub', 'owan', 'ppl', 'daystats', 'body', 'mweekbars', 'daysets'],
+    week: ['w', 'weekpick', 'dots', 'tonebar', 'wmuscle', 'strip', 'wchart', 'lifts', 'tags'],
+    month: ['m', 'monthpick', 'mtonebar', 'progchart', 'proglegend', 'mvol', 'mwchart', 'mtone', 'mtags'],
     input: ['wk'],
   },
   rows(id) {
@@ -1005,19 +1039,16 @@ window.LL = {
   settle(el, status) { if (status !== 'loading') el.classList.remove('dash-skeleton'); },
   text(el, v) { el.textContent = v == null || v === '' ? '—' : String(v); },
   empty(tag, msg) { const e = document.createElement(tag); e.className = 'll-empty'; e.textContent = msg; return e; },
-  ideaItem(x) {
-    const li = document.createElement('li');
-    const d = document.createElement('span'); d.className = 'll-idate'; d.textContent = x.when;
-    const t = document.createElement('span'); t.textContent = x.idea;
-    t.setAttribute('data-source', 'ideas'); t.setAttribute('data-field', 'idea'); t.setAttribute('data-where', 'key=' + x.key);
-    li.append(d, t);
-    return li;
-  },
   showTab(tab, push) {
     if (!LL.draws[tab]) tab = 'day';
+    const dir = LLW.slideDir(LLW.TABS, LL.tab, tab); // F17 방향 슬라이드 + 이동 진동
     LL.tab = tab;
-    document.querySelectorAll('[data-page]').forEach((p) => { p.hidden = p.dataset.page !== tab; });
-    document.querySelectorAll('.ll-tab').forEach((b) => { b.classList.toggle('on', b.dataset.tab === tab); b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'); });
+    document.querySelectorAll('[data-page]').forEach((p) => { p.hidden = p.dataset.page !== tab; if (dir) { if (!p.hidden) LLW.slideIn(p, dir); } });
+    if (dir) try { navigator.vibrate?.(LLW.theme().haptic.nav); } catch {}
+    document.querySelectorAll('.ll-tab[data-tab]').forEach((b) => { b.classList.toggle('on', b.dataset.tab === tab); b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'); });
+    const per = document.getElementById('tab-per'), perBtn = per.nextElementSibling; // F18 기간 버튼(pickMenu)
+    if (tab !== 'input') { LL.per = tab; per.value = tab; [...per.options].forEach((o) => { o.hidden = o.value === tab; }); }
+    perBtn?.classList.toggle('on', tab !== 'input');
     if (push !== false) dash.setLink(tab);
     LL.redraw(tab);
   },
@@ -1099,7 +1130,13 @@ window.LL = {
   },
 };
 
-document.querySelectorAll('.ll-tab').forEach((b) => { b.onclick = () => LL.showTab(b.dataset.tab); });
+document.querySelectorAll('.ll-tab[data-tab]').forEach((b) => { b.onclick = () => LL.showTab(b.dataset.tab); });
+{ // F18 기간 버튼: 일·주·월에선 나머지 두 기간 목록, 운동 화면에선 마지막 기간으로 바로
+  const per = document.getElementById('tab-per');
+  LLW.pickMenu(document.getElementById('tab-per'));
+  per.addEventListener('change', () => LL.showTab(per.value));
+  per.parentElement.addEventListener('click', (e) => { if (LL.tab === 'input' && e.target.closest('.ll-pickbtn')) { e.stopPropagation(); LL.showTab(LL.per); } }, true);
+}
 document.querySelectorAll('#wk-go').forEach((b) => { b.onclick = () => LL.showTab('input'); });
 
 // ---------- F14 운동 탭: 운동 화면(app/ui.js → workout.js)을 이 칸 안에 그림, 세트·유산소는 db sets·cardio ----------
@@ -1234,12 +1271,18 @@ dash.draw('daystats', (el) => {
 
 dash.draw('body', {
   mount(el) {
-    el.innerHTML = LLW.villageBody(true);
-    const svg = el.querySelector('.village-body');
-    const tip = document.createElement('div'); tip.className = 'll-tip'; tip.style.opacity = 0;
-    el.append(tip);
-    const regs = [...el.querySelectorAll('.village-region')];
-    return {svg, tip, regs};
+    // F19 몸 그림은 테마가 (첫 요소 = 그림, 부위 = [data-m]). 테마가 바뀌면 다시 그림
+    const st = {};
+    const build = () => {
+      el.innerHTML = LLW.theme().body(true);
+      st.svg = el.firstElementChild;
+      st.tip = document.createElement('div'); st.tip.className = 'll-tip'; st.tip.style.opacity = 0;
+      el.append(st.tip);
+      st.regs = [...el.querySelectorAll('[data-m]')];
+    };
+    build();
+    LLW.onTheme(() => { build(); dash.draw('body'); dash.draw('owan'); }); // 몸 그림을 다시 그리면 각성 장면도 다시
+    return st;
   },
   update(el, {svg, tip, regs}) {
     const r = LL.curDay();
@@ -1248,15 +1291,15 @@ dash.draw('body', {
     const hit = rows.filter((x) => x.muscle !== '미분류').sort((a, b) => b.sets - a.sets).map((x) => x.muscle + ' ' + x.sets);
     svg.setAttribute('aria-label', '오늘 자극된 부위: ' + (hit.length ? hit.join(', ') + '세트' : '없음'));
     for (const g of regs) {
-      const m = by.get(g.dataset.muscle);
-      const f = MUSCLE_FILL(m ? m.sets : 0, g.dataset.muscle);
+      const m = by.get(g.dataset.m);
+      const f = MUSCLE_FILL(m ? m.sets : 0, g.dataset.m);
       g.classList.toggle('active', !!m && m.sets > 0);
       g.style.opacity = m && m.sets > 0 ? Math.min(.95, .35 + m.sets / 20) : 1;
-      g.setAttribute('aria-label', g.dataset.muscle + ' ' + (m ? m.sets : 0) + '세트');
+      g.setAttribute('aria-label', g.dataset.m + ' ' + (m ? m.sets : 0) + '세트');
       g.removeAttribute('data-source');
       if (m) { g.setAttribute('data-source', 'mday'); g.setAttribute('data-field', 'sets'); g.setAttribute('data-where', 'key=' + encodeURIComponent(m.key)); }
       const show = () => {
-        tip.textContent = g.dataset.muscle + ' ' + (m ? m.sets : 0) + '세트';
+        tip.textContent = g.dataset.m + ' ' + (m ? m.sets : 0) + '세트';
         tip.style.opacity = 1;
         const bb = g.getBoundingClientRect(), eb = el.getBoundingClientRect();
         const tw = tip.offsetWidth;
@@ -1322,6 +1365,40 @@ dash.draw('gradesub', (el) => {
   const miss = BIG.filter((m) => !rows.some((x) => x.muscle === m));
   el.textContent = !r || !rows.length ? '큰 부위 6곳 중 자극한 곳' : miss.length ? '큰 부위 커버 · 빠짐: ' + miss.join('·') : '큰 부위 전부 자극';
 });
+dash.draw('owan', (el) => {
+  // 오운완: 큰 부위 6/6이면 켜짐. 누르면 종합 평가 앞뒤 그림이 각성 그림으로 바뀌고, 다시 누르면 원래대로
+  const r = LL.curDay(), art = LLW.theme().awake, body = document.querySelector('.ll-body[data-draw="body"]');
+  const rows = r ? LL.rows('mday').rows.filter((x) => x.date === r.date && x.sets >= 1) : [];
+  const done = BIG.every((m) => rows.some((x) => x.muscle === m));
+  el.classList.toggle('off', !art); // 각성 그림 없는 테마(마을)는 숨김. hidden 속성은 다시 안 그려져서 class로
+  el.disabled = !done;
+  el.title = done ? '큰 부위 6/6 달성! 누르면 각성' : '큰 부위 6곳을 모두 자극하면 켜져요';
+  const set = (on) => {
+    on = on && done && !!art;
+    el.setAttribute('aria-pressed', on);
+    body.classList.toggle('awake', on);
+    const stage = body.querySelector('.village-body'), old = body.querySelector('.ll-aura');
+    if (!on || !stage) { old?.remove(); return; }
+    if (old) return;
+    const a = document.createElement('div'); a.className = 'll-aura'; a.style.setProperty('--fire', 'url("' + art.fire + '")');
+    a.innerHTML = '<i class="fl f"></i><i class="fl b"></i><i class="fx f"></i><i class="fx b"></i><img class="ch" alt="각성한 우사기 앞모습과 뒷모습"><i class="fx front f"></i><i class="fx front b"></i>';
+    a.querySelector('.ch').src = art.char;
+    for (let i = 0; i < 34; i++) { // 불씨: 두 캐릭터 둘레·발밑에서 위로
+      const e = document.createElement('i'), sz = 3 + Math.random() * 5; e.className = 'em';
+      e.style.cssText = 'left:' + ((i % 2 ? 75 : 25) - 22 + Math.random() * 44) + '%;top:' + (30 + Math.random() * 65) + '%;width:' + sz + 'px;height:' + sz * 1.5 + 'px';
+      e.style.setProperty('--d', .8 + Math.random() + 's'); e.style.setProperty('--t', -Math.random() * 1.8 + 's');
+      e.style.setProperty('--x', (Math.random() - .5) * 50 + 'px'); e.style.setProperty('--y', -(80 + Math.random() * 120) + 'px');
+      a.append(e);
+    }
+    stage.append(a);
+  };
+  set(el.getAttribute('aria-pressed') === 'true'); // 날짜·테마가 바뀌면 조건 다시 확인
+  el.onclick = () => {
+    const on = el.getAttribute('aria-pressed') !== 'true';
+    set(on);
+    if (on) try { navigator.vibrate?.(LLW.theme().haptic.finish); } catch {}
+  };
+});
 dash.draw('ppl', (el) => {
   const r = LL.curDay();
   const rows = r ? LL.rows('mday').rows.filter((x) => x.date === r.date) : [];
@@ -1367,11 +1444,6 @@ dash.draw('daysets', (tb) => {
   tb.replaceChildren(...trs);
 });
 
-dash.draw('dayideas', (el) => {
-  const r = LL.curDay();
-  const rows = r ? LL.rows('ideas').rows.filter((x) => x.date === r.date) : [];
-  el.replaceChildren(...(rows.length ? rows.map(LL.ideaItem) : [LL.empty('li', '이날은 아이디어가 없어요')]));
-});
 
 // ---------- 주 ----------
 dash.draw('weekpick', (sel) => {
@@ -1485,11 +1557,6 @@ function tagChips(el, r, source, where) {
 }
 dash.draw('tags', (el) => { const r = LL.curWeek(); tagChips(el, r, 'weeks', r ? 'week=' + r.week : ''); });
 
-dash.draw('ideas', (el) => {
-  const r = LL.curWeek();
-  const rows = r ? LL.rows('ideas').rows.filter((x) => x.week === r.week) : [];
-  el.replaceChildren(...(rows.length ? rows.map(LL.ideaItem) : [LL.empty('li', '이 주에는 아이디어가 없어요')]));
-});
 
 // ---------- 월 ----------
 dash.draw('monthpick', (sel) => {
@@ -1610,13 +1677,27 @@ dash.draw('mtags', (el) => {
   }));
 });
 
-dash.draw('mideas', (el) => {
-  const r = LL.curMonth();
-  const rows = r ? LL.rows('ideas').rows.filter((x) => x.month === r.month) : [];
-  el.replaceChildren(...(rows.length ? rows.map(LL.ideaItem) : [LL.empty('li', '이달은 아이디어가 없어요')]));
-});
 // F16 누를 때 짧은 진동 (운동 탭은 자체 연출이 있어 제외)
-document.addEventListener('pointerdown', (e) => { const b = e.target.closest?.('.ll button, .ll select, .ll [role=option]'); if (b && !b.closest('.wk')) try { navigator.vibrate?.(25); } catch {} });
+document.addEventListener('pointerdown', (e) => { const b = e.target.closest?.('.ll button, .ll select, .ll [role=option]'); if (b && !b.closest('.wk')) try { navigator.vibrate?.(LLW.theme().haptic.tap); } catch {} });
+// F19 🎨 테마 고르기: 목록은 등록된 테마(이름+색 점), 고르면 바로 적용하고 db prefs/theme에 저장
+{
+  const pick = document.getElementById('theme-pick');
+  pick.replaceChildren(...LLW.themeList().map((t) => { const o = new Option(t.name, t.id); o.dataset.swatch = t.swatch; return o; }));
+  pick.value = LLW.theme().id;
+  LLW.pickMenu(pick);
+  let db = null;
+  pick.addEventListener('change', () => {
+    const t = LLW.setTheme(pick.value);
+    if (db) db.doc('prefs/theme').set({id: t.id}).catch(() => {});
+  });
+  claude.use('db').then(async (d) => {
+    db = d;
+    if (!d) return;
+    const snap = await d.doc('prefs/theme').get();
+    const t = LLW.setTheme(snap.exists ? snap.data()?.id : null);
+    pick.value = t.id;
+  }).catch(() => {});
+}
 // F16 테마 드롭다운: 운동 탭과 같은 LLW.pickMenu (app/ui.js)
 document.querySelectorAll('.ll select.ll-pick').forEach(LLW.pickMenu);
 </script>
