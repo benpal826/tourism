@@ -3,14 +3,16 @@
 ## 완료
 - 2026-11-24 F00 기존 시스템이 돈다 — `init.ps1` 통과("init OK", exit 0). 방법론 v0.2 적용.
 - 2026-11-24 F01 네이버 블로그 후기 합산 — `python -m tests.test_f01_naver` 통과(F01 OK). 실키 확인: 압구정떡볶이 후기 4,920→7,731, 최근 30일 12→20.
+- 2026-11-24 F02 앱 미니 지도를 네이버 지도로 — `python -m tests.test_f02_map` 통과(F02 OK). localhost:8000 에서 핀·역 표시, 줌 15~17, 인증 실패 시 안내 문구 확인.
 
 ## 진행 중
-- F02 앱 미니 지도를 네이버 지도로
+- F03 네이버지도 버튼
 
 ## 다음 할 일
 - 새 기능은 /change 로 prd.md·features.json 에 추가한다. 후보: 네이버 블로그 검색으로 후기 수집 보강(NAVER API HUB 키는 .env 에 있음, 아직 코드 미사용).
 
 ## 실패한 접근 (다시 시도하지 말 것)
+- 네이버 지도를 만들 때 상자 가로가 0이면 fitBounds 가 줌 6(전국)으로 튄다. `init` 이벤트 대기로는 안 고쳐짐 → ResizeObserver 로 크기 바뀌면 다시 맞춤.
 - Windows 에서 `python -m src.run` 을 그냥 돌리면 출력의 `—` 때문에 UnicodeEncodeError(cp949)로 죽는다. `PYTHONUTF8=1` 필요(init.ps1 에 반영).
 
 ## 가정한 것

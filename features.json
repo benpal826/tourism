@@ -28,7 +28,7 @@
       "WHEN 지도 SDK 로드나 인증이 실패하면 THEN 시스템은 지도 자리에 안내 문구를 띄우고 나머지 기능은 그대로 동작한다"
     ],
     "verify": "python -m tests.test_f02_map",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F03",

@@ -4,7 +4,8 @@
 2. **단일 스키마**: 모든 data/*.csv 는 `date,place_id,field,value,source` 5열. 예외 없음.
    세로형 누적(append only), **빈값은 행 자체를 만들지 않음(skip)**. 읽을 때는 같은 필드의 최신 값 사용.
 3. **규칙·구조 변경 시** decisions.md 에 `YYYY-MM-DD — 한 줄 요약` 추가.
-4. **API 키는 환경변수로만** (KAKAO_REST_KEY, SEOUL_OPEN_KEY, SWIPE_SYNC_URL, NAVER_CLIENT_ID·NAVER_CLIENT_SECRET=NAVER API HUB 검색, NAVER_MAP_CLIENT_ID·NAVER_MAP_CLIENT_SECRET=NCP Maps — 네이버 키는 아직 코드 미사용). 커밋 금지, .env 는 gitignore.
+4. **API 키는 환경변수로만** (KAKAO_REST_KEY, SEOUL_OPEN_KEY, SWIPE_SYNC_URL, NAVER_CLIENT_ID·NAVER_CLIENT_SECRET=NAVER API HUB 검색, NAVER_MAP_CLIENT_ID·NAVER_MAP_CLIENT_SECRET=NCP Maps — 검색 키는 src.trend 후기 합산에 사용). 커밋 금지, .env 는 gitignore.
+   - 예외: `NAVER_MAP_CLIENT_ID` 는 네이버 지도 JS SDK 용으로 `docs/config.js` 에 공개(NCP 에 등록한 도메인에서만 동작). Secret 은 어디에도 공개하지 않음.
 5. 지역/반경/카테고리는 **config.yaml 만** 수정. 코드에 지역 하드코딩 금지.
 6. main 에 바로 커밋·푸시.
 

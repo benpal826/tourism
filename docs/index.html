@@ -2,7 +2,6 @@
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#14141a">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <title>데이트 스와이프</title>
 <style>
 :root{--bg:#14141a;--card:#1e1e27;--fg:#f4f4f6;--mut:#9a9aa8;--pink:#ff4d79;--green:#2ecc71;--line:#2c2c38}
@@ -15,10 +14,8 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .seg button{flex:1;border:0;background:none;color:var(--mut);padding:8px 0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
 .seg button.on{background:var(--pink);color:#fff}
 #map{position:relative;flex:0 0 150px;margin:0 14px 4px;border-radius:16px;overflow:hidden;background:#23232d;touch-action:auto}
-#map .leaflet-tile-pane{filter:brightness(.78) contrast(1.05)}
 #map.nomap::after{content:"지도를 불러오지 못했어요. 카카오맵 버튼으로 위치를 확인하세요.";position:absolute;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:13px;color:var(--mut);background:#23232d}
-#map .leaflet-control-attribution{font-size:9px;background:#0008;color:#aaa}#map .leaflet-control-attribution a{color:#ccc}
-.pin{background:var(--pink);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #000a}
+.pin{width:18px;height:18px;background:var(--pink);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #000a}
 .stn{background:#fee500;border:2px solid #111;border-radius:6px;width:auto!important;height:auto!important;padding:2px 6px;font-size:11px;font-weight:700;color:#111;white-space:nowrap}
 #list{flex:1;overflow:auto;margin:8px 14px 14px;display:none}
 .item{display:flex;gap:12px;background:var(--card);border-radius:16px;padding:10px;margin-bottom:10px}
@@ -72,8 +69,15 @@ nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box
 <div id="stack"></div>
 <div id="map"></div>
 <nav><button id="no" aria-label="패스">✕</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes" aria-label="저장">♥</button></nav>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="config.js"></script>
+<script>
+// 네이버 지도 SDK: 비동기 로드. 실패·인증 오류면 지도 자리에 안내 문구(mapFail).
+let mapFail=!window.NAVER_MAP_ID;
+const mapDown=()=>{mapFail=true;document.getElementById("map").classList.add("nomap")};
+window.navermap_authFailure=mapDown;
+if(!mapFail){const s=document.createElement("script");s.src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId="+encodeURIComponent(NAVER_MAP_ID);
+  s.onload=()=>typeof showMap==="function"&&showMap(deckCards()[0]);s.onerror=mapDown;document.head.appendChild(s)}
+</script>
 <script>
 const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
 const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
@@ -226,21 +230,25 @@ function setView(v){
   if(deck)render();else showList(v);
 }
 document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
-let map=null,layer=null;
+let map=null,marks=[];
 function showMap(c){
   const box=document.getElementById("map");
-  if(!window.L||!c||!c.lat){box.style.display="none";return}
+  if(!c||!c.lat){box.style.display="none";return}
   box.style.display="";
-  if(!map){map=L.map("map",{zoomControl:false,attributionControl:true}).setView([c.lat,c.lng],16);
-    const tl=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(map);
-    let bad=0;tl.on("tileerror",()=>{if(++bad>3)box.classList.add("nomap")});tl.on("tileload",()=>box.classList.remove("nomap"));
-    layer=L.layerGroup().addTo(map)}
-  map.invalidateSize();layer.clearLayers();
-  const p=[+c.lat,+c.lng];
-  L.marker(p,{icon:L.divIcon({className:"pin",iconSize:[18,18]})}).addTo(layer);
-  const st=STATIONS[c.station];let pts=[p];
-  if(st){L.marker([st.lat,st.lng],{icon:L.divIcon({className:"stn",html:"🚇 "+esc(c.station)+"역",iconSize:null})}).addTo(layer);pts.push([st.lat,st.lng])}
-  map.fitBounds(pts.length>1?pts:[p,p],{padding:[28,28],maxZoom:17});
+  if(!window.naver||!naver.maps){if(mapFail)box.classList.add("nomap");return}  // 아직 로드 중이면 onload 에서 다시 호출됨
+  const N=naver.maps,p=new N.LatLng(+c.lat,+c.lng);
+  if(!map){map=new N.Map(box,{center:p,zoom:16,zoomControl:false,scaleControl:false,mapDataControl:false});
+    // 지도는 만들 때 크기(가로 0일 수 있음)를 고정해 두므로, 상자 크기가 바뀌면 다시 맞춘다(안 그러면 줌이 6으로 튐)
+    new ResizeObserver(()=>{if(box.clientWidth&&view==="deck")showMap(deckCards()[0])}).observe(box)}
+  if(!box.clientWidth)return;
+  map.setSize(new N.Size(box.clientWidth,box.clientHeight));
+  marks.forEach(m=>m.setMap(null));
+  marks=[new N.Marker({position:p,map,icon:{content:'<div class=pin></div>',anchor:new N.Point(9,9)}})];
+  const st=STATIONS[c.station],b=new N.LatLngBounds(p,p);
+  if(st){const sp=new N.LatLng(st.lat,st.lng);b.extend(sp);
+    marks.push(new N.Marker({position:sp,map,icon:{content:'<div class=stn>🚇 '+esc(c.station)+'역</div>'}}))}
+  map.fitBounds(b,{top:28,right:28,bottom:28,left:28});
+  if(map.getZoom()>17)map.setZoom(17);
 }
 const _render=render;render=function(){_render();counts();showMap(deckCards()[0])};
 addEventListener("online",()=>flush());
