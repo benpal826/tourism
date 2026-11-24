@@ -13,7 +13,7 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .seg{display:flex;margin:4px 14px 0;background:#23232d;border-radius:12px;padding:3px}
 .seg button{flex:1;border:0;background:none;color:var(--mut);padding:8px 0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
 .seg button.on{background:var(--pink);color:#fff}
-#map{position:relative;flex:0 0 150px;margin:0 14px 4px;border-radius:16px;overflow:hidden;background:#23232d;touch-action:auto}
+#map{width:100%;height:100%;background:#23232d}  /* 지금 카드의 .mapslot 안으로 옮겨 다님(네이버 SDK가 position 을 덮어써서 크기로 지정) */
 #map.nomap::after{content:"지도를 불러오지 못했어요. 카카오맵·네이버지도 버튼으로 위치를 확인하세요.";position:absolute;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:13px;color:var(--mut);background:#23232d}
 .pin{width:18px;height:18px;background:var(--pink);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #000a}
 .stn{background:#fee500;border:2px solid #111;border-radius:6px;width:auto!important;height:auto!important;padding:2px 6px;font-size:11px;font-weight:700;color:#111;white-space:nowrap}
@@ -28,9 +28,9 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .item .bt a,.item .bt button{border:0;border-radius:9px;padding:6px 10px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer}
 .item .bt a{background:#fee500;color:#111}.item .bt button{background:#2c2c3a;color:#ddd}
 #stack{position:relative;flex:1;margin:6px 14px;min-height:0}
-.card{position:absolute;inset:0;background:var(--card);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px #0008;will-change:transform;touch-action:none}
+.card{position:absolute;inset:0;background:var(--card);border-radius:22px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;box-shadow:0 10px 30px #0008;will-change:transform;touch-action:pan-y}  /* 세로 스크롤 우선, 좌우 스와이프는 보조 */
 .card.back{transform:scale(.95) translateY(12px);opacity:.7}
-.photo{position:relative;flex:0 0 52%;background:linear-gradient(135deg,#3a2f4f,#2b3a55);display:flex;align-items:center;justify-content:center;font-size:64px;overflow:hidden}
+.photo{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#3a2f4f,#2b3a55);display:flex;align-items:center;justify-content:center;font-size:64px;overflow:hidden}
 .pic{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .pic img{position:absolute;inset:0;width:100%;height:100%}
 .pic .bg{object-fit:cover;filter:blur(18px) brightness(.55);transform:scale(1.15)}
@@ -46,7 +46,13 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .pn.prev{left:8px}.pn.next{right:8px}
 .cnt{position:absolute;top:12px;right:12px;z-index:2;background:#000a;color:#fff;font-size:12px;padding:4px 9px;border-radius:99px}
 .badge{position:absolute;top:20px;left:12px;z-index:2;background:var(--pink);color:#fff;font-weight:700;font-size:12px;padding:5px 10px;border-radius:99px}
-.info{flex:1;padding:0 18px 16px;margin-top:-34px;position:relative;z-index:1;overflow:auto}
+.info{padding:0 16px 18px;margin-top:-30px;position:relative;z-index:1}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 12px}
+.facts div{background:#262633;border-radius:10px;padding:7px 10px;min-width:0}
+.facts .wide{grid-column:1/-1}
+.facts dt{font-size:11px;color:var(--mut)}.facts dd{margin:2px 0 0;font-size:13.5px;font-weight:600;line-height:1.35;word-break:keep-all}
+.mapslot{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#23232d;margin:0 0 10px}
+.links{display:flex;gap:8px}.links .map{flex:1;text-align:center;margin:0}
 h2{margin:0 0 8px;font-size:24px;line-height:1.25}
 .sum{margin:-2px 0 10px;font-size:14px;line-height:1.5;color:#dcdce6}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
@@ -72,13 +78,14 @@ nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box
 <div class="seg"><button data-v="deck" class="on">스와이프</button><button data-v="save">♥ 저장 <span id="ns"></span></button><button data-v="pass">✕ 패스 <span id="np"></span></button></div>
 <div id="list"></div>
 <div id="stack"></div>
-<div id="map"></div>
+<div hidden><div id="map"></div></div>
 <nav><button id="no" aria-label="패스">✕</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes" aria-label="저장">♥</button></nav>
 <script src="config.js"></script>
 <script>
 // 네이버 지도 SDK: 비동기 로드. 실패·인증 오류면 지도 자리에 안내 문구(mapFail).
 let mapFail=!window.NAVER_MAP_ID;
-const mapDown=()=>{mapFail=true;document.getElementById("map").classList.add("nomap")};
+const MAPBOX=document.getElementById("map");  // 카드를 다시 그려도 같은 지도 요소를 새 카드로 옮겨 씀
+const mapDown=()=>{mapFail=true;MAPBOX.classList.add("nomap")};
 window.navermap_authFailure=mapDown;
 if(!mapFail){const s=document.createElement("script");s.src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId="+encodeURIComponent(NAVER_MAP_ID);
   s.onload=()=>typeof showMap==="function"&&showMap(deckCards()[0]);s.onerror=mapDown;document.head.appendChild(s)}
@@ -96,13 +103,17 @@ const EMOJI={"식당":"🍽","카페":"☕","술집":"🍷","팝업스토어":"�
 const fmt=d=>d?d.slice(2).replace(/-/g,"."):"?";
 
 function body(c){
-  const dist=c.distance_m?`${esc(c.station)}역 ${c.distance_m}m`:`${esc(c.station)}역 인근`;
-  const per=(c.period_start||c.period_end)?`<div class=row><i>📅</i><div>${fmt(c.period_start)} ~ ${fmt(c.period_end)}</div></div>`:"";
-  const stats=c.reviews_total?`<div class=stats>
-    <div class=stat><b>${Number(c.reviews_total).toLocaleString()}</b><span>후기</span></div>
-    <div class=stat><b>${c.weekly_growth?"+"+c.weekly_growth:"-"}</b><span>주간 증가</span></div></div>`:"";
-  const menu=c.menu?`<div class=row><i>🍴</i><div><b>${esc(c.menu)}</b> ${esc(c.price||"")}${c.price_band?`<br><small>가격대 ${esc(c.price_band)}</small>`:""} <small>· 후기 ${esc((c.menu_date||"").slice(0,7))} 기준</small></div></div>`:"";
-  const vibe=c.vibe?`<div class=row><i>✨</i><div>${esc(c.vibe)}</div></div>`:"";
+  const dist=c.distance_m?`${c.station}역 ${c.distance_m}m`:`${c.station}역 인근`;
+  // 핵심 정보 격자: 있는 것만, 긴 값은 한 줄 전체
+  const F=[["업종",[...new Set([c.category,...(c.kind||"").split(" · ")])].filter(Boolean).join(" · ")],["거리",dist],
+    c.reviews_total&&["후기",Number(c.reviews_total).toLocaleString()+"건"+(c.reviews_30d?` · 최근 30일 ${c.reviews_30d}`:"")],
+    c.weekly_growth&&["주간 증가","+"+c.weekly_growth],
+    c.menu&&["대표메뉴",c.menu+(c.price?" "+c.price:"")],
+    c.price_band&&["가격대",c.price_band],
+    c.vibe&&["분위기",c.vibe],
+    (c.period_start||c.period_end)&&["기간",fmt(c.period_start)+" ~ "+fmt(c.period_end)],
+    c.address&&["주소",c.address]].filter(Boolean);
+  const facts=`<dl class=facts>${F.map(([k,v])=>`<div class="${["후기","대표메뉴","분위기","주소","기간"].includes(k)||String(v).length>16?"wide":""}"><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`;
   const ph=photoList(c);
   const cats=[...new Set(ph.map(x=>x.label))];
   const tabs=cats.length>1?`<div class=tabs>${cats.map((l,i)=>`<button data-cat="${esc(l)}" class="${i?"":"on"}">${esc(l)}</button>`).join("")}</div>`:"";
@@ -110,9 +121,8 @@ function body(c){
   const nav=ph.length>1?'<button class="pn prev" aria-label="이전 사진">‹</button><button class="pn next" aria-label="다음 사진">›</button>':"";
   return `<div class=photo>${EMOJI[c.category]||"📍"}${ph[0]?imgTag(ph[0]):""}${bars}${nav}${tabs}${c.surge?'<span class=badge>🔥 급상승</span>':""}</div>
   <div class=info><h2>${esc(c.name)}</h2>${c.summary?`<p class=sum>${esc(c.summary)}</p>`:""}
-  <div class=chips><span class="chip cat">${esc(c.category)}</span>${c.kind?`<span class=chip>${esc(c.kind)}</span>`:""}<span class=chip>📍 ${dist}</span></div>
-  ${stats}${per}${menu}${vibe}
-  <a class=map href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵에서 보기</a><a class="map nv" href="${esc(nvUrl(c))}" target=_blank rel=noopener>네이버지도</a></div>
+  ${facts}${c.lat?"<div class=mapslot></div>":""}
+  <div class=links><a class=map href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵</a><a class="map nv" href="${esc(nvUrl(c))}" target=_blank rel=noopener>네이버지도</a></div></div>
   <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;
 }
 // AI 선별된 곳만 종류 탭. 자동 사진의 종류는 검색어 기준(내용과 무관)이라 '사진' 하나로 묶음
@@ -156,17 +166,21 @@ function render(){
   drag(el,rest[0]);
 }
 function drag(el,c){
-  let x0=null,y0=null,dx=0,moved=false;
-  el.onpointerdown=e=>{if(e.target.closest("a,button"))return;x0=e.clientX;y0=e.clientY;moved=false;el.setPointerCapture(e.pointerId);el.style.transition="none"};
-  el.onpointermove=e=>{if(x0===null)return;dx=e.clientX-x0;if(Math.abs(dx)>6)moved=true;
+  // 세로로 움직이면 스크롤(브라우저 담당), 가로가 세로의 2배 넘게 확실할 때만 카드를 끔. 버튼이 기본 조작.
+  let x0=null,y0=null,dx=0,horiz=null;
+  const reset=()=>{x0=null;dx=0;horiz=null;el.style.transition="transform .25s";el.style.transform="";el.querySelectorAll(".stamp").forEach(s=>s.style.opacity=0)};
+  el.onpointerdown=e=>{if(e.target.closest("a,button,.mapslot"))return;x0=e.clientX;y0=e.clientY;dx=0;horiz=null;el.style.transition="none"};
+  el.onpointermove=e=>{if(x0===null)return;const mx=e.clientX-x0,my=e.clientY-y0;
+    if(horiz===null&&(Math.abs(mx)>10||Math.abs(my)>10)){horiz=Math.abs(mx)>2*Math.abs(my);if(horiz)el.setPointerCapture(e.pointerId)}
+    if(!horiz)return;dx=mx;
     el.style.transform=`translateX(${dx}px) rotate(${dx/18}deg)`;
-    el.querySelector(".s-save").style.opacity=Math.min(1,Math.max(0,dx/90));
-    el.querySelector(".s-pass").style.opacity=Math.min(1,Math.max(0,-dx/90))};
-  el.onpointerup=e=>{if(x0===null)return;x0=null;
-    if(Math.abs(dx)<=8){const ph=el.querySelector(".photo"),r=ph.getBoundingClientRect(); // 끌지 않고 사진을 탭함 → 사진 넘기기
-      if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom)ph.dispatchEvent(new CustomEvent("tapphoto",{detail:e.clientX-r.left}))}el.style.transition="transform .25s";
-    if(Math.abs(dx)>90)fly(el,c,dx>0?"save":"pass");
-    else{el.style.transform="";el.querySelectorAll(".stamp").forEach(s=>s.style.opacity=0)}dx=0};
+    el.querySelector(".s-save").style.opacity=Math.min(1,Math.max(0,dx/110));
+    el.querySelector(".s-pass").style.opacity=Math.min(1,Math.max(0,-dx/110))};
+  el.onpointercancel=reset;
+  el.onpointerup=e=>{if(x0===null)return;
+    if(horiz===null){const ph=el.querySelector(".photo"),r=ph.getBoundingClientRect(); // 움직이지 않고 사진을 탭함 → 사진 넘기기
+      if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom)ph.dispatchEvent(new CustomEvent("tapphoto",{detail:e.clientX-r.left}))}
+    if(horiz&&Math.abs(dx)>110){el.style.transition="transform .25s";fly(el,c,dx>0?"save":"pass");x0=null}else reset()};
 }
 function fly(el,c,action){
   el.style.transition="transform .28s,opacity .28s";
@@ -235,18 +249,18 @@ function showList(kind){
 function setView(v){
   view=v;document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
   const deck=v==="deck";document.getElementById("stack").style.display=deck?"":"none";
-  document.querySelector("nav").style.display=deck?"":"none";document.getElementById("map").style.display=deck?"":"none";document.getElementById("list").style.display=deck?"none":"block";
+  document.querySelector("nav").style.display=deck?"":"none";document.getElementById("list").style.display=deck?"none":"block";
   if(deck)render();else showList(v);
 }
 document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
 let map=null,marks=[];
 function showMap(c){
-  const box=document.getElementById("map");
-  if(!c||!c.lat){box.style.display="none";return}
-  box.style.display="";
+  const box=MAPBOX,slot=stack.querySelector(".card:not(.back) .mapslot");
+  if(!c||!c.lat||!slot)return;
+  if(box.parentNode!==slot)slot.appendChild(box);
   if(!window.naver||!naver.maps){if(mapFail)box.classList.add("nomap");return}  // 아직 로드 중이면 onload 에서 다시 호출됨
   const N=naver.maps,p=new N.LatLng(+c.lat,+c.lng);
-  if(!map){map=new N.Map(box,{center:p,zoom:16,zoomControl:false,scaleControl:false,mapDataControl:false});
+  if(!map){map=new N.Map(box,{center:p,zoom:16,zoomControl:false,scaleControl:false,mapDataControl:false,scrollWheel:false});  // 휠은 카드 스크롤에 양보
     // 지도는 만들 때 크기(가로 0일 수 있음)를 고정해 두므로, 상자 크기가 바뀌면 다시 맞춘다(안 그러면 줌이 6으로 튐)
     new ResizeObserver(()=>{if(box.clientWidth&&view==="deck")showMap(deckCards()[0])}).observe(box)}
   if(!box.clientWidth)return;

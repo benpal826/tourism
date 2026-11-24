@@ -101,6 +101,6 @@
       "WHEN 다음 카드로 넘어가면 THEN 앱은 지도를 새 카드 안으로 옮겨 그 가게 위치를 보여 준다"
     ],
     "verify": "python -m tests.test_f09_card_layout",
-    "passes": false
+    "passes": true
   }
 ]
