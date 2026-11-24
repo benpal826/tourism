@@ -111,11 +111,13 @@ function body(c){
   <a class=map href="${esc(c.map_url)}" target=_blank rel=noopener>카카오맵에서 보기</a><a class="map nv" href="${esc(nvUrl(c))}" target=_blank rel=noopener>네이버지도</a></div>
   <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;
 }
-const LABEL={food:"음식",mood:"분위기",outside:"외관",etc:"사진"};
-function photoList(c){ // 음식→분위기→외관 순으로 펼친 한 줄 시퀀스
+// AI 선별된 곳만 종류 탭. 자동 사진의 종류는 검색어 기준(내용과 무관)이라 '사진' 하나로 묶음
+const KINDS_CUR=[["food","메인요리"],["interior","인테리어"],["mood","분위기"]],KINDS_AUTO=[["food","사진"],["mood","사진"],["outside","사진"],["etc","사진"]];
+function photoList(c){
   const l=[];
-  for(const k of ["food","mood","outside","etc"]){const v=c["photo_"+k];if(v)v.split("§").forEach(x=>{const[hi,lo]=x.split("|");l.push({label:LABEL[k],hi,lo})})}
-  if(!l.length&&(c.thumb||c.thumb_lo))l.push({label:"사진",hi:c.thumb,lo:c.thumb_lo});
+  for(const[k,label]of c.photo_source==="curated"?KINDS_CUR:KINDS_AUTO){const v=c["photo_"+k];if(v&&v!=="-")v.split("§").forEach(x=>{const[hi,lo]=x.split("|");l.push({label,hi,lo})})}
+  // 선별에서 맞는 사진이 없던 곳은 자동 썸네일도 안 씀
+  if(!l.length&&c.photo_source!=="curated"&&(c.thumb||c.thumb_lo))l.push({label:"사진",hi:c.thumb,lo:c.thumb_lo});
   c._ph=l;return l;
 }
 const imgTag=p=>`<img src="${esc((p.hi||p.lo).replace(/^http:/,"https:"))}" data-lo="${esc((p.lo||"").replace(/^http:/,"https:"))}" referrerpolicy="no-referrer" alt="">`;
@@ -214,7 +216,7 @@ function records(){ // 기록 합치기: 서버 history + 이 폰의 최신 결�
 function counts(){const r=records();document.getElementById("ns").textContent=r.filter(x=>x.action==="save").length||"";document.getElementById("np").textContent=r.filter(x=>x.action==="pass").length||""}
 function showList(kind){
   const L=document.getElementById("list"),r=records().filter(x=>x.action===kind);
-  L.innerHTML=r.length?r.map(c=>{const p=(c.photo_food||c.photo_outside||c.photo_mood||c.thumb||c.thumb_lo||"").split("§")[0].split("|")[0];
+  L.innerHTML=r.length?r.map(c=>{const p=(c.photo_food||c.photo_interior||c.photo_mood||c.photo_outside||(c.photo_source!=="curated"&&(c.thumb||c.thumb_lo))||"").split("§")[0].split("|")[0];
     const sub=[c.category,c.distance_m?`${c.station}역 ${c.distance_m}m`:`${c.station}역 인근`].filter(Boolean).map(esc).join(" · ");
     const extra=[c.reviews_total?`후기 ${Number(c.reviews_total).toLocaleString()}`:"",c.menu?`${c.menu} ${c.price||""}${c.price_band?` (가격대 ${c.price_band})`:""}`:"",c.vibe||"",(c.period_end?`~${fmt(c.period_end)}`:"")].filter(Boolean).map(esc).join(" · ");
     const rv=c.score?`<div>⭐ ${esc(c.score)} ${esc(c.review||"")}</div>`:"";

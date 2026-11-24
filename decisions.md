@@ -18,3 +18,4 @@
 2026-11-16 — docs/carbon/ 에 탄소정책 모니터링 리포트(benpal826/news 의 render 결과) 공개 페이지 추가. tourism 앱과 무관한 독립 HTML
 - 2026-11-24 — 방법론 v0.2 적용(prd.md·features.json F00·progress.md·init.ps1, AGENTS.md는 CLAUDE.md 안내만). 네이버 API HUB 검색·NCP Maps 키 이름을 규칙 4·.env.example 에 추가(코드 미사용).
 - 2026-11-24 — 후기 집계에 네이버 블로그 합산(F01), 급상승은 같은 출처 스냅샷끼리만 비교. 앱 지도 Leaflet/OSM→네이버 지도(F02), 규칙 4 예외로 NAVER_MAP_CLIENT_ID 를 docs/config.js 에 공개.
+- 2026-11-24 — 카드 사진을 AI(Claude)가 후보 모음 이미지를 보고 메인요리·인테리어·분위기로 선별(F04, src.photos). 미선별 곳은 자동 사진을 '사진' 한 종류로 표시. Pillow 는 선별 도구에만 필요.

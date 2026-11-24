@@ -134,8 +134,8 @@ def good_image(d):
     return 0.6 <= r <= 1.8  # 너무 길쭉한 캡처·배너·긴 메뉴판 제외
 
 
-def photos(name, station, posts):
-    """가게가 확인된 후기 글의 사진만 사용(이미지 검색 doc_url == 글 주소). 한 글에서 최대 2장, 부족하면 적게."""
+def photo_candidates(name, station, posts):
+    """[(검색어 종류, 이미지 검색 결과)] 큰 사진 순. 가게가 확인된 후기 글의 사진만 사용(이미지 검색 doc_url == 글 주소)."""
     extra = []
     for pg in (1, 2, 3):  # 정확도순 블로그 글도 확인 대상에 추가(이미지 검색 결과와 겹침을 늘림)
         try:
@@ -146,9 +146,8 @@ def photos(name, station, posts):
         if j["meta"].get("is_end"):
             break
     ok = verified_urls(name, posts + extra, station)
-    none = {"photo_" + k: "-" for k in ("food", "mood", "outside", "etc")}  # 이전 주 사진을 덮는 표식
     if not ok:
-        return none
+        return []
     cand, seen = [], set()
     queries = [(k, f"{name} {station} {q}", 1) for k, q in PHOTO_KINDS] + [(k, f"{name} {q}", 1) for k, q in PHOTO_KINDS]
     queries += [("etc", f"{name} {station}", pg) for pg in (1, 2, 3)]  # 분류 불명 사진
@@ -163,8 +162,14 @@ def photos(name, station, posts):
                 continue
             seen.add(u)
             cand.append((key, d))
+    return sorted(cand, key=lambda x: -x[1].get("width", 0) * x[1].get("height", 0))  # 큰 사진 먼저
+
+
+def photos(name, station, posts):
+    """자동 사진(미선별 가게용). 한 글에서 최대 2장, 최대 6장. 분류는 검색어 기준이라 앱은 '사진' 하나로 보여 줌."""
+    none = {"photo_" + k: "-" for k in ("food", "mood", "outside", "etc")}  # 이전 주 사진을 덮는 표식
     out, per_post, picked = {}, {}, 0
-    for key, d in sorted(cand, key=lambda x: -x[1].get("width", 0) * x[1].get("height", 0) // 1):  # 큰 사진 먼저
+    for key, d in photo_candidates(name, station, posts):
         pk = url_key(d["doc_url"])
         if picked >= MAX_PHOTOS or per_post.get(pk, 0) >= PER_POST:
             continue
@@ -195,7 +200,7 @@ def one(cfg, pid, a, use_sample, samp):
         for f in ("reviews_total", "reviews_30d"):
             if f in res:
                 mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": src})
-        ph = {} if use_sample else photos(a["name"], a["station"], posts)
+        ph = {} if use_sample or a.get("photo_source") == "curated" else photos(a["name"], a["station"], posts)  # 선별 사진은 덮지 않음
         detail_rows += attrs(pid, "kakao-blog", thumb=th[0], thumb_lo=th[1], **res, **ph)
     elif not a.get("thumb") and not use_sample:
         th = thumb(a["name"], a.get("station", ""))

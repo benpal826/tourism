@@ -19,6 +19,10 @@
 - 카카오맵 메뉴 데이터는 공식 API 에 없음 → `python3 -m src.menus todo 30` 으로 메뉴 없는 곳의 후기 요약을 뽑아, Claude 가 읽고 **가게가 맞고 메뉴명이 분명한 것만** 골라 `{"place_id":[메뉴,가격,가격대,후기날짜]}` JSON 으로 만든 뒤 `python3 -m src.menus import FILE`. 확인 안 되면 비워 둠(지어내지 않음). 선별된 곳은 자동추출이 덮어쓰지 않음.
 - `--sample` 실행은 data/_sample, out/sample 에만 씀(실데이터와 분리).
 
+## 카드 사진 (주간 갱신 때 Claude 가 직접 선별)
+- 자동 사진은 검색어 기준 분류라 메뉴판·거리·복도가 섞임 → `python -m src.photos todo 30` 으로 미선별 카드 상위 30곳의 후보 모음 이미지(out/photos/<place_id>.jpg, 번호 붙음)를 만들고, Claude 가 이미지를 직접 보고 `{"place_id":{"food":[번호],"interior":[번호],"mood":[번호]}}` JSON 을 만든 뒤 `python -m src.photos import FILE`.
+- food=메인 요리가 잘 보이는 것, interior=실내 공간·좌석, mood=조명·테이블 등 분위기. 종류당 최대 2장. 외관·메뉴판·영수증·거리·안내문·사람 위주 사진은 고르지 않음. 맞는 사진이 없으면 빈 목록(지어내지 않음). 선별된 곳은 자동 수집이 덮어쓰지 않음.
+
 ## 요청 처리
 - "토요일 신사 저녁 코스 짜줘" → `src.course 신사 저녁` 실행 후 결과를 요약해 제안(저장한 곳만 사용, 도보 동선).
 - "○○ 갔다왔는데 4점, ~했어" → `src.record` 로 기록.
