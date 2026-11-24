@@ -1,4 +1,4 @@
-"""다음(카카오) 블로그 검색으로 후기 수/최근 30일 수 집계 + 대표 메뉴·가격·분위기·썸네일."""
+"""다음(카카오)+네이버 블로그 검색으로 후기 수/최근 30일 수 집계 + 대표 메뉴·가격·분위기·썸네일."""
 import re
 from datetime import timedelta
 from .collect import attrs, clean, sample
@@ -27,7 +27,21 @@ def fetch_posts(cfg, name, station):
                           "postdate": d["datetime"][:10].replace("-", ""), "url": d.get("url", "")})
         if j["meta"].get("is_end") or (posts and posts[-1]["postdate"] < cutoff):
             break
-    return total, posts
+    if not have_keys()["naver"]:
+        return total, posts, "kakao-blog"
+    seen = {url_key(p["url"]) for p in posts}
+    nposts, ntotal = [], 0
+    for start in range(1, min(1000, t["max_posts_per_place"]) + 1, 100):  # 네이버: display 최대 100, start 최대 1000
+        j = naver_search("blog", f"{name} {station}", sort="date", display=100, start=start)
+        ntotal = j.get("total", 0)
+        items = j.get("items", [])
+        nposts += [{"title": d["title"], "description": d["description"], "postdate": d["postdate"], "url": d["link"]} for d in items]
+        if len(items) < 100 or (nposts and nposts[-1]["postdate"] < cutoff):
+            break
+    new = [p for p in nposts if url_key(p["url"]) not in seen]
+    # shortcut: 카카오와 겹치는 비율을 가져온 글로 추정해 네이버 전체 건수에 적용. 겹침이 크게 틀리면 출처별 따로 집계로 바꿀 것
+    total += int(ntotal * len(new) / len(nposts)) if nposts else 0
+    return total, posts + new, "kakao+naver-blog"
 
 
 def analyze(cfg, total, posts, name=""):
@@ -163,6 +177,7 @@ def photos(name, station, posts):
 def one(cfg, pid, a, use_sample, samp):
     """한 곳의 (mention_rows, detail_rows)."""
     mention_rows, detail_rows = [], []
+    src = "kakao-blog"
     if a.get("tier") == "1":
         if use_sample:
             s = samp.get(a["name"])
@@ -171,7 +186,7 @@ def one(cfg, pid, a, use_sample, samp):
             res = {k: s[k] for k in s if k != "thumb"}
             th = (s.get("thumb", ""), "")
         else:
-            total, posts = fetch_posts(cfg, a["name"], a["station"])
+            total, posts, src = fetch_posts(cfg, a["name"], a["station"])
             res = analyze(cfg, total, posts, a["name"])
             th = thumb(a["name"], a["station"])
         if a.get("menu_source") == "curated":
@@ -179,7 +194,7 @@ def one(cfg, pid, a, use_sample, samp):
                 res.pop(k, None)
         for f in ("reviews_total", "reviews_30d"):
             if f in res:
-                mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": "kakao-blog"})
+                mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": src})
         ph = {} if use_sample else photos(a["name"], a["station"], posts)
         detail_rows += attrs(pid, "kakao-blog", thumb=th[0], thumb_lo=th[1], **res, **ph)
     elif not a.get("thumb") and not use_sample:

@@ -97,6 +97,12 @@ def kakao_search(kind, query, **params):
     return http_json(f"https://dapi.kakao.com/v2/search/{kind}", {"query": query, **params}, h)
 
 
+def naver_search(kind, query, **params):
+    """NAVER API HUB 검색(blog 등). 키는 NAVER_CLIENT_ID·NAVER_CLIENT_SECRET."""
+    h = {"X-NCP-APIGW-API-KEY-ID": env("NAVER_CLIENT_ID"), "X-NCP-APIGW-API-KEY": env("NAVER_CLIENT_SECRET")}
+    return http_json(f"https://naverapihub.apigw.ntruss.com/search/v1/{kind}", {"query": query, **params}, h)
+
+
 def env(name):
     return os.environ.get(name, "").strip()
 
@@ -105,6 +111,7 @@ def have_keys():
     return {
         "kakao": bool(env("KAKAO_REST_KEY")),
         "seoul": bool(env("SEOUL_OPEN_KEY")),
+        "naver": bool(env("NAVER_CLIENT_ID") and env("NAVER_CLIENT_SECRET")),
     }
 
 

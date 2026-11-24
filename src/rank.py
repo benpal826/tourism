@@ -8,9 +8,12 @@ ACTIONS = ("swipe", "score", "review")
 
 
 def weekly_growth(mentions):
-    """주간 증가량 = 최근 스냅샷 reviews_total - 약 7일 전(그 이전 중 가장 가까운) 스냅샷."""
+    """주간 증가량 = 최근 스냅샷 reviews_total - 약 7일 전(그 이전 중 가장 가까운) 스냅샷.
+    출처(source)가 다른 스냅샷끼리는 비교하지 않는다(카카오→카카오+네이버 전환 주의 가짜 급상승 방지)."""
     out = {}
-    for pid, s in series(mentions, "reviews_total").items():
+    last_src = {r["place_id"]: r["source"] for r in sorted(mentions, key=lambda r: r["date"]) if r["field"] == "reviews_total"}
+    same = [r for r in mentions if r["field"] != "reviews_total" or r["source"] == last_src.get(r["place_id"])]
+    for pid, s in series(same, "reviews_total").items():
         if len(s) < 2:
             out[pid] = None
             continue

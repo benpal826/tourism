@@ -18,7 +18,7 @@
       "WHEN 후기 수 출처가 바뀐 주에 급상승을 계산하면 THEN 시스템은 같은 출처 스냅샷끼리만 비교해 출처 변경으로 생긴 증가를 급상승으로 세지 않는다"
     ],
     "verify": "python -m tests.test_f01_naver",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F02",
