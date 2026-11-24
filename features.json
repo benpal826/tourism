@@ -91,5 +91,16 @@
     ],
     "verify": "python -m tests.test_f08_naver_images",
     "passes": true
+  },
+  {
+    "id": "F09",
+    "title": "정보 우선 카드",
+    "criteria": [
+      "WHEN 스와이프 화면에서 카드를 보면 THEN 앱은 카드 전체를 세로로 스크롤할 수 있고, 사진(4:3) 아래에 이름·요약·정보 격자·지도(카드 안, 4:3)·지도 버튼 순으로 보여 준다",
+      "WHEN 카드를 세로로 끌면 THEN 앱은 스크롤만 하고 저장/패스로 넘기지 않는다. 좌우로 확실히(가로 이동이 세로의 2배 이상, 110px 이상) 끌 때만 넘긴다",
+      "WHEN 다음 카드로 넘어가면 THEN 앱은 지도를 새 카드 안으로 옮겨 그 가게 위치를 보여 준다"
+    ],
+    "verify": "python -m tests.test_f09_card_layout",
+    "passes": false
   }
 ]
