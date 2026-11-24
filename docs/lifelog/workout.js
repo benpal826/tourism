@@ -681,8 +681,8 @@ const USAGI = {
 // F19 테마 층: 테마 = 겉모습 묶음(글꼴·그림·CSS·진동 세기·화면 조각). 기능(저장·계산·연출 시점)은 core.js 하나
 // 새 테마: 파일 하나 만들고 아래 THEMES에 등록하면 🎨 목록에 나온다
 
-const THEMES = { village: { ...VILLAGE, pop: USAGI_POP } };
-const DEFAULT_THEME = "village";
+const THEMES = { village: VILLAGE, usagi: USAGI };
+const DEFAULT_THEME = "usagi";
 const THEME_FIELDS = ["id", "name", "swatch", "font", "classes", "css", "assets", "haptic", "body", "exerciseArt", "slots"];
 const HAPTIC_FIELDS = ["tap", "nav", "pick", "touch", "rest", "hit", "finish"];
 
