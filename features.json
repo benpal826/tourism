@@ -61,5 +61,35 @@
     ],
     "verify": "python -m tests.test_f05_reviews",
     "passes": true
+  },
+  {
+    "id": "F06",
+    "title": "가게 요약",
+    "criteria": [
+      "WHEN python -m src.photos todo N 을 실행하면 THEN 시스템은 가게마다 이 가게로 확인된 최근 후기 요약 최대 8개를 todo.json 과 화면에 함께 내놓는다",
+      "WHEN 선별 JSON 에 summary 가 있으면 THEN 시스템은 candidates.csv 에 summary 를 추가하고 docs/cards.json·history.json 의 해당 카드도 고친다",
+      "WHEN 카드에 summary 가 있으면 THEN 앱은 가게 이름 아래에 요약을 보여 준다"
+    ],
+    "verify": "python -m tests.test_f06_summary",
+    "passes": false
+  },
+  {
+    "id": "F07",
+    "title": "사진 전체 보기",
+    "criteria": [
+      "WHEN 카드 사진을 보여 주면 THEN 앱은 사진을 자르지 않고(object-fit:contain) 같은 사진을 흐리게 뒤에 깔며, 사진을 넘겨도 같은 방식이고 로드 실패 시 작은 썸네일로 바꾼다"
+    ],
+    "verify": "python -m tests.test_f07_photo_fit",
+    "passes": false
+  },
+  {
+    "id": "F08",
+    "title": "사진 후보에 네이버 이미지",
+    "criteria": [
+      "WHEN 사진 선별 후보를 모으면 THEN 시스템은 카카오 후보에 더해 네이버 이미지 검색 결과 중 제목에 가게 이름이 정확히 있는 것을 더하고(중복 주소 제외), 모음 이미지는 최대 16장으로 만든다",
+      "WHEN 네이버 이미지 검색이 실패하면 THEN 시스템은 카카오 후보만으로 진행한다"
+    ],
+    "verify": "python -m tests.test_f08_naver_images",
+    "passes": false
   }
 ]
