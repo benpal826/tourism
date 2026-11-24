@@ -37,7 +37,7 @@
       "WHEN 카드·저장/패스 목록·report.md·코스 제안에서 지도 링크를 보면 THEN 시스템은 가게명+역명(이름에 역명이 있으면 생략)으로 검색하는 네이버지도 링크만 보여 주고 카카오맵 링크는 없다"
     ],
     "verify": "python -m tests.test_f03_naverlink",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F04",

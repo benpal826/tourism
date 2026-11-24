@@ -97,6 +97,12 @@ def kakao_search(kind, query, **params):
     return http_json(f"https://dapi.kakao.com/v2/search/{kind}", {"query": query, **params}, h)
 
 
+def naver_map_url(name, station=""):
+    """네이버지도 검색 링크(키 불필요). 이름에 역명이 이미 있으면 안 붙임 — 앱의 nvUrl 과 같은 규칙."""
+    q = f"{name} {station}" if station and station not in name else name
+    return "https://map.naver.com/p/search/" + urllib.parse.quote(q.strip())
+
+
 def naver_search(kind, query, **params):
     """NAVER API HUB 검색(blog 등). 키는 NAVER_CLIENT_ID·NAVER_CLIENT_SECRET."""
     h = {"X-NCP-APIGW-API-KEY-ID": env("NAVER_CLIENT_ID"), "X-NCP-APIGW-API-KEY": env("NAVER_CLIENT_SECRET")}

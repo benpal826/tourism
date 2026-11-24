@@ -41,7 +41,7 @@ def main():
         if i > 1:
             p = route[i - 2]
             walk = f" (이전에서 도보 약 {int(haversine(float(p['lat']), float(p['lng']), float(a['lat']), float(a['lng'])) / 70)}분)"
-        print(f"{i}. {a['name']} [{a['category']}]{walk} — [지도]({a['map_url']})")
+        print(f"{i}. {a['name']} [{a['category']}]{walk} — [네이버지도]({naver_map_url(a['name'], a.get('station', ''))})")
 
 
 if __name__ == "__main__":
