@@ -1,61 +1,61 @@
-**요약: 후보 139곳(미확인), 급상승 10곳 — 실데이터 모드, 신규 행 599건.**
+**요약: 후보 122곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 4244건.**
 
-# 이번 주 추천 (2026-11-12)
+# 이번 주 추천 (2026-11-24)
 
-- 🔥**대왕** [술집] · 신사역 336m
-  - 후기 18626건 (주간 +78)
+- **신사포차** [술집] · 압구정역 194m
+  - 후기 433건 (주간 -)
+  - 대표: 두부김치 16,000원 · 가격대 안주 1.6만원·소주 6,000원 (후기 2026-06-14 기준)
+  - 분위기: 분위기 있는 곳
+  - 사진: https://postfiles.pstatic.net/20150119_107/ddoliiii_1421656498180KfyvF_JPEG/IMG_7302.JPG?type=w1
+  - [카카오맵](https://place.map.kakao.com/15558150)
+- **베키아에누보 가스트로 신세계백화점강남점** [식당] · 고속터미널역 34m
+  - 후기 42건 (주간 -)
+  - 분위기: 분위기 있는 곳
+  - 사진: https://postfiles.pstatic.net/MjAyNjAxMjZfNjUg/MDAxNzY5Mzk4Nzg5Nzcz.R_h90rYPLu5UStO7yRv42cOw3OjzdqwQZ8yj4wueGfgg.-BpVwpU0N3j692BWC-WAQRGdqPhn2MtNQr4QXLDcyZgg.JPEG/IMG%EF%BC%BF0628.JPG?type=w966
+  - [카카오맵](https://place.map.kakao.com/811194189)
+- **매니아스트리트제이** [술집] · 신사역 167m
+  - 후기 89건 (주간 -)
+  - 대표: 갓파더 16,000원 · 가격대 칵테일 1.4~1.8만원 (후기 2026-09-24 기준)
   - 분위기: 분위기 있는, 뷰가 좋은 곳
-  - 사진: http://scrap.kakaocdn.net/dn/D6CEH/bl4NiMx5fGn/5whvG4kLiLZSjI9SarkPn1/kakaolink40_original.jpg?width=508&height=302
-  - [카카오맵](https://place.map.kakao.com/692530578)
-- 🔥**스타벅스 압구정** [카페] · 압구정역 116m
-  - 후기 4923건 (주간 +616)
-  - 대표: 아메리카노(톨) 4,700원 · 가격대 4~6천원대 (후기 2026-08-28 기준)
-  - 분위기: 감성적인, 분위기 있는 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNDAzMDRfMjE2/MDAxNzA5NTIyMTU1NDcz.GkWDSMnGeQxZzR4fEIhW9hhw1YPlQ0YALNXS8UTU8JQg.8TG3H3mgFlbl72MbWTFxATkaBLXgwjuK38ypfq7oz-8g.JPEG/%EF%BC%BB4497%EF%BC%BD%EF%BC%BF20240303053331%EF%BC%BFjabhd.jpg?type=w966
-  - [카카오맵](https://place.map.kakao.com/1624256715)
-- 🔥**압구정떡볶이** [식당] · 압구정역 52m
-  - 후기 5664건 (주간 +755)
-  - 분위기: 뷰가 좋은, 감성적인 곳
-  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20200526_139%252F1590462208090cDcQP_JPEG%252F9AgjzrpvVZ3k7kjDKLm0yxvZ.jpeg.jpg%22&type=ff500_300
-  - [카카오맵](https://place.map.kakao.com/1612349591)
-- 🔥**압구정면옥** [식당] · 압구정역 77m
-  - 후기 3580건 (주간 +120)
-  - 대표: 평양냉면(일반) 15,000원 · 가격대 1만원대 중후반 (후기 2026-11-09 기준)
-  - 분위기: 분위기 있는, 와인 한잔하기 좋은 곳
-  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fimage.toast.com%2Faaaaaqx%2Fcatchtable%2Fshopinfo%2Fs25089%2F25089_2232113595383135.jpg%22&type=ff500_300
-  - [카카오맵](https://place.map.kakao.com/1224432398)
-- 🔥**하얀집호프** [술집] · 고속터미널역 182m
-  - 후기 701건 (주간 +60)
-  - 대표: 하얀집치킨 24,000원 · 가격대 2만원대 (후기 2026-09-09 기준)
-  - 분위기: 뷰가 좋은, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyMTEyMTRfNTMg/MDAxNjM5NDUyOTA1MjM4.nY1U3g4DiJnTckHRz-OByLPXhL4htHf9locgtiSN3BIg.Kn12dmXpvY_bo81JV61KX_TLKscc0C-ra40CVCifrDIg.JPEG.ilio0oo8oo0oili/1639450668040.jpg?type=w966
-  - [카카오맵](https://place.map.kakao.com/16326700)
-- 🔥**향방** [식당] · 신사역 69m
-  - 후기 1291건 (주간 +38)
-  - 대표: 차돌짬뽕 12,000원 · 가격대 1만원대 (후기 2026-04-28 기준)
-  - 분위기: 뷰가 좋은, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAxODAxMTdfMTMy/MDAxNTE2MTcwMjAzMzIx.mdatUqjmuYHx4H6h0F-0ZZQIwe1cmHnyzzGqf7H0v1Ug.86bceQfC6uC9YY29heGy1ctKj655bkhhind23r6YkB0g.JPEG.yj6487/IMG_0524.jpg?type=w966
-  - [카카오맵](https://place.map.kakao.com/1214127533)
-- 🔥**크리스탈제이드 상하이팰리스 잠원점** [식당] · 잠원역 152m
-  - 후기 309건 (주간 +45)
-  - 대표: 상하이 런치코스 A 45,000원 · 가격대 코스 4~7만원대 (후기 2025-09-25 기준)
-  - 분위기: 데이트하기 좋은, 분위기 있는 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNDAxMTJfNTQg/MDAxNzA1MDE4NzE5NjYx.mU1XmLg5fTPvHHqFgk44E6W3-6n6L62Dwze_KXontd0g.3nyQytJPbDJjbMquKsnTMOOJJPTTMn-pcg7gpxKO5sgg.JPEG.leebok11/Screenshot%EF%BC%BF20240112%EF%BC%BF091631%EF%BC%BFSamsung_Internet.jpg?type=w773
-  - [카카오맵](https://place.map.kakao.com/213272862)
-- 🔥**스타벅스 압구정역점** [카페] · 압구정역 42m
-  - 후기 442건 (주간 +32)
-  - 대표: 아메리카노(톨) 4,700원 · 가격대 4~6천원대 (후기 2026-08-28 기준)
+  - 사진: https://postfiles.pstatic.net/MjAyMTA3MjFfNTkg/MDAxNjI2ODYzMTQyNjA3.X0F9pLVx3uvdutgCr9OdzPrRhfzENxM0455_ee8u5Iwg.6IRPw7VUdOmMfWtcuGhovMt9J9llzK_uIrLt9R23kL0g.JPEG.ysl6161015/1626861154538%EF%BC%8D10.jpg?type=w773
+  - [카카오맵](https://place.map.kakao.com/1137539216)
+- **오타이** [식당] · 압구정역 72m
+  - 후기 189건 (주간 -)
+  - 대표: 시그니처 오타이동 반상 29,000원 · 가격대 3만원대(프리미엄 58,000원) (후기 2026-10-08 기준)
   - 분위기: 분위기 있는, 뷰가 좋은 곳
-  - 사진: https://blog.kakaocdn.net/dn/bICSWS/btrplh4iOzw/g2CrwIUcM4p0sbMSDlNh4k/img.jpg
-  - [카카오맵](https://place.map.kakao.com/7961953)
-- **언덕** [카페] · 신사역 114m
-  - 후기 45648건 (주간 +-477)
+  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fnaverbooking-phinf.pstatic.net%252F20250919_225%252F1758269594606LAb4w_JPEG%252F0919-11_edit.jpg%22&type=ff500_300
+  - [카카오맵](https://place.map.kakao.com/1926892988)
+- **노가리학교 교대점** [술집] · 교대역 147m
+  - 후기 43건 (주간 -)
+  - 대표: 대관령 황태 17,000원 · 가격대 안주 8천~1.5만원 (후기 2023-02-20 기준)
   - 분위기: 분위기 있는, 뷰가 좋은 곳
-  - 사진: http://cfile294.uf.daum.net/image/236B6534530FDDD2129B4F
-  - [카카오맵](https://place.map.kakao.com/838638157)
-- **담은** [술집] · 고속터미널역 180m
-  - 후기 16454건 (주간 +-88)
-  - 대표: 모듬전 32,000원 · 가격대 2만원대 (후기 2026-10-29 기준)
+  - 사진: https://postfiles.pstatic.net/MjAyNjA2MTBfMjMz/MDAxNzgxMDkxOTM5MTEw.O2WjffZuR87l4Ifj0Zn-T5Rx913aNs37UM_rNpuKTeMg.ZFPqtHxdfcXV5HRjrGiquyQodnmoWymiPkEWWdhggPkg.JPEG/900_20260609_202601.jpg?type=w580
+  - [카카오맵](https://place.map.kakao.com/1847815112)
+- **아리수포차** [술집] · 고속터미널역 258m
+  - 후기 54건 (주간 -)
+  - 대표: 골뱅이무침 22,000원 · 가격대 안주 1.6~2.2만원 (후기 2026-09-28 기준)
   - 분위기: 분위기 있는, 감성적인 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNjA4MjRfMzMg/MDAxNzg3NTU4NTcwODcy.zyptM3xjJO-G5Alx7ylZh3RQbwqyDfc1hN0QFY_VAF8g.dqXwd4FL6SEAlD716fPykQvvry7S405XRDFBffVTIxQg.JPEG/%EB%A9%94%EB%89%B4_02.jpg?type=w773
-  - [카카오맵](https://place.map.kakao.com/18629885)
+  - 사진: https://blog.kakaocdn.net/dn/c7h9Mu/btsJ0dhum9M/2jpSzPPLr2lk3pKxnakLf0/img.jpg
+  - [카카오맵](https://place.map.kakao.com/16474216)
+- **금별맥주 교대역점** [술집] · 교대역 179m
+  - 후기 150건 (주간 -)
+  - 대표: 물떡 모둠꼬치 어묵탕 23,000원 · 가격대 안주 1~3만원 (후기 2026-09-17 기준)
+  - 분위기: 분위기 있는, 뷰가 좋은 곳
+  - 사진: https://blog.kakaocdn.net/dn/d7ag1e/btsMwdZt5S2/3nQBiwTqf5WX2yCEAK28DK/img.jpg
+  - [카카오맵](https://place.map.kakao.com/679584327)
+- **명불허전원조골뱅이** [술집] · 고속터미널역 187m
+  - 후기 166건 (주간 -)
+  - 대표: 골뱅이 모듬탕(2~3인) 39,000원 · 가격대 세트 5.3만원 (후기 2026-03-17 기준)
+  - 분위기: 분위기 있는, 감성적인 곳
+  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3Fsrc%3Dhttp%253A%252F%252Fldb.phinf.naver.net%252F20170924_78%252F1506252046562wm5Bh_PNG%252FXr1qTn3Bo1c2MCTHdgAieBgH.png%26type%3Df640_380%26quality%3D100%26autoRotate%3Dtrue%22&type=ff500_300
+  - [카카오맵](https://place.map.kakao.com/883056783)
+- **로바다야끼 아라도** [술집] · 압구정역 234m
+  - 후기 188건 (주간 -)
+  - 분위기: 분위기 있는, 감성적인 곳
+  - 사진: https://blogfiles.pstatic.net/MjAyMzAxMjFfMjE4/MDAxNjc0MjkwMTEwOTk0.WlsCGa3aJqYjjOdhSwnnYHvIg7ub6PtsMzcNyG8nauog.IBHevxWj-sjdrrQ6ReGjm1BJvokZoK82wcFrWk5NvC8g.JPEG.jeon10478/DSC%EF%BC%BF1077.JPG
+  - [카카오맵](https://place.map.kakao.com/8410723)
+- **피터폴앤메리** [술집] · 압구정역 267m
+  - 후기 87건 (주간 -)
+  - 분위기: 분위기 있는, 감성적인 곳
+  - 사진: https://blogfiles.pstatic.net/data19/2006/11/24/42/img_2199-antimus.jpg?type=w3
+  - [카카오맵](https://place.map.kakao.com/9516226)
