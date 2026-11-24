@@ -8,5 +8,35 @@
     ],
     "verify": "powershell -NoProfile -ExecutionPolicy Bypass -File init.ps1",
     "passes": true
+  },
+  {
+    "id": "F01",
+    "title": "네이버 블로그 후기 합산",
+    "criteria": [
+      "WHEN 네이버 키가 있고 후기를 집계하면 THEN 시스템은 카카오와 네이버 블로그 글을 합치고 같은 글(주소 기준)은 한 번만 센다",
+      "WHEN 네이버 키가 없으면 THEN 시스템은 카카오 블로그만으로 지금처럼 집계한다",
+      "WHEN 후기 수 출처가 바뀐 주에 급상승을 계산하면 THEN 시스템은 같은 출처 스냅샷끼리만 비교해 출처 변경으로 생긴 증가를 급상승으로 세지 않는다"
+    ],
+    "verify": "python -m tests.test_f01_naver",
+    "passes": false
+  },
+  {
+    "id": "F02",
+    "title": "앱 미니 지도를 네이버 지도로",
+    "criteria": [
+      "WHEN 스와이프 화면을 열면 THEN 시스템은 Leaflet/OSM 대신 네이버 지도 SDK(ncpKeyId=docs/config.js 의 Client ID)로 현재 카드 위치 핀과 역 표시를 보여 준다",
+      "WHEN 지도 SDK 로드나 인증이 실패하면 THEN 시스템은 지도 자리에 안내 문구를 띄우고 나머지 기능은 그대로 동작한다"
+    ],
+    "verify": "python -m tests.test_f02_map",
+    "passes": false
+  },
+  {
+    "id": "F03",
+    "title": "네이버지도 버튼",
+    "criteria": [
+      "WHEN 카드나 저장/패스 목록을 보면 THEN 시스템은 카카오맵 버튼 옆에 가게명+역명으로 검색하는 네이버지도 링크를 보여 준다"
+    ],
+    "verify": "python -m tests.test_f03_naverlink",
+    "passes": false
   }
 ]
