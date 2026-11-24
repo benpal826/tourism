@@ -49,7 +49,7 @@
       "WHEN 앱이 카드를 그리면 THEN 시스템은 선별된 곳은 메인요리·인테리어 탭으로, 미선별 곳은 '사진' 한 종류로 보여 준다"
     ],
     "verify": "python -m tests.test_f04_photos",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F05",

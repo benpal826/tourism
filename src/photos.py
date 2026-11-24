@@ -1,8 +1,8 @@
 """카드 사진 선별 도구 (AI 가 후보 모음 이미지를 보고 고름).
   python -m src.photos todo [N] [all]  (all: 이미 선별된 곳도 다시) 미선별 카드 상위 N곳의 후보 사진 모음 → out/photos/<place_id>.jpg, out/photos/todo.json
-  python -m src.photos import FILE  {"place_id": {"food":[번호..], "interior":[..], "mood":[..], "summary": "2~3줄 요약"}} 반영
-고르는 기준: food=메인 요리(음식이 잘 보이는 것), interior=실내 공간·좌석, mood=조명·테이블 등 분위기.
-외관·메뉴판·영수증·거리·안내문·사람 위주 사진은 고르지 않는다. 종류마다 최대 2장, 없으면 빈 목록.
+  python -m src.photos import FILE  {"place_id": {"food":[번호..], "interior":[..], "summary": "2~3줄 요약"}} 반영
+고르는 기준: food=메인 요리(음식이 잘 보이는 것), interior=실내 공간·좌석·조명(분위기 사진 포함).
+외관·메뉴판·영수증·거리·안내문·사람 위주 사진은 고르지 않는다. 종류마다 최대 4장, 없으면 빈 목록.
 summary: todo 가 출력한 후기 요약만 근거로 2~3줄(어떤 곳·대표 메뉴·분위기·웨이팅/팁). 확인 안 되는 내용은 쓰지 않음.
 """
 import io, json, sys, urllib.request
@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 from .common import *
 from .run import latest_cands
 
-KINDS = ("food", "interior", "mood")
+KINDS, PER_KIND = ("food", "interior"), 4
 OUT = ROOT / "out" / "photos"
 SHEET_N, PER_POST, TILE, COLS = 16, 3, 300, 4
 
@@ -135,10 +135,12 @@ def todo(n, redo=False):
 
 
 def fields(photos, pick):
-    """선별 번호 → 저장할 사진 필드. 빈 종류와 외관·기타는 '-'(이전 자동 사진을 덮는 표식)."""
-    f = {"photo_outside": "-", "photo_etc": "-", "photo_source": "curated"}
+    """선별 번호 → 저장할 사진 필드. 빈 종류와 외관·기타·분위기는 '-'(이전 사진을 덮는 표식).
+    예전 형식의 mood 번호는 interior 뒤에 합친다."""
+    f = {"photo_outside": "-", "photo_etc": "-", "photo_mood": "-", "photo_source": "curated"}
+    pick = {**pick, "interior": list(pick.get("interior", [])) + list(pick.get("mood", []))}
     for k in KINDS:
-        nums = [i for i in pick.get(k, []) if 1 <= i <= len(photos)][:2]
+        nums = list(dict.fromkeys(i for i in pick.get(k, []) if 1 <= i <= len(photos)))[:PER_KIND]
         f["photo_" + k] = "§".join(photos[i - 1]["hi"] + "|" + photos[i - 1]["lo"] for i in nums) or "-"
     return f
 
