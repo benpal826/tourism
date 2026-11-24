@@ -102,5 +102,16 @@
     ],
     "verify": "python -m tests.test_f09_card_layout",
     "passes": true
+  },
+  {
+    "id": "F10",
+    "title": "후기 글 수집 품질",
+    "criteria": [
+      "WHEN 사진 후보용 '이 가게 글'을 정하면 THEN 시스템은 후기 집계와 같은 is_about 판정(이름 정확히·위치 단서·지점명)을 쓴다",
+      "WHEN 글에서 가게 이름이 #해시태그로만 나오면 THEN 시스템은 그 글을 이 가게 글로 세지 않는다",
+      "WHEN 네이버 키가 있고 후기를 모으면 THEN 시스템은 네이버 카페 글을 본문 재료로 더하되(주소 중복 제외) 후기 수·최근 30일 수에는 넣지 않고, 카페 검색이 실패해도 나머지는 그대로 집계한다"
+    ],
+    "verify": "python -m tests.test_f10_text_quality",
+    "passes": false
   }
 ]
