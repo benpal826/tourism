@@ -10,7 +10,9 @@ html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--fg);font-family:-apple-system,"Pretendard","Noto Sans KR",system-ui,sans-serif;overflow:hidden;touch-action:pan-y;display:flex;flex-direction:column}
 header{display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 20px 8px}
 header b{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-right:auto}
-#count{background:var(--sub);color:#e5e8eb;font-size:14px;font-weight:700;padding:6px 12px;border-radius:99px}#count:empty{display:none}
+#count{background:var(--sub);color:#e5e8eb;font-size:13px;font-weight:700;padding:6px 11px;border-radius:99px}#count:empty{display:none}
+#send{margin-left:6px;border:0;border-radius:99px;padding:6px 11px;font-size:13px;font-weight:700;background:var(--sub);color:var(--mut);cursor:pointer;white-space:nowrap}  /* F20: 수동 저장(전송) */
+#send.wait{background:var(--pink);color:#fff}#send:disabled{cursor:default}
 .tabbar{display:flex;background:#1c1c22;border-top:1px solid var(--line);padding:2px 0 calc(2px + env(safe-area-inset-bottom))}  /* 작게: 아이콘·글자 한 줄 */
 .tabbar button{flex:1;position:relative;border:0;background:none;color:#6b7684;display:flex;align-items:center;justify-content:center;gap:4px;font-size:12px;font-weight:600;cursor:pointer;padding:7px 0}
 .tabbar button.on{color:var(--fg)}
@@ -100,7 +102,7 @@ nav button:active{transform:scale(.9)}
 #undo{width:36px;height:36px;background:none;color:var(--mut)}#undo svg{width:19px;height:19px}
 .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);line-height:1.7;padding:30px}
 </style></head><body>
-<header><b>데이트 스와이프</b><span id="count"></span></header>
+<header><b>데이트 스와이프</b><span id="count"></span><button id="send" aria-label="기록 시트로 보내기"></button></header>
 <div id="list"></div>
 <div id="stack"></div>
 <div hidden><div id="map"></div></div>
@@ -256,12 +258,14 @@ function decide(c,action){
 const newId=()=>{try{return crypto.randomUUID().replace(/-/g,"").slice(0,32)}catch(e){return Date.now().toString(36)+Math.random().toString(36).slice(2,10)}};
 const ev=(place_id,action)=>({place_id,action,region:regionOf(place_id),ts:new Date().toISOString(),id:newId()});  // F18: 지역 태그(카드의 역)
 let inflight=new Set(),fails=0,timer=null;
-function pending(){const n=queue.length;let b=document.getElementById("pend");
-  if(!b){b=document.createElement("span");b.id="pend";document.querySelector("header").appendChild(b)}
-  b.textContent=n?`⏳ 전송 대기 ${n}`:"";b.style.cssText="color:#ffb454;font-size:12px;margin-left:8px"}
+// F20: 보낼 기록 수를 버튼으로. 자동 전송은 그대로, 누르면 재시도 대기 없이 바로 보냄
+const SEND=document.getElementById("send");
+function pending(){const n=queue.length;
+  SEND.textContent=sending?"보내는 중…":n?`저장 ${n}`:"✓ 저장됨";SEND.classList.toggle("wait",!!n);SEND.disabled=!n||sending}
+SEND.onclick=()=>{if(!queue.length||sending)return;clearTimeout(timer);fails=0;flush()};
 async function flush(){
   if(sending||!window.SWIPE_ENDPOINT||!queue.length)return;
-  sending=true;const batch=queue.slice();inflight=new Set(batch.map(q=>q.id));
+  sending=true;pending();const batch=queue.slice();inflight=new Set(batch.map(q=>q.id));
   try{
     const r=await fetch(window.SWIPE_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(batch)});
     const t=await r.text();let acked;

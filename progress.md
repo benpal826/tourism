@@ -38,6 +38,8 @@
 
 - 2026-11-25 F21 역별 카드 — `python -m tests.test_f21_station_cards` 통과. config: cards_per_station_category 10(카테고리 전체 상한 제거), enrich_per_station 8→12. 실데이터 미리보기: 새 기준이면 설명 없는 카드 24곳이 추가되므로 docs/cards.json 은 다음 주간 갱신(설명·가격 작성과 함께) 때 반영. 식당 카드가 적은 건(역당 0~3곳) 필터(후기 수·메뉴 언급·추천글) 탓 — 별도 검토 필요.
 
+- 2026-11-25 F20 수동 저장 버튼 — `python -m tests.test_f20_send_button` 통과. 모바일 화면에서 가짜 전송(fetch 대체, 시트 전송 없음)으로 '✓ 저장됨 → 저장 1 → 보내는 중… → ✓ 저장됨' 확인.
+
 ## 다음 할 일
 - /review 로 F01~F09 검토(새 세션에서).
 - 폰 앱은 `?reset` 을 붙여 한 번 열어야 폰에 남은 옛 저장·패스 기록이 지워짐.

@@ -219,7 +219,7 @@
       "WHEN 보낼 기록이 있으면 THEN 오른쪽 위 버튼이 '저장 N'으로 보이고 누르면 즉시 전송하며, 다 보내면 '✓ 저장됨'이 된다"
     ],
     "verify": "python -m tests.test_f20_send_button (+ 모바일 화면 확인)",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F21",
