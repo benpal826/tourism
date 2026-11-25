@@ -22,7 +22,7 @@ def sample(name):
 def kakao_cat(d, default):
     """카카오 업종명으로 식당·카페·술집 판정(음식점>술집 은 술집, 카페는 카페). 못 정하면 검색한 카테고리."""
     cn = d.get("category_name", "")
-    if d.get("category_group_code") == "CE7" or "카페" in cn:
+    if d.get("category_group_code") == "CE7" or any(w in cn for w in ("카페", "제과", "베이커리", "디저트")):  # 빵집·디저트는 카페로
         return "카페"
     if "술집" in cn:
         return "술집"

@@ -10,6 +10,7 @@ cfg["discover"]["rec_queries"] = {"술집": ["{st} 칵테일바"], "카페": ["{
 assert collect.kakao_cat({"category_group_code": "FD6", "category_name": "음식점 > 술집 > 칵테일바"}, "식당") == "술집"
 assert collect.kakao_cat({"category_group_code": "CE7", "category_name": "음식점 > 카페"}, "식당") == "카페"
 assert collect.kakao_cat({"category_group_code": "FD6", "category_name": "음식점 > 한식"}, "술집") == "식당"
+assert collect.kakao_cat({"category_group_code": "FD6", "category_name": "음식점 > 간식 > 제과,베이커리"}, "식당") == "카페"
 
 # 2) 추천글 언급 수: 이 가게 글로 확인된 글만, 검색어의 {st} 치환
 seen_q = []
