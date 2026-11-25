@@ -34,7 +34,9 @@
 
 - 2026-11-25 F17 가격 없는 곳 제외 — rank.build_cards: 설명(여러 줄)이 있는데 가격: 줄이 없는 먹거리 카드 제외(설명 전 새 후보는 통과). 지금 cards.json 에도 적용해 북촌손만두 제외(74장). 전체 테스트·init OK.
 
-- 2026-11-25 F18 설정 탭·내 지역 — `python -m tests.test_f18_regions` 통과, 전체 테스트 OK. 역 목록 docs/subway.json(카카오 SW8, 371역, `python -m src.subway`; SEOUL_OPEN_KEY 가 비어 있어 서울 열린데이터 대신). 모바일 화면에서 설정 탭·역 검색(신논→신논현역)·추가/빼기·카드 수 변화(65→61) 확인 후 지역 원복. Apps Script region 열 추가는 재배포 전까지는 무시됨(기록은 정상 전송). 진행 중: F21.
+- 2026-11-25 F18 설정 탭·내 지역 — `python -m tests.test_f18_regions` 통과, 전체 테스트 OK. 역 목록 docs/subway.json(카카오 SW8, 371역, `python -m src.subway`; SEOUL_OPEN_KEY 가 비어 있어 서울 열린데이터 대신). 모바일 화면에서 설정 탭·역 검색(신논→신논현역)·추가/빼기·카드 수 변화(65→61) 확인 후 지역 원복. Apps Script region 열 추가는 재배포 전까지는 무시됨(기록은 정상 전송). 
+
+- 2026-11-25 F21 역별 카드 — `python -m tests.test_f21_station_cards` 통과. config: cards_per_station_category 10(카테고리 전체 상한 제거), enrich_per_station 8→12. 실데이터 미리보기: 새 기준이면 설명 없는 카드 24곳이 추가되므로 docs/cards.json 은 다음 주간 갱신(설명·가격 작성과 함께) 때 반영. 식당 카드가 적은 건(역당 0~3곳) 필터(후기 수·메뉴 언급·추천글) 탓 — 별도 검토 필요.
 
 ## 다음 할 일
 - /review 로 F01~F09 검토(새 세션에서).

@@ -116,11 +116,13 @@ def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
         c["rank_score"] = score(c, growth.get(pid), surge, taste)
         cards.append(c)
     cards.sort(key=lambda c: -c["rank_score"])
-    k, kept, out = cfg.get("rank", {}).get("cards_per_category", 10 ** 6), {}, []
-    for c in cards:  # F12: 1순위는 카테고리별 상위 k 곳만
+    r = cfg.get("rank", {})
+    k, ks, kept, out = r.get("cards_per_category", 10 ** 6), r.get("cards_per_station_category", 10 ** 6), {}, []
+    for c in cards:  # 1순위는 카테고리별 상위 k 곳(F12, 설정 시)·역×카테고리별 상위 ks 곳(F21)만
         if c.get("tier") == "1":
-            kept[c.get("category")] = kept.get(c.get("category"), 0) + 1
-            if kept[c["category"]] > k:
+            a, b = c.get("category"), (c.get("station"), c.get("category"))
+            if kept.get(a, 0) >= k or kept.get(b, 0) >= ks:
                 continue
+            kept[a], kept[b] = kept.get(a, 0) + 1, kept.get(b, 0) + 1
         out.append(c)
     return out

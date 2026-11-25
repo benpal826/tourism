@@ -228,6 +228,6 @@
       "WHEN 카드를 만들면 THEN 시스템은 역 × 카테고리별 상위 rank.cards_per_station_category 곳만 낸다"
     ],
     "verify": "python -m tests.test_f21_station_cards",
-    "passes": false
+    "passes": true
   }
 ]
