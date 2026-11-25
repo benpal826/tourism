@@ -8,7 +8,7 @@ summary: todo/notes 가 출력한 후기 발췌와 사진에서 확인되는 것
   1줄 캐치프레이즈 / "메뉴: ..."(대표메뉴·인기메뉴 이름과 가격) / "가격: ..."(1인 예산·가성비·비싼 편 등) / "맛: ..."(맛·식감 평가만, 메뉴 이름 나열 금지)
   / "분위기: ..." / "팁: ..."(위치·찾아가기·웨이팅·예약·주차, 가격은 쓰지 않음) / "추천: ..."(어떤 날·누구와). 줄끼리 같은 내용을 반복하지 않는다. 확인 안 되는 줄은 생략(지어내지 않음).
 """
-import io, json, sys, urllib.request
+import io, json, re, sys, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from .common import *
 from .run import latest_cands
@@ -162,17 +162,54 @@ def fields(photos, pick):
     return f
 
 
+PRICE_HINT = re.compile(r"\d{1,3}(?:,\d{3})+\s*원|\d+(?:\.\d+)?\s*만\s*원|\d+\s*천\s*원")
+
+
+def price_snips(a, n=8):
+    """F17: 가격 발췌. 최근 후기에는 가격이 드물어 '가게명 역 가격'으로 정확도순 블로그 검색(네이버·카카오)을 따로 하고,
+    이 가게 글(is_about)·광고 아님만, 가격 앞 70자~뒤 20자. 검색 실패한 쪽은 건너뜀."""
+    from . import trend
+    q = f"{a['name']} {a.get('station', '')} 가격".strip()
+    posts = []
+    try:
+        posts += [{"title": d["title"], "description": d["description"], "postdate": d.get("postdate", "")}
+                  for d in naver_search("blog", q, sort="sim", display=50).get("items", [])]
+    except Exception:
+        pass
+    try:
+        posts += [{"title": d["title"], "description": d["contents"], "postdate": d.get("datetime", "")[:10].replace("-", "")}
+                  for d in kakao_search("blog", q, sort="accuracy", size=50).get("documents", [])]
+    except Exception:
+        pass
+    phrases, out, seen = load_config()["trend"]["exclude_phrases"], [], set()
+    for p in posts:
+        if not trend.is_about(p, a["name"], a.get("station", ""), a.get("address", "")):
+            continue
+        t = trend.clean(p["title"]) + " — " + trend.clean(p["description"])
+        if trend.is_ad(t, phrases):
+            continue
+        m = PRICE_HINT.search(t)
+        if m and t[max(0, m.start() - 70):m.start()] not in seen:
+            seen.add(t[max(0, m.start() - 70):m.start()])
+            out.append(f"{p['postdate'] or '?'} …{t[max(0, m.start() - 70):m.end() + 20]}…")
+        if len(out) >= n:
+            break
+    return out
+
+
 def notes(n, percat=False):
-    """F14: 사진 없이 설명 쓰기용 후기 발췌(최대 15개, 260자) → out/photos/notes.json + 화면."""
+    """F14: 사진 없이 설명 쓰기용 후기 발췌(최대 15개, 260자)와 가격 발췌(F17) → out/photos/notes.json + 화면."""
     from . import trend
     cands, book = latest_cands(DATA / "candidates.csv"), {}
     for pid in pending_cards(n, redo=True, percat=percat):
         a = cands[pid]
         _, posts, _ = trend.fetch_posts(load_config(), a["name"], a.get("station", ""))
-        book[pid] = {"name": a["name"], "snippets": snippets(posts, a, n=15, width=260)}
+        book[pid] = {"name": a["name"], "snippets": snippets(posts, a, n=15, width=260), "prices": price_snips(a)}
         print(f"### {pid} {a['name']} [{a.get('category', '')} · {a.get('kind', '')}] {a.get('station', '')}역")
         for x in book[pid]["snippets"]:
             print("-", x)
+        for x in book[pid]["prices"]:  # 메뉴:·가격: 줄 근거
+            print("- 가격", x)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "notes.json").write_text(json.dumps(book, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"요약: {len(book)}곳 후기 발췌. summary 만 담은 JSON 을 import 하세요(사진은 그대로).")

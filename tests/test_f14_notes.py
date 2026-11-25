@@ -15,6 +15,7 @@ photos.latest_cands = lambda p: {"k1": {"name": "하늘집", "station": "신사"
                                  "k2": {"name": "구름카페", "station": "신사", "category": "카페"}}
 today = date.today().strftime("%Y%m%d")
 long = "가" * 300
+photos.naver_search = photos.kakao_search = lambda *a, **k: {}  # 가격 검색(F17)도 외부 호출 없이
 trend.fetch_posts = lambda cfg, n, s: ({}, [{"title": f"{n} 신사 후기 {i}", "description": long, "postdate": today, "url": str(i)}
                                          for i in range(20)], "x")
 

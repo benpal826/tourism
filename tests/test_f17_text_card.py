@@ -25,4 +25,14 @@ for c in with_menu:
     tip = [x for x in c["summary"].split("\n") if x.startswith("팁:")]
     assert not (tip and re.search(r"가성비|만원대|안주 \d", tip[0])), (c["place_id"], tip)
 assert "맛=맛·식감 평가만" in (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
+# 6) 가격 발췌: '가게명 역 가격' 검색 결과 중 이 가게 글·광고 아님·가격 있는 것만
+from src import photos
+photos.naver_search = lambda kind, q, **k: {"items": [
+    {"title": "하늘집 신사 메뉴 가격", "description": "김치찌개 9,000원 계란말이 1.2만원", "postdate": "20261120"},
+    {"title": "하늘집 신사 협찬", "description": "김치찌개 9,000원", "postdate": "20261120"},
+    {"title": "다른집 신사", "description": "라면 5,000원", "postdate": "20261120"},
+    {"title": "하늘집 신사 후기", "description": "분위기 좋아요", "postdate": "20261120"}]} if q == "하늘집 신사 가격" else {}
+photos.kakao_search = lambda *a, **k: (_ for _ in ()).throw(OSError("down"))  # 한쪽 실패는 건너뜀
+got = photos.price_snips({"name": "하늘집", "station": "신사"})
+assert len(got) == 1 and "9,000원" in got[0], got
 print("F17 OK")
