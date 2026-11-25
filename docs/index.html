@@ -25,7 +25,7 @@ header b{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-right:auto}
 .item .th{flex:0 0 84px;height:84px;border-radius:16px;background:var(--sub);display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;position:relative}
 .item .th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .item .tx{flex:1;min-width:0;font-size:13px;line-height:1.5}
-.item .tx b{font-size:17px;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .tx b{font-size:15.5px;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item .tx small{color:var(--mut)}
 .item .bt{display:flex;gap:6px;margin-top:6px}
 .item .bt a,.item .bt button{border:0;border-radius:10px;padding:7px 11px;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
@@ -51,20 +51,21 @@ header b{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-right:auto}
 .pn.prev{left:8px}.pn.next{right:8px}
 .cnt{position:absolute;top:12px;right:12px;z-index:2;background:#000a;color:#fff;font-size:12px;padding:4px 9px;border-radius:99px}
 .badge{position:absolute;top:20px;left:12px;z-index:2;background:var(--red);color:#fff;font-weight:700;font-size:12px;padding:5px 10px;border-radius:99px}
-.info{padding:0 20px 20px;margin-top:-30px;position:relative;z-index:1}
+.info{padding:0 16px 18px;margin-top:-30px;position:relative;z-index:1}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 12px}
-.facts div{background:var(--sub);border-radius:14px;padding:9px 12px;min-width:0}
+.facts div{background:var(--sub);border-radius:12px;padding:8px 11px;min-width:0}
 .facts .wide{grid-column:1/-1}
-.facts dt{font-size:12px;color:var(--mut)}.facts dd{margin:3px 0 0;font-size:14.5px;font-weight:600;line-height:1.35;word-break:keep-all}
+.facts dt{font-size:11px;color:var(--mut)}.facts dd{margin:2px 0 0;font-size:13px;font-weight:600;line-height:1.35;word-break:keep-all}
 .mapslot{display:block;position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#23232d;margin:10px 0 0}
 .mapslot #map{pointer-events:none}  /* F15: 지도는 끌리지 않고 카드 스크롤이 이어짐, 탭하면 네이버지도 */
 .links{display:flex;gap:8px}.links .map{flex:1;text-align:center;margin:0}
-h2{margin:0 0 8px;font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.25}
-.sum{margin:-2px 0 10px;font-size:15px;line-height:1.55;color:#d1d6db}
-.catch{margin:-2px 0 8px;font-size:16px;font-weight:700;line-height:1.45;color:#fff}
+h2{margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-.5px;line-height:1.25}
+.sum{margin:-2px 0 10px;font-size:13.5px;line-height:1.5;color:#d1d6db}
+.catch,.desc span,.sum{word-break:keep-all}  /* 단어 중간에서 줄바꿈 안 함 */
+.catch{margin:-2px 0 8px;font-size:15px;font-weight:700;line-height:1.45;color:#fff}
 .desc{margin:0 0 10px;display:grid;gap:6px}
-.desc div{display:flex;gap:8px;font-size:15px;line-height:1.55;color:#d1d6db}
-.desc b{flex:0 0 auto;font-size:12px;color:var(--pink2);background:#ff4d7926;border-radius:99px;padding:2px 8px;height:fit-content;margin-top:1px}
+.desc div{display:flex;gap:7px;font-size:13.5px;line-height:1.5;color:#d1d6db}
+.desc b{flex:0 0 auto;font-size:11px;color:var(--pink2);background:#ff4d7926;border-radius:99px;padding:2px 8px;height:fit-content;margin-top:1px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .chip{background:var(--sub);border-radius:99px;padding:4px 10px;font-size:12.5px;color:#dcdce6}
 .chip.cat{background:#ff4d7926;color:var(--pink2)}
