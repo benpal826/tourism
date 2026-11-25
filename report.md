@@ -1,59 +1,56 @@
-**요약: 후보 77곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 5620건.**
+**요약: 후보 160곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 9921건.**
 
-# 이번 주 추천 (2026-11-25)
+# 이번 주 추천 (2026-11-26)
 
-- **식스나잇** [술집] · 압구정역 597m
-  - 후기 2795건 (주간 -)
+- **오뎅오색 강남역점** [술집] · 신논현역 338m
+  - 후기 820건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNjA2MThfNTEg/MDAxNzgxNzYyMzUyNjQx.XikQnYmPskXFzyE65JfLVWUaUQbAx1E0FUdmeuQoHLMg.vIzJ_Fj82VjlqZH183Y_Iu9OeVpLhcGso7ve5LMwRDcg.JPEG/KakaoTalk_20260618_145650110_01.jpg?type=w966
-  - [네이버지도](https://map.naver.com/p/search/%EC%8B%9D%EC%8A%A4%EB%82%98%EC%9E%87%20%EC%95%95%EA%B5%AC%EC%A0%95)
-- **js가든 잠원점** [식당] · 잠원역 170m
-  - 후기 515건 (주간 -)
-  - 대표: 런치코스 셰프특선 69,000원 · 가격대 코스 7~10만원대 (후기 2026-03-31 기준)
-  - 분위기: 분위기 있는, 뷰가 좋은 곳
-  - 사진: https://blogfiles.pstatic.net/MjAxOTEyMjJfMjUz/MDAxNTc2OTk2MDQzMTc3.XfEYm9Q7SFBkGjUu8jykYM8_sGnXD-tB8Vc2mJKerr0g.nOUKYjGxYFgBRtGqK7qT0-_KJOgbxdftxc0UfTKEov4g.JPEG.rlaskdus012/P20191221_115703127_7EAC39A3-48ED-45A6-9C23-9F36ED889DA1.jpg?type=w1
-  - [네이버지도](https://map.naver.com/p/search/js%EA%B0%80%EB%93%A0%20%EC%9E%A0%EC%9B%90%EC%A0%90)
-- **베이징덕** [식당] · 압구정역 61m
-  - 후기 8218건 (주간 -)
-  - 대표: 베이징덕 구이 한마리 99,000원 · 가격대 한마리 10만원 안팎(2~3인) (후기 2026-07-28 기준)
-  - 분위기: 분위기 있는, 아늑한 곳
-  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20230427_194%252F1682579409998dsHGQ_JPEG%252FDSC_4795.jpg%22&type=ff500_300
-  - [네이버지도](https://map.naver.com/p/search/%EB%B2%A0%EC%9D%B4%EC%A7%95%EB%8D%95%20%EC%95%95%EA%B5%AC%EC%A0%95)
-- **육다시구** [술집] · 신사역 467m
-  - 후기 953건 (주간 -)
-  - 분위기: 와인 한잔하기 좋은, 분위기 있는 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNDA3MThfMjY0/MDAxNzIxMjgxMjcxMDcx.hAQFdHBK0pdpGTXw7oqjs_WTBDlHgxsXERFXd89HK9Eg.PknHU4iDg9fB5b6B9s3KdUa9mCuzIjF4eS-_SgmZ54og.JPEG/20240717%EF%BC%BF223610.jpg?type=w966
-  - [네이버지도](https://map.naver.com/p/search/%EC%9C%A1%EB%8B%A4%EC%8B%9C%EA%B5%AC%20%EC%8B%A0%EC%82%AC)
-- **센티크** [술집] · 압구정역 668m
-  - 후기 373건 (주간 -)
+  - 사진: https://postfiles.pstatic.net/MjAyNjA3MTdfMjQ2/MDAxNzg0Mjk2MTMzMTk0.tmxCdCSwbdNYhtqObb_ZRvdZtJZekXe5lBwtIHtbwXIg.jQuV3ABkJK3oQYgI5JkK5ztcDJOLxJW6PmXQsxC9_08g.JPEG/IMG%EF%BC%BF4796.jpg?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%EC%98%A4%EB%8E%85%EC%98%A4%EC%83%89%20%EA%B0%95%EB%82%A8%EC%97%AD%EC%A0%90%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **뮤즈온** [술집] · 신논현역 149m
+  - 후기 131건 (주간 -)
+  - 대표: 분당 6,000원 · 가격대 6천원대 (후기  기준)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNjAyMjRfMTU2/MDAxNzcxOTM3NDI2ODg3.9DZaLwyYlipQ3yrsaBIf8_KyuHlwSx8l8JapdoxLgRwg.bo_qCbZHViEJxwH9WFZMvJp2u0prpcgImji3I-R8KV8g.JPEG/IMG%EF%BC%BF7554.JPG?type=w466
-  - [네이버지도](https://map.naver.com/p/search/%EC%84%BC%ED%8B%B0%ED%81%AC%20%EC%95%95%EA%B5%AC%EC%A0%95)
-- **도톤보리 서울** [술집] · 신사역 100m
-  - 후기 1579건 (주간 -)
-  - 대표: 명란감자치즈구이 10,000원 · 가격대 1~2만원대 (후기 2026-10-28 기준)
+  - 사진: https://postfiles.pstatic.net/MjAyNjEwMDRfMTMz/MDAxNzkxMDg1NDA2MDgz.IlXNJQEkvmHgCiIzouIKke7zjfByeZf4-WFVUeJWXmEg.a4kO2nuUyng_dLAuDekBXXAQ13XRmQ9s2Z8vBc9o1qkg.JPEG/KakaoTalk_20261003_020559401_05.jpg?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%EB%AE%A4%EC%A6%88%EC%98%A8%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **어글리** [술집] · 강남역 269m
+  - 후기 9660건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNDAzMTJfMjA3/MDAxNzEwMjQxNTQ4MjY3.tPv6nsdQSXRmfRX6lYdYS54iAVOuBoJkbMdv2CcshUQg.dD7z9OdgtqV42mcTvM8Tedbq71RsotrslRI0-x4TjUMg.JPEG/IMG_1749.JPG?type=w966
-  - [네이버지도](https://map.naver.com/p/search/%EB%8F%84%ED%86%A4%EB%B3%B4%EB%A6%AC%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EC%82%AC)
-- **글로드** [술집] · 압구정역 409m
-  - 후기 622건 (주간 -)
-  - 분위기: 와인 한잔하기 좋은, 데이트하기 좋은 곳
-  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fimage.toast.com%2Faaaaaqx%2Fcatchtable%2Fshopinfo%2FsyFEpd4HJi2qXwfAtb9d4lA%2Fyfepd4hji2qxwfatb9d4la_22122818511830281.png%22&type=ff500_300
-  - [네이버지도](https://map.naver.com/p/search/%EA%B8%80%EB%A1%9C%EB%93%9C%20%EC%95%95%EA%B5%AC%EC%A0%95)
-- **어덜트온리** [술집] · 신사역 619m
-  - 후기 326건 (주간 -)
+  - 사진: https://blog.kakaocdn.net/dn/3v559/btrbQbo7UDr/2umd2ZO4KmgnrgeIqAElUk/img.jpg
+  - [네이버지도](https://map.naver.com/p/search/%EC%96%B4%EA%B8%80%EB%A6%AC%20%EA%B0%95%EB%82%A8)
+- **고부시 논현점** [술집] · 논현역 215m
+  - 후기 474건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNDA5MThfMzQg/MDAxNzI2NjM2Njg4NDI2.OZjeC7K_R6IoN3LXH9NHyrxjlP5PdsBQzo7uqmuOWW4g.ioOZaVdZgoq9FSAztmUlTse6rByyqDqErezDD9OjU9Ug.JPEG/1726636682795.jpg?type=w773
-  - [네이버지도](https://map.naver.com/p/search/%EC%96%B4%EB%8D%9C%ED%8A%B8%EC%98%A8%EB%A6%AC%20%EC%8B%A0%EC%82%AC)
-- **담은** [술집] · 고속터미널역 180m
-  - 후기 885건 (주간 -)
-  - 대표: 모듬전 32,000원 · 가격대 2만원대 (후기 2026-10-29 기준)
-  - 분위기: 분위기 있는, 감성적인 곳
-  - 사진: https://postfiles.pstatic.net/MjAyMDA2MTZfMjE2/MDAxNTkyMjk3NjU3NjE4.vZVcAXv8gYQYgRsOpNHkFnr6gY1tHbQmg-WZ0P6QRokg.xtwzIiGqpR-sePm2bDpUMWLBYpxGi1Fz9HW00ijMdu0g.JPEG.gpry133/A%EC%9D%8C%EC%8B%9D_(7).jpg?type=w773
-  - [네이버지도](https://map.naver.com/p/search/%EB%8B%B4%EC%9D%80%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
-- **하트타임** [술집] · 고속터미널역 200m
-  - 후기 906건 (주간 -)
-  - 대표: 김치볶음밥 9,000원 · 가격대 1만원 안팎 (후기 2026-10-01 기준)
-  - 분위기: 분위기 있는, 웨이팅 있는 인기 곳
-  - 사진: https://blog.kakaocdn.net/dn/cR8CBT/btqNCxqOIXf/rk89LSKf08PqSLFpY0Ys60/img.jpg
-  - [네이버지도](https://map.naver.com/p/search/%ED%95%98%ED%8A%B8%ED%83%80%EC%9E%84%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
+  - 사진: https://postfiles.pstatic.net/MjAyNjEwMjhfMTQ1/MDAxNzkzMTQ1MTgzMTQw.d2nkZ0ctC_O59LKA_F-HMfG_gxwOGYyxZelSJwHx3rog.Y4K35cSUF84r4sVXmhtAbFcHYv69X3hhDXWFrfXsI44g.JPEG/download.jpg?type=w966
+  - [네이버지도](https://map.naver.com/p/search/%EA%B3%A0%EB%B6%80%EC%8B%9C%20%EB%85%BC%ED%98%84%EC%A0%90)
+- **시즈널톤** [술집] · 논현역 227m
+  - 후기 191건 (주간 -)
+  - 분위기: 분위기 있는, 데이트하기 좋은 곳
+  - 사진: https://postfiles.pstatic.net/MjAyNTEyMjNfMTA4/MDAxNzY2NDk2MzEyNjcz.46cKivD_GNgbsi-W7MRDo-GB4w95zoGfnKf0wt3YFS4g.CQJDaG38N47Fwy1ikCwva_BNMJd37g7AaXc46feU3DMg.JPEG/IMG%EF%BC%BF1044.jpg?type=w466
+  - [네이버지도](https://map.naver.com/p/search/%EC%8B%9C%EC%A6%88%EB%84%90%ED%86%A4%20%EB%85%BC%ED%98%84)
+- **버드맨 서울** [술집] · 신사역 630m
+  - 후기 57건 (주간 -)
+  - 분위기: 분위기 있는, 데이트하기 좋은 곳
+  - 사진: https://i.pinimg.com/736x/70/da/d9/70dad97db8107442358d4d82d7843b9f.jpg
+  - [네이버지도](https://map.naver.com/p/search/%EB%B2%84%EB%93%9C%EB%A7%A8%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EC%82%AC)
+- **사이드바 인 팝** [술집] · 논현역 394m
+  - 후기 405건 (주간 -)
+  - 분위기: 분위기 있는, 데이트하기 좋은 곳
+  - 사진: https://i.pinimg.com/736x/c0/8f/b5/c08fb58b49687b2ad9624f154289d085.jpg
+  - [네이버지도](https://map.naver.com/p/search/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%9D%B8%20%ED%8C%9D%20%EB%85%BC%ED%98%84)
+- **이자카야고코** [술집] · 신논현역 125m
+  - 후기 753건 (주간 -)
+  - 분위기: 분위기 있는, 데이트하기 좋은 곳
+  - 사진: https://postfiles.pstatic.net/MjAyNjA2MDRfNTMg/MDAxNzgwNTQ2OTM2OTcy.r1Wk205_fweF_-V5affKg3IkNUI2g8Ux-2OZl6JhLSkg.NTZ_540brw74Yyy_W_jdS00IHkvZWqL2PYxf-Hm2hqMg.JPEG/0._%EC%99%B8%EB%B6%80_(113).JPG?type=w966
+  - [네이버지도](https://map.naver.com/p/search/%EC%9D%B4%EC%9E%90%EC%B9%B4%EC%95%BC%EA%B3%A0%EC%BD%94%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **사이드바 인 시네마** [술집] · 신논현역 281m
+  - 후기 118건 (주간 -)
+  - 분위기: 분위기 있는, 데이트하기 좋은 곳
+  - 사진: https://postfiles.pstatic.net/MjAyNTA1MTRfMTI5/MDAxNzQ3MTk1NjE1MzE3.2taoMJhEbdmSvt0NYcXcDNxreF9IOIjG6lTGQbopHz0g.o-GY1rbOQABy0t2sWhAtMQ_rrYg0TjfEQpYpQZgoYCsg.JPEG/IMG_5787.JPG?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%9D%B8%20%EC%8B%9C%EB%84%A4%EB%A7%88%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **데블스도어 센트럴시티점** [술집] · 고속터미널역 356m
+  - 후기 2780건 (주간 -)
+  - 대표: 스파이시 쉬림프 피자 19,500원 · 가격대 2만원대 (후기 2026-09-27 기준)
+  - 분위기: 분위기 있는, 데이트하기 좋은 곳
+  - 사진: https://postfiles.pstatic.net/MjAyNjAyMTVfNTIg/MDAxNzcxMTU3NjIwNDQ0.2vuAxZmHdFyQESPp94zZkCGWAyPg3DFkmXbNoz0uPSkg.X8qKQ_Gz2L0kYEQeQpDk7yhqU4szIiVoidRb4ZQ5DMwg.PNG/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%EB%8D%B0%EB%B8%94%EC%8A%A4%EB%8F%84%EC%96%B4%20%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
