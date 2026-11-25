@@ -186,6 +186,25 @@ def collect_culture(cfg, use_sample):
     return rows
 
 
+def check_open(cands):
+    """폐업 확인: 카카오 키워드 검색(가게 이름, 좌표 반경 300m)에 같은 카카오 id 가 없으면 closed=1, 있으면 0.
+    검색이 실패한 곳은 판단하지 않음(행 없음 → 이전 값 유지). 상호를 바꾼 곳도 1 이 될 수 있음."""
+    from concurrent.futures import ThreadPoolExecutor
+    h = {"Authorization": "KakaoAK " + env("KAKAO_REST_KEY")}
+
+    def one(item):
+        pid, a = item
+        try:
+            j = http_json("https://dapi.kakao.com/v2/local/search/keyword.json",
+                          {"query": a["name"], "x": a["lng"], "y": a["lat"], "radius": 300, "size": 15}, h)
+        except Exception:
+            return None
+        ids = {"k" + str(d["id"]) for d in j.get("documents", [])}
+        return {"place_id": pid, "field": "closed", "value": "0" if pid in ids else "1", "source": "kakao-check"}
+    with ThreadPoolExecutor(4) as ex:
+        return [r for r in ex.map(one, cands.items()) if r]
+
+
 def run(cfg, keys, force_sample=False):
     if cfg["mode"] != "nearby":
         raise SystemExit(f"mode={cfg['mode']} 는 아직 미구현입니다 (구조만 열어둠). config.yaml 의 mode 를 nearby 로 두세요.")

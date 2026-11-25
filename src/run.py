@@ -35,6 +35,11 @@ def main():
     m_rows, d_rows = trend.run(cfg, todo, keys, sample)
     n_m = append_rows(men_path, m_rows)
     n_d = append_rows(cand_path, d_rows)
+    if not sample and keys.get("kakao"):  # 카드 후보(1순위·추천글 언급 있음)만 폐업 확인
+        rec = latest(read_rows(men_path))
+        n_d += append_rows(cand_path, collect.check_open(
+            {p: a for p, a in cands.items() if a.get("tier") == "1" and p.startswith("k") and in_scope(cfg, a)
+             and float(rec.get(p, {}).get("rec_mentions") or 0) > 0}))
     cands = latest_cands(cand_path)
     out = ROOT / "out" / "sample" if sample else ROOT / "docs"
     out.mkdir(parents=True, exist_ok=True)

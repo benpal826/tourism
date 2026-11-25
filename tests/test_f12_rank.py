@@ -32,12 +32,22 @@ cards = rank.build_cards(cfg, cands, [], [], taste_path=__import__("tempfile").m
 ids = [c["place_id"] for c in cards]
 assert set(ids) == {"k1", "k2", "k5", "p1"}, ids  # k3 는 식당 3위, k4 는 언급 0
 
-# 4) 이번 주 보강 안 된 곳(후기 수가 추천글 언급보다 옛 날짜)은 제외
-men = [{"date": "2026-11-18", "place_id": "k1", "field": "reviews_total", "value": "900", "source": "kakao"},
-       {"date": "2026-11-25", "place_id": "k1", "field": "rec_mentions", "value": "5", "source": "discover"},
-       {"date": "2026-11-25", "place_id": "k2", "field": "reviews_total", "value": "500", "source": "kakao"},
+# 4) 폐업(closed=1)은 제외, 옛 후기 수라도 기간으로는 빼지 않음
+cands["k1"]["closed"] = "1"
+men = [{"date": "2026-01-01", "place_id": "k2", "field": "reviews_total", "value": "500", "source": "kakao"},
        {"date": "2026-11-25", "place_id": "k2", "field": "rec_mentions", "value": "3", "source": "discover"}]
-cards = rank.build_cards(cfg, cands, men, [], taste_path=__import__("tempfile").mktemp())
-ids = [c["place_id"] for c in cards]
+ids = [c["place_id"] for c in rank.build_cards(cfg, cands, men, [], taste_path=__import__("tempfile").mktemp())]
 assert "k1" not in ids and "k2" in ids, ids
+
+# 5) 폐업 확인: 같은 id 가 검색되면 0, 없으면 1, 검색 실패면 행 없음
+from src import collect
+res = {"하늘집": [{"id": "1"}], "구름집": [{"id": "999"}]}
+def fake_http(url, params, h):
+    if params["query"] == "에러집":
+        raise OSError("down")
+    return {"documents": res[params["query"]]}
+collect.http_json = fake_http
+got = {r["place_id"]: r["value"] for r in collect.check_open(
+    {"k1": {"name": "하늘집", "lat": 1, "lng": 1}, "k2": {"name": "구름집", "lat": 1, "lng": 1}, "k3": {"name": "에러집", "lat": 1, "lng": 1}})}
+assert got == {"k1": "0", "k2": "1"}, got
 print("F12 OK")
