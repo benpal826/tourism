@@ -54,6 +54,7 @@ def collect_food(cfg, use_sample):
                 for d in http_json(url, params, h).get("documents", []):
                     d["_cat"] = cat["label"]
                     items.append(d)
+            food_codes = {c["kakao_code"] for c in cfg["categories"] if c.get("kakao_code")}
             for label, kws in cfg.get("discover", {}).get("place_keywords", {}).items():  # 카테고리 목록이 놓치는 곳(루프탑·칵테일바 등)
                 for kw in kws:
                     for page in (1, 2):
@@ -61,6 +62,8 @@ def collect_food(cfg, use_sample):
                                       {"query": kw, "x": st["lng"], "y": st["lat"], "radius": cfg["nearby"]["radius_m"],
                                        "size": 15, "page": page, "sort": "accuracy"}, h)
                         for d in j.get("documents", []):
+                            if d.get("category_group_code") not in food_codes:
+                                continue  # 호텔·문화시설 등 먹거리 아닌 곳이 '루프탑바' 검색에 섞임
                             d["_cat"] = label
                             items.append(d)
                         if j.get("meta", {}).get("is_end", True):

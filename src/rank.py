@@ -83,6 +83,10 @@ def score(a, growth, surge_set, taste):
 def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
     growth = weekly_growth(mentions)
     m_latest = latest(mentions)
+    m_date = {}  # (place_id, field) → 마지막 기록 날짜
+    for r in mentions:
+        k = (r["place_id"], r["field"])
+        m_date[k] = max(m_date.get(k, ""), r["date"])
     ranked_growth = sorted((p for p, g in growth.items() if g and g > 0), key=lambda p: -growth[p])
     surge = set(ranked_growth[: cfg["trend"]["surge_top_n"]])
     taste = build_taste(cands, places, taste_path)
@@ -99,6 +103,8 @@ def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
         c = {"place_id": pid, **a, **m_latest.get(pid, {})}
         if c.get("tier") == "1" and "rec_mentions" in c and float(c["rec_mentions"] or 0) <= 0:
             continue  # F11: 이번 주 추천글에 한 번도 안 나온 곳 제외(샘플·옛 데이터처럼 값이 없으면 통과)
+        if c.get("tier") == "1" and m_date.get((pid, "reviews_total"), "") < m_date.get((pid, "rec_mentions"), ""):
+            continue  # 보강 대상(pick)에서 빠져 후기 수가 옛 값인 곳 제외
         if c.get("tier") == "1" and float(c.get("reviews_total", 0)) < cfg["trend"]["min_reviews"]:
             continue  # 후기 수가 너무 적은 곳 제외 (카카오맵 평점은 공식 API에 없어 후기 수로 대체)
         if c.get("menu_source") != "curated" and int(c.get("menu_mentions") or 0) < 2:

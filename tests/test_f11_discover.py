@@ -30,6 +30,14 @@ got = {r["place_id"]: r["value"] for r in rows}
 assert got == {"k1": 2, "k2": 0}, got  # '바틀앤드'는 다른 가게
 assert set(seen_q) == {"신사 칵테일바", "신사 분위기 좋은 카페"}, seen_q
 
+# 2-1) 검색 실패한 역·카테고리는 행을 남기지 않음(0 으로 덮지 않음)
+def fail_bar(q):
+    if "칵테일바" in q:
+        raise RuntimeError("down")
+    return fake_rec(q)
+discover.rec_posts = fail_bar
+assert {r["place_id"] for r in discover.run(cfg, cands)} == {"k2"}
+
 # 3) 보강 대상: 역·카테고리별 상위 k (0 제외), 2·3순위는 전부
 cfg["discover"]["enrich_per_station"] = 1
 cands["k3"] = {"tier": "1", "station": "신사", "category": "술집", "name": "다른바", "address": ""}

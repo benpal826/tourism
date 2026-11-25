@@ -3,21 +3,19 @@ from .common import *
 
 
 def rec_posts(query):
-    """추천글 후보: 네이버 블로그(정확도순 100) + 카카오 블로그(정확도순 100). 실패한 쪽은 건너뜀."""
+    """추천글 후보: 네이버 블로그(정확도순 100) + 카카오 블로그(정확도순 100).
+    한쪽이라도 실패하면 RuntimeError(일부 글만으로 세면 언급 수가 줄어 카드가 빠지므로)."""
     posts = []
     try:
         posts += [{"title": d["title"], "description": d["description"], "url": d["link"]}
                   for d in naver_search("blog", query, sort="sim", display=100).get("items", [])]
-    except Exception:
-        pass
-    for page in (1, 2):
-        try:
+        for page in (1, 2):
             j = kakao_search("blog", query, sort="accuracy", size=50, page=page)
-        except Exception:
-            break
-        posts += [{"title": d["title"], "description": d["contents"], "url": d["url"]} for d in j["documents"]]
-        if j["meta"].get("is_end"):
-            break
+            posts += [{"title": d["title"], "description": d["contents"], "url": d["url"]} for d in j["documents"]]
+            if j["meta"].get("is_end"):
+                break
+    except Exception as e:
+        raise RuntimeError(f"추천글 검색 실패: {query} ({type(e).__name__})") from e
     return posts
 
 
@@ -32,9 +30,13 @@ def run(cfg, cands):
             if not group:
                 continue
             posts = {}
-            for q in qs:
-                for p in rec_posts(q.format(st=st["name"])):
-                    posts.setdefault(url_key(p["url"]), p)
+            try:
+                for q in qs:
+                    for p in rec_posts(q.format(st=st["name"])):
+                        posts.setdefault(url_key(p["url"]), p)
+            except RuntimeError as e:  # 행을 안 남기면 지난주 값이 유지됨(0 으로 덮어 카드가 사라지는 것 방지)
+                print(f"경고: {st['name']} {cat} 추천글 집계 건너뜀 — {e}")
+                continue
             for pid, a in group:
                 n = sum(1 for p in posts.values() if is_about(p, a["name"], st["name"], a.get("address", "")))
                 rows.append({"place_id": pid, "field": "rec_mentions", "value": n, "source": "discover"})

@@ -31,4 +31,13 @@ cands["p1"] = {"place_id": "p1", "tier": "2", "category": "팝업스토어", "na
 cards = rank.build_cards(cfg, cands, [], [], taste_path=__import__("tempfile").mktemp())
 ids = [c["place_id"] for c in cards]
 assert set(ids) == {"k1", "k2", "k5", "p1"}, ids  # k3 는 식당 3위, k4 는 언급 0
+
+# 4) 이번 주 보강 안 된 곳(후기 수가 추천글 언급보다 옛 날짜)은 제외
+men = [{"date": "2026-11-18", "place_id": "k1", "field": "reviews_total", "value": "900", "source": "kakao"},
+       {"date": "2026-11-25", "place_id": "k1", "field": "rec_mentions", "value": "5", "source": "discover"},
+       {"date": "2026-11-25", "place_id": "k2", "field": "reviews_total", "value": "500", "source": "kakao"},
+       {"date": "2026-11-25", "place_id": "k2", "field": "rec_mentions", "value": "3", "source": "discover"}]
+cards = rank.build_cards(cfg, cands, men, [], taste_path=__import__("tempfile").mktemp())
+ids = [c["place_id"] for c in cards]
+assert "k1" not in ids and "k2" in ids, ids
 print("F12 OK")
