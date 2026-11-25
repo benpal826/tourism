@@ -155,5 +155,16 @@
     ],
     "verify": "python -m tests.test_f14_notes",
     "passes": true
+  },
+  {
+    "id": "F15",
+    "title": "사진 좌우 넘기기·지도 맨 아래",
+    "criteria": [
+      "WHEN 사진 칸에서 좌우로 밀면 THEN 앱은 사진을 손가락 따라 넘기고 첫·마지막 사진에서 멈추며 저장/패스는 하지 않는다",
+      "WHEN 사진 아래 영역에서 좌우로 밀면 THEN 앱은 저장/패스 스와이프를 한다",
+      "WHEN 카드를 끝까지 스크롤하면 THEN 맨 아래에 지도가 보이고, 지도 위에서도 스크롤이 이어지며 지도를 탭하면 네이버지도가 열린다"
+    ],
+    "verify": "python -m tests.test_f15_photo_swipe (+ 모바일 화면 확인)",
+    "passes": false
   }
 ]
