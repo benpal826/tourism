@@ -7,7 +7,7 @@ assert "<div class=track>" in html and ".slide{" in html
 assert "translateX(calc(${-i*100}% + ${edge?dx/4:dx}px))" in html
 assert "go(dx<0?i+1:i-1,false)" in html and "Math.max(0,Math.min(ph.length-1,n))" in html
 # 2) 저장/패스 끌기는 사진 칸에서 시작하지 않음
-assert 'e.target.closest("a,button,.photo")' in html
+assert 'e.target.closest("a,button,.photo,.mapslot")' in html
 # 3) 지도는 맨 아래(버튼 다음), 끌어서 움직일 수 있음
 i_links, i_map = html.index("<div class=links>"), html.index("<div class=mapslot></div>")
 assert i_links < i_map
