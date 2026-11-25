@@ -26,7 +26,13 @@ def main():
     cand_path, men_path, pl_path = base / "candidates.csv", base / "mentions.csv", base / "places.csv"
     n_c = append_rows(cand_path, collect.run(cfg, keys, sample))
     cands = latest_cands(cand_path)
-    m_rows, d_rows = trend.run(cfg, cands, keys, sample)
+    todo = cands
+    if not sample and keys.get("kakao"):  # F11: 추천글 언급 상위만 후기·사진 보강
+        from . import discover
+        append_rows(men_path, discover.run(cfg, {p: a for p, a in cands.items() if in_scope(cfg, a)}))
+        todo = discover.pick(cfg, cands, read_rows(men_path))
+        print(f"추천글 발굴: 보강 대상 {sum(a.get('tier') == '1' for a in todo.values())}곳")
+    m_rows, d_rows = trend.run(cfg, todo, keys, sample)
     n_m = append_rows(men_path, m_rows)
     n_d = append_rows(cand_path, d_rows)
     cands = latest_cands(cand_path)

@@ -22,5 +22,5 @@ assert latest(read_rows(tmp / "candidates.csv"))["k1"]["summary"] == "평양냉�
 assert json.loads((tmp / "cards.json").read_text(encoding="utf-8"))[0]["summary"].startswith("평양냉면")
 
 html = (ROOT / "docs/index.html").read_text(encoding="utf-8")
-assert '${c.summary?`<p class=sum>${esc(c.summary)}</p>`:""}' in html
+assert "<h2>${esc(c.name)}</h2>${desc(c.summary)}" in html and "<p class=sum>${esc(s)}</p>" in html  # 이름 바로 아래(F14 부터 desc() 로 그림)
 print("F06 OK")

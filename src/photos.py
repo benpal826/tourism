@@ -1,9 +1,11 @@
 """카드 사진 선별 도구 (AI 가 후보 모음 이미지를 보고 고름).
-  python -m src.photos todo [N] [all]  (all: 이미 선별된 곳도 다시) 미선별 카드 상위 N곳의 후보 사진 모음 → out/photos/<place_id>.jpg, out/photos/todo.json
+  python -m src.photos todo [N] [all] [percat]  (all: 이미 선별된 곳도 다시, percat: 카테고리별 상위 N) 미선별 카드 상위 N곳의 후보 사진 모음 → out/photos/<place_id>.jpg, out/photos/todo.json
+  python -m src.photos notes [N] [percat]  카드 상위 N곳(percat: 카테고리별)의 후기 발췌만(설명 쓰기용) → out/photos/notes.json
   python -m src.photos import FILE  {"place_id": {"food":[번호..], "interior":[..], "summary": "2~3줄 요약"}} 반영
 고르는 기준: food=메인 요리(음식이 잘 보이는 것), interior=실내 공간·좌석·조명(분위기 사진 포함).
 외관·메뉴판·영수증·거리·안내문·사람 위주 사진은 고르지 않는다. 종류마다 최대 4장, 없으면 빈 목록.
-summary: todo 가 출력한 후기 요약만 근거로 2~3줄(어떤 곳·대표 메뉴·분위기·웨이팅/팁). 확인 안 되는 내용은 쓰지 않음.
+summary: todo/notes 가 출력한 후기 발췌와 사진에서 확인되는 것만으로 쓴다. 형식(줄바꿈 구분):
+  1줄 캐치프레이즈 / "맛: ..." / "분위기: ..." / "팁: ..."(가격대·웨이팅·예약·주차) / "추천: ..."(어떤 날·누구와). 확인 안 되는 줄은 생략.
 """
 import io, json, sys, urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -57,7 +59,7 @@ def naver_images(a):
     return out
 
 
-def snippets(posts, a, n=8):
+def snippets(posts, a, n=8, width=220):
     """이 가게로 확인된 최근 후기 요약(요약 작성용). 광고 문구 글 제외."""
     from . import trend
     cfg = load_config()
@@ -69,7 +71,7 @@ def snippets(posts, a, n=8):
         if trend.is_ad(t, cfg["trend"]["exclude_phrases"]) or t[:40] in seen:
             continue
         seen.add(t[:40])
-        out.append((p.get("postdate") or "카페") + " " + t[:220])
+        out.append((p.get("postdate") or "카페") + " " + t[:width])
     return out[:n]
 
 
@@ -114,11 +116,25 @@ def sheet_for(pid, a):
     return [c for c, _ in loaded], snips
 
 
-def todo(n, redo=False):
+def pending_cards(n, redo=False, percat=False):
+    """선별할 카드 place_id. percat: 카테고리(식당·카페·술집)별 상위 n 곳 중 미선별, 아니면 전체 상위 n 곳."""
     cards = json.loads((ROOT / "docs" / "cards.json").read_text(encoding="utf-8"))
     cands = latest_cands(DATA / "candidates.csv")
-    pending = [c["place_id"] for c in cards if c.get("tier") == "1"
-               and (redo or cands.get(c["place_id"], {}).get("photo_source") != "curated")][:n]
+    out, per = [], {}
+    for c in cards:  # 카드 순서 = 점수 높은 곳 먼저
+        if c.get("tier") != "1":
+            continue
+        per[c.get("category")] = per.get(c.get("category"), 0) + 1
+        if percat and per[c["category"]] > n:
+            continue
+        if redo or cands.get(c["place_id"], {}).get("photo_source") != "curated":
+            out.append(c["place_id"])
+    return out if percat else out[:n]
+
+
+def todo(n, redo=False, percat=False):
+    cands = latest_cands(DATA / "candidates.csv")
+    pending = pending_cards(n, redo, percat)
     todo_path = OUT / "todo.json"
     book = json.loads(todo_path.read_text(encoding="utf-8")) if todo_path.exists() else {}
     for pid in pending:  # 카드 순서(점수 높은 곳 먼저)
@@ -145,11 +161,32 @@ def fields(photos, pick):
     return f
 
 
+def notes(n, percat=False):
+    """F14: 사진 없이 설명 쓰기용 후기 발췌(최대 15개, 260자) → out/photos/notes.json + 화면."""
+    from . import trend
+    cands, book = latest_cands(DATA / "candidates.csv"), {}
+    for pid in pending_cards(n, redo=True, percat=percat):
+        a = cands[pid]
+        _, posts, _ = trend.fetch_posts(load_config(), a["name"], a.get("station", ""))
+        book[pid] = {"name": a["name"], "snippets": snippets(posts, a, n=15, width=260)}
+        print(f"### {pid} {a['name']} [{a.get('category', '')} · {a.get('kind', '')}] {a.get('station', '')}역")
+        for x in book[pid]["snippets"]:
+            print("-", x)
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "notes.json").write_text(json.dumps(book, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"요약: {len(book)}곳 후기 발췌. summary 만 담은 JSON 을 import 하세요(사진은 그대로).")
+
+
 def import_file(path, data=DATA, docs=ROOT / "docs", book_path=OUT / "todo.json"):
     picks = json.loads(Path(path).read_text(encoding="utf-8"))
-    book = json.loads(Path(book_path).read_text(encoding="utf-8"))
+    book = json.loads(Path(book_path).read_text(encoding="utf-8")) if Path(book_path).exists() else {}
     rows, upd = [], {}
     for pid, pick in picks.items():
+        if not any(k in pick for k in KINDS + ("mood",)):  # F14: 설명만(사진 번호 없음) → 사진은 건드리지 않음
+            if pick.get("summary"):
+                upd[pid] = {"summary": pick["summary"].strip()}
+                rows.append({"place_id": pid, "field": "summary", "value": upd[pid]["summary"], "source": "summary-curated"})
+            continue
         if pid not in book:
             print(f"경고: {pid} 는 todo.json 에 없음(건너뜀)")
             continue
@@ -173,7 +210,9 @@ def import_file(path, data=DATA, docs=ROOT / "docs", book_path=OUT / "todo.json"
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "todo":
-        todo(int(sys.argv[2]) if len(sys.argv) > 2 else 30, "all" in sys.argv[3:])  # all: 선별된 곳도 다시
+        todo(int(sys.argv[2]) if len(sys.argv) > 2 else 30, "all" in sys.argv[3:], "percat" in sys.argv[3:])  # all: 선별된 곳도 다시, percat: 카테고리별 상위 N
+    elif len(sys.argv) > 1 and sys.argv[1] == "notes":
+        notes(int(sys.argv[2]) if len(sys.argv) > 2 else 20, "percat" in sys.argv[3:])
     elif len(sys.argv) > 2 and sys.argv[1] == "import":
         import_file(sys.argv[2])
     else:

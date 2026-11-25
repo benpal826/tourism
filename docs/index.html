@@ -55,6 +55,10 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .links{display:flex;gap:8px}.links .map{flex:1;text-align:center;margin:0}
 h2{margin:0 0 8px;font-size:24px;line-height:1.25}
 .sum{margin:-2px 0 10px;font-size:14px;line-height:1.5;color:#dcdce6}
+.catch{margin:-2px 0 8px;font-size:16px;font-weight:700;line-height:1.45;color:#fff}
+.desc{margin:0 0 10px;display:grid;gap:6px}
+.desc div{display:flex;gap:8px;font-size:14px;line-height:1.5;color:#dcdce6}
+.desc b{flex:0 0 auto;font-size:12px;color:var(--pink);background:#ff4d7922;border-radius:6px;padding:2px 6px;height:fit-content;margin-top:1px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .chip{background:#2c2c3a;border-radius:99px;padding:4px 10px;font-size:12.5px;color:#dcdce6}
 .chip.cat{background:#ff4d7933;color:#ff8aa6}
@@ -102,6 +106,15 @@ const nvUrl=c=>"https://map.naver.com/p/search/"+encodeURIComponent((c.station&&
 const EMOJI={"식당":"🍽","카페":"☕","술집":"🍷","팝업스토어":"🛍","전시·축제·기타":"🎨"};
 const fmt=d=>d?d.slice(2).replace(/-/g,"."):"?";
 
+// F14: 여러 줄 설명 = 1줄 캐치프레이즈 + '맛:/분위기:/팁:/추천:' 항목. 한 줄짜리 예전 설명은 그대로.
+function desc(s){
+  if(!s)return"";
+  const L=String(s).split(/\n+/).map(x=>x.trim()).filter(Boolean);
+  if(L.length<2)return`<p class=sum>${esc(s)}</p>`;
+  const rows=L.slice(1).map(x=>{const m=x.match(/^(맛|분위기|팁|추천)\s*[:：]\s*(.+)$/);
+    return m?`<div><b>${m[1]}</b><span>${esc(m[2])}</span></div>`:`<div><span>${esc(x)}</span></div>`}).join("");
+  return`<p class=catch>${esc(L[0])}</p><div class=desc>${rows}</div>`;
+}
 function body(c){
   const dist=c.distance_m?`${c.station}역 ${c.distance_m}m`:`${c.station}역 인근`;
   // 핵심 정보 격자: 있는 것만, 긴 값은 한 줄 전체
@@ -120,7 +133,7 @@ function body(c){
   const bars=ph.length>1?`<div class=bars>${ph.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("")}</div>`:"";
   const nav=ph.length>1?'<button class="pn prev" aria-label="이전 사진">‹</button><button class="pn next" aria-label="다음 사진">›</button>':"";
   return `<div class=photo>${EMOJI[c.category]||"📍"}${ph[0]?imgTag(ph[0]):""}${bars}${nav}${tabs}${c.surge?'<span class=badge>🔥 급상승</span>':""}</div>
-  <div class=info><h2>${esc(c.name)}</h2>${c.summary?`<p class=sum>${esc(c.summary)}</p>`:""}
+  <div class=info><h2>${esc(c.name)}</h2>${desc(c.summary)}
   ${facts}${c.lat?"<div class=mapslot></div>":""}
   <div class=links><a class="map nv" href="${esc(nvUrl(c))}" target=_blank rel=noopener>네이버지도</a></div></div>
   <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;

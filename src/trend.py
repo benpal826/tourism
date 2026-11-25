@@ -110,7 +110,8 @@ def analyze(cfg, total, posts, name="", station="", address=""):
             mine = [p for p in posts if src is None or p.get("src") == src]
             total += int(n * sum(id(p) in ok for p in mine) / len(mine)) if mine else 0
         posts = hit
-    ads = recent = 0
+    ads = recent = n_ok = taste_n = vibe_n = 0
+    signals = cfg.get("signals", {})
     menus, vibes, last_date = {}, {}, ""
     seen_posts = set()
     for p in posts:
@@ -123,8 +124,11 @@ def analyze(cfg, total, posts, name="", station="", address=""):
             ads += 1
             continue
         pd = p.get("postdate", "")
-        if pd >= cutoff:
+        if pd and pd >= cutoff:
             recent += 1
+        n_ok += 1  # F12: 맛·분위기 신호 비율의 분모(이 가게 글, 광고 제외)
+        taste_n += any(w in text for w in signals.get("taste", []))
+        vibe_n += any(w in text for w in signals.get("vibe", []))
         in_post = {}  # 한 글 안에서 반복된 같은 메뉴는 1회로 셈('2회 확인' = 서로 다른 글 2개)
         for m in PRICE_RE.finditer(text):
             mn, pr = m.group(1), int(m.group(2).replace(",", ""))
@@ -137,6 +141,8 @@ def analyze(cfg, total, posts, name="", station="", address=""):
             if k in text:
                 vibes[v] = vibes.get(v, 0) + 1
     out = {"reviews_total": max(total - ads, 0), "reviews_30d": recent}
+    if n_ok:
+        out["taste_share"], out["vibe_share"] = round(100 * taste_n / n_ok), round(100 * vibe_n / n_ok)
     if menus:
         # 대표메뉴 = 후기에서 가장 자주 가격과 함께 언급된 메뉴(동률이면 최근), 가격 = 그 메뉴 언급 가격의 중앙값
         mn, rows = max(menus.items(), key=lambda kv: (len(kv[1]), max(d for _, d in kv[1])))
@@ -163,7 +169,7 @@ def thumb(name, station):
 
 
 PHOTO_KINDS = [("food", "음식 메뉴"), ("mood", "내부 분위기"), ("outside", "외관")]
-MIN_PHOTOS, MAX_PHOTOS, PER_POST = 3, 6, 2
+MIN_PHOTOS, MAX_PHOTOS, PER_POST = 4, 8, 3  # F13: 미선별 가게도 최소 4장 목표
 
 
 def url_key(u):
@@ -220,17 +226,35 @@ def photo_candidates(name, station, posts, address=""):
     return sorted(cand, key=lambda x: -x[1].get("width", 0) * x[1].get("height", 0))  # 큰 사진 먼저
 
 
-def photos(name, station, posts, address=""):
-    """자동 사진(미선별 가게용). 한 글에서 최대 2장, 최대 6장. 분류는 검색어 기준이라 앱은 '사진' 하나로 보여 줌."""
+PHOTO_ORDER = {"식당": ("food", "etc", "mood", "outside")}  # 그 외(카페·술집)는 분위기 먼저
+PHOTO_ORDER_DEFAULT = ("mood", "etc", "food", "outside")
+
+
+def photos(name, station, posts, address="", category=""):
+    """자동 사진(미선별 가게용). 확인된 후기 글 사진 최대 8장(한 글 3장). 식당은 음식 검색 사진, 카페·술집은 분위기
+    검색 사진을 먼저 담고 4장 미만이면 네이버 이미지로 보충. 분류는 검색어 기준이라 앱은 '사진' 하나로 보여 줌."""
     none = {"photo_" + k: "-" for k in ("food", "mood", "outside", "etc")}  # 이전 주 사진을 덮는 표식
-    out, per_post, picked = {}, {}, 0
-    for key, d in photo_candidates(name, station, posts, address):
+    order = PHOTO_ORDER.get(category, PHOTO_ORDER_DEFAULT)
+    cands = sorted(photo_candidates(name, station, posts, address),
+                   key=lambda kd: order.index(kd[0]) if kd[0] in order else len(order))  # 안정 정렬: 같은 종류 안은 큰 사진 순 유지
+    out, per_post, picked, seen = {}, {}, 0, set()
+    for key, d in cands:
         pk = url_key(d["doc_url"])
         if picked >= MAX_PHOTOS or per_post.get(pk, 0) >= PER_POST:
             continue
         per_post[pk] = per_post.get(pk, 0) + 1
         picked += 1
+        seen.add(d["image_url"])
         out.setdefault("photo_" + key, []).append(d["image_url"] + "|" + d.get("thumbnail_url", ""))
+    if picked < MIN_PHOTOS:
+        from . import photos as photo_tool  # 순환 import 피하려고 여기서
+        for c in photo_tool.naver_images({"name": name, "station": station, "address": address}):
+            if picked >= MIN_PHOTOS:
+                break
+            if c["hi"] not in seen:
+                seen.add(c["hi"])
+                picked += 1
+                out.setdefault("photo_etc", []).append(c["hi"] + "|" + c["lo"])
     return {**none, **{k: "§".join(v) for k, v in out.items()}}
 
 
@@ -252,10 +276,10 @@ def one(cfg, pid, a, use_sample, samp):
         if a.get("menu_source") == "curated":
             for k in ("menu", "price", "price_band", "menu_mentions", "menu_date"):
                 res.pop(k, None)
-        for f in ("reviews_total", "reviews_30d"):
+        for f in ("reviews_total", "reviews_30d", "taste_share", "vibe_share"):
             if f in res:
                 mention_rows.append({"place_id": pid, "field": f, "value": res.pop(f), "source": src})
-        ph = {} if use_sample or a.get("photo_source") == "curated" else photos(a["name"], a["station"], posts, a.get("address", ""))  # 선별 사진은 덮지 않음
+        ph = {} if use_sample or a.get("photo_source") == "curated" else photos(a["name"], a["station"], posts, a.get("address", ""), a.get("category", ""))  # 선별 사진은 덮지 않음
         detail_rows += attrs(pid, "kakao-blog", thumb=th[0], thumb_lo=th[1], **res, **ph)
     elif not a.get("thumb") and not use_sample:
         th = thumb(a["name"], a.get("station", ""))

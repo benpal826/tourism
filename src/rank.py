@@ -66,8 +66,12 @@ def build_taste(cands, places, taste_path=ROOT / "taste.md"):
 
 
 def score(a, growth, surge_set, taste):
+    f = lambda k: float(a.get(k) or 0)
     s = 10 - 3 * (int(a.get("tier", 3)) - 1)           # 카테고리 우선순위
-    s += min(float(a.get("reviews_30d", 0)) / 20, 5)    # 요즘 후기
+    s += min(math.log10(f("reviews_total") + 1) * 1.5, 6)  # 후기 규모(로그)
+    s += min(f("reviews_30d") / 10, 5)                  # 요즘 후기
+    s += min(f("rec_mentions") / 2, 6)                  # 추천글 언급(F11)
+    s += (f("taste_share") if a.get("category") == "식당" else f("vibe_share")) / 10  # F12: 식당은 맛, 카페·술집은 분위기·뷰
     s += min(max(growth or 0, 0) / 10, 5)               # 주간 증가
     s += 3 if a["place_id"] in surge_set else 0
     for key in (("category", a.get("category")), ("station", a.get("station")), ("vibe", a.get("vibe"))):
@@ -93,6 +97,8 @@ def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
         if end and end < today:
             continue
         c = {"place_id": pid, **a, **m_latest.get(pid, {})}
+        if c.get("tier") == "1" and "rec_mentions" in c and float(c["rec_mentions"] or 0) <= 0:
+            continue  # F11: 이번 주 추천글에 한 번도 안 나온 곳 제외(샘플·옛 데이터처럼 값이 없으면 통과)
         if c.get("tier") == "1" and float(c.get("reviews_total", 0)) < cfg["trend"]["min_reviews"]:
             continue  # 후기 수가 너무 적은 곳 제외 (카카오맵 평점은 공식 API에 없어 후기 수로 대체)
         if c.get("menu_source") != "curated" and int(c.get("menu_mentions") or 0) < 2:
@@ -106,4 +112,11 @@ def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
         c["rank_score"] = score(c, growth.get(pid), surge, taste)
         cards.append(c)
     cards.sort(key=lambda c: -c["rank_score"])
-    return cards
+    k, kept, out = cfg.get("rank", {}).get("cards_per_category", 10 ** 6), {}, []
+    for c in cards:  # F12: 1순위는 카테고리별 상위 k 곳만
+        if c.get("tier") == "1":
+            kept[c.get("category")] = kept.get(c.get("category"), 0) + 1
+            if kept[c["category"]] > k:
+                continue
+        out.append(c)
+    return out

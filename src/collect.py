@@ -19,6 +19,18 @@ def sample(name):
 
 
 # ---- 1순위: 카카오 로컬 ----
+def kakao_cat(d, default):
+    """카카오 업종명으로 식당·카페·술집 판정(음식점>술집 은 술집, 카페는 카페). 못 정하면 검색한 카테고리."""
+    cn = d.get("category_name", "")
+    if d.get("category_group_code") == "CE7" or "카페" in cn:
+        return "카페"
+    if "술집" in cn:
+        return "술집"
+    if d.get("category_group_code") == "FD6":
+        return "식당"
+    return default
+
+
 def collect_food(cfg, use_sample):
     rows = []
     if use_sample:
@@ -42,13 +54,24 @@ def collect_food(cfg, use_sample):
                 for d in http_json(url, params, h).get("documents", []):
                     d["_cat"] = cat["label"]
                     items.append(d)
+            for label, kws in cfg.get("discover", {}).get("place_keywords", {}).items():  # 카테고리 목록이 놓치는 곳(루프탑·칵테일바 등)
+                for kw in kws:
+                    for page in (1, 2):
+                        j = http_json("https://dapi.kakao.com/v2/local/search/keyword.json",
+                                      {"query": kw, "x": st["lng"], "y": st["lat"], "radius": cfg["nearby"]["radius_m"],
+                                       "size": 15, "page": page, "sort": "accuracy"}, h)
+                        for d in j.get("documents", []):
+                            d["_cat"] = label
+                            items.append(d)
+                        if j.get("meta", {}).get("is_end", True):
+                            break
     for d in items:
         lat, lng = float(d["y"]), float(d["x"])
         stn, dist = nearest_station(cfg, lat, lng)
         if dist > cfg["nearby"]["radius_m"] * 1.2:
             continue
         pid = "k" + str(d["id"])
-        rows += attrs(pid, "kakao", name=d["place_name"], category=d["_cat"], lat=lat, lng=lng,
+        rows += attrs(pid, "kakao", name=d["place_name"], category=kakao_cat(d, d["_cat"]), lat=lat, lng=lng,
                       address=d.get("road_address_name") or d.get("address_name"), station=stn,
                       distance_m=dist, map_url=place_url(d["id"]), tier=1,
                       kind=" · ".join(x.strip() for x in d.get("category_name", "").split(">")[1:3]))
