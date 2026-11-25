@@ -15,7 +15,7 @@ function json_(o) { return ContentService.createTextOutput(JSON.stringify(o)).se
 
 function regions_(d) {
   const list = (Array.isArray(d.regions) ? d.regions : []).slice(0, 30).filter(r =>
-    typeof r.name === 'string' && r.name.length > 0 && r.name.length <= 20 &&
+    r && typeof r === 'object' && typeof r.name === 'string' && r.name.length > 0 && r.name.length <= 20 &&
     Number(r.lat) > 33 && Number(r.lat) < 39 && Number(r.lng) > 124 && Number(r.lng) < 132);  // 한국 좌표만
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const s = ss.getSheetByName(REGION_SHEET) || ss.insertSheet(REGION_SHEET);
@@ -51,10 +51,10 @@ function doPost(e) {
   } finally { lock.releaseLock(); }
 }
 
-function doGet(e) {  // 저장소 동기화용 CSV (?sheet=regions 면 내 지역 목록)
+function doGet(e) {  // 저장소 동기화용 CSV (?sheet=regions 면 내 지역 목록. 앱이 아직 안 보냈으면 빈 응답 → 저장소는 아무것도 안 바꿈)
   const want = e && e.parameter && e.parameter.sheet === 'regions';
   const rs = want ? SpreadsheetApp.getActiveSpreadsheet().getSheetByName(REGION_SHEET) : null;
-  const rows = want ? (rs && rs.getLastRow() ? rs.getDataRange().getValues() : [['name', 'lat', 'lng', 'ts']]) : sheet_().getDataRange().getValues();
+  const rows = want ? (rs && rs.getLastRow() ? rs.getDataRange().getValues() : []) : sheet_().getDataRange().getValues();
   const csv = rows.map(r => r.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(',')).join('\n');
   return ContentService.createTextOutput(csv).setMimeType(ContentService.MimeType.CSV);
 }

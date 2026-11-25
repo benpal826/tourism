@@ -323,11 +323,16 @@ function setView(v){
   if(deck)render();else if(v==="settings")showSettings();else showList(v);
 }
 document.querySelectorAll(".tabbar button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
+let RSYNC=false;
 async function syncRegions(){ // F19: 내 지역 목록(이름·좌표)을 시트 regions 로. 새 역은 다음 주간 갱신 때 수집됨
-  if(!LS("regions_dirty")||!window.SWIPE_ENDPOINT)return;
-  const pos=LS("region_pos")||{},list=myRegions().map(n=>({name:n,...(STATIONS[n]?{lat:STATIONS[n].lat,lng:STATIONS[n].lng}:pos[n]||{})})).filter(r=>r.lat);
-  try{const r=await fetch(window.SWIPE_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({type:"regions",regions:list})});
-    const j=await r.json();if(j.ok&&j.regions!==undefined)SV("regions_dirty",0)}catch(e){}  // 재배포 전 옛 스크립트는 regions 를 모름 → 다음에 다시
+  const ver=LS("regions_dirty");if(RSYNC||!ver||!window.SWIPE_ENDPOINT)return;RSYNC=true;  // 한 번에 하나만 보냄(응답 순서가 뒤바뀌어 옛 목록이 덮어쓰지 않게)
+  try{const pos=LS("region_pos")||{},at=n=>STATIONS[n]||pos[n]||(SUBWAY||[]).find(s=>s.name===n);
+    if(!SUBWAY&&myRegions().some(n=>!at(n)))SUBWAY=await jf("subway.json",[]);  // F18 때 더한 역은 좌표가 저장돼 있지 않음
+    const list=myRegions().map(n=>{const p=at(n);return p&&{name:n,lat:p.lat,lng:p.lng}});
+    if(list.every(Boolean)){const r=await fetch(window.SWIPE_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({type:"regions",regions:list})});
+      const j=await r.json();if(j.ok&&j.regions!==undefined&&LS("regions_dirty")===ver)SV("regions_dirty",0)}  // 좌표 없는 역이 있으면 빼고 보내지 않음(그 역이 꺼지지 않게)
+  }catch(e){}  // 재배포 전 옛 스크립트는 regions 를 모름 → 다음에 다시
+  RSYNC=false;const now=LS("regions_dirty");if(now&&now!==ver)syncRegions();  // 보내는 동안 또 바뀌었으면 바로 다시
 }
 function showSettings(){ // F18: 내 지역 빼기(✕)·역 검색으로 더하기. 입력칸은 다시 그리지 않음(한글 조합 유지)
   const L=document.getElementById("list");
@@ -341,7 +346,7 @@ function showSettings(){ // F18: 내 지역 빼기(✕)·역 검색으로 더하
   L.onclick=e=>{const a=e.target.closest("[data-add]"),d=e.target.closest("[data-del]");if(!a&&!d)return;
     let m=myRegions().slice();if(a&&!m.includes(a.dataset.add)){m.push(a.dataset.add);
       const s=(SUBWAY||[]).find(x=>x.name===a.dataset.add),pos=LS("region_pos")||{};if(s){pos[s.name]={lat:s.lat,lng:s.lng};SV("region_pos",pos)}}if(d)m=m.filter(n=>n!==d.dataset.del);
-    REGIONS=m;SV("regions",m);SV("regions_dirty",1);syncRegions();counts();const n=deckCards().length;cnt.textContent=n?`남은 ${n}곳`:"";draw()};
+    REGIONS=m;SV("regions",m);SV("regions_dirty",Date.now());syncRegions();counts();const n=deckCards().length;cnt.textContent=n?`남은 ${n}곳`:"";draw()};
   q.oninput=draw;draw();
   if(!SUBWAY)jf("subway.json",[]).then(s=>{SUBWAY=s;draw()});
 }
@@ -373,5 +378,5 @@ function hideNav(){const el=stack.querySelector(".card:not(.back)");NAV.classLis
     NAV.classList.toggle("hide",d>0&&y>40&&y+el.clientHeight<el.scrollHeight-8);last=y},{passive:true})}
 addEventListener("online",()=>flush());
 const jf=(u,d)=>fetch(u,{cache:"no-cache"}).then(r=>r.ok?r.json():d).catch(()=>d);
-Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");pending();flush();syncRegions()});
+Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");pending();flush();if(LS("regions")&&LS("regions_dirty")===null)SV("regions_dirty",1);syncRegions()});  // F19 전에 지역을 바꾼 사람도 한 번 보냄
 </script></body></html>

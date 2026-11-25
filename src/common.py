@@ -8,10 +8,12 @@ DATA = ROOT / "data"
 SCHEMA = ["date", "place_id", "field", "value", "source"]  # 모든 CSV 공통
 
 
-def load_config():
+def load_config(app_regions=True):
     """config.yaml + 앱 설정에서 더한 역(F19: 시트→data/regions.csv 의 active=1). 역 기본은 config.yaml."""
     import yaml
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+    if not app_regions:
+        return cfg
     st = cfg["nearby"]["stations"]
     have = {s["name"] for s in st}
     for name, v in latest(read_rows(DATA / "regions.csv")).items():

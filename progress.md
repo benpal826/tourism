@@ -41,6 +41,7 @@
 - 2026-11-25 F20 수동 저장 버튼 — `python -m tests.test_f20_send_button` 통과. 모바일 화면에서 가짜 전송(fetch 대체, 시트 전송 없음)으로 '✓ 저장됨 → 저장 1 → 보내는 중… → ✓ 저장됨' 확인.
 
 - 2026-11-25 F19 새 지역 요청 — `python -m tests.test_f19_region_request` 통과, 전체 테스트·init OK. 앱→Apps Script regions 시트(검증·통째 교체)→run 의 sync_regions→data/regions.csv→load_config 가 config 역에 더함. 모바일 화면에서 가짜 응답으로 옛 스크립트(재전송 대기 유지)·새 스크립트(완료) 확인. Apps Script 재배포 완료(2026-11-25, 버전 5, 같은 주소). `?sheet=regions` 읽기로 새 코드 동작 확인.
+- 2026-11-26 F19 검토 수정 8건 — 옛(F18) 역 좌표 보충·첫 실행 때 한 번 전송, 지역 전송 한 번에 하나(보내는 중 바뀌면 다시), 같은 날 번복 유지(마이크로초 date·바뀐 값만), 샘플은 regions.csv 안 씀, 지역 동기화 실패해도 갱신 계속, 다 빼면 앱 역 모두 끔(시트 없으면 빈 응답), Apps Script null 방어, photos 설정 1회만 읽음. `python -m tests.test_f19_region_request`·전체 테스트·init OK. **Apps Script 재배포 필요**(배포 관리 → 새 버전).
 
 ## 다음 할 일
 - /review 로 F01~F09 검토(새 세션에서).

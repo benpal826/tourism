@@ -9,8 +9,9 @@ def main():
     ap.add_argument("--sample", action="store_true", help="키 없이 샘플 데이터로 실행")
     ap.add_argument("--import-swipes", metavar="CSV", help="스와이프 결과 CSV(place_id,action,ts)를 places.csv에 반영")
     args = ap.parse_args()
-    cfg, keys = load_config(), have_keys()
+    keys = have_keys()
     sample = args.sample or not any(keys.values())
+    cfg = load_config(app_regions=not sample)  # 샘플은 실데이터 regions.csv 를 섞지 않음
 
     if args.import_swipes:
         n = import_swipes(args.import_swipes)
@@ -21,8 +22,12 @@ def main():
     if url and not args.sample:
         n = sync_swipes(url)
         print(f"시트에서 스와이프 {n}건 반영")
-        n = sync_regions(url)
-        cfg = load_config()  # F19: 앱에서 더한 역까지 수집
+        try:
+            n = sync_regions(url)
+        except (OSError, ValueError) as e:  # 지역 동기화가 실패해도 주간 갱신은 config 역 + 지난 regions.csv 로 계속
+            n = 0
+            print(f"앱 지역 동기화 실패(건너뜀): {e}")
+        cfg = load_config(app_regions=not sample)  # F19: 앱에서 더한 역까지 수집
         print(f"앱 지역 반영 {n}행, 수집 역: {', '.join(s['name'] for s in cfg['nearby']['stations'])}")
 
     base = DATA / "_sample" if sample else DATA  # 샘플은 실데이터와 섞이지 않게 별도 폴더
@@ -109,23 +114,26 @@ def sync_regions(url):
 
 def import_regions(text):
     """F19: 시트 regions(name,lat,lng,ts) → data/regions.csv (역 이름별 lat·lng·active). 목록에서 빠진 앱 역은 active=0.
-    앱이 아직 한 번도 보내지 않아 목록이 비면 아무것도 바꾸지 않음(옛 스크립트·시트 오류로 다 꺼지는 것 방지)."""
+    name 머리줄이 없으면(앱이 아직 안 보냄·옛 스크립트·시트 오류) 아무것도 바꾸지 않음. 머리줄만 있으면 앱에서 다 뺀 것.
+    바뀐 값만, 마이크로초 단위 date 로 씀(같은 날 뺐다 다시 더해도 마지막 값이 남게)."""
     import io
+    from datetime import datetime
+    rd = csv.DictReader(io.StringIO(text))
+    if "name" not in (rd.fieldnames or []):
+        return 0
     got = {}
-    for r in csv.DictReader(io.StringIO(text)):
+    for r in rd:
         try:
             name, lat, lng = (r.get("name") or "").strip(), float(r["lat"]), float(r["lng"])
         except (KeyError, TypeError, ValueError):
             continue
         if name and len(name) <= 20 and 33 < lat < 39 and 124 < lng < 132:
             got[name] = (lat, lng)
-    if not got:
-        return 0
-    rows = [{"place_id": n, "field": f, "value": v, "source": "app"} for n, (lat, lng) in got.items()
-            for f, v in (("lat", round(lat, 5)), ("lng", round(lng, 5)), ("active", 1))]
-    prev = latest(read_rows(DATA / "regions.csv"))
-    rows += [{"place_id": n, "field": "active", "value": 0, "source": "app"} for n, v in prev.items()
-             if v.get("active") == "1" and n not in got]
+    prev, now = latest(read_rows(DATA / "regions.csv")), datetime.now().isoformat(timespec="microseconds")  # 같은 초 안의 번복도 중복으로 걸러지지 않게
+    want = {n: {"lat": str(round(lat, 5)), "lng": str(round(lng, 5)), "active": "1"} for n, (lat, lng) in got.items()}
+    want |= {n: {"active": "0"} for n, v in prev.items() if v.get("active") == "1" and n not in got}
+    rows = [{"date": now, "place_id": n, "field": f, "value": v, "source": "app"}
+            for n, fv in want.items() for f, v in fv.items() if prev.get(n, {}).get(f) != v]
     return append_rows(DATA / "regions.csv", rows)
 
 

@@ -12,6 +12,9 @@ import io, json, re, sys, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from .common import *
 from .run import latest_cands
+import functools
+
+_cfg = functools.cache(load_config)  # 가게마다 설정·regions.csv 를 다시 읽지 않게(한 번 실행 안에서는 같은 설정)
 
 KINDS, PER_KIND = ("food", "interior"), 4
 OUT = ROOT / "out" / "photos"
@@ -63,7 +66,7 @@ def naver_images(a):
 def snippets(posts, a, n=8, width=220):
     """이 가게로 확인된 최근 후기 요약(요약 작성용). 광고 문구 글 제외."""
     from . import trend
-    cfg = load_config()
+    cfg = _cfg()
     out, seen = [], set()
     for p in sorted(posts, key=lambda p: p.get("postdate", ""), reverse=True):
         if not trend.is_about(p, a["name"], a.get("station", ""), a.get("address", "")):
@@ -80,7 +83,7 @@ def candidates(a):
     """(사진 후보, 후기 요약). 카카오(확인된 후기 글의 사진) 먼저, 네이버 이미지로 보충."""
     from . import trend
     name, station = a["name"], a.get("station", "")
-    _, posts, _ = trend.fetch_posts(load_config(), name, station)
+    _, posts, _ = trend.fetch_posts(_cfg(), name, station)
     out, per_post, seen = [], {}, set()
     for _, d in trend.photo_candidates(name, station, posts, a.get("address", "")):
         pk = trend.url_key(d["doc_url"])
@@ -181,7 +184,7 @@ def price_snips(a, n=8):
                   for d in kakao_search("blog", q, sort="accuracy", size=50).get("documents", [])]
     except Exception:
         pass
-    phrases, out, seen = load_config()["trend"]["exclude_phrases"], [], set()
+    phrases, out, seen = _cfg()["trend"]["exclude_phrases"], [], set()
     for p in posts:
         if not trend.is_about(p, a["name"], a.get("station", ""), a.get("address", "")):
             continue
@@ -203,7 +206,7 @@ def notes(n, percat=False):
     cands, book = latest_cands(DATA / "candidates.csv"), {}
     for pid in pending_cards(n, redo=True, percat=percat):
         a = cands[pid]
-        _, posts, _ = trend.fetch_posts(load_config(), a["name"], a.get("station", ""))
+        _, posts, _ = trend.fetch_posts(_cfg(), a["name"], a.get("station", ""))
         book[pid] = {"name": a["name"], "snippets": snippets(posts, a, n=15, width=260), "prices": price_snips(a)}
         print(f"### {pid} {a['name']} [{a.get('category', '')} · {a.get('kind', '')}] {a.get('station', '')}역")
         for x in book[pid]["snippets"]:
