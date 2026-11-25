@@ -165,6 +165,6 @@
       "WHEN 카드를 끝까지 스크롤하면 THEN 맨 아래에 지도가 보이고, 지도 위에서도 스크롤이 이어지며 지도를 탭하면 네이버지도가 열린다"
     ],
     "verify": "python -m tests.test_f15_photo_swipe (+ 모바일 화면 확인)",
-    "passes": false
+    "passes": true
   }
 ]
