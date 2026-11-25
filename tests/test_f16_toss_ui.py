@@ -8,9 +8,10 @@ assert ".map.nv,.item .bt a.nv{background:var(--naver);color:#fff}" in html and 
 assert "blue" not in html and "3182f6" not in html
 # 2) 위: 큰 제목 + '남은 N곳' 알약
 assert "<header><b>데이트 스와이프</b><span id=\"count\"></span></header>" in html and "#count{background:var(--sub)" in html
-# 3) 아래: 패스·저장 넓은 버튼 + 되돌리기, 그 아래 탭바(스와이프·저장·패스, 개수)
-nav, tab = html.index('<nav><button id="no">패스</button>'), html.index('<div class="tabbar">')
-assert nav < tab and '<button id="yes">저장</button>' in html and "#yes{background:var(--pink)" in html
+# 3) 아래: 카드 위에 떠 있는 작은 알약(패스·되돌리기·저장 아이콘), 아래로 스크롤하면 숨김. 그 아래 탭바(스와이프·저장·패스, 개수)
+nav, tab = html.index('<nav><button id="no" aria-label="패스"><svg'), html.index('<div class="tabbar">')
+assert nav < tab and '<button id="yes" aria-label="저장"><svg' in html and "#yes{background:linear-gradient(135deg,#ff7a9a,var(--pink))" in html
+assert "nav.hide{" in html and 'NAV.classList.toggle("hide",d>0' in html
 for v in ("deck", "save", "pass"):
     assert f'data-v="{v}"' in html[tab:]
 assert 'id="ns"' in html[tab:] and 'id="np"' in html[tab:]

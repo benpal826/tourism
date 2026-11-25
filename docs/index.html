@@ -56,8 +56,7 @@ header b{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-right:auto}
 .facts div{background:var(--sub);border-radius:12px;padding:8px 11px;min-width:0}
 .facts .wide{grid-column:1/-1}
 .facts dt{font-size:11px;color:var(--mut)}.facts dd{margin:2px 0 0;font-size:13px;font-weight:600;line-height:1.35;word-break:keep-all}
-.mapslot{display:block;position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#23232d;margin:10px 0 0}
-.mapslot #map{pointer-events:none}  /* F15: 지도는 끌리지 않고 카드 스크롤이 이어짐, 탭하면 네이버지도 */
+.mapslot{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#23232d;margin:10px 0 0}
 .links{display:flex;gap:8px}.links .map{flex:1;text-align:center;margin:0}
 h2{margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-.5px;line-height:1.25}
 .sum{margin:-2px 0 10px;font-size:13.5px;line-height:1.5;color:#d1d6db}
@@ -79,17 +78,20 @@ h2{margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-.5px;line-heigh
 .map.nv,.item .bt a.nv{background:var(--naver);color:#fff}  /* 네이버지도는 녹색 */
 .stamp{position:absolute;top:26px;z-index:3;font-size:30px;font-weight:900;padding:2px 12px;border:4px solid;border-radius:10px;opacity:0;letter-spacing:2px}
 .s-save{left:20px;color:var(--pink);transform:rotate(-12deg)}.s-pass{right:20px;color:var(--mut);transform:rotate(12deg)}
-nav{display:flex;align-items:center;gap:6px;padding:6px 8px;position:relative;z-index:5;margin:-54px 14px 0;background:#17171ca6;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:0 0 24px 24px}  /* 카드 아래쪽 위에 떠 있는 반투명 띠(높이 54) */
-nav button{border:0;border-radius:12px;height:42px;font-size:15px;font-weight:700;cursor:pointer}
-#no,#yes{flex:1}#no{background:var(--sub);color:#d1d6db}#yes{background:var(--pink);color:#fff}
-#undo{flex:0 0 42px;background:var(--sub);color:#d1d6db;font-size:17px}
+nav{display:flex;align-items:center;gap:12px;padding:6px 10px;position:relative;z-index:5;align-self:center;margin:-68px auto 8px;background:#2c2c35cc;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:99px;box-shadow:0 6px 20px #0008;transition:transform .2s,opacity .2s}  /* 카드 위 가운데 떠 있는 작은 알약(높이 60) */
+nav.hide{transform:translateY(90px);opacity:0;pointer-events:none}
+nav button{border:0;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:transform .12s}
+nav button:active{transform:scale(.9)}
+#no,#yes{width:48px;height:48px}#no{background:#ffffff1a;color:#e5e8eb}#yes{background:linear-gradient(135deg,#ff7a9a,var(--pink));color:#fff;box-shadow:0 4px 14px #ff4d7966}
+#no svg{width:20px;height:20px}#yes svg{width:24px;height:24px}
+#undo{width:36px;height:36px;background:none;color:var(--mut)}#undo svg{width:19px;height:19px}
 .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);line-height:1.7;padding:30px}
 </style></head><body>
 <header><b>데이트 스와이프</b><span id="count"></span></header>
 <div id="list"></div>
 <div id="stack"></div>
 <div hidden><div id="map"></div></div>
-<nav><button id="no">패스</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes">저장</button></nav>
+<nav><button id="no" aria-label="패스"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></button><button id="undo" aria-label="되돌리기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 010 11H11"/></svg></button><button id="yes" aria-label="저장"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.3l-1.2-1.1C6.4 15.3 3.5 12.6 3.5 9.3 3.5 6.6 5.6 4.5 8.3 4.5c1.5 0 3 .7 3.7 1.9.7-1.2 2.2-1.9 3.7-1.9 2.7 0 4.8 2.1 4.8 4.8 0 3.3-2.9 6-7.3 9.9L12 20.3z"/></svg></button></nav>
 <div class="tabbar">
 <button data-v="deck" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 8h6M9 12h6"/></svg><span>스와이프</span></button>
 <button data-v="save"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4h2c.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg><span>저장</span><i class="n" id="ns"></i></button>
@@ -148,7 +150,7 @@ function body(c){
   <div class=info><h2>${esc(c.name)}</h2>${desc(c.summary)}
   ${facts}
   <div class=links><a class="map nv" href="${esc(nvUrl(c))}" target=_blank rel=noopener>네이버지도</a></div>
-  ${c.lat?`<a class=mapslot href="${esc(nvUrl(c))}" target=_blank rel=noopener aria-label="네이버지도에서 보기"></a>`:""}</div>
+  ${c.lat?"<div class=mapslot></div>":""}</div>
   <div class="stamp s-save">저장</div><div class="stamp s-pass">패스</div>`;
 }
 // AI 선별된 곳만 종류 탭. 자동 사진의 종류는 검색어 기준(내용과 무관)이라 '사진' 하나로 묶음
@@ -212,7 +214,7 @@ function drag(el,c){
   let x0=null,y0=null,dx=0,horiz=null;
   const reset=()=>{x0=null;dx=0;horiz=null;el.style.transition="transform .25s";el.style.transform="";el.querySelectorAll(".stamp").forEach(s=>s.style.opacity=0)};
   // F15: 사진 칸은 사진 넘기기 전용이라 저장/패스 끌기는 그 아래에서만 시작
-  el.onpointerdown=e=>{if(e.target.closest("a,button,.photo"))return;x0=e.clientX;y0=e.clientY;dx=0;horiz=null;el.style.transition="none"};
+  el.onpointerdown=e=>{if(e.target.closest("a,button,.photo,.mapslot"))return;x0=e.clientX;y0=e.clientY;dx=0;horiz=null;el.style.transition="none"};
   el.onpointermove=e=>{if(x0===null)return;const mx=e.clientX-x0,my=e.clientY-y0;
     if(horiz===null&&(Math.abs(mx)>10||Math.abs(my)>10)){horiz=Math.abs(mx)>2*Math.abs(my);if(horiz)el.setPointerCapture(e.pointerId)}
     if(!horiz)return;dx=mx;
@@ -314,7 +316,12 @@ function showMap(c){
   map.fitBounds(b,{top:28,right:28,bottom:28,left:28});
   if(map.getZoom()>17)map.setZoom(17);
 }
-const _render=render;render=function(){_render();counts();showMap(deckCards()[0])};
+const _render=render;render=function(){_render();counts();showMap(deckCards()[0]);hideNav()};
+// 떠 있는 버튼: 아래로 스크롤하면 숨기고, 위로 올리거나 맨 아래에 닿으면 다시 보임
+const NAV=document.querySelector("nav");
+function hideNav(){const el=stack.querySelector(".card:not(.back)");NAV.classList.remove("hide");if(!el)return;let last=0;
+  el.addEventListener("scroll",()=>{const y=el.scrollTop,d=y-last;if(Math.abs(d)<6)return;
+    NAV.classList.toggle("hide",d>0&&y>40&&y+el.clientHeight<el.scrollHeight-8);last=y},{passive:true})}
 addEventListener("online",()=>flush());
 const jf=(u,d)=>fetch(u).then(r=>r.ok?r.json():d).catch(()=>d);
 Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");pending();flush()});

@@ -4,7 +4,7 @@ from src.common import ROOT, naver_map_url
 
 html = (ROOT / "docs/index.html").read_text(encoding="utf-8")
 assert 'nvUrl=c=>"https://map.naver.com/p/search/"+encodeURIComponent' in html, "네이버지도 검색 주소 함수 없음"
-assert html.count('href="${esc(nvUrl(c))}"') == 3, "카드 버튼·카드 지도(F15, 탭하면 네이버지도)·목록 세 곳에 네이버지도 링크가 있어야 함"
+assert html.count('href="${esc(nvUrl(c))}"') == 2, "카드·목록 두 곳에 네이버지도 링크가 있어야 함"
 assert "c.map_url" not in html and "카카오맵" not in html, "카카오맵 링크가 남아 있음"
 for f in ("src/run.py", "src/course.py"):
     src = (ROOT / f).read_text(encoding="utf-8")
