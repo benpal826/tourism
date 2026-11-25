@@ -189,5 +189,45 @@
     ],
     "verify": "python -m tests.test_f17_text_card (+ 모바일 화면 확인)",
     "passes": true
+  },
+  {
+    "id": "F18",
+    "title": "설정 탭·내 지역",
+    "criteria": [
+      "WHEN 하단 탭바를 보면 THEN 패스 오른쪽에 설정 탭이 있고, 설정에서 내 지역(기본 잠원·신사·고속터미널·압구정)을 빼거나 역 검색으로 더할 수 있다",
+      "WHEN 역 이름 일부를 입력하면 THEN 앱은 docs/subway.json 에서 맞는 역(노선 표시)을 보여 준다",
+      "WHEN 내 지역을 바꾸면 THEN 스와이프 카드와 저장·패스 목록은 내 지역 역에 속한 곳만 보여 준다",
+      "WHEN 저장·패스를 보내면 THEN 기록에 region(카드의 역)이 함께 가고 places.csv 에 region 행이 쌓인다"
+    ],
+    "verify": "python -m tests.test_f18_regions (+ 모바일 화면 확인)",
+    "passes": false
+  },
+  {
+    "id": "F19",
+    "title": "새 지역 요청",
+    "criteria": [
+      "WHEN 데이터가 없는 역을 내 지역에 추가하면 THEN 앱은 '다음 갱신 때 들어와요'를 표시하고 지역 목록을 시트에 보낸다",
+      "WHEN 주간 갱신을 하면 THEN 시스템은 시트의 지역 목록을 data/regions.csv 로 받고 config.yaml 역에 더해 수집한다"
+    ],
+    "verify": "python -m tests.test_f19_region_request",
+    "passes": false
+  },
+  {
+    "id": "F20",
+    "title": "수동 저장 버튼",
+    "criteria": [
+      "WHEN 보낼 기록이 있으면 THEN 오른쪽 위 버튼이 '저장 N'으로 보이고 누르면 즉시 전송하며, 다 보내면 '✓ 저장됨'이 된다"
+    ],
+    "verify": "python -m tests.test_f20_send_button (+ 모바일 화면 확인)",
+    "passes": false
+  },
+  {
+    "id": "F21",
+    "title": "역별 카드",
+    "criteria": [
+      "WHEN 카드를 만들면 THEN 시스템은 역 × 카테고리별 상위 rank.cards_per_station_category 곳만 낸다"
+    ],
+    "verify": "python -m tests.test_f21_station_cards",
+    "passes": false
   }
 ]
