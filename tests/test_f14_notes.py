@@ -36,5 +36,5 @@ assert c["photo_food"] == "keep" and c["summary"].startswith("한 줄 캐치"), 
 
 # 3) 앱: 여러 줄이면 캐치프레이즈 + 항목, 한 줄이면 예전처럼
 html = (ROOT / "docs/index.html").read_text(encoding="utf-8")
-assert "${desc(c.summary)}" in html and "<p class=catch>" in html and "(맛|분위기|팁|추천)" in html
+assert "${desc(c.summary)}" in html and "<p class=catch>" in html and "(메뉴|가격|맛|분위기|팁|추천)" in html
 print("F14 OK")

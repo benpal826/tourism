@@ -119,12 +119,12 @@ const nvUrl=c=>"https://map.naver.com/p/search/"+encodeURIComponent((c.station&&
 const EMOJI={"식당":"🍽","카페":"☕","술집":"🍷","팝업스토어":"🛍","전시·축제·기타":"🎨"};
 const fmt=d=>d?d.slice(2).replace(/-/g,"."):"?";
 
-// F14: 여러 줄 설명 = 1줄 캐치프레이즈 + '맛:/분위기:/팁:/추천:' 항목. 한 줄짜리 예전 설명은 그대로.
+// F14·F17: 여러 줄 설명 = 1줄 캐치프레이즈 + '메뉴:/가격:/맛:/분위기:/팁:/추천:' 항목. 한 줄짜리 예전 설명은 그대로.
 function desc(s){
   if(!s)return"";
   const L=String(s).split(/\n+/).map(x=>x.trim()).filter(Boolean);
   if(L.length<2)return`<p class=sum>${esc(s)}</p>`;
-  const rows=L.slice(1).map(x=>{const m=x.match(/^(맛|분위기|팁|추천)\s*[:：]\s*(.+)$/);
+  const rows=L.slice(1).map(x=>{const m=x.match(/^(메뉴|가격|맛|분위기|팁|추천)\s*[:：]\s*(.+)$/);
     return m?`<div><b>${m[1]}</b><span>${esc(m[2])}</span></div>`:`<div><span>${esc(x)}</span></div>`}).join("");
   return`<p class=catch>${esc(L[0])}</p><div class=desc>${rows}</div>`;
 }
@@ -138,8 +138,8 @@ function body(c){
     c.price_band&&["가격대",c.price_band],
     c.vibe&&["분위기",c.vibe],
     (c.period_start||c.period_end)&&["기간",fmt(c.period_start)+" ~ "+fmt(c.period_end)],
-    c.address&&["주소",c.address]].filter(Boolean);
-  const facts=`<dl class=facts>${F.map(([k,v])=>`<div class="${["후기","대표메뉴","분위기","주소","기간"].includes(k)||String(v).length>16?"wide":""}"><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`;
+    c.address&&["주소",c.address]].filter(x=>x&&(c.tier!=="1"||["업종","후기"].includes(x[0])));  // F17: 먹거리는 업종·후기만, 나머지는 위 설명 글로
+  const facts=`<dl class=facts>${F.map(([k,v])=>`<div class="${F.length>2&&(["후기","대표메뉴","분위기","주소","기간"].includes(k)||String(v).length>16)?"wide":""}"><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`;
   const ph=photoList(c);
   const cats=[...new Set(ph.map(x=>x.label))];
   const tabs=cats.length>1?`<div class=tabs>${cats.map((l,i)=>`<button data-cat="${esc(l)}" class="${i?"":"on"}">${esc(l)}</button>`).join("")}</div>`:"";
