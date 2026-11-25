@@ -210,7 +210,7 @@
       "WHEN 주간 갱신을 하면 THEN 시스템은 시트의 지역 목록을 data/regions.csv 로 받고 config.yaml 역에 더해 수집한다"
     ],
     "verify": "python -m tests.test_f19_region_request",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F20",

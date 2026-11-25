@@ -2,6 +2,7 @@
 const SHEET = 'swipes';
 const ID_RE = /^[kps][0-9a-f]{3,16}$/;        // 카카오 장소(k+숫자), 팝업(p+hex), 행사(s+hex)
 const ACTIONS = ['save', 'pass', 'undo'];
+const REGION_SHEET = 'regions';             // F19: 앱 설정의 내 지역(열: name | lat | lng | ts), 보낼 때마다 통째로 바꿈
 
 function sheet_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -12,6 +13,18 @@ function sheet_() {
 }
 function json_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }
 
+function regions_(d) {
+  const list = (Array.isArray(d.regions) ? d.regions : []).slice(0, 30).filter(r =>
+    typeof r.name === 'string' && r.name.length > 0 && r.name.length <= 20 &&
+    Number(r.lat) > 33 && Number(r.lat) < 39 && Number(r.lng) > 124 && Number(r.lng) < 132);  // 한국 좌표만
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const s = ss.getSheetByName(REGION_SHEET) || ss.insertSheet(REGION_SHEET);
+  const ts = new Date().toISOString();
+  s.clearContents();
+  s.getRange(1, 1, list.length + 1, 4).setValues([['name', 'lat', 'lng', 'ts']].concat(list.map(r => [r.name, Number(r.lat), Number(r.lng), ts])));
+  return json_({ ok: true, regions: list.length });
+}
+
 function doPost(e) {
   if (!e.postData || e.postData.length > 20000) return json_({ ok: false, error: 'too large' });
   let d;
@@ -20,6 +33,7 @@ function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(20000);
   try {
+    if (d && !Array.isArray(d) && d.type === 'regions') return regions_(d);  // F19
     const s = sheet_();
     const last = s.getLastRow();
     const have = new Set(last > 1 ? s.getRange(2, 4, last - 1, 1).getValues().map(r => String(r[0])) : []);
@@ -37,8 +51,10 @@ function doPost(e) {
   } finally { lock.releaseLock(); }
 }
 
-function doGet() {  // 저장소 동기화용 CSV
-  const rows = sheet_().getDataRange().getValues();
+function doGet(e) {  // 저장소 동기화용 CSV (?sheet=regions 면 내 지역 목록)
+  const want = e && e.parameter && e.parameter.sheet === 'regions';
+  const rs = want ? SpreadsheetApp.getActiveSpreadsheet().getSheetByName(REGION_SHEET) : null;
+  const rows = want ? (rs && rs.getLastRow() ? rs.getDataRange().getValues() : [['name', 'lat', 'lng', 'ts']]) : sheet_().getDataRange().getValues();
   const csv = rows.map(r => r.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(',')).join('\n');
   return ContentService.createTextOutput(csv).setMimeType(ContentService.MimeType.CSV);
 }

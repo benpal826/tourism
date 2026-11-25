@@ -21,6 +21,9 @@ def main():
     if url and not args.sample:
         n = sync_swipes(url)
         print(f"시트에서 스와이프 {n}건 반영")
+        n = sync_regions(url)
+        cfg = load_config()  # F19: 앱에서 더한 역까지 수집
+        print(f"앱 지역 반영 {n}행, 수집 역: {', '.join(s['name'] for s in cfg['nearby']['stations'])}")
 
     base = DATA / "_sample" if sample else DATA  # 샘플은 실데이터와 섞이지 않게 별도 폴더
     cand_path, men_path, pl_path = base / "candidates.csv", base / "mentions.csv", base / "places.csv"
@@ -95,6 +98,35 @@ def sync_swipes(url):
     with urllib.request.urlopen(url, timeout=30) as r:
         text = r.read().decode("utf-8")
     return import_swipes(io.StringIO(text))
+
+
+def sync_regions(url):
+    import urllib.request
+    sep = "&" if "?" in url else "?"
+    with urllib.request.urlopen(url + sep + "sheet=regions", timeout=30) as r:
+        return import_regions(r.read().decode("utf-8"))
+
+
+def import_regions(text):
+    """F19: 시트 regions(name,lat,lng,ts) → data/regions.csv (역 이름별 lat·lng·active). 목록에서 빠진 앱 역은 active=0.
+    앱이 아직 한 번도 보내지 않아 목록이 비면 아무것도 바꾸지 않음(옛 스크립트·시트 오류로 다 꺼지는 것 방지)."""
+    import io
+    got = {}
+    for r in csv.DictReader(io.StringIO(text)):
+        try:
+            name, lat, lng = (r.get("name") or "").strip(), float(r["lat"]), float(r["lng"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if name and len(name) <= 20 and 33 < lat < 39 and 124 < lng < 132:
+            got[name] = (lat, lng)
+    if not got:
+        return 0
+    rows = [{"place_id": n, "field": f, "value": v, "source": "app"} for n, (lat, lng) in got.items()
+            for f, v in (("lat", round(lat, 5)), ("lng", round(lng, 5)), ("active", 1))]
+    prev = latest(read_rows(DATA / "regions.csv"))
+    rows += [{"place_id": n, "field": "active", "value": 0, "source": "app"} for n, v in prev.items()
+             if v.get("active") == "1" and n not in got]
+    return append_rows(DATA / "regions.csv", rows)
 
 
 def import_swipes(path):

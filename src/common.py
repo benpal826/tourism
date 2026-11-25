@@ -9,8 +9,18 @@ SCHEMA = ["date", "place_id", "field", "value", "source"]  # 모든 CSV 공통
 
 
 def load_config():
+    """config.yaml + 앱 설정에서 더한 역(F19: 시트→data/regions.csv 의 active=1). 역 기본은 config.yaml."""
     import yaml
-    return yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+    cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+    st = cfg["nearby"]["stations"]
+    have = {s["name"] for s in st}
+    for name, v in latest(read_rows(DATA / "regions.csv")).items():
+        try:
+            if v.get("active") == "1" and name not in have:
+                st.append({"name": name, "lat": float(v["lat"]), "lng": float(v["lng"]), "from_app": True})
+        except (KeyError, ValueError):
+            continue
+    return cfg
 
 
 def append_rows(path, rows):

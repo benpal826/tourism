@@ -323,6 +323,12 @@ function setView(v){
   if(deck)render();else if(v==="settings")showSettings();else showList(v);
 }
 document.querySelectorAll(".tabbar button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
+async function syncRegions(){ // F19: 내 지역 목록(이름·좌표)을 시트 regions 로. 새 역은 다음 주간 갱신 때 수집됨
+  if(!LS("regions_dirty")||!window.SWIPE_ENDPOINT)return;
+  const pos=LS("region_pos")||{},list=myRegions().map(n=>({name:n,...(STATIONS[n]?{lat:STATIONS[n].lat,lng:STATIONS[n].lng}:pos[n]||{})})).filter(r=>r.lat);
+  try{const r=await fetch(window.SWIPE_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({type:"regions",regions:list})});
+    const j=await r.json();if(j.ok&&j.regions!==undefined)SV("regions_dirty",0)}catch(e){}  // 재배포 전 옛 스크립트는 regions 를 모름 → 다음에 다시
+}
 function showSettings(){ // F18: 내 지역 빼기(✕)·역 검색으로 더하기. 입력칸은 다시 그리지 않음(한글 조합 유지)
   const L=document.getElementById("list");
   L.innerHTML=`<div class=set><h3>내 지역</h3><p class=hint>고른 역 근처 가게만 스와이프·저장·패스에 나와요. 두 역 사이 가게는 더 가까운 역에 속해요.</p><div class=rgs></div>
@@ -333,8 +339,9 @@ function showSettings(){ // F18: 내 지역 빼기(✕)·역 검색으로 더하
     const hits=key&&SUBWAY?SUBWAY.filter(s=>s.name.includes(key)).slice(0,8):[];
     L.querySelector(".sts").innerHTML=hits.map(s=>`<div class=st><b>${esc(s.name)}역</b><small>${esc((s.lines||[]).join(" · "))}</small>${mine.includes(s.name)?"<span class=done>추가됨</span>":`<button data-add="${esc(s.name)}">추가</button>`}</div>`).join("")||(key&&SUBWAY?'<p class=hint>맞는 역이 없어요</p>':"")};
   L.onclick=e=>{const a=e.target.closest("[data-add]"),d=e.target.closest("[data-del]");if(!a&&!d)return;
-    let m=myRegions().slice();if(a&&!m.includes(a.dataset.add))m.push(a.dataset.add);if(d)m=m.filter(n=>n!==d.dataset.del);
-    REGIONS=m;SV("regions",m);counts();const n=deckCards().length;cnt.textContent=n?`남은 ${n}곳`:"";draw()};
+    let m=myRegions().slice();if(a&&!m.includes(a.dataset.add)){m.push(a.dataset.add);
+      const s=(SUBWAY||[]).find(x=>x.name===a.dataset.add),pos=LS("region_pos")||{};if(s){pos[s.name]={lat:s.lat,lng:s.lng};SV("region_pos",pos)}}if(d)m=m.filter(n=>n!==d.dataset.del);
+    REGIONS=m;SV("regions",m);SV("regions_dirty",1);syncRegions();counts();const n=deckCards().length;cnt.textContent=n?`남은 ${n}곳`:"";draw()};
   q.oninput=draw;draw();
   if(!SUBWAY)jf("subway.json",[]).then(s=>{SUBWAY=s;draw()});
 }
@@ -366,5 +373,5 @@ function hideNav(){const el=stack.querySelector(".card:not(.back)");NAV.classLis
     NAV.classList.toggle("hide",d>0&&y>40&&y+el.clientHeight<el.scrollHeight-8);last=y},{passive:true})}
 addEventListener("online",()=>flush());
 const jf=(u,d)=>fetch(u,{cache:"no-cache"}).then(r=>r.ok?r.json():d).catch(()=>d);
-Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");pending();flush()});
+Promise.all([jf("cards.json",[]),jf("history.json",[]),jf("stations.json",{})]).then(([j,h,st])=>{cards=j;hist=h;STATIONS=st;setView("deck");pending();flush();syncRegions()});
 </script></body></html>
