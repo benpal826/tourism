@@ -1,34 +1,37 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#14141a">
+<meta name="theme-color" content="#17171c">
 <title>데이트 스와이프</title>
 <style>
-:root{--bg:#14141a;--card:#1e1e27;--fg:#f4f4f6;--mut:#9a9aa8;--pink:#ff4d79;--green:#2ecc71;--line:#2c2c38}
+:root{--bg:#17171c;--card:#202027;--sub:#2c2c35;--fg:#f9fafb;--mut:#8b95a1;--blue:#3182f6;--blue2:#4c9aff;--red:#f04452;--line:#2a2a32}  /* F16: 토스 느낌(분위기만) */
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--fg);font-family:-apple-system,"Pretendard","Noto Sans KR",system-ui,sans-serif;overflow:hidden;touch-action:pan-y;display:flex;flex-direction:column}
-header{display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top)) 18px 6px}
-header b{font-size:18px}header span{color:var(--mut);font-size:13px}
-.seg{display:flex;margin:4px 14px 0;background:#23232d;border-radius:12px;padding:3px}
-.seg button{flex:1;border:0;background:none;color:var(--mut);padding:8px 0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
-.seg button.on{background:var(--pink);color:#fff}
+header{display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 20px 8px}
+header b{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-right:auto}
+#count{background:var(--sub);color:#e5e8eb;font-size:14px;font-weight:700;padding:6px 12px;border-radius:99px}#count:empty{display:none}
+.tabbar{display:flex;background:#1c1c22;border-top:1px solid var(--line);border-radius:22px 22px 0 0;padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
+.tabbar button{flex:1;position:relative;border:0;background:none;color:#6b7684;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px;font-weight:600;cursor:pointer;padding:4px 0}
+.tabbar button.on{color:var(--fg)}
+.tabbar svg{width:24px;height:24px}
+.tabbar .n{position:absolute;top:0;left:calc(50% + 6px);background:var(--blue);color:#fff;font-size:10.5px;font-style:normal;font-weight:700;border-radius:99px;padding:1px 5px;min-width:16px}.tabbar .n:empty{display:none}
 #map{width:100%;height:100%;background:#23232d}  /* 지금 카드의 .mapslot 안으로 옮겨 다님(네이버 SDK가 position 을 덮어써서 크기로 지정) */
 #map.nomap::after{content:"지도를 불러오지 못했어요. 네이버지도 버튼으로 위치를 확인하세요.";position:absolute;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:13px;color:var(--mut);background:#23232d}
-.pin{width:18px;height:18px;background:var(--pink);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #000a}
+.pin{width:18px;height:18px;background:var(--blue);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #000a}
 .stn{background:#fee500;border:2px solid #111;border-radius:6px;width:auto!important;height:auto!important;padding:2px 6px;font-size:11px;font-weight:700;color:#111;white-space:nowrap}
-#list{flex:1;overflow:auto;margin:8px 14px 14px;display:none}
-.item{display:flex;gap:12px;background:var(--card);border-radius:16px;padding:10px;margin-bottom:10px}
-.item .th{flex:0 0 84px;height:84px;border-radius:12px;background:#2c2c3a;display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;position:relative}
+#list{flex:1;overflow:auto;margin:4px 14px 12px;display:none}
+.item{display:flex;gap:14px;background:var(--card);border-radius:20px;padding:14px;margin-bottom:10px}
+.item .th{flex:0 0 84px;height:84px;border-radius:16px;background:var(--sub);display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;position:relative}
 .item .th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .item .tx{flex:1;min-width:0;font-size:13px;line-height:1.5}
-.item .tx b{font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .tx b{font-size:17px;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item .tx small{color:var(--mut)}
 .item .bt{display:flex;gap:6px;margin-top:6px}
-.item .bt a,.item .bt button{border:0;border-radius:9px;padding:6px 10px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer}
-.item .bt a{background:#fee500;color:#111}.item .bt button{background:#2c2c3a;color:#ddd}
-#stack{position:relative;flex:1;margin:6px 14px;min-height:0}
-.card{position:absolute;inset:0;background:var(--card);border-radius:22px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;box-shadow:0 10px 30px #0008;will-change:transform;touch-action:pan-y}  /* 세로 스크롤 우선, 좌우 스와이프는 보조 */
+.item .bt a,.item .bt button{border:0;border-radius:10px;padding:7px 11px;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
+.item .bt button{background:var(--sub);color:#d1d6db}
+#stack{position:relative;flex:1;margin:4px 14px 0;min-height:0}
+.card{position:absolute;inset:0;background:var(--card);border-radius:24px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;box-shadow:0 8px 24px #0006;will-change:transform;touch-action:pan-y}  /* 세로 스크롤 우선, 좌우 스와이프는 보조 */
 .card.back{transform:scale(.95) translateY(12px);opacity:.7}
 .photo{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#3a2f4f,#2b3a55);display:flex;align-items:center;justify-content:center;font-size:64px;overflow:hidden}
 .track{position:absolute;inset:0;display:flex;will-change:transform}  /* F15: 사진을 가로로 나란히, 손가락 따라 이동 */
@@ -40,53 +43,57 @@ header b{font-size:18px}header span{color:var(--mut);font-size:13px}
 .photo::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,var(--card))}
 .tabs{position:absolute;left:10px;right:10px;bottom:30px;z-index:2;display:flex;gap:6px;justify-content:center}
 .tabs button{border:0;border-radius:99px;padding:6px 11px;font-size:12.5px;background:#000a;color:#ddd;cursor:pointer}
-.tabs button.on{background:var(--pink);color:#fff;font-weight:700}
+.tabs button.on{background:var(--blue);color:#fff;font-weight:700}
 .bars{position:absolute;top:8px;left:12px;right:12px;z-index:2;display:flex;gap:3px}
 .bars i{flex:1;height:3px;border-radius:2px;background:#fff5}
 .bars i.on{background:#fff}
 .pn{position:absolute;top:50%;z-index:2;width:34px;height:34px;margin-top:-26px;border:0;border-radius:50%;background:#0007;color:#fff;font-size:24px;line-height:30px;padding:0;cursor:pointer}
 .pn.prev{left:8px}.pn.next{right:8px}
 .cnt{position:absolute;top:12px;right:12px;z-index:2;background:#000a;color:#fff;font-size:12px;padding:4px 9px;border-radius:99px}
-.badge{position:absolute;top:20px;left:12px;z-index:2;background:var(--pink);color:#fff;font-weight:700;font-size:12px;padding:5px 10px;border-radius:99px}
-.info{padding:0 16px 18px;margin-top:-30px;position:relative;z-index:1}
+.badge{position:absolute;top:20px;left:12px;z-index:2;background:var(--red);color:#fff;font-weight:700;font-size:12px;padding:5px 10px;border-radius:99px}
+.info{padding:0 20px 20px;margin-top:-30px;position:relative;z-index:1}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 12px}
-.facts div{background:#262633;border-radius:10px;padding:7px 10px;min-width:0}
+.facts div{background:var(--sub);border-radius:14px;padding:9px 12px;min-width:0}
 .facts .wide{grid-column:1/-1}
-.facts dt{font-size:11px;color:var(--mut)}.facts dd{margin:2px 0 0;font-size:13.5px;font-weight:600;line-height:1.35;word-break:keep-all}
-.mapslot{display:block;position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#23232d;margin:10px 0 0}
+.facts dt{font-size:12px;color:var(--mut)}.facts dd{margin:3px 0 0;font-size:14.5px;font-weight:600;line-height:1.35;word-break:keep-all}
+.mapslot{display:block;position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#23232d;margin:10px 0 0}
 .mapslot #map{pointer-events:none}  /* F15: 지도는 끌리지 않고 카드 스크롤이 이어짐, 탭하면 네이버지도 */
 .links{display:flex;gap:8px}.links .map{flex:1;text-align:center;margin:0}
-h2{margin:0 0 8px;font-size:24px;line-height:1.25}
-.sum{margin:-2px 0 10px;font-size:14px;line-height:1.5;color:#dcdce6}
+h2{margin:0 0 8px;font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.25}
+.sum{margin:-2px 0 10px;font-size:15px;line-height:1.55;color:#d1d6db}
 .catch{margin:-2px 0 8px;font-size:16px;font-weight:700;line-height:1.45;color:#fff}
 .desc{margin:0 0 10px;display:grid;gap:6px}
-.desc div{display:flex;gap:8px;font-size:14px;line-height:1.5;color:#dcdce6}
-.desc b{flex:0 0 auto;font-size:12px;color:var(--pink);background:#ff4d7922;border-radius:6px;padding:2px 6px;height:fit-content;margin-top:1px}
+.desc div{display:flex;gap:8px;font-size:15px;line-height:1.55;color:#d1d6db}
+.desc b{flex:0 0 auto;font-size:12px;color:var(--blue2);background:#3182f626;border-radius:99px;padding:2px 8px;height:fit-content;margin-top:1px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.chip{background:#2c2c3a;border-radius:99px;padding:4px 10px;font-size:12.5px;color:#dcdce6}
-.chip.cat{background:#ff4d7933;color:#ff8aa6}
+.chip{background:var(--sub);border-radius:99px;padding:4px 10px;font-size:12.5px;color:#dcdce6}
+.chip.cat{background:#3182f626;color:var(--blue2)}
 .row{display:flex;gap:10px;margin:8px 0;font-size:14px;line-height:1.45}
 .row i{font-style:normal;flex:0 0 22px}
 .row small{color:var(--mut)}
 .stats{display:flex;gap:8px;margin:6px 0 10px}
-.stat{flex:1;background:#262633;border-radius:12px;padding:8px 10px}
+.stat{flex:1;background:var(--sub);border-radius:12px;padding:8px 10px}
 .stat b{display:block;font-size:18px}.stat span{font-size:11.5px;color:var(--mut)}
-.map{display:inline-block;margin-top:8px;padding:9px 14px;border-radius:12px;background:#fee500;color:#111;font-weight:700;font-size:14px;text-decoration:none}
-.map.nv,.item .bt a.nv{background:#03c75a;color:#fff;margin-left:6px}.item .bt a.nv{margin-left:0}
+.map{display:inline-block;margin-top:8px;padding:13px 14px;border-radius:14px;background:var(--sub);color:var(--fg);font-weight:700;font-size:14px;text-decoration:none}
+.map.nv,.item .bt a.nv{background:#3182f626;color:var(--blue2)}
 .stamp{position:absolute;top:26px;z-index:3;font-size:30px;font-weight:900;padding:2px 12px;border:4px solid;border-radius:10px;opacity:0;letter-spacing:2px}
-.s-save{left:20px;color:var(--green);transform:rotate(-12deg)}.s-pass{right:20px;color:var(--pink);transform:rotate(12deg)}
-nav{display:flex;justify-content:center;align-items:center;gap:26px;padding:10px 0 calc(16px + env(safe-area-inset-bottom))}
-nav button{border:0;border-radius:50%;background:var(--card);color:var(--fg);box-shadow:0 4px 14px #0008;font-size:26px;cursor:pointer}
-#no,#yes{width:68px;height:68px}#no{color:var(--pink)}#yes{color:var(--green)}
-#undo{width:46px;height:46px;font-size:18px}
+.s-save{left:20px;color:var(--blue);transform:rotate(-12deg)}.s-pass{right:20px;color:var(--mut);transform:rotate(12deg)}
+nav{display:flex;align-items:center;gap:8px;padding:10px 14px}
+nav button{border:0;border-radius:16px;height:54px;font-size:17px;font-weight:700;cursor:pointer}
+#no,#yes{flex:1}#no{background:var(--sub);color:#d1d6db}#yes{background:var(--blue);color:#fff}
+#undo{flex:0 0 54px;background:var(--sub);color:#d1d6db;font-size:20px}
 .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);line-height:1.7;padding:30px}
 </style></head><body>
-<header><b>💘 데이트 스와이프</b><span id="count"></span></header>
-<div class="seg"><button data-v="deck" class="on">스와이프</button><button data-v="save">♥ 저장 <span id="ns"></span></button><button data-v="pass">✕ 패스 <span id="np"></span></button></div>
+<header><b>데이트 스와이프</b><span id="count"></span></header>
 <div id="list"></div>
 <div id="stack"></div>
 <div hidden><div id="map"></div></div>
-<nav><button id="no" aria-label="패스">✕</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes" aria-label="저장">♥</button></nav>
+<nav><button id="no">패스</button><button id="undo" aria-label="되돌리기">↶</button><button id="yes">저장</button></nav>
+<div class="tabbar">
+<button data-v="deck" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 8h6M9 12h6"/></svg><span>스와이프</span></button>
+<button data-v="save"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4h2c.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg><span>저장</span><i class="n" id="ns"></i></button>
+<button data-v="pass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>패스</span><i class="n" id="np"></i></button>
+</div>
 <script src="config.js"></script>
 <script>
 // 네이버 지도 SDK: 비동기 로드. 실패·인증 오류면 지도 자리에 안내 문구(mapFail).
@@ -280,12 +287,12 @@ function showList(kind){
     queue.push(ev(id,to));SV("queue",queue);pending();flush();counts();showList(kind)});
 }
 function setView(v){
-  view=v;document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
+  view=v;document.querySelectorAll(".tabbar button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
   const deck=v==="deck";document.getElementById("stack").style.display=deck?"":"none";
   document.querySelector("nav").style.display=deck?"":"none";document.getElementById("list").style.display=deck?"none":"block";
   if(deck)render();else showList(v);
 }
-document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
+document.querySelectorAll(".tabbar button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
 let map=null,marks=[];
 function showMap(c){
   const box=MAPBOX,slot=stack.querySelector(".card:not(.back) .mapslot");

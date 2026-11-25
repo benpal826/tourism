@@ -176,6 +176,6 @@
       "WHEN 저장/패스 탭을 누르면 THEN 버튼 줄은 숨고 탭바만 남으며 목록이 둥근 행으로 보인다"
     ],
     "verify": "python -m tests.test_f16_toss_ui (+ 모바일 화면 확인)",
-    "passes": false
+    "passes": true
   }
 ]
