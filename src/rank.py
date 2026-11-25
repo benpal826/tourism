@@ -99,6 +99,8 @@ def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
         c = {"place_id": pid, **a, **m_latest.get(pid, {})}
         if c.get("tier") == "1" and "rec_mentions" in c and float(c["rec_mentions"] or 0) <= 0:
             continue  # F11: 이번 주 추천글에 한 번도 안 나온 곳 제외(샘플·옛 데이터처럼 값이 없으면 통과)
+        if c.get("tier") == "1" and "\n" in c.get("summary", "") and "\n가격:" not in c["summary"]:
+            continue  # F17: 설명을 다 썼는데 가격이 확인 안 된 곳(정보 부족) 제외. 설명 전 새 후보는 통과
         if c.get("closed") == "1":
             continue  # 폐업(카카오맵에서 사라짐)
         if c.get("tier") == "1" and float(c.get("reviews_total", 0)) < cfg["trend"]["min_reviews"]:

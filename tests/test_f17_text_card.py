@@ -35,4 +35,16 @@ photos.naver_search = lambda kind, q, **k: {"items": [
 photos.kakao_search = lambda *a, **k: (_ for _ in ()).throw(OSError("down"))  # 한쪽 실패는 건너뜀
 got = photos.price_snips({"name": "하늘집", "station": "신사"})
 assert len(got) == 1 and "9,000원" in got[0], got
+# 7) 설명을 다 쓴 먹거리 카드에 가격 줄이 없으면 제외(설명 전 새 후보·한 줄 설명은 통과)
+import tempfile
+from src import rank
+from src.common import load_config
+cfg = load_config(); cfg["trend"]["min_reviews"] = 0
+st = cfg["nearby"]["stations"][0]
+base = {"tier": "1", "category": "식당", "station": st["name"], "lat": st["lat"], "lng": st["lng"], "reviews_total": "100", "menu_source": "curated"}
+cands = {"a": {**base, "place_id": "a", "name": "가", "summary": "캐치\n메뉴: 국밥\n가격: 1만원"},
+         "b": {**base, "place_id": "b", "name": "나", "summary": "캐치\n메뉴: 국밥\n맛: 진함"},
+         "c": {**base, "place_id": "c", "name": "다"}, "d": {**base, "place_id": "d", "name": "라", "summary": "한 줄 설명"}}
+ids = {x["place_id"] for x in rank.build_cards(cfg, cands, [], [], taste_path=tempfile.mktemp())}
+assert ids == {"a", "c", "d"}, ids
 print("F17 OK")
