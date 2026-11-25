@@ -113,5 +113,47 @@
     ],
     "verify": "python -m tests.test_f10_text_quality",
     "passes": true
+  },
+  {
+    "id": "F11",
+    "title": "추천글 기반 후보 발굴",
+    "criteria": [
+      "WHEN 실키로 후보를 모으면 THEN 시스템은 역 반경 카테고리 검색에 config.yaml discover.place_keywords 의 카카오 키워드 검색 결과를 더하고, 카카오 업종명으로 식당·카페·술집을 정한다",
+      "WHEN 추천글을 모으면 THEN 시스템은 역·카테고리별 discover.rec_queries 검색어의 블로그 글에서 후보별로 이 가게 글(is_about)인 추천글 수를 rec_mentions 로 mentions.csv 에 남긴다",
+      "WHEN 후기를 보강하면 THEN 시스템은 1순위 후보 중 역·카테고리별 rec_mentions 상위 discover.enrich_per_station 곳(언급 0 제외)만 보강한다. 샘플 모드는 전부"
+    ],
+    "verify": "python -m tests.test_f11_discover",
+    "passes": false
+  },
+  {
+    "id": "F12",
+    "title": "카테고리별 순위",
+    "criteria": [
+      "WHEN 후기를 분석하면 THEN 시스템은 이 가게 글 중 맛 신호·분위기 신호 단어가 들어간 비율을 taste_share·vibe_share(0~100)로 남긴다",
+      "WHEN 카드 점수를 매기면 THEN 시스템은 식당은 taste_share, 카페·술집은 vibe_share 를 쓰고 후기 규모·최근 30일·rec_mentions 를 더하며, 카드는 카테고리별 상위 rank.cards_per_category 곳만 낸다"
+    ],
+    "verify": "python -m tests.test_f12_rank",
+    "passes": false
+  },
+  {
+    "id": "F13",
+    "title": "사진 최소 4장",
+    "criteria": [
+      "WHEN 미선별 가게의 자동 사진을 모으면 THEN 시스템은 확인된 후기 글 사진을 최대 8장(한 글 3장) 모으되 식당은 음식 검색 사진을, 카페·술집은 분위기 검색 사진을 먼저 담고, 4장 미만이면 네이버 이미지로 보충한다",
+      "WHEN python -m src.photos todo N percat 을 실행하면 THEN 시스템은 카테고리별 상위 N곳(미선별)의 모음 이미지를 만든다"
+    ],
+    "verify": "python -m tests.test_f13_photos_min",
+    "passes": false
+  },
+  {
+    "id": "F14",
+    "title": "기깔나는 가게 설명",
+    "criteria": [
+      "WHEN python -m src.photos notes N 을 실행하면 THEN 시스템은 사진 없이 카드 상위 N곳의 확인된 후기 발췌를 최대 15개씩 notes.json 과 화면에 낸다",
+      "WHEN import 에 사진 번호 없이 summary 만 있으면 THEN 시스템은 사진은 건드리지 않고 summary 만 반영한다",
+      "WHEN 카드에 여러 줄 summary 가 있으면 THEN 앱은 첫 줄을 캐치프레이즈로 크게, 나머지 '라벨: 내용' 줄을 항목별로 보여 준다"
+    ],
+    "verify": "python -m tests.test_f14_notes",
+    "passes": false
   }
 ]
