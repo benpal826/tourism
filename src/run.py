@@ -46,7 +46,7 @@ def main():
     cards = rank.build_cards(cfg, cands, read_rows(men_path), read_rows(pl_path),
                              out / "taste.md" if sample else ROOT / "taste.md")
     (out / "cards.json").write_text(json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8")
-    (out / "stations.json").write_text(json.dumps({st["name"]: st for st in cfg["nearby"]["stations"]},
+    (out / "stations.json").write_text(json.dumps({st["name"]: {**st, "default": st["name"] in cfg["nearby"].get("default_regions", [s["name"] for s in cfg["nearby"]["stations"]])} for st in cfg["nearby"]["stations"]},
                                                   ensure_ascii=False), encoding="utf-8")
     (out / "history.json").write_text(json.dumps(build_history(cands, read_rows(men_path), read_rows(pl_path)),
                                                  ensure_ascii=False, indent=1), encoding="utf-8")
@@ -108,6 +108,9 @@ def import_swipes(path):
         if act not in ("save", "pass", "undo") or not pid or len(ts) < 10:
             continue  # 헤더 중복·잘못된 행 무시
         rows.append({"date": ts[:19].replace("Z", ""), "place_id": pid, "field": "swipe", "value": act, "source": "swipe"})
+        reg = (r.get("region") or "").strip()
+        if reg and len(reg) <= 20:  # F18: 저장 당시 지역 태그(예전 기록·옛 시트는 열이 없음)
+            rows.append({"date": ts[:19].replace("Z", ""), "place_id": pid, "field": "region", "value": reg, "source": "swipe"})
     return append_rows(DATA / "places.csv", rows)
 
 

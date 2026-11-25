@@ -4,6 +4,7 @@ mode: nearby            # nearby | theme (theme 는 구조만 열어둠, 아직 
 nearby:
   radius_m: 700
   culture_radius_m: 1500   # 3순위(전시·축제)는 인근만 조금 넓게
+  default_regions: [잠원, 신사, 고속터미널, 압구정]   # F18: 앱 설정의 기본 '내 지역'(나머지 역 데이터는 그대로 두고 앱에서 더할 수 있음)
   stations:             # 3호선 잠원역 ±2정거장
     - {name: 압구정, lat: 37.5270, lng: 127.0285}
     - {name: 신사,   lat: 37.5163, lng: 127.0203}

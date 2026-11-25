@@ -200,7 +200,7 @@
       "WHEN 저장·패스를 보내면 THEN 기록에 region(카드의 역)이 함께 가고 places.csv 에 region 행이 쌓인다"
     ],
     "verify": "python -m tests.test_f18_regions (+ 모바일 화면 확인)",
-    "passes": false
+    "passes": true
   },
   {
     "id": "F19",

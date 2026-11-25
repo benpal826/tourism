@@ -1,4 +1,4 @@
-// 구글 시트에 스와이프를 쌓는 Apps Script 웹앱 (시트 탭: swipes, 열: place_id | action | ts | id)
+// 구글 시트에 스와이프를 쌓는 Apps Script 웹앱 (시트 탭: swipes, 열: place_id | action | ts | id | region)
 const SHEET = 'swipes';
 const ID_RE = /^[kps][0-9a-f]{3,16}$/;        // 카카오 장소(k+숫자), 팝업(p+hex), 행사(s+hex)
 const ACTIONS = ['save', 'pass', 'undo'];
@@ -6,7 +6,8 @@ const ACTIONS = ['save', 'pass', 'undo'];
 function sheet_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const s = ss.getSheetByName(SHEET) || ss.insertSheet(SHEET);
-  if (s.getLastRow() === 0) s.appendRow(['place_id', 'action', 'ts', 'id']);
+  if (s.getLastRow() === 0) s.appendRow(['place_id', 'action', 'ts', 'id', 'region']);
+  else if (s.getRange(1, 5).getValue() === '') s.getRange(1, 5).setValue('region');  // F18: 예전 시트에 열 추가
   return s;
 }
 function json_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }
@@ -29,9 +30,9 @@ function doPost(e) {
       acked.push(id);
       if (have.has(id)) return;                    // 재전송된 같은 이벤트는 한 번만 기록
       have.add(id);
-      rows.push([r.place_id, r.action, ts.toISOString(), id]);
+      rows.push([r.place_id, r.action, ts.toISOString(), id, String(r.region || '').slice(0, 20)]);  // F18: 지역 태그
     });
-    if (rows.length) s.getRange(s.getLastRow() + 1, 1, rows.length, 4).setValues(rows);
+    if (rows.length) s.getRange(s.getLastRow() + 1, 1, rows.length, 5).setValues(rows);
     return json_({ ok: true, ids: acked });
   } finally { lock.releaseLock(); }
 }
