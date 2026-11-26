@@ -8,7 +8,7 @@ assert '.filter(x=>x&&(c.tier!=="1"||["업종","후기"].includes(x[0])))' in ht
 assert 'const facts=c.tier==="1"?`<div class=meta>' in html and '.meta span{' in html  # 업종·후기 한 줄 칩
 assert 'fetch(u,{cache:"no-cache"})' in html  # 폰 캐시에 옛 카드가 남지 않게
 # 2) 설명 라벨에 메뉴·가격
-assert "(메뉴|가격|맛|분위기|팁|추천)" in html
+assert "(메뉴|가격|맛|분위기|팁|추천|기간|장소|볼거리|혜택)" in html  # F23: 팝업은 기간·장소·볼거리·혜택
 # 3) 설명 작성 형식(도구·규칙)에 메뉴·가격 줄
 assert '"메뉴: ..."' in (ROOT / "src/photos.py").read_text(encoding="utf-8")
 assert "메뉴: …\n가격: …" in (ROOT / "CLAUDE.md").read_text(encoding="utf-8")

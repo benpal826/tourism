@@ -103,6 +103,10 @@ def build_cards(cfg, cands, mentions, places, taste_path=ROOT / "taste.md"):
             continue  # F17: 설명을 다 썼는데 가격이 확인 안 된 곳(정보 부족) 제외. 설명 전 새 후보는 통과
         if c.get("closed") == "1":
             continue  # 폐업(카카오맵에서 사라짐)
+        if c.get("category") == "팝업스토어" and cfg.get("popup", {}).get("curated_only") and (
+                c.get("popup_source") != "curated" or not c.get("period_end")):
+            continue  # 팝업은 Claude 가 장소·기간을 확인한 것만(src.popups). 제목 자동 추출은 이름·장소가 부정확
+
         if c.get("tier") == "1" and float(c.get("reviews_total", 0)) < cfg["trend"]["min_reviews"]:
             continue  # 후기 수가 너무 적은 곳 제외 (카카오맵 평점은 공식 API에 없어 후기 수로 대체)
         if c.get("menu_source") != "curated" and int(c.get("menu_mentions") or 0) < 2:

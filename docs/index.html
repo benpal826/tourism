@@ -143,7 +143,7 @@ function desc(s){
   if(!s)return"";
   const L=String(s).split(/\n+/).map(x=>x.trim()).filter(Boolean);
   if(L.length<2)return`<p class=sum>${esc(s)}</p>`;
-  const rows=L.slice(1).map(x=>{const m=x.match(/^(메뉴|가격|맛|분위기|팁|추천)\s*[:：]\s*(.+)$/);
+  const rows=L.slice(1).map(x=>{const m=x.match(/^(메뉴|가격|맛|분위기|팁|추천|기간|장소|볼거리|혜택)\s*[:：]\s*(.+)$/);
     return m?`<div><b>${m[1]}</b><span>${esc(m[2])}</span></div>`:`<div><span>${esc(x)}</span></div>`}).join("");
   return`<p class=catch>${esc(L[0])}</p><div class=desc>${rows}</div>`;
 }

@@ -48,6 +48,11 @@ def main():
         n_d += append_rows(cand_path, collect.check_open(
             {p: a for p, a in cands.items() if a.get("tier") == "1" and p.startswith("k") and in_scope(cfg, a)
              and float(rec.get(p, {}).get("rec_mentions") or 0) > 0}))
+    write_outputs(cfg, sample, cand_path, men_path, pl_path, n_c + n_m + n_d)
+
+
+def write_outputs(cfg, sample, cand_path, men_path, pl_path, n_new=0):
+    """누적 CSV → cards.json·stations.json·history.json·report.md. 수집 없이 카드만 다시 만들 때도 씀(팝업 import)."""
     cands = latest_cands(cand_path)
     out = ROOT / "out" / "sample" if sample else ROOT / "docs"
     out.mkdir(parents=True, exist_ok=True)
@@ -60,7 +65,7 @@ def main():
                                                  ensure_ascii=False, indent=1), encoding="utf-8")
     surge = [c for c in cards if c["surge"]]
     top = cards[:10]
-    lines = [f"**요약: 후보 {len(cards)}곳(미확인), 급상승 {len(surge)}곳 — {'샘플' if sample else '실데이터'} 모드, 신규 행 {n_c + n_m + n_d}건.**\n",
+    lines = [f"**요약: 후보 {len(cards)}곳(미확인), 급상승 {len(surge)}곳 — {'샘플' if sample else '실데이터'} 모드, 신규 행 {n_new}건.**\n",
              f"# 이번 주 추천 ({date.today().isoformat()})\n"]
     for c in top:
         lines.append(card_md(c))

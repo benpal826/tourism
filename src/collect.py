@@ -55,6 +55,7 @@ def collect_food(cfg, use_sample):
                     d["_cat"] = cat["label"]
                     items.append(d)
             food_codes = {c["kakao_code"] for c in cfg["categories"] if c.get("kakao_code")}
+            own_code = {c["label"]: c["kakao_code"] for c in cfg["categories"] if c.get("kakao_code")}
             for label, kws in cfg.get("discover", {}).get("place_keywords", {}).items():  # 카테고리 목록이 놓치는 곳(루프탑·칵테일바 등)
                 for kw in kws:
                     for page in (1, 2):
@@ -64,6 +65,8 @@ def collect_food(cfg, use_sample):
                         for d in j.get("documents", []):
                             if d.get("category_group_code") not in food_codes:
                                 continue  # 호텔·문화시설 등 먹거리 아닌 곳이 '루프탑바' 검색에 섞임
+                            if label in own_code and d.get("category_group_code") != own_code[label]:
+                                continue  # '맛집' 검색에 섞인 카페는 식당으로 넣지 않음(카페는 카페 목록에서)
                             d["_cat"] = label
                             items.append(d)
                         if j.get("meta", {}).get("is_end", True):
@@ -113,17 +116,21 @@ def parse_period(text, ref):
     return "", ""
 
 
+def popup_posts(cfg):
+    """역별 최근 팝업 글(다음 블로그·웹 최신순). 실데이터 팝업은 Claude 가 이 글을 읽고 정리(src.popups)."""
+    posts = []
+    for st in cfg["nearby"]["stations"]:
+        for kind in ("blog", "web"):
+            j = kakao_search(kind, f"{st['name']}역 팝업스토어", sort="recency", size=30)
+            for d in j.get("documents", []):
+                posts.append({"title": d["title"], "description": d["contents"], "link": d["url"],
+                              "_station": st["name"], "_dt": d.get("datetime", "")[:10]})
+    return posts
+
+
 def collect_popup(cfg, use_sample):
-    rows, posts = [], []
-    if use_sample:
-        posts = sample("popup_posts.json")
-    else:
-        for st in cfg["nearby"]["stations"]:
-            for kind in ("blog", "web"):
-                j = kakao_search(kind, f"{st['name']}역 팝업스토어", sort="recency", size=30)
-                for d in j.get("documents", []):
-                    posts.append({"title": d["title"], "description": d["contents"], "link": d["url"],
-                                  "_station": st["name"], "_dt": d.get("datetime", "")[:10]})
+    """샘플 모드용 자동 추출(제목의 'OO 팝업'). 실데이터는 이름·장소가 부정확해 쓰지 않음 → src.popups."""
+    rows, posts = [], (sample("popup_posts.json") if use_sample else popup_posts(cfg))
     seen = set()
     fresh = (date.today() - timedelta(days=45)).isoformat()
     for it in posts:
@@ -212,7 +219,8 @@ def run(cfg, keys, force_sample=False):
     # 키가 없는 소스는 --sample 일 때만 샘플 사용, 아니면 건너뜀(샘플이 실데이터에 섞이지 않게)
     if force_sample or keys["kakao"]:
         rows += collect_food(cfg, force_sample)
-        rows += collect_popup(cfg, force_sample)
+        if force_sample:  # 실데이터 팝업은 주간 갱신 때 Claude 가 정리(python -m src.popups todo/import)
+            rows += collect_popup(cfg, force_sample)
     if force_sample or keys["seoul"]:
         rows += collect_culture(cfg, force_sample)
     return rows

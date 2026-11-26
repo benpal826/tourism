@@ -139,7 +139,7 @@ def in_scope(cfg, a):
     name = a.get("station")
     if name not in st:
         return False
-    limit = cfg["nearby"]["culture_radius_m"] if str(a.get("tier")) == "3" else cfg["nearby"]["radius_m"]
+    limit = cfg["nearby"]["culture_radius_m"] if str(a.get("tier")) in ("2", "3") else cfg["nearby"]["radius_m"]  # 팝업·전시는 조금 넓게
     try:
         d = haversine(float(a["lat"]), float(a["lng"]), st[name]["lat"], st[name]["lng"])
     except (KeyError, ValueError, TypeError):

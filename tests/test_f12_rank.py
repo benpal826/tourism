@@ -27,10 +27,12 @@ st = cfg["nearby"]["stations"][0]
 mk = lambda i, cat, rec, rev: (f"k{i}", {"place_id": f"k{i}", "tier": "1", "category": cat, "name": f"집{i}", "station": st["name"],
                                        "lat": st["lat"], "lng": st["lng"], "rec_mentions": str(rec), "reviews_total": str(rev)})
 cands = dict([mk(1, "식당", 5, 900), mk(2, "식당", 3, 500), mk(3, "식당", 1, 100), mk(4, "식당", 0, 9999), mk(5, "카페", 2, 50)])
-cands["p1"] = {"place_id": "p1", "tier": "2", "category": "팝업스토어", "name": "팝업", "station": st["name"]}
+cands["p1"] = {"place_id": "p1", "tier": "2", "category": "팝업스토어", "name": "팝업", "station": st["name"],
+               "popup_source": "curated", "period_end": "2099-12-31"}
+cands["p2"] = {"place_id": "p2", "tier": "2", "category": "팝업스토어", "name": "굿즈 팝업", "station": st["name"]}
 cards = rank.build_cards(cfg, cands, [], [], taste_path=__import__("tempfile").mktemp())
 ids = [c["place_id"] for c in cards]
-assert set(ids) == {"k1", "k2", "k5", "p1"}, ids  # k3 는 식당 3위, k4 는 언급 0
+assert set(ids) == {"k1", "k2", "k5", "p1"}, ids  # k3 는 식당 3위, k4 는 언급 0, p2 는 확인 안 된 팝업(F23)
 
 # 4) 폐업(closed=1)은 제외, 옛 후기 수라도 기간으로는 빼지 않음
 cands["k1"]["closed"] = "1"
