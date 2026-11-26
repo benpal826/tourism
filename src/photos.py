@@ -1,6 +1,7 @@
 """카드 사진 선별 도구 (AI 가 후보 모음 이미지를 보고 고름).
   python -m src.photos todo [N] [all] [percat]  (all: 이미 선별된 곳도 다시, percat: 카테고리별 상위 N) 미선별 카드 상위 N곳의 후보 사진 모음 → out/photos/<place_id>.jpg, out/photos/todo.json
   python -m src.photos notes [N] [percat]  카드 상위 N곳(percat: 카테고리별)의 후기 발췌만(설명 쓰기용) → out/photos/notes.json
+  python -m src.photos notes missing  설명 없는 카드 전부의 후기 발췌(주간 갱신용)
   python -m src.photos import FILE  {"place_id": {"food":[번호..], "interior":[..], "summary": "2~3줄 요약"}} 반영
 고르는 기준: food=메인 요리(음식이 잘 보이는 것), interior=실내 공간·좌석·조명(분위기 사진 포함).
 외관·메뉴판·영수증·거리·안내문·사람 위주 사진은 고르지 않는다. 종류마다 최대 4장, 없으면 빈 목록.
@@ -200,11 +201,17 @@ def price_snips(a, n=8):
     return out
 
 
-def notes(n, percat=False):
+def missing_cards():
+    """설명(summary)이 없는 카드 전부(티어 상관없음) — 주간 갱신 때 빠짐없이 채우기용."""
+    cards = json.loads((ROOT / "docs" / "cards.json").read_text(encoding="utf-8"))
+    return [c["place_id"] for c in cards if not c.get("summary")]
+
+
+def notes(n, percat=False, missing=False):
     """F14: 사진 없이 설명 쓰기용 후기 발췌(최대 15개, 260자)와 가격 발췌(F17) → out/photos/notes.json + 화면."""
     from . import trend
     cands, book = latest_cands(DATA / "candidates.csv"), {}
-    for pid in pending_cards(n, redo=True, percat=percat):
+    for pid in missing_cards() if missing else pending_cards(n, redo=True, percat=percat):
         a = cands[pid]
         _, posts, _ = trend.fetch_posts(_cfg(), a["name"], a.get("station", ""))
         book[pid] = {"name": a["name"], "snippets": snippets(posts, a, n=15, width=260), "prices": price_snips(a)}
@@ -252,6 +259,8 @@ def import_file(path, data=DATA, docs=ROOT / "docs", book_path=OUT / "todo.json"
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "todo":
         todo(int(sys.argv[2]) if len(sys.argv) > 2 else 30, "all" in sys.argv[3:], "percat" in sys.argv[3:])  # all: 선별된 곳도 다시, percat: 카테고리별 상위 N
+    elif sys.argv[1:3] == ["notes", "missing"]:  # 설명 없는 카드 전부
+        notes(0, missing=True)
     elif len(sys.argv) > 1 and sys.argv[1] == "notes":
         notes(int(sys.argv[2]) if len(sys.argv) > 2 else 20, "percat" in sys.argv[3:])
     elif len(sys.argv) > 2 and sys.argv[1] == "import":

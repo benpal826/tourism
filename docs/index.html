@@ -9,7 +9,10 @@
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--fg);font-family:-apple-system,"Pretendard","Noto Sans KR",system-ui,sans-serif;overflow:hidden;touch-action:pan-y;display:flex;flex-direction:column}
 header{display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 20px 8px}
-header b{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-right:auto}
+header b{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-right:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+header>:not(b){flex-shrink:0;white-space:nowrap}
+@media(max-width:440px){header{padding-left:12px;padding-right:12px}header b{font-size:17px;letter-spacing:-.8px}#cat,#count,#send{padding-left:9px;padding-right:9px}#cat{padding-right:22px;background-position:right 8px center;margin-right:4px}#send{margin-left:4px}}
+#cat{appearance:none;-webkit-appearance:none;border:0;margin-right:6px;background:var(--sub) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23e5e8eb' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center;color:#e5e8eb;font-family:inherit;font-size:13px;font-weight:700;padding:6px 26px 6px 11px;border-radius:99px;cursor:pointer}  /* F22: 종류 필터 */
 #count{background:var(--sub);color:#e5e8eb;font-size:13px;font-weight:700;padding:6px 11px;border-radius:99px}#count:empty{display:none}
 #send{margin-left:6px;border:0;border-radius:99px;padding:6px 11px;font-size:13px;font-weight:700;background:var(--sub);color:var(--mut);cursor:pointer;white-space:nowrap}  /* F20: 수동 저장(전송) */
 #send.wait{background:var(--pink);color:#fff}#send:disabled{cursor:default}
@@ -102,7 +105,7 @@ nav button:active{transform:scale(.9)}
 #undo{width:36px;height:36px;background:none;color:var(--mut)}#undo svg{width:19px;height:19px}
 .empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);line-height:1.7;padding:30px}
 </style></head><body>
-<header><b>데이트 스와이프</b><span id="count"></span><button id="send" aria-label="기록 시트로 보내기"></button></header>
+<header><b>데이트 스와이프</b><select id="cat" aria-label="카드 종류 고르기"></select><span id="count"></span><button id="send" aria-label="기록 시트로 보내기"></button></header>
 <div id="list"></div>
 <div id="stack"></div>
 <div hidden><div id="map"></div></div>
@@ -222,7 +225,7 @@ function render(){
   stack.innerHTML="";
   const rest=deckCards();
   cnt.textContent=rest.length?`남은 ${rest.length}곳`:"";
-  if(!rest.length){stack.innerHTML='<div class=empty>다 봤어요 🎉<br>다음 주 갱신을 기다려주세요.</div>';return}
+  if(!rest.length){stack.innerHTML=CAT&&deckAll().length?'<div class=empty>이 종류는 다 봤어요 🎉<br>위에서 다른 종류를 골라 보세요.</div>':'<div class=empty>다 봤어요 🎉<br>다음 주 갱신을 기다려주세요.</div>';return}
   if(rest[1]){const b=document.createElement("div");b.className="card back";b.innerHTML=body(rest[1]);stack.appendChild(b);fixImgs(b,rest[1])}
   const el=document.createElement("div");el.className="card";el.innerHTML=body(rest[0]);stack.appendChild(el);fixImgs(el,rest[0]);
   drag(el,rest[0]);
@@ -295,7 +298,15 @@ function myRegions(){if(REGIONS)return REGIONS;const all=Object.values(STATIONS)
   return REGIONS=LS("regions")||(d.length?d:all).map(s=>s.name)}
 const inRegion=c=>myRegions().includes(c.station);
 const regionOf=id=>((cards.find(c=>c.place_id===id)||snap[id]||hist.find(h=>h.place_id===id)||{}).station||"");
-function deckCards(){const hs=histIds();return cards.filter(c=>!seen.includes(c.place_id)&&!hs.has(c.place_id)&&inRegion(c))}
+function deckAll(){const hs=histIds();return cards.filter(c=>!seen.includes(c.place_id)&&!hs.has(c.place_id)&&inRegion(c))}
+// F22: 종류 필터(헤더 드롭다운). 고른 값은 폰에 기억, 남은 카드가 없는 종류는 고를 수 없음
+const CATS=[["식당","음식점"],["카페","카페"],["술집","주점"],["팝업스토어","팝업"],["전시·축제·기타","행사"]];
+let CAT=LS("cat")||"";
+function deckCards(){return deckAll().filter(c=>!CAT||c.category===CAT)}
+function catMenu(){const a=deckAll(),sel=document.getElementById("cat");
+  sel.innerHTML='<option value="">전체</option>'+CATS.map(([k,l])=>`<option value="${k}"${k===CAT||a.some(c=>c.category===k)?"":" disabled"}>${l}</option>`).join("");
+  sel.value=CAT}
+document.getElementById("cat").onchange=e=>{CAT=e.target.value;SV("cat",CAT);render()};
 function records(){ // 기록 합치기: 서버 history + 이 폰의 최신 결정(우선)
   const m={};
   hist.forEach(h=>m[h.place_id]={...h,action:h.action});
@@ -370,7 +381,7 @@ function showMap(c){
   map.fitBounds(b,{top:28,right:28,bottom:28,left:28});
   if(map.getZoom()>17)map.setZoom(17);
 }
-const _render=render;render=function(){_render();counts();showMap(deckCards()[0]);hideNav()};
+const _render=render;render=function(){_render();counts();catMenu();showMap(deckCards()[0]);hideNav()};
 // 떠 있는 버튼: 아래로 스크롤하면 숨기고, 위로 올리거나 맨 아래에 닿으면 다시 보임
 const NAV=document.querySelector("nav");
 function hideNav(){const el=stack.querySelector(".card:not(.back)");NAV.classList.remove("hide");if(!el)return;let last=0;
