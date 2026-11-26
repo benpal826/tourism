@@ -1,56 +1,56 @@
-**요약: 후보 160곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 9921건.**
+**요약: 후보 168곳(미확인), 급상승 0곳 — 실데이터 모드, 신규 행 0건.**
 
 # 이번 주 추천 (2026-11-26)
 
-- **오뎅오색 강남역점** [술집] · 신논현역 338m
-  - 후기 820건 (주간 -)
+- **더미뇽 서울** [식당] · 신논현역 257m
+  - 후기 1775건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNjA3MTdfMjQ2/MDAxNzg0Mjk2MTMzMTk0.tmxCdCSwbdNYhtqObb_ZRvdZtJZekXe5lBwtIHtbwXIg.jQuV3ABkJK3oQYgI5JkK5ztcDJOLxJW6PmXQsxC9_08g.JPEG/IMG%EF%BC%BF4796.jpg?type=w773
-  - [네이버지도](https://map.naver.com/p/search/%EC%98%A4%EB%8E%85%EC%98%A4%EC%83%89%20%EA%B0%95%EB%82%A8%EC%97%AD%EC%A0%90%20%EC%8B%A0%EB%85%BC%ED%98%84)
-- **뮤즈온** [술집] · 신논현역 149m
-  - 후기 131건 (주간 -)
-  - 대표: 분당 6,000원 · 가격대 6천원대 (후기  기준)
+  - 사진: https://blog.kakaocdn.net/dn/dFTm4u/btsPC4EXV2H/LJwGdNyFjDojNQMkwmId3K/img.png
+  - [네이버지도](https://map.naver.com/p/search/%EB%8D%94%EB%AF%B8%EB%87%BD%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **바리에가타 신논현점** [식당] · 신논현역 323m
+  - 후기 2014건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNjEwMDRfMTMz/MDAxNzkxMDg1NDA2MDgz.IlXNJQEkvmHgCiIzouIKke7zjfByeZf4-WFVUeJWXmEg.a4kO2nuUyng_dLAuDekBXXAQ13XRmQ9s2Z8vBc9o1qkg.JPEG/KakaoTalk_20261003_020559401_05.jpg?type=w773
-  - [네이버지도](https://map.naver.com/p/search/%EB%AE%A4%EC%A6%88%EC%98%A8%20%EC%8B%A0%EB%85%BC%ED%98%84)
-- **어글리** [술집] · 강남역 269m
-  - 후기 9660건 (주간 -)
+  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fimage.toast.com%2Faaaaaqx%2Fcatchtable%2Fshopinfo%2FsvHbVBGmqUiq7QPhmcti8tA%2Fvhbvbgmquiq7qphmcti8ta_238719221682711.jpg%22&type=ff500_300
+  - [네이버지도](https://map.naver.com/p/search/%EB%B0%94%EB%A6%AC%EC%97%90%EA%B0%80%ED%83%80%20%EC%8B%A0%EB%85%BC%ED%98%84%EC%A0%90)
+- **라브리크 서울** [식당] · 신논현역 312m
+  - 후기 2344건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://blog.kakaocdn.net/dn/3v559/btrbQbo7UDr/2umd2ZO4KmgnrgeIqAElUk/img.jpg
-  - [네이버지도](https://map.naver.com/p/search/%EC%96%B4%EA%B8%80%EB%A6%AC%20%EA%B0%95%EB%82%A8)
-- **고부시 논현점** [술집] · 논현역 215m
-  - 후기 474건 (주간 -)
+  - 사진: https://postfiles.pstatic.net/MjAyNTA4MDRfNzgg/MDAxNzU0Mjg5NTk3MzM2.AWY4WtAGxTKQKm4I4FrPUTOIo1sTkRwH-izRPtLUc20g.tF0a301UCh2nMhkVaBn8sGNABNsg8qHCGh4UdiuGGDYg.JPEG/IMG%EF%BC%BF3472.JPG?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%EB%9D%BC%EB%B8%8C%EB%A6%AC%ED%81%AC%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **호제야** [식당] · 신논현역 144m
+  - 후기 429건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNjEwMjhfMTQ1/MDAxNzkzMTQ1MTgzMTQw.d2nkZ0ctC_O59LKA_F-HMfG_gxwOGYyxZelSJwHx3rog.Y4K35cSUF84r4sVXmhtAbFcHYv69X3hhDXWFrfXsI44g.JPEG/download.jpg?type=w966
-  - [네이버지도](https://map.naver.com/p/search/%EA%B3%A0%EB%B6%80%EC%8B%9C%20%EB%85%BC%ED%98%84%EC%A0%90)
-- **시즈널톤** [술집] · 논현역 227m
-  - 후기 191건 (주간 -)
+  - 사진: https://postfiles.pstatic.net/MjAyNjA3MDlfNDEg/MDAxNzgzNTg1ODQxNzc2.Nz_yi8-vvxYqo_YQayOT76v_-QL-Vf75QBbcxV4MH0Ig.vg5ah7rUAM1vJ34lobXyiuPcAdRHslZbrIb6Cs1lcxwg.JPEG/IMG%EF%BC%BF8403.JPG?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%ED%98%B8%EC%A0%9C%EC%95%BC%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **잭슨하이볼** [술집] · 신논현역 193m
+  - 후기 67건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNTEyMjNfMTA4/MDAxNzY2NDk2MzEyNjcz.46cKivD_GNgbsi-W7MRDo-GB4w95zoGfnKf0wt3YFS4g.CQJDaG38N47Fwy1ikCwva_BNMJd37g7AaXc46feU3DMg.JPEG/IMG%EF%BC%BF1044.jpg?type=w466
-  - [네이버지도](https://map.naver.com/p/search/%EC%8B%9C%EC%A6%88%EB%84%90%ED%86%A4%20%EB%85%BC%ED%98%84)
-- **버드맨 서울** [술집] · 신사역 630m
-  - 후기 57건 (주간 -)
+  - 사진: https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20230816_12%252F1692153341188KRljl_JPEG%252F%2525B3%2525D7%2525C0%2525CC%2525B9%2525F6_%2525BD%2525BA%2525B8%2525B6%2525C6%2525AE%2525C7%2525C3%2525B7%2525B9%2525C0%2525CC%2525BD%2525BA.jpg%22&type=ff500_300
+  - [네이버지도](https://map.naver.com/p/search/%EC%9E%AD%EC%8A%A8%ED%95%98%EC%9D%B4%EB%B3%BC%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **스크렘** [카페] · 신논현역 123m
+  - 후기 1870건 (주간 -)
+  - 대표: 까눌레 4,000원 · 가격대 6천원대 (후기  기준)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://i.pinimg.com/736x/70/da/d9/70dad97db8107442358d4d82d7843b9f.jpg
-  - [네이버지도](https://map.naver.com/p/search/%EB%B2%84%EB%93%9C%EB%A7%A8%20%EC%84%9C%EC%9A%B8%20%EC%8B%A0%EC%82%AC)
-- **사이드바 인 팝** [술집] · 논현역 394m
-  - 후기 405건 (주간 -)
+  - 사진: https://postfiles.pstatic.net/MjAyNTA2MjVfMjI5/MDAxNzUwNzgxNDUxMTEx.HNwpwOStFSaGQTBUnlZ3vASFY_ECf1zxLrbAWYtHwgYg.C14CIG1clYfKQlmolZFCSvcOVXoefpFn4VI6VfqWU4Mg.JPEG/IMG%EF%BC%BF0612.jpg?type=w966
+  - [네이버지도](https://map.naver.com/p/search/%EC%8A%A4%ED%81%AC%EB%A0%98%20%EC%8B%A0%EB%85%BC%ED%98%84)
+- **이치규 강남신논현점** [식당] · 신논현역 143m
+  - 후기 1389건 (주간 -)
+  - 분위기: 데이트하기 좋은, 분위기 있는 곳
+  - 사진: https://postfiles.pstatic.net/MjAyNTA3MDlfMjc0/MDAxNzUyMDMwNjQ3NDAw._Zv_pMr0uz6kp7jOuMpi61AU-GjKm3ztaTVvIZFgqucg.4ZV8rGBukvvr2UJrrep8dZvKsRflYPW72R93dmi8o74g.JPEG/IMG_8434.JPG?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%EC%9D%B4%EC%B9%98%EA%B7%9C%20%EA%B0%95%EB%82%A8%EC%8B%A0%EB%85%BC%ED%98%84%EC%A0%90)
+- **미니말레 커피뢰스터 교대법원점** [카페] · 교대역 214m
+  - 후기 2328건 (주간 -)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://i.pinimg.com/736x/c0/8f/b5/c08fb58b49687b2ad9624f154289d085.jpg
-  - [네이버지도](https://map.naver.com/p/search/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%9D%B8%20%ED%8C%9D%20%EB%85%BC%ED%98%84)
-- **이자카야고코** [술집] · 신논현역 125m
-  - 후기 753건 (주간 -)
-  - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNjA2MDRfNTMg/MDAxNzgwNTQ2OTM2OTcy.r1Wk205_fweF_-V5affKg3IkNUI2g8Ux-2OZl6JhLSkg.NTZ_540brw74Yyy_W_jdS00IHkvZWqL2PYxf-Hm2hqMg.JPEG/0._%EC%99%B8%EB%B6%80_(113).JPG?type=w966
-  - [네이버지도](https://map.naver.com/p/search/%EC%9D%B4%EC%9E%90%EC%B9%B4%EC%95%BC%EA%B3%A0%EC%BD%94%20%EC%8B%A0%EB%85%BC%ED%98%84)
-- **사이드바 인 시네마** [술집] · 신논현역 281m
-  - 후기 118건 (주간 -)
-  - 분위기: 분위기 있는, 데이트하기 좋은 곳
-  - 사진: https://postfiles.pstatic.net/MjAyNTA1MTRfMTI5/MDAxNzQ3MTk1NjE1MzE3.2taoMJhEbdmSvt0NYcXcDNxreF9IOIjG6lTGQbopHz0g.o-GY1rbOQABy0t2sWhAtMQ_rrYg0TjfEQpYpQZgoYCsg.JPEG/IMG_5787.JPG?type=w773
-  - [네이버지도](https://map.naver.com/p/search/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%9D%B8%20%EC%8B%9C%EB%84%A4%EB%A7%88%20%EC%8B%A0%EB%85%BC%ED%98%84)
+  - 사진: https://postfiles.pstatic.net/MjAyNDA2MDlfMzEg/MDAxNzE3ODYyODQ2NjUz.LWvdpQi12EfmkqD6bWmwHIKD0CgIa3JEHEkGe9BnXHkg.3QSWbH9NPgHv_XJcE94EssYu1Nv8InvMibepKHYz7bQg.JPEG/KGUheRKQMqGpk5CQsYVWfN.jpg?type=w773
+  - [네이버지도](https://map.naver.com/p/search/%EB%AF%B8%EB%8B%88%EB%A7%90%EB%A0%88%20%EC%BB%A4%ED%94%BC%EB%A2%B0%EC%8A%A4%ED%84%B0%20%EA%B5%90%EB%8C%80%EB%B2%95%EC%9B%90%EC%A0%90)
 - **데블스도어 센트럴시티점** [술집] · 고속터미널역 356m
   - 후기 2780건 (주간 -)
   - 대표: 스파이시 쉬림프 피자 19,500원 · 가격대 2만원대 (후기 2026-09-27 기준)
   - 분위기: 분위기 있는, 데이트하기 좋은 곳
   - 사진: https://postfiles.pstatic.net/MjAyNjAyMTVfNTIg/MDAxNzcxMTU3NjIwNDQ0.2vuAxZmHdFyQESPp94zZkCGWAyPg3DFkmXbNoz0uPSkg.X8qKQ_Gz2L0kYEQeQpDk7yhqU4szIiVoidRb4ZQ5DMwg.PNG/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png?type=w773
   - [네이버지도](https://map.naver.com/p/search/%EB%8D%B0%EB%B8%94%EC%8A%A4%EB%8F%84%EC%96%B4%20%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0%EC%A0%90%20%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90)
+- **퍼그피자하우스 강남점** [식당] · 신논현역 244m
+  - 후기 1542건 (주간 -)
+  - 분위기: 데이트하기 좋은, 분위기 있는 곳
+  - 사진: https://postfiles.pstatic.net/MjAyNjA0MTlfMjc1/MDAxNzc2NTk3MDkzNTI5.FA_OLuVj2odm_xuR-3JeZePRK9Dk65k10gieYrsipmog.3PW4Z3d6bz3b6t7xzwDUHzbBeCL9Z-WPTaWD5sAlakUg.JPEG/900_RklMRV9LSVRfMjk2MTA4MDI2NjkyMjg5NA%3D%3D.jpeg?type=w580
+  - [네이버지도](https://map.naver.com/p/search/%ED%8D%BC%EA%B7%B8%ED%94%BC%EC%9E%90%ED%95%98%EC%9A%B0%EC%8A%A4%20%EA%B0%95%EB%82%A8%EC%A0%90%20%EC%8B%A0%EB%85%BC%ED%98%84)
